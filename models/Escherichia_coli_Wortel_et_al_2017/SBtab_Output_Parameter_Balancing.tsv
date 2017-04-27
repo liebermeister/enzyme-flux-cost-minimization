@@ -1,393 +1,393 @@
-!!SBtab TableName='RateConstant' TableType='Quantity' Document='Carlson model' SBtabVersion='1.0'					
-!QuantityType	!Reaction	!Compound	!Value	!Unit	!ID
-equilibrium constant	R54ra		0.0022582413	dimensionless	kEQ_R1
-equilibrium constant	R54rb		2767.6607	dimensionless	kEQ_R2
-equilibrium constant	R13r		3.6538527	dimensionless	kEQ_R3
-equilibrium constant	R26r		0.52174352	dimensionless	kEQ_R4
-equilibrium constant	R15r		37.50713	dimensionless	kEQ_R5
-equilibrium constant	R96		1.0039831	dimensionless	kEQ_R6
-equilibrium constant	R94		1.0023798	dimensionless	kEQ_R7
-equilibrium constant	R95		1.0009465	dimensionless	kEQ_R8
-equilibrium constant	R93		0.99061062	dimensionless	kEQ_R9
-equilibrium constant	R90		1.0046131	dimensionless	kEQ_R10
-equilibrium constant	R91		1.0035039	dimensionless	kEQ_R11
-equilibrium constant	R8r		3.5014543	dimensionless	kEQ_R12
-equilibrium constant	R10a		0.27692024	dimensionless	kEQ_R13
-equilibrium constant	R10b		0.75223626	dimensionless	kEQ_R14
-equilibrium constant	R10c		0.019818848	dimensionless	kEQ_R15
-equilibrium constant	R28r		4.7316568	dimensionless	kEQ_R16
-equilibrium constant	R3		1.1639489	dimensionless	kEQ_R17
-equilibrium constant	R70		1.0027421	dimensionless	kEQ_R18
-equilibrium constant	R6r		11.249283	dimensionless	kEQ_R19
-equilibrium constant	R97r		1.0034668	dimensionless	kEQ_R20
-equilibrium constant	R2r		0.50987024	dimensionless	kEQ_R21
-equilibrium constant	R55a		0.22758352	dimensionless	kEQ_R22
-equilibrium constant	R55b		1.3677156	dimensionless	kEQ_R23
-equilibrium constant	R4		5.360918	dimensionless	kEQ_R24
-equilibrium constant	R12r		2.3233211	dimensionless	kEQ_R25
-equilibrium constant	R1		0.97857957	dimensionless	kEQ_R26
-equilibrium constant	R27		6.9747501	dimensionless	kEQ_R27
-equilibrium constant	R27b		0.84263136	dimensionless	kEQ_R28
-equilibrium constant	R23r		0.073843788	dimensionless	kEQ_R29
-equilibrium constant	R9		11.856499	dimensionless	kEQ_R30
-equilibrium constant	R14r		0.89996461	dimensionless	kEQ_R31
-equilibrium constant	RR9		0.52627971	dimensionless	kEQ_R32
-equilibrium constant	R53r		20577.22	dimensionless	kEQ_R33
-equilibrium constant	R80		0.94187484	dimensionless	kEQ_R34
-equilibrium constant	R82		0.71711115	dimensionless	kEQ_R35
-equilibrium constant	R29r		6.1103599e-05	dimensionless	kEQ_R36
-equilibrium constant	R7ra		0.088486876	dimensionless	kEQ_R37
-equilibrium constant	R7rb		727.33174	dimensionless	kEQ_R38
-equilibrium constant	R7rc		0.16087119	dimensionless	kEQ_R39
-equilibrium constant	R41		0.015992441	dimensionless	kEQ_R40
-equilibrium constant	R40		0.2826712	dimensionless	kEQ_R41
-equilibrium constant	R11r		2.3258292	dimensionless	kEQ_R42
-equilibrium constant	R42		22.074532	dimensionless	kEQ_R43
-equilibrium constant	R5r		0.00029761494	dimensionless	kEQ_R44
-equilibrium constant	R25		4.0906559	dimensionless	kEQ_R45
-equilibrium constant	R24		1.8431281	dimensionless	kEQ_R46
-equilibrium constant	R22		6.4281674	dimensionless	kEQ_R47
-equilibrium constant	R21		2.4922103	dimensionless	kEQ_R48
-equilibrium constant	R20		49.260684	dimensionless	kEQ_R49
-equilibrium constant	R60		21.115915	dimensionless	kEQ_R50
-equilibrium constant	R61r		0.0095735331	dimensionless	kEQ_R51
-catalytic rate constant geometric mean	R54ra		3.4281723	1/s	kC_R1
-catalytic rate constant geometric mean	R54rb		100	1/s	kC_R2
-catalytic rate constant geometric mean	R13r		100	1/s	kC_R3
-catalytic rate constant geometric mean	R26r		60.45733	1/s	kC_R4
-catalytic rate constant geometric mean	R15r		100	1/s	kC_R5
-catalytic rate constant geometric mean	R96		100	1/s	kC_R6
-catalytic rate constant geometric mean	R94		100	1/s	kC_R7
-catalytic rate constant geometric mean	R95		100	1/s	kC_R8
-catalytic rate constant geometric mean	R93		100	1/s	kC_R9
-catalytic rate constant geometric mean	R90		100	1/s	kC_R10
-catalytic rate constant geometric mean	R91		100	1/s	kC_R11
-catalytic rate constant geometric mean	R8r		123.75471	1/s	kC_R12
-catalytic rate constant geometric mean	R10a		113.26321	1/s	kC_R13
-catalytic rate constant geometric mean	R10b		280.79078	1/s	kC_R14
-catalytic rate constant geometric mean	R10c		158.4141	1/s	kC_R15
-catalytic rate constant geometric mean	R28r		181.31417	1/s	kC_R16
-catalytic rate constant geometric mean	R3		94.412172	1/s	kC_R17
-catalytic rate constant geometric mean	R70		100	1/s	kC_R18
-catalytic rate constant geometric mean	R6r		741.59352	1/s	kC_R19
-catalytic rate constant geometric mean	R97r		100	1/s	kC_R20
-catalytic rate constant geometric mean	R2r		347.78618	1/s	kC_R21
-catalytic rate constant geometric mean	R55a		152.27544	1/s	kC_R22
-catalytic rate constant geometric mean	R55b		100	1/s	kC_R23
-catalytic rate constant geometric mean	R4		35.719569	1/s	kC_R24
-catalytic rate constant geometric mean	R12r		1335.816	1/s	kC_R25
-catalytic rate constant geometric mean	R1		100	1/s	kC_R26
-catalytic rate constant geometric mean	R27		13.596877	1/s	kC_R27
-catalytic rate constant geometric mean	R27b		269.15973	1/s	kC_R28
-catalytic rate constant geometric mean	R23r		100	1/s	kC_R29
-catalytic rate constant geometric mean	R9		374.89089	1/s	kC_R30
-catalytic rate constant geometric mean	R14r		20.152742	1/s	kC_R31
-catalytic rate constant geometric mean	RR9		47.346785	1/s	kC_R32
-catalytic rate constant geometric mean	R53r		26.021531	1/s	kC_R33
-catalytic rate constant geometric mean	R80		100	1/s	kC_R34
-catalytic rate constant geometric mean	R82		100	1/s	kC_R35
-catalytic rate constant geometric mean	R29r		670.34318	1/s	kC_R36
-catalytic rate constant geometric mean	R7ra		230.62369	1/s	kC_R37
-catalytic rate constant geometric mean	R7rb		79.899482	1/s	kC_R38
-catalytic rate constant geometric mean	R7rc		100	1/s	kC_R39
-catalytic rate constant geometric mean	R41		100	1/s	kC_R40
-catalytic rate constant geometric mean	R40		234.36591	1/s	kC_R41
-catalytic rate constant geometric mean	R11r		100	1/s	kC_R42
-catalytic rate constant geometric mean	R42		6.7447993	1/s	kC_R43
-catalytic rate constant geometric mean	R5r		80.031116	1/s	kC_R44
-catalytic rate constant geometric mean	R25		109.98257	1/s	kC_R45
-catalytic rate constant geometric mean	R24		55.465722	1/s	kC_R46
-catalytic rate constant geometric mean	R22		214.481	1/s	kC_R47
-catalytic rate constant geometric mean	R21		44.608774	1/s	kC_R48
-catalytic rate constant geometric mean	R20		1692.0236	1/s	kC_R49
-catalytic rate constant geometric mean	R60		100	1/s	kC_R50
-catalytic rate constant geometric mean	R61r		1.5966097	1/s	kC_R51
-Michaelis constant	R91	ACETATE	0.099946203	mM	kM_R11_ACETATE
-Michaelis constant	R55b	ACETATE	3.4359883	mM	kM_R23_ACETATE
-Michaelis constant	R91	ACETATE_ext	0.10005383	mM	kM_R11_ACETATE_ext
-Michaelis constant	R54ra	ACETYL_CoA	0.024178638	mM	kM_R1_ACETYL_CoA
-Michaelis constant	R70	ACETYL_CoA	0.46201504	mM	kM_R18_ACETYL_CoA
-Michaelis constant	R55a	ACETYL_CoA	0.042439428	mM	kM_R22_ACETYL_CoA
-Michaelis constant	R22	ACETYL_CoA	0.086650189	mM	kM_R47_ACETYL_CoA
-Michaelis constant	R21	ACETYL_CoA	0.15894089	mM	kM_R48_ACETYL_CoA
-Michaelis constant	R20	ACETYL_CoA	0.035199023	mM	kM_R49_ACETYL_CoA
-Michaelis constant	R54ra	ACALD	1.8017317	mM	kM_R1_ACALD
-Michaelis constant	R54rb	ACALD	0.059298483	mM	kM_R2_ACALD
-Michaelis constant	R55a	ACETYL_P	0.31264297	mM	kM_R22_ACETYL_P
-Michaelis constant	R55b	ACETYL_P	0.15416707	mM	kM_R23_ACETYL_P
-Michaelis constant	R26r	ADP	0.056003086	mM	kM_R4_ADP
-Michaelis constant	R3	ADP	0.11341715	mM	kM_R17_ADP
-Michaelis constant	R70	ADP	0.029260067	mM	kM_R18_ADP
-Michaelis constant	R55b	ADP	0.40208482	mM	kM_R23_ADP
-Michaelis constant	R27	ADP	0.37055218	mM	kM_R27_ADP
-Michaelis constant	R9	ADP	0.21836598	mM	kM_R30_ADP
-Michaelis constant	RR9	ADP	0.087324025	mM	kM_R32_ADP
-Michaelis constant	R80	ADP	0.13564006	mM	kM_R34_ADP
-Michaelis constant	R82	ADP	0.13004037	mM	kM_R35_ADP
-Michaelis constant	R7rb	ADP	0.042552917	mM	kM_R38_ADP
-Michaelis constant	R42	ADP	0.048429688	mM	kM_R43_ADP
-Michaelis constant	R70	AKG	0.35155923	mM	kM_R18_AKG
-Michaelis constant	R25	AKG	0.06702331	mM	kM_R45_AKG
-Michaelis constant	R24	AKG	0.48256956	mM	kM_R46_AKG
-Michaelis constant	R26r	ATP	0.081214311	mM	kM_R4_ATP
-Michaelis constant	R3	ATP	0.14095742	mM	kM_R17_ATP
-Michaelis constant	R70	ATP	0.34176271	mM	kM_R18_ATP
-Michaelis constant	R55b	ATP	0.07135368	mM	kM_R23_ATP
-Michaelis constant	R27	ATP	0.026986753	mM	kM_R27_ATP
-Michaelis constant	R9	ATP	8.4531988	mM	kM_R30_ATP
-Michaelis constant	RR9	ATP	0.035012678	mM	kM_R32_ATP
-Michaelis constant	R80	ATP	0.073724532	mM	kM_R34_ATP
-Michaelis constant	R82	ATP	0.076899197	mM	kM_R35_ATP
-Michaelis constant	R7rb	ATP	0.23500152	mM	kM_R38_ATP
-Michaelis constant	R42	ATP	0.074986177	mM	kM_R43_ATP
-Michaelis constant	R82	ATP_main	0.13004037	mM	kM_R35_ATP_main
-Michaelis constant	R70	BIOMASS	0.099775582	mM	kM_R18_BIOMASS
-Michaelis constant	R23r	CITRATE	3.4864698	mM	kM_R29_CITRATE
-Michaelis constant	R22	CITRATE	0.07557239	mM	kM_R47_CITRATE
-Michaelis constant	R10c	CO2	0.062614572	mM	kM_R15_CO2
-Michaelis constant	R70	CO2	0.099551667	mM	kM_R18_CO2
-Michaelis constant	R97r	CO2	0.099946772	mM	kM_R20_CO2
-Michaelis constant	R41	CO2	0.088484867	mM	kM_R40_CO2
-Michaelis constant	R40	CO2	0.1145046	mM	kM_R41_CO2
-Michaelis constant	R42	CO2	5.2104037	mM	kM_R43_CO2
-Michaelis constant	R25	CO2	0.10790898	mM	kM_R45_CO2
-Michaelis constant	R24	CO2	2.0223528	mM	kM_R46_CO2
-Michaelis constant	R21	CO2	0.15894089	mM	kM_R48_CO2
-Michaelis constant	R97r	CO2_ext	0.10005326	mM	kM_R20_CO2_ext
-Michaelis constant	R54ra	CoASH	0.0078602485	mM	kM_R1_CoASH
-Michaelis constant	R26r	CoASH	0.0073087434	mM	kM_R4_CoASH
-Michaelis constant	R70	CoASH	0.89124067	mM	kM_R18_CoASH
-Michaelis constant	R55a	CoASH	0.085984844	mM	kM_R22_CoASH
-Michaelis constant	R25	CoASH	0.092670691	mM	kM_R45_CoASH
-Michaelis constant	R22	CoASH	0.07557239	mM	kM_R47_CoASH
-Michaelis constant	R21	CoASH	0.06291647	mM	kM_R48_CoASH
-Michaelis constant	R20	CoASH	0.016796243	mM	kM_R49_CoASH
-Michaelis constant	R6r	DHAP	0.074991868	mM	kM_R19_DHAP
-Michaelis constant	R5r	DHAP	0.078151432	mM	kM_R44_DHAP
-Michaelis constant	R15r	ERYTH_4_P	0.093367041	mM	kM_R5_ERYTH_4_P
-Michaelis constant	R70	ERYTH_4_P	0.01443632	mM	kM_R18_ERYTH_4_P
-Michaelis constant	R14r	ERYTH_4_P	0.17515892	mM	kM_R31_ERYTH_4_P
-Michaelis constant	R54rb	ETOH	5.4946439	mM	kM_R2_ETOH
-Michaelis constant	R90	ETOH	0.099929218	mM	kM_R10_ETOH
-Michaelis constant	R90	ETOH_ext	0.10007083	mM	kM_R10_ETOH_ext
-Michaelis constant	R96	FORMATE	0.099938862	mM	kM_R6_FORMATE
-Michaelis constant	R20	FORMATE	6.3475273	mM	kM_R49_FORMATE
-Michaelis constant	R96	FORMATE_ext	0.10006118	mM	kM_R6_FORMATE_ext
-Michaelis constant	R15r	FRU_6_P	0.73697349	mM	kM_R5_FRU_6_P
-Michaelis constant	R3	FRU_6_P	0.11627167	mM	kM_R17_FRU_6_P
-Michaelis constant	R2r	FRU_6_P	0.16239803	mM	kM_R21_FRU_6_P
-Michaelis constant	R4	FRU_6_P	0.170733	mM	kM_R24_FRU_6_P
-Michaelis constant	R14r	FRU_6_P	0.88809327	mM	kM_R31_FRU_6_P
-Michaelis constant	R3	FRU_BIS_P	0.11341715	mM	kM_R17_FRU_BIS_P
-Michaelis constant	R4	FRU_BIS_P	0.016114823	mM	kM_R24_FRU_BIS_P
-Michaelis constant	R5r	FRU_BIS_P	0.20436478	mM	kM_R44_FRU_BIS_P
-Michaelis constant	R28r	FUMARATE	0.31389369	mM	kM_R16_FUMARATE
-Michaelis constant	R27	FUMARATE	0.081233216	mM	kM_R27_FUMARATE
-Michaelis constant	R27b	FUMARATE	0.020134856	mM	kM_R28_FUMARATE
-Michaelis constant	R7ra	DPG	0.057569553	mM	kM_R37_DPG
-Michaelis constant	R7rb	DPG	0.042552917	mM	kM_R38_DPG
-Michaelis constant	R7rb	PG3	0.23500152	mM	kM_R38_PG3
-Michaelis constant	R7rc	PG3	0.13245863	mM	kM_R39_PG3
-Michaelis constant	R13r	GA_3P	1.2270802	mM	kM_R3_GA_3P
-Michaelis constant	R15r	GA_3P	1.2697442	mM	kM_R5_GA_3P
-Michaelis constant	R6r	GA_3P	0.74464775	mM	kM_R19_GA_3P
-Michaelis constant	R14r	GA_3P	0.57795789	mM	kM_R31_GA_3P
-Michaelis constant	R7ra	GA_3P	0.68673903	mM	kM_R37_GA_3P
-Michaelis constant	R5r	GA_3P	0.078151432	mM	kM_R44_GA_3P
-Michaelis constant	R61r	GA_3P	0.0014648186	mM	kM_R51_GA_3P
-Michaelis constant	R10a	GLU_6_P	0.31390635	mM	kM_R13_GLU_6_P
-Michaelis constant	R70	GLU_6_P	4.309878	mM	kM_R18_GLU_6_P
-Michaelis constant	R2r	GLU_6_P	0.27279661	mM	kM_R21_GLU_6_P
-Michaelis constant	R1	GLU_6_P	0.10173498	mM	kM_R26_GLU_6_P
-Michaelis constant	R10a	GLU_LAC_6_P	0.12873433	mM	kM_R13_GLU_LAC_6_P
-Michaelis constant	R10b	GLU_LAC_6_P	0.16825514	mM	kM_R14_GLU_LAC_6_P
-Michaelis constant	R10b	GLUCO_6_P	0.059433547	mM	kM_R14_GLUCO_6_P
-Michaelis constant	R10c	GLUCO_6_P	0.10133236	mM	kM_R15_GLUCO_6_P
-Michaelis constant	R60	GLUCO_6_P	0.043395965	mM	kM_R50_GLUCO_6_P
-Michaelis constant	R60	KDPG	0.14959596	mM	kM_R50_KDPG
-Michaelis constant	R61r	KDPG	0.56077905	mM	kM_R51_KDPG
-Michaelis constant	R1	GLU_ext	0.11626023	mM	kM_R26_GLU_ext
-Michaelis constant	R23r	ISOCIT	2.4203186	mM	kM_R29_ISOCIT
-Michaelis constant	R24	ISOCIT	0.022669351	mM	kM_R46_ISOCIT
-Michaelis constant	R94	LACTATE	0.099963433	mM	kM_R7_LACTATE
-Michaelis constant	R53r	LACTATE	0.5173743	mM	kM_R33_LACTATE
-Michaelis constant	R94	LACTATE_ext	0.10003658	mM	kM_R7_LACTATE_ext
-Michaelis constant	R28r	MALATE	0.61515013	mM	kM_R16_MALATE
-Michaelis constant	R29r	MALATE	3.1896955	mM	kM_R36_MALATE
-Michaelis constant	R41	MALATE	0.36140168	mM	kM_R40_MALATE
-Michaelis constant	R54ra	NAD	0.041481191	mM	kM_R1_NAD
-Michaelis constant	R54rb	NAD	0.16863838	mM	kM_R2_NAD
-Michaelis constant	R10a	NAD	0.86322771	mM	kM_R13_NAD
-Michaelis constant	R10c	NAD	0.059104496	mM	kM_R15_NAD
-Michaelis constant	R70	NAD	1.431486	mM	kM_R18_NAD
-Michaelis constant	R27b	NAD	0.043142381	mM	kM_R28_NAD
-Michaelis constant	R53r	NAD	0.51737436	mM	kM_R33_NAD
-Michaelis constant	R80	NAD	0.085862991	mM	kM_R34_NAD
-Michaelis constant	R29r	NAD	0.45965456	mM	kM_R36_NAD
-Michaelis constant	R7ra	NAD	0.0557564	mM	kM_R37_NAD
-Michaelis constant	R41	NAD	0.069121414	mM	kM_R40_NAD
-Michaelis constant	R25	NAD	0.092670691	mM	kM_R45_NAD
-Michaelis constant	R24	NAD	1.0645761	mM	kM_R46_NAD
-Michaelis constant	R21	NAD	0.06291647	mM	kM_R48_NAD
-Michaelis constant	R54ra	NADH	0.11298473	mM	kM_R1_NADH
-Michaelis constant	R54rb	NADH	0.059298483	mM	kM_R2_NADH
-Michaelis constant	R10a	NADH	0.12873433	mM	kM_R13_NADH
-Michaelis constant	R10c	NADH	0.062614572	mM	kM_R15_NADH
-Michaelis constant	R70	NADH	0.091276358	mM	kM_R18_NADH
-Michaelis constant	R27b	NADH	0.23179064	mM	kM_R28_NADH
-Michaelis constant	R53r	NADH	0.019328362	mM	kM_R33_NADH
-Michaelis constant	R80	NADH	0.11646461	mM	kM_R34_NADH
-Michaelis constant	R29r	NADH	0.032069119	mM	kM_R36_NADH
-Michaelis constant	R7ra	NADH	0.057569553	mM	kM_R37_NADH
-Michaelis constant	R41	NADH	0.088484867	mM	kM_R40_NADH
-Michaelis constant	R25	NADH	0.10790898	mM	kM_R45_NADH
-Michaelis constant	R24	NADH	0.011912136	mM	kM_R46_NADH
-Michaelis constant	R21	NADH	0.15894089	mM	kM_R48_NADH
-Michaelis constant	R93	NH3	0.099854971	mM	kM_R9_NH3
-Michaelis constant	R70	NH3	0.01514272	mM	kM_R18_NH3
-Michaelis constant	R93	NH3_ext	0.10014524	mM	kM_R9_NH3_ext
-Michaelis constant	R70	OXALO	0.0067236384	mM	kM_R18_OXALO
-Michaelis constant	R29r	OXALO	0.02826558	mM	kM_R36_OXALO
-Michaelis constant	R40	OXALO	0.042589638	mM	kM_R41_OXALO
-Michaelis constant	R42	OXALO	0.57097592	mM	kM_R43_OXALO
-Michaelis constant	R22	OXALO	0.028686021	mM	kM_R47_OXALO
-Michaelis constant	R27	OXY_ext	0.37055218	mM	kM_R27_OXY_ext
-Michaelis constant	R80	OXY_ext	0.11646461	mM	kM_R34_OXY_ext
-Michaelis constant	R8r	PEP	0.13067264	mM	kM_R12_PEP
-Michaelis constant	R70	PEP	0.16894701	mM	kM_R18_PEP
-Michaelis constant	R1	PEP	0.098294607	mM	kM_R26_PEP
-Michaelis constant	R9	PEP	0.2914003	mM	kM_R30_PEP
-Michaelis constant	RR9	PEP	0.093447325	mM	kM_R32_PEP
-Michaelis constant	R40	PEP	0.3637061	mM	kM_R41_PEP
-Michaelis constant	R42	PEP	0.064276432	mM	kM_R43_PEP
-Michaelis constant	R8r	PG	0.1083616	mM	kM_R12_PG
-Michaelis constant	R7rc	PG	0.075495268	mM	kM_R39_PG
-Michaelis constant	R70	PYR	0.31853464	mM	kM_R18_PYR
-Michaelis constant	R1	PYR	0.10173498	mM	kM_R26_PYR
-Michaelis constant	R9	PYR	0.047641018	mM	kM_R30_PYR
-Michaelis constant	RR9	PYR	0.086415071	mM	kM_R32_PYR
-Michaelis constant	R53r	PYR	0.019328364	mM	kM_R33_PYR
-Michaelis constant	R41	PYR	0.088484867	mM	kM_R40_PYR
-Michaelis constant	R21	PYR	0.29067982	mM	kM_R48_PYR
-Michaelis constant	R20	PYR	2.1802383	mM	kM_R49_PYR
-Michaelis constant	R61r	PYR	0.0014648186	mM	kM_R51_PYR
-Michaelis constant	R13r	RIBOSE_5_P	0.97227973	mM	kM_R3_RIBOSE_5_P
-Michaelis constant	R70	RIBOSE_5_P	0.8805853	mM	kM_R18_RIBOSE_5_P
-Michaelis constant	R12r	RIBOSE_5_P	1.2472893	mM	kM_R25_RIBOSE_5_P
-Michaelis constant	R10c	RIBULOSE_5_P	0.062614572	mM	kM_R15_RIBULOSE_5_P
-Michaelis constant	R12r	RIBULOSE_5_P	0.55814248	mM	kM_R25_RIBULOSE_5_P
-Michaelis constant	R11r	RIBULOSE_5_P	0.087822018	mM	kM_R42_RIBULOSE_5_P
-Michaelis constant	R13r	SED_7_P	2.1101234	mM	kM_R3_SED_7_P
-Michaelis constant	R14r	SED_7_P	0.20642087	mM	kM_R31_SED_7_P
-Michaelis constant	R26r	SUCC	0.23699996	mM	kM_R4_SUCC
-Michaelis constant	R95	SUCC	0.099985447	mM	kM_R8_SUCC
-Michaelis constant	R27	SUCC	0.075580976	mM	kM_R27_SUCC
-Michaelis constant	R27b	SUCC	0.20543726	mM	kM_R28_SUCC
-Michaelis constant	R26r	SUCC_CoA	0.010491808	mM	kM_R4_SUCC_CoA
-Michaelis constant	R25	SUCC_CoA	0.10790898	mM	kM_R45_SUCC_CoA
-Michaelis constant	R95	SUCC_ext	0.10001456	mM	kM_R8_SUCC_ext
-Michaelis constant	R13r	XYL_5_P	0.1567701	mM	kM_R3_XYL_5_P
-Michaelis constant	R15r	XYL_5_P	0.15150254	mM	kM_R5_XYL_5_P
-Michaelis constant	R11r	XYL_5_P	0.11386666	mM	kM_R42_XYL_5_P
-substrate catalytic rate constant	R54ra		0.35130538	1/s	kcrf_R1
-substrate catalytic rate constant	R54rb		324.07984	1/s	kcrf_R2
-substrate catalytic rate constant	R13r		46.378035	1/s	kcrf_R3
-substrate catalytic rate constant	R26r		89.247668	1/s	kcrf_R4
-substrate catalytic rate constant	R15r		75.297336	1/s	kcrf_R5
-substrate catalytic rate constant	R96		100.1377	1/s	kcrf_R6
-substrate catalytic rate constant	R94		100.08231	1/s	kcrf_R7
-substrate catalytic rate constant	R95		100.03275	1/s	kcrf_R8
-substrate catalytic rate constant	R93		99.67398	1/s	kcrf_R9
-substrate catalytic rate constant	R90		100.15944	1/s	kcrf_R10
-substrate catalytic rate constant	R91		100.12115	1/s	kcrf_R11
-substrate catalytic rate constant	R8r		210.87804	1/s	kcrf_R12
-substrate catalytic rate constant	R10a		241.00972	1/s	kcrf_R13
-substrate catalytic rate constant	R10b		409.75884	1/s	kcrf_R14
-substrate catalytic rate constant	R10c		110.15501	1/s	kcrf_R15
-substrate catalytic rate constant	R28r		281.7339	1/s	kcrf_R16
-substrate catalytic rate constant	R3		114.97333	1/s	kcrf_R17
-substrate catalytic rate constant	R70		99.495737	1/s	kcrf_R18
-substrate catalytic rate constant	R6r		7837.8458	1/s	kcrf_R19
-substrate catalytic rate constant	R97r		100.11987	1/s	kcrf_R20
-substrate catalytic rate constant	R2r		321.86315	1/s	kcrf_R21
-substrate catalytic rate constant	R55a		91.274559	1/s	kcrf_R22
-substrate catalytic rate constant	R55b		58.805577	1/s	kcrf_R23
-substrate catalytic rate constant	R4		25.408547	1/s	kcrf_R24
-substrate catalytic rate constant	R12r		1362.0411	1/s	kcrf_R25
-substrate catalytic rate constant	R1		103.9461	1/s	kcrf_R26
-substrate catalytic rate constant	R27		78.129845	1/s	kcrf_R27
-substrate catalytic rate constant	R27b		179.29139	1/s	kcrf_R28
-substrate catalytic rate constant	R23r		32.614721	1/s	kcrf_R29
-substrate catalytic rate constant	R9		513.1207	1/s	kcrf_R30
-substrate catalytic rate constant	R14r		16.742732	1/s	kcrf_R31
-substrate catalytic rate constant	RR9		13.243467	1/s	kcrf_R32
-substrate catalytic rate constant	R53r		139.44932	1/s	kcrf_R33
-substrate catalytic rate constant	R80		70.968157	1/s	kcrf_R34
-substrate catalytic rate constant	R82		180.58262	1/s	kcrf_R35
-substrate catalytic rate constant	R29r		210.74075	1/s	kcrf_R36
-substrate catalytic rate constant	R7ra		233.1813	1/s	kcrf_R37
-substrate catalytic rate constant	R7rb		390.18351	1/s	kcrf_R38
-substrate catalytic rate constant	R7rc		53.127502	1/s	kcrf_R39
-substrate catalytic rate constant	R41		75.937319	1/s	kcrf_R40
-substrate catalytic rate constant	R40		123.21682	1/s	kcrf_R41
-substrate catalytic rate constant	R11r		133.93446	1/s	kcrf_R42
-substrate catalytic rate constant	R42		51.486917	1/s	kcrf_R43
-substrate catalytic rate constant	R5r		7.9864233	1/s	kcrf_R44
-substrate catalytic rate constant	R25		150.55295	1/s	kcrf_R45
-substrate catalytic rate constant	R24		108.49434	1/s	kcrf_R46
-substrate catalytic rate constant	R22		358.74774	1/s	kcrf_R47
-substrate catalytic rate constant	R21		37.699097	1/s	kcrf_R48
-substrate catalytic rate constant	R20		4807.8078	1/s	kcrf_R49
-substrate catalytic rate constant	R60		247.49686	1/s	kcrf_R50
-substrate catalytic rate constant	R61r		79.863239	1/s	kcrf_R51
-product catalytic rate constant	R54ra		33.453417	1/s	kcrr_R1
-product catalytic rate constant	R54rb		30.856593	1/s	kcrr_R2
-product catalytic rate constant	R13r		215.61931	1/s	kcrr_R3
-product catalytic rate constant	R26r		40.954446	1/s	kcrr_R4
-product catalytic rate constant	R15r		132.80682	1/s	kcrr_R5
-product catalytic rate constant	R96		99.862491	1/s	kcrr_R6
-product catalytic rate constant	R94		99.917761	1/s	kcrr_R7
-product catalytic rate constant	R95		99.967258	1/s	kcrr_R8
-product catalytic rate constant	R93		100.32709	1/s	kcrr_R9
-product catalytic rate constant	R90		99.840811	1/s	kcrr_R10
-product catalytic rate constant	R91		99.878997	1/s	kcrr_R11
-product catalytic rate constant	R8r		72.626001	1/s	kcrr_R12
-product catalytic rate constant	R10a		53.228371	1/s	kcrr_R13
-product catalytic rate constant	R10b		192.41431	1/s	kcrr_R14
-product catalytic rate constant	R10c		227.81557	1/s	kcrr_R15
-product catalytic rate constant	R28r		116.68752	1/s	kcrr_R16
-product catalytic rate constant	R3		77.528048	1/s	kcrr_R17
-product catalytic rate constant	R70		100.50682	1/s	kcrr_R18
-product catalytic rate constant	R6r		70.167361	1/s	kcrr_R19
-product catalytic rate constant	R97r		99.880276	1/s	kcrr_R20
-product catalytic rate constant	R2r		375.79706	1/s	kcrr_R21
-product catalytic rate constant	R55a		254.04461	1/s	kcrr_R22
-product catalytic rate constant	R55b		170.0519	1/s	kcrr_R23
-product catalytic rate constant	R4		50.214898	1/s	kcrr_R24
-product catalytic rate constant	R12r		1310.0959	1/s	kcrr_R25
-product catalytic rate constant	R1		96.203706	1/s	kcrr_R26
-product catalytic rate constant	R27		2.3662539	1/s	kcrr_R27
-product catalytic rate constant	R27b		404.07382	1/s	kcrr_R28
-product catalytic rate constant	R23r		306.61001	1/s	kcrr_R29
-product catalytic rate constant	R9		273.89886	1/s	kcrr_R30
-product catalytic rate constant	R14r		24.257272	1/s	kcrr_R31
-product catalytic rate constant	RR9		169.26972	1/s	kcrr_R32
-product catalytic rate constant	R53r		4.8556715	1/s	kcrr_R33
-product catalytic rate constant	R80		140.90827	1/s	kcrr_R34
-product catalytic rate constant	R82		55.376315	1/s	kcrr_R35
-product catalytic rate constant	R29r		2132.288	1/s	kcrr_R36
-product catalytic rate constant	R7ra		228.09413	1/s	kcrr_R37
-product catalytic rate constant	R7rb		16.361346	1/s	kcrr_R38
-product catalytic rate constant	R7rc		188.22643	1/s	kcrr_R39
-product catalytic rate constant	R41		131.68756	1/s	kcrr_R40
-product catalytic rate constant	R40		445.77826	1/s	kcrr_R41
-product catalytic rate constant	R11r		74.663385	1/s	kcrr_R42
-product catalytic rate constant	R42		0.88357042	1/s	kcrr_R43
-product catalytic rate constant	R5r		801.98348	1/s	kcrr_R44
-product catalytic rate constant	R25		80.344927	1/s	kcrr_R45
-product catalytic rate constant	R24		28.355824	1/s	kcrr_R46
-product catalytic rate constant	R22		128.22966	1/s	kcrr_R47
-product catalytic rate constant	R21		52.784891	1/s	kcrr_R48
-product catalytic rate constant	R20		595.478	1/s	kcrr_R49
-product catalytic rate constant	R60		40.404553	1/s	kcrr_R50
-product catalytic rate constant	R61r		0.031919097	1/s	kcrr_R51
+!!SBtab TableName='RateConstant' TableType='Quantity' Document='Carlson model' SBtabVersion='1.0'				
+!QuantityType	!Reaction	!Compound	!Value	!Unit
+equilibrium constant	R54ra		0.0022582413	dimensionless
+equilibrium constant	R54rb		2767.6607	dimensionless
+equilibrium constant	R13r		3.6538527	dimensionless
+equilibrium constant	R26r		0.52174352	dimensionless
+equilibrium constant	R15r		37.50713	dimensionless
+equilibrium constant	R96		1.0039831	dimensionless
+equilibrium constant	R94		1.0023798	dimensionless
+equilibrium constant	R95		1.0009465	dimensionless
+equilibrium constant	R93		0.99061062	dimensionless
+equilibrium constant	R90		1.0046131	dimensionless
+equilibrium constant	R91		1.0035039	dimensionless
+equilibrium constant	R8r		3.5014543	dimensionless
+equilibrium constant	R10a		0.27692024	dimensionless
+equilibrium constant	R10b		0.75223626	dimensionless
+equilibrium constant	R10c		0.019818848	dimensionless
+equilibrium constant	R28r		4.7316568	dimensionless
+equilibrium constant	R3		1.1639489	dimensionless
+equilibrium constant	R70		1.0027421	dimensionless
+equilibrium constant	R6r		11.249283	dimensionless
+equilibrium constant	R97r		1.0034668	dimensionless
+equilibrium constant	R2r		0.50987024	dimensionless
+equilibrium constant	R55a		0.22758352	dimensionless
+equilibrium constant	R55b		1.3677156	dimensionless
+equilibrium constant	R4		5.360918	dimensionless
+equilibrium constant	R12r		2.3233211	dimensionless
+equilibrium constant	R1		0.97857957	dimensionless
+equilibrium constant	R27		6.9747501	dimensionless
+equilibrium constant	R27b		0.84263136	dimensionless
+equilibrium constant	R23r		0.073843788	dimensionless
+equilibrium constant	R9		11.856499	dimensionless
+equilibrium constant	R14r		0.89996461	dimensionless
+equilibrium constant	RR9		0.52627971	dimensionless
+equilibrium constant	R53r		20577.22	dimensionless
+equilibrium constant	R80		0.94187484	dimensionless
+equilibrium constant	R82		0.71711115	dimensionless
+equilibrium constant	R29r		6.1103599e-05	dimensionless
+equilibrium constant	R7ra		0.088486876	dimensionless
+equilibrium constant	R7rb		727.33174	dimensionless
+equilibrium constant	R7rc		0.16087119	dimensionless
+equilibrium constant	R41		0.015992441	dimensionless
+equilibrium constant	R40		0.2826712	dimensionless
+equilibrium constant	R11r		2.3258292	dimensionless
+equilibrium constant	R42		22.074532	dimensionless
+equilibrium constant	R5r		0.00029761494	dimensionless
+equilibrium constant	R25		4.0906559	dimensionless
+equilibrium constant	R24		1.8431281	dimensionless
+equilibrium constant	R22		6.4281674	dimensionless
+equilibrium constant	R21		2.4922103	dimensionless
+equilibrium constant	R20		49.260684	dimensionless
+equilibrium constant	R60		21.115915	dimensionless
+equilibrium constant	R61r		0.0095735331	dimensionless
+catalytic rate constant geometric mean	R54ra		3.4281723	1/s
+catalytic rate constant geometric mean	R54rb		100	1/s
+catalytic rate constant geometric mean	R13r		100	1/s
+catalytic rate constant geometric mean	R26r		60.45733	1/s
+catalytic rate constant geometric mean	R15r		100	1/s
+catalytic rate constant geometric mean	R96		100	1/s
+catalytic rate constant geometric mean	R94		100	1/s
+catalytic rate constant geometric mean	R95		100	1/s
+catalytic rate constant geometric mean	R93		100	1/s
+catalytic rate constant geometric mean	R90		100	1/s
+catalytic rate constant geometric mean	R91		100	1/s
+catalytic rate constant geometric mean	R8r		123.75471	1/s
+catalytic rate constant geometric mean	R10a		113.26321	1/s
+catalytic rate constant geometric mean	R10b		280.79078	1/s
+catalytic rate constant geometric mean	R10c		158.4141	1/s
+catalytic rate constant geometric mean	R28r		181.31417	1/s
+catalytic rate constant geometric mean	R3		94.412172	1/s
+catalytic rate constant geometric mean	R70		100	1/s
+catalytic rate constant geometric mean	R6r		741.59352	1/s
+catalytic rate constant geometric mean	R97r		100	1/s
+catalytic rate constant geometric mean	R2r		347.78618	1/s
+catalytic rate constant geometric mean	R55a		152.27544	1/s
+catalytic rate constant geometric mean	R55b		100	1/s
+catalytic rate constant geometric mean	R4		35.719569	1/s
+catalytic rate constant geometric mean	R12r		1335816	1/s
+catalytic rate constant geometric mean	R1		100	1/s
+catalytic rate constant geometric mean	R27		13.596877	1/s
+catalytic rate constant geometric mean	R27b		269.15973	1/s
+catalytic rate constant geometric mean	R23r		100	1/s
+catalytic rate constant geometric mean	R9		374.89089	1/s
+catalytic rate constant geometric mean	R14r		20.152742	1/s
+catalytic rate constant geometric mean	RR9		47.346785	1/s
+catalytic rate constant geometric mean	R53r		26.021531	1/s
+catalytic rate constant geometric mean	R80		100	1/s
+catalytic rate constant geometric mean	R82		100	1/s
+catalytic rate constant geometric mean	R29r		670.34318	1/s
+catalytic rate constant geometric mean	R7ra		230.62369	1/s
+catalytic rate constant geometric mean	R7rb		79.899482	1/s
+catalytic rate constant geometric mean	R7rc		100	1/s
+catalytic rate constant geometric mean	R41		100	1/s
+catalytic rate constant geometric mean	R40		234.36591	1/s
+catalytic rate constant geometric mean	R11r		100	1/s
+catalytic rate constant geometric mean	R42		6.7447993	1/s
+catalytic rate constant geometric mean	R5r		80.031116	1/s
+catalytic rate constant geometric mean	R25		109.98257	1/s
+catalytic rate constant geometric mean	R24		55.465722	1/s
+catalytic rate constant geometric mean	R22		214481	1/s
+catalytic rate constant geometric mean	R21		44.608774	1/s
+catalytic rate constant geometric mean	R20		1692.0236	1/s
+catalytic rate constant geometric mean	R60		100	1/s
+catalytic rate constant geometric mean	R61r		1.5966097	1/s
+Michaelis constant	R91	ACETATE	0.099946203	mM
+Michaelis constant	R55b	ACETATE	3.4359883	mM
+Michaelis constant	R91	ACETATE_ext	0.10005383	mM
+Michaelis constant	R54ra	ACETYL_CoA	0.024178638	mM
+Michaelis constant	R70	ACETYL_CoA	0.46201504	mM
+Michaelis constant	R55a	ACETYL_CoA	0.042439428	mM
+Michaelis constant	R22	ACETYL_CoA	0.086650189	mM
+Michaelis constant	R21	ACETYL_CoA	0.15894089	mM
+Michaelis constant	R20	ACETYL_CoA	0.035199023	mM
+Michaelis constant	R54ra	ACALD	1.8017317	mM
+Michaelis constant	R54rb	ACALD	0.059298483	mM
+Michaelis constant	R55a	ACETYL_P	0.31264297	mM
+Michaelis constant	R55b	ACETYL_P	0.15416707	mM
+Michaelis constant	R26r	ADP	0.056003086	mM
+Michaelis constant	R3	ADP	0.11341715	mM
+Michaelis constant	R70	ADP	0.029260067	mM
+Michaelis constant	R55b	ADP	0.40208482	mM
+Michaelis constant	R27	ADP	0.37055218	mM
+Michaelis constant	R9	ADP	0.21836598	mM
+Michaelis constant	RR9	ADP	0.087324025	mM
+Michaelis constant	R80	ADP	0.13564006	mM
+Michaelis constant	R82	ADP	0.13004037	mM
+Michaelis constant	R7rb	ADP	0.042552917	mM
+Michaelis constant	R42	ADP	0.048429688	mM
+Michaelis constant	R70	AKG	0.35155923	mM
+Michaelis constant	R25	AKG	0.06702331	mM
+Michaelis constant	R24	AKG	0.48256956	mM
+Michaelis constant	R26r	ATP	0.081214311	mM
+Michaelis constant	R3	ATP	0.14095742	mM
+Michaelis constant	R70	ATP	0.34176271	mM
+Michaelis constant	R55b	ATP	0.07135368	mM
+Michaelis constant	R27	ATP	0.026986753	mM
+Michaelis constant	R9	ATP	8.4531988	mM
+Michaelis constant	RR9	ATP	0.035012678	mM
+Michaelis constant	R80	ATP	0.073724532	mM
+Michaelis constant	R82	ATP	0.076899197	mM
+Michaelis constant	R7rb	ATP	0.23500152	mM
+Michaelis constant	R42	ATP	0.074986177	mM
+Michaelis constant	R82	ATP_main	0.13004037	mM
+Michaelis constant	R70	BIOMASS	0.099775582	mM
+Michaelis constant	R23r	CITRATE	3.4864698	mM
+Michaelis constant	R22	CITRATE	0.07557239	mM
+Michaelis constant	R10c	CO2	0.062614572	mM
+Michaelis constant	R70	CO2	0.099551667	mM
+Michaelis constant	R97r	CO2	0.099946772	mM
+Michaelis constant	R41	CO2	0.088484867	mM
+Michaelis constant	R40	CO2	0.1145046	mM
+Michaelis constant	R42	CO2	5.2104037	mM
+Michaelis constant	R25	CO2	0.10790898	mM
+Michaelis constant	R24	CO2	2.0223528	mM
+Michaelis constant	R21	CO2	0.15894089	mM
+Michaelis constant	R97r	CO2_ext	0.10005326	mM
+Michaelis constant	R54ra	CoASH	0.0078602485	mM
+Michaelis constant	R26r	CoASH	0.0073087434	mM
+Michaelis constant	R70	CoASH	0.89124067	mM
+Michaelis constant	R55a	CoASH	0.085984844	mM
+Michaelis constant	R25	CoASH	0.092670691	mM
+Michaelis constant	R22	CoASH	0.07557239	mM
+Michaelis constant	R21	CoASH	0.06291647	mM
+Michaelis constant	R20	CoASH	0.016796243	mM
+Michaelis constant	R6r	DHAP	0.074991868	mM
+Michaelis constant	R5r	DHAP	0.078151432	mM
+Michaelis constant	R15r	ERYTH_4_P	0.093367041	mM
+Michaelis constant	R70	ERYTH_4_P	0.01443632	mM
+Michaelis constant	R14r	ERYTH_4_P	0.17515892	mM
+Michaelis constant	R54rb	ETOH	5.4946439	mM
+Michaelis constant	R90	ETOH	0.099929218	mM
+Michaelis constant	R90	ETOH_ext	0.10007083	mM
+Michaelis constant	R96	FORMATE	0.099938862	mM
+Michaelis constant	R20	FORMATE	6.3475273	mM
+Michaelis constant	R96	FORMATE_ext	0.10006118	mM
+Michaelis constant	R15r	FRU_6_P	0.73697349	mM
+Michaelis constant	R3	FRU_6_P	0.11627167	mM
+Michaelis constant	R2r	FRU_6_P	0.16239803	mM
+Michaelis constant	R4	FRU_6_P	0.170733	mM
+Michaelis constant	R14r	FRU_6_P	0.88809327	mM
+Michaelis constant	R3	FRU_BIS_P	0.11341715	mM
+Michaelis constant	R4	FRU_BIS_P	0.016114823	mM
+Michaelis constant	R5r	FRU_BIS_P	0.20436478	mM
+Michaelis constant	R28r	FUMARATE	0.31389369	mM
+Michaelis constant	R27	FUMARATE	0.081233216	mM
+Michaelis constant	R27b	FUMARATE	0.020134856	mM
+Michaelis constant	R7ra	DPG	0.057569553	mM
+Michaelis constant	R7rb	DPG	0.042552917	mM
+Michaelis constant	R7rb	PG3	0.23500152	mM
+Michaelis constant	R7rc	PG3	0.13245863	mM
+Michaelis constant	R13r	GA_3P	1.2270802	mM
+Michaelis constant	R15r	GA_3P	1.2697442	mM
+Michaelis constant	R6r	GA_3P	0.74464775	mM
+Michaelis constant	R14r	GA_3P	0.57795789	mM
+Michaelis constant	R7ra	GA_3P	0.68673903	mM
+Michaelis constant	R5r	GA_3P	0.078151432	mM
+Michaelis constant	R61r	GA_3P	0.0014648186	mM
+Michaelis constant	R10a	GLU_6_P	0.31390635	mM
+Michaelis constant	R70	GLU_6_P	4.309878	mM
+Michaelis constant	R2r	GLU_6_P	0.27279661	mM
+Michaelis constant	R1	GLU_6_P	0.10173498	mM
+Michaelis constant	R10a	GLU_LAC_6_P	0.12873433	mM
+Michaelis constant	R10b	GLU_LAC_6_P	0.16825514	mM
+Michaelis constant	R10b	GLUCO_6_P	0.059433547	mM
+Michaelis constant	R10c	GLUCO_6_P	0.10133236	mM
+Michaelis constant	R60	GLUCO_6_P	0.043395965	mM
+Michaelis constant	R60	KDPG	0.14959596	mM
+Michaelis constant	R61r	KDPG	0.56077905	mM
+Michaelis constant	R1	GLU_ext	0.11626023	mM
+Michaelis constant	R23r	ISOCIT	2.4203186	mM
+Michaelis constant	R24	ISOCIT	0.022669351	mM
+Michaelis constant	R94	LACTATE	0.099963433	mM
+Michaelis constant	R53r	LACTATE	0.5173743	mM
+Michaelis constant	R94	LACTATE_ext	0.10003658	mM
+Michaelis constant	R28r	MALATE	0.61515013	mM
+Michaelis constant	R29r	MALATE	3.1896955	mM
+Michaelis constant	R41	MALATE	0.36140168	mM
+Michaelis constant	R54ra	NAD	0.041481191	mM
+Michaelis constant	R54rb	NAD	0.16863838	mM
+Michaelis constant	R10a	NAD	0.86322771	mM
+Michaelis constant	R10c	NAD	0.059104496	mM
+Michaelis constant	R70	NAD	1.431486	mM
+Michaelis constant	R27b	NAD	0.043142381	mM
+Michaelis constant	R53r	NAD	0.51737436	mM
+Michaelis constant	R80	NAD	0.085862991	mM
+Michaelis constant	R29r	NAD	0.45965456	mM
+Michaelis constant	R7ra	NAD	0.0557564	mM
+Michaelis constant	R41	NAD	0.069121414	mM
+Michaelis constant	R25	NAD	0.092670691	mM
+Michaelis constant	R24	NAD	1.0645761	mM
+Michaelis constant	R21	NAD	0.06291647	mM
+Michaelis constant	R54ra	NADH	0.11298473	mM
+Michaelis constant	R54rb	NADH	0.059298483	mM
+Michaelis constant	R10a	NADH	0.12873433	mM
+Michaelis constant	R10c	NADH	0.062614572	mM
+Michaelis constant	R70	NADH	0.091276358	mM
+Michaelis constant	R27b	NADH	0.23179064	mM
+Michaelis constant	R53r	NADH	0.019328362	mM
+Michaelis constant	R80	NADH	0.11646461	mM
+Michaelis constant	R29r	NADH	0.032069119	mM
+Michaelis constant	R7ra	NADH	0.057569553	mM
+Michaelis constant	R41	NADH	0.088484867	mM
+Michaelis constant	R25	NADH	0.10790898	mM
+Michaelis constant	R24	NADH	0.011912136	mM
+Michaelis constant	R21	NADH	0.15894089	mM
+Michaelis constant	R93	NH3	0.099854971	mM
+Michaelis constant	R70	NH3	0.01514272	mM
+Michaelis constant	R93	NH3_ext	0.10014524	mM
+Michaelis constant	R70	OXALO	0.0067236384	mM
+Michaelis constant	R29r	OXALO	0.02826558	mM
+Michaelis constant	R40	OXALO	0.042589638	mM
+Michaelis constant	R42	OXALO	0.57097592	mM
+Michaelis constant	R22	OXALO	0.028686021	mM
+Michaelis constant	R27	OXY_ext	0.37055218	mM
+Michaelis constant	R80	OXY_ext	0.11646461	mM
+Michaelis constant	R8r	PEP	0.13067264	mM
+Michaelis constant	R70	PEP	0.16894701	mM
+Michaelis constant	R1	PEP	0.098294607	mM
+Michaelis constant	R9	PEP	0.2914003	mM
+Michaelis constant	RR9	PEP	0.093447325	mM
+Michaelis constant	R40	PEP	0.3637061	mM
+Michaelis constant	R42	PEP	0.064276432	mM
+Michaelis constant	R8r	PG	0.1083616	mM
+Michaelis constant	R7rc	PG	0.075495268	mM
+Michaelis constant	R70	PYR	0.31853464	mM
+Michaelis constant	R1	PYR	0.10173498	mM
+Michaelis constant	R9	PYR	0.047641018	mM
+Michaelis constant	RR9	PYR	0.086415071	mM
+Michaelis constant	R53r	PYR	0.019328364	mM
+Michaelis constant	R41	PYR	0.088484867	mM
+Michaelis constant	R21	PYR	0.29067982	mM
+Michaelis constant	R20	PYR	2.1802383	mM
+Michaelis constant	R61r	PYR	0.0014648186	mM
+Michaelis constant	R13r	RIBOSE_5_P	0.97227973	mM
+Michaelis constant	R70	RIBOSE_5_P	0.8805853	mM
+Michaelis constant	R12r	RIBOSE_5_P	1.2472893	mM
+Michaelis constant	R10c	RIBULOSE_5_P	0.062614572	mM
+Michaelis constant	R12r	RIBULOSE_5_P	0.55814248	mM
+Michaelis constant	R11r	RIBULOSE_5_P	0.087822018	mM
+Michaelis constant	R13r	SED_7_P	2.1101234	mM
+Michaelis constant	R14r	SED_7_P	0.20642087	mM
+Michaelis constant	R26r	SUCC	0.23699996	mM
+Michaelis constant	R95	SUCC	0.099985447	mM
+Michaelis constant	R27	SUCC	0.075580976	mM
+Michaelis constant	R27b	SUCC	0.20543726	mM
+Michaelis constant	R26r	SUCC_CoA	0.010491808	mM
+Michaelis constant	R25	SUCC_CoA	0.10790898	mM
+Michaelis constant	R95	SUCC_ext	0.10001456	mM
+Michaelis constant	R13r	XYL_5_P	0.1567701	mM
+Michaelis constant	R15r	XYL_5_P	0.15150254	mM
+Michaelis constant	R11r	XYL_5_P	0.11386666	mM
+substrate catalytic rate constant	R54ra		0.35130538	1/s
+substrate catalytic rate constant	R54rb		324.07984	1/s
+substrate catalytic rate constant	R13r		46.378035	1/s
+substrate catalytic rate constant	R26r		89.247668	1/s
+substrate catalytic rate constant	R15r		75.297336	1/s
+substrate catalytic rate constant	R96		100.1377	1/s
+substrate catalytic rate constant	R94		100.08231	1/s
+substrate catalytic rate constant	R95		100.03275	1/s
+substrate catalytic rate constant	R93		99.67398	1/s
+substrate catalytic rate constant	R90		100.15944	1/s
+substrate catalytic rate constant	R91		100.12115	1/s
+substrate catalytic rate constant	R8r		210.87804	1/s
+substrate catalytic rate constant	R10a		241.00972	1/s
+substrate catalytic rate constant	R10b		409.75884	1/s
+substrate catalytic rate constant	R10c		110.15501	1/s
+substrate catalytic rate constant	R28r		281.7339	1/s
+substrate catalytic rate constant	R3		114.97333	1/s
+substrate catalytic rate constant	R70		99.495737	1/s
+substrate catalytic rate constant	R6r		7837.8458	1/s
+substrate catalytic rate constant	R97r		100.11987	1/s
+substrate catalytic rate constant	R2r		321.86315	1/s
+substrate catalytic rate constant	R55a		91.274559	1/s
+substrate catalytic rate constant	R55b		58.805577	1/s
+substrate catalytic rate constant	R4		25.408547	1/s
+substrate catalytic rate constant	R12r		1362.0411	1/s
+substrate catalytic rate constant	R1		103.9461	1/s
+substrate catalytic rate constant	R27		78.129845	1/s
+substrate catalytic rate constant	R27b		179.29139	1/s
+substrate catalytic rate constant	R23r		32.614721	1/s
+substrate catalytic rate constant	R9		513.1207	1/s
+substrate catalytic rate constant	R14r		16.742732	1/s
+substrate catalytic rate constant	RR9		13.243467	1/s
+substrate catalytic rate constant	R53r		139.44932	1/s
+substrate catalytic rate constant	R80		70.968157	1/s
+substrate catalytic rate constant	R82		180.58262	1/s
+substrate catalytic rate constant	R29r		210.74075	1/s
+substrate catalytic rate constant	R7ra		233.1813	1/s
+substrate catalytic rate constant	R7rb		390.18351	1/s
+substrate catalytic rate constant	R7rc		53.127502	1/s
+substrate catalytic rate constant	R41		75.937319	1/s
+substrate catalytic rate constant	R40		123.21682	1/s
+substrate catalytic rate constant	R11r		133.93446	1/s
+substrate catalytic rate constant	R42		51.486917	1/s
+substrate catalytic rate constant	R5r		7.9864233	1/s
+substrate catalytic rate constant	R25		150.55295	1/s
+substrate catalytic rate constant	R24		108.49434	1/s
+substrate catalytic rate constant	R22		358.74774	1/s
+substrate catalytic rate constant	R21		37.699097	1/s
+substrate catalytic rate constant	R20		4807.8078	1/s
+substrate catalytic rate constant	R60		247.49686	1/s
+substrate catalytic rate constant	R61r		79.863239	1/s
+product catalytic rate constant	R54ra		33.453417	1/s
+product catalytic rate constant	R54rb		30.856593	1/s
+product catalytic rate constant	R13r		215.61931	1/s
+product catalytic rate constant	R26r		40.954446	1/s
+product catalytic rate constant	R15r		132.80682	1/s
+product catalytic rate constant	R96		99.862491	1/s
+product catalytic rate constant	R94		99.917761	1/s
+product catalytic rate constant	R95		99.967258	1/s
+product catalytic rate constant	R93		100.32709	1/s
+product catalytic rate constant	R90		99.840811	1/s
+product catalytic rate constant	R91		99.878997	1/s
+product catalytic rate constant	R8r		72.626001	1/s
+product catalytic rate constant	R10a		53.228371	1/s
+product catalytic rate constant	R10b		192.41431	1/s
+product catalytic rate constant	R10c		227.81557	1/s
+product catalytic rate constant	R28r		116.68752	1/s
+product catalytic rate constant	R3		77.528048	1/s
+product catalytic rate constant	R70		100.50682	1/s
+product catalytic rate constant	R6r		70.167361	1/s
+product catalytic rate constant	R97r		99.880276	1/s
+product catalytic rate constant	R2r		375.79706	1/s
+product catalytic rate constant	R55a		254.04461	1/s
+product catalytic rate constant	R55b		170.0519	1/s
+product catalytic rate constant	R4		50.214898	1/s
+product catalytic rate constant	R12r		1310.0959	1/s
+product catalytic rate constant	R1		96.203706	1/s
+product catalytic rate constant	R27		2.3662539	1/s
+product catalytic rate constant	R27b		404.07382	1/s
+product catalytic rate constant	R23r		306.61001	1/s
+product catalytic rate constant	R9		273.89886	1/s
+product catalytic rate constant	R14r		24.257272	1/s
+product catalytic rate constant	RR9		169.26972	1/s
+product catalytic rate constant	R53r		4.8556715	1/s
+product catalytic rate constant	R80		140.90827	1/s
+product catalytic rate constant	R82		55.376315	1/s
+product catalytic rate constant	R29r		2132288	1/s
+product catalytic rate constant	R7ra		228.09413	1/s
+product catalytic rate constant	R7rb		16.361346	1/s
+product catalytic rate constant	R7rc		188.22643	1/s
+product catalytic rate constant	R41		131.68756	1/s
+product catalytic rate constant	R40		445.77826	1/s
+product catalytic rate constant	R11r		74.663385	1/s
+product catalytic rate constant	R42		0.88357042	1/s
+product catalytic rate constant	R5r		801.98348	1/s
+product catalytic rate constant	R25		80.344927	1/s
+product catalytic rate constant	R24		28.355824	1/s
+product catalytic rate constant	R22		128.22966	1/s
+product catalytic rate constant	R21		52.784891	1/s
+product catalytic rate constant	R20		595478	1/s
+product catalytic rate constant	R60		40.404553	1/s
+product catalytic rate constant	R61r		0.031919097	1/s
