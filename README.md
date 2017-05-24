@@ -9,6 +9,6 @@ Meike T. Wortel, Elad Noor, Michael Ferris, Frank J. Bruggeman, Wolfram Lieberme
 Profiling metabolic flux modes by enzyme cost reveals variable trade-offs between growth and yield in Escherichia coli.
 doi: https://doi.org/10.1101/111161 
 
-accessible on BioRxiv at http://biorxiv.org/content/early/2017/02/23/111161
+accessible on BioRxiv at http://biorxiv.org/content/early/2017/03/13/111161
 
 Contact: <wolfram.liebermeister@gmail.com>
