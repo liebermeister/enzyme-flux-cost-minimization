@@ -238,5 +238,5 @@ if __name__ == '__main__':
         unique_data = grouped.last()
         unique_data.to_pickle(os.path.join(D.TEMP_DIR, fig_name + '.pkl'))
 
-    #from phase_surface_plots import write_cache_files
+    from phase_surface_plots import write_cache_files
     write_cache_files()

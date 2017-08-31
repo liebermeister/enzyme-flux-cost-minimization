@@ -65,7 +65,7 @@ if False:
         d['ax'].set_ylim(-1e-3, 1.05*data[D.GROWTH_RATE_L].max())
 
         D.plot_basic_pareto(data, x=D.YIELD_L, y=D.GROWTH_RATE_L,
-                            c=d['c'], ax=d['ax'], cmap='magma_r', linewidth=0)
+                            c=d['c'], ax=d['ax'], cmap='copper_r')
 
     fig3.tight_layout(h_pad=0.2)
     fig3.savefig(os.path.join(D.OUTPUT_DIR, 'Fig3.pdf'))
@@ -75,7 +75,7 @@ if False:
     fig4 = plt.figure(figsize=(11, 15))
 
     ax4a = fig4.add_subplot(3, 2, 1, xscale='linear', yscale='linear')
-    ax4b = fig4.add_subplot(3, 2, 2, xscale='log', yscale='linear')
+    ax4b = fig4.add_subplot(3, 2, 2, xscale='log', yscale='linear', sharey=ax4a)
     ax4c = fig4.add_subplot(3, 2, 3, projection='3d')
     ax4d = fig4.add_subplot(3, 2, 4, projection='3d')
     ax4e = fig4.add_subplot(3, 2, 5, projection='3d')
@@ -86,7 +86,9 @@ if False:
                     xycoords='axes fraction', ha='left', va='top',
                     size=20, color='k')
 
-    plot_oxygen_dual_pareto(figure_data['standard'], ax4a)
+    plot_oxygen_dual_pareto(figure_data['standard'], ax4a,
+                            draw_lines=False, s=20)
+    ax4b.set_ylim(0, 0.9)
     plot_oxygen_sweep(ax4b)
 
     plot_surface(ax4c, figure_data['standard'], c=D.GROWTH_RATE_L,

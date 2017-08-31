@@ -670,9 +670,9 @@ def plot_oxygen_sweep(ax, glucose_conc=None, N=200,
     ax.text(0.02, 0.6, 'glucose (%d mM)' % glucose_conc, ha='left', va='center',
             rotation=90, fontsize=14, color='grey', transform=ax.transAxes)
 
-def plot_oxygen_dual_pareto(data_df, ax,
+def plot_oxygen_dual_pareto(data_df, ax, s=9,
                             std_ox=None, low_ox=None, std_glu=None,
-                            show_efm_labels=False):
+                            show_efm_labels=False, draw_lines=True):
     std_ox = std_ox or D.STD_CONC['oxygen']
     low_ox = low_ox or D.LOW_CONC['oxygen']
     std_glu = std_glu or D.STD_CONC['glucoseExt']
@@ -691,8 +691,9 @@ def plot_oxygen_dual_pareto(data_df, ax,
 
     D.plot_dual_pareto(std_ox_df, 'std. O$_2$ (0.21 mM)',
                        low_ox_df, 'low O$_2$ (%g mM)' % low_ox,
-                       s=9, ax=ax, x=D.YIELD_L, y=D.GROWTH_RATE_L,
-                       efm_dict=D.efm_dict, show_efm_labels=show_efm_labels)
+                       s=s, ax=ax, x=D.YIELD_L, y=D.GROWTH_RATE_L,
+                       efm_dict=D.efm_dict, show_efm_labels=show_efm_labels,
+                       draw_lines=draw_lines)
     ax.set_xlim(-1e-3, None)
     ax.set_ylim(-1e-3, None)
 

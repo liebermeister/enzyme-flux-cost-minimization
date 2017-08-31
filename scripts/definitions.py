@@ -39,12 +39,12 @@ matplotlib.rcParams['font.weight'] = 'medium'
 matplotlib.rcParams['font.style'] = 'normal'
 matplotlib.rcParams['mathtext.fontset'] = 'stixsans'
 
-BASE_DIR = os.path.expanduser('~/polybox/Postdoc/manuscripts/2016-efm_paper/')
-DATA_DIR = os.path.join(BASE_DIR, 'figureProduction/data')
-TEMP_DIR = os.path.join(BASE_DIR, 'figureProduction/tmp')
-OUTPUT_DIR = os.path.join(BASE_DIR, 'figuresForPaper')
-ZIP_SVG_FNAME = os.path.join(BASE_DIR, 'SVGofEFMs/all_efms.zip')
-INPUT_SVG_FNAME = os.path.join(BASE_DIR, 'figureProduction/Ecoli_Carlson_2016_05_09.svg')
+BASE_DIR = os.path.expanduser('~/git/flux-enzyme-cost-minimization')
+DATA_DIR = os.path.join(BASE_DIR, 'data')
+TEMP_DIR = os.path.join(BASE_DIR, 'tmp')
+OUTPUT_DIR = os.path.join(BASE_DIR, 'res')
+ZIP_SVG_FNAME = os.path.join(OUTPUT_DIR, 'all_efms.zip')
+INPUT_SVG_FNAME = os.path.join(DATA_DIR, 'Ecoli_Carlson_2016_05_09.svg')
 REACTION_NAME_FNAME = os.path.join(DATA_DIR, 'reaction_name_mapping.csv')
 PROTEOME_FNAME = os.path.join(DATA_DIR, 'protein_abundance_from_schmidt_et_al.csv')
 
@@ -115,6 +115,7 @@ GR_PARAM_B = 0.2 # in [h]
 GR_FUNCTION = lambda r_BM : r_BM * GR_PARAM_A * ALPHA_PROT * \
                             (1.0 + GR_PARAM_B * ALPHA_PROT * r_BM)**(-1)
 
+GENERAL_CMAP = 'magma_r'
 GR_HEATMAP_CMAP = 'magma_r'
 EPISTATIS_CMAP = 'RdBu'
 
@@ -179,7 +180,7 @@ RESID_L = 'residual [mM/s]'
 
 ## colors for plots:
 PARETO_NEUTRAL_COLOR = (0.9, 0.7, 0.7)
-PARETO_STRONG_COLOR = (0.5, 0.1, 0.8)
+PARETO_STRONG_COLOR = (0.4, 0.2, 0.9)
 BAR_COLOR = (0.8, 0.4, 0.5)
 PARETO_CMAP_LOWEST = (0.8, 0.8, 0.8)
 PARETO_CMAP_HIGHEST = (0.1, 0.1, 0.1)
@@ -261,7 +262,8 @@ def plot_basic_pareto(data, ax, x, y, s=10, marker='o', c=None,
     return CS
 
 def plot_dual_pareto(data0, label0, data1, label1, ax, x, y,
-                     s=15, marker='^', c0=None, c1=None, **kwargs):
+                     s=15, marker='o', c0=None, c1=None, draw_lines=True,
+                     **kwargs):
     """
         Plot a comparative Pareto plot, where data0 is the standard condition
         and data1 is a perturbation. In addition, use a colormap for the data1
@@ -273,21 +275,24 @@ def plot_dual_pareto(data0, label0, data1, label1, ax, x, y,
         c1 = D.PARETO_STRONG_COLOR
 
     # a grey Pareto plot for data0
-    ax.scatter(data0.loc[:, x], data0.loc[:, y], s=s, marker='v', edgecolor='none',
-               color=c0, label=label0)
+    ax.scatter(data0.loc[:, x], data0.loc[:, y], s=s,
+               marker='o', edgecolor=c0,
+               color='none', label=label0)
 
     # a full-blown Pareto plot for data1
-    plot_basic_pareto(data1, ax, x, y, s=s, marker=marker, color=c1, label=label1, **kwargs)
+    plot_basic_pareto(data1, ax, x, y, s=s, marker=marker,
+                      color=c1, label=label1, **kwargs)
 
     # add lines connecting the two conditions
-    data = data0[[x,y]].join(data1[[x,y]], lsuffix='', rsuffix='_1')
-    for i in data.index:
-        x0,y0 = data.loc[i, [x,      y     ]]
-        x1,y1 = data.loc[i, [x+'_1', y+'_1']]
-        ax.plot([x0, x1], [y0, y1], '-', color=(0, 0, 0), linewidth=0.2,
-                label=None, alpha=0.15)
+    if draw_lines:
+        data = data0[[x,y]].join(data1[[x,y]], lsuffix='', rsuffix='_1')
+        for i in data.index:
+            x0,y0 = data.loc[i, [x,      y     ]]
+            x1,y1 = data.loc[i, [x+'_1', y+'_1']]
+            ax.plot([x0, x1], [y0, y1], '-', color=(0, 0, 0), linewidth=0.2,
+                    label=None, alpha=0.15)
 
-    ax.legend(loc='best')
+    ax.legend(loc='upper center', fontsize=12)
 
 def plot_scatter_with_all_labels(data, ax, x, y,
                                  facecolors='blue', edgecolors='none', alpha=1):
