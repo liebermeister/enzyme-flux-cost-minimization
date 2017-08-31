@@ -43,8 +43,7 @@ if False:
             svg_string = fp.read()
             svg = transform.fromstring(svg_string)
             layout.add_figure(svg)
-            fp_out = open(os.path.join(D.OUTPUT_DIR, 'EFM_SVG',
-                                       'efm%04d_%s.svg' % (efm, name)), 'w')
+            fp_out = open(os.path.join(D.OUTPUT_DIR, 'efm%04d_%s.svg' % (efm, name)), 'w')
             fp_out.write(svg_string)
             fp.close()
             fp_out.close()

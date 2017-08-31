@@ -24,7 +24,6 @@ for fig_name in ['standard', 'anaerobic']:
         prefix, ext = os.path.splitext(os.path.basename(zip_fname))
         rates_df = pd.DataFrame.from_csv(z.open('%s/rates.csv' % prefix, 'r'),
                                          header=0, index_col=0)
-        rates_df.rename(index=D.DATA_FILES[fig_name][2], inplace=True)
         rates_dfs.append(rates_df)
 
 # drop duplicates (i.e. EFMs that can operate both aerobically and
@@ -49,7 +48,7 @@ rates_df.rename(columns=dict(map(upper_prefix, rates_df.columns)),
 with zipfile.ZipFile(ZIP_SVG_FNAME, 'w') as z:
 
     vmod = vonda.PVisualizer(INPUT_SVG_FNAME, reaction_suffix='R',
-                             species_suffix='', colormap='magma.svg')
+                             species_suffix='', colormap='flux_colormap.svg')
     with tempfile.NamedTemporaryFile(delete=True, suffix='.svg') as tmpfp:
         vmod.doMapOfReactionIDs(filename_out=tmpfp.name[:-4])
         fp = z.write(tmpfp.name, arcname='reaction_ids.svg')
