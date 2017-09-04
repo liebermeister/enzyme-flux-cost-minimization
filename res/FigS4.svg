@@ -1,0 +1,2484 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="530"
+   height="620"
+   id="metabolic_network_ecoli_core"
+   version="1.0"
+   sodipodi:docname="FigS4.svg"
+   inkscape:version="0.91 r13725">
+  <metadata
+     id="metadata1033">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Graphical Map Metabolic Network E.coli Carlson 2003</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1141"
+     id="namedview1031"
+     showgrid="false"
+     inkscape:zoom="1.483871"
+     inkscape:cx="265"
+     inkscape:cy="310"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="metabolic_network_ecoli_core" />
+  <defs
+     id="defs3">
+    <marker
+       refY="50"
+       refX="50"
+       markerHeight="5"
+       markerWidth="5"
+       viewBox="0 0 100 100"
+       se_type="leftarrow"
+       orient="auto"
+       markerUnits="userSpaceOnUse"
+       id="se_marker_start_svg_1">
+      <path
+         d="M 0,50 100,90 70,50 100,10 Z"
+         id="path6"
+         inkscape:connector-curvature="0"
+         style="fill:#000000;stroke:#000000;stroke-width:3" />
+    </marker>
+    <marker
+       refY="50"
+       refX="50"
+       markerHeight="5"
+       markerWidth="5"
+       viewBox="0 0 100 100"
+       se_type="rightarrow"
+       orient="auto"
+       markerUnits="userSpaceOnUse"
+       id="se_marker_end_svg_1">
+      <path
+         d="M 100,50 0,90 30,50 0,10 Z"
+         id="path9"
+         inkscape:connector-curvature="0"
+         style="fill:#000000;stroke:#000000;stroke-width:3" />
+    </marker>
+  </defs>
+  <title
+     id="title11">Graphical Map Metabolic Network E.coli Carlson 2003</title>
+  <!-- START REACTIONS in SVG -->
+  <path
+     inkscape:connector-curvature="0"
+     d="m 94,317 42,0 40,80"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253"
+     id="path18">
+    <title
+       id="title20">R70:R70</title>
+  </path>
+  <path
+     inkscape:connector-curvature="0"
+     d="m 79,337 57,0 40,60"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253"
+     id="path22">
+    <title
+       id="title24">R70:R70</title>
+  </path>
+  <path
+     inkscape:connector-curvature="0"
+     d="m 110,357 26,0 40,40"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253"
+     id="path26">
+    <title
+       id="title28">R70:R70</title>
+  </path>
+  <path
+     inkscape:connector-curvature="0"
+     d="m 115,377 22,0 40,20"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253"
+     id="path30">
+    <title
+       id="title32">R70:R70</title>
+  </path>
+  <path
+     inkscape:connector-curvature="0"
+     d="m 80,397 166,0"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     id="path34">
+    <title
+       id="title36">R70:R70</title>
+  </path>
+  <path
+     inkscape:connector-curvature="0"
+     d="m 90,417 46,0 40,-20"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253"
+     id="path38">
+    <title
+       id="title40">R70:R70</title>
+  </path>
+  <path
+     inkscape:connector-curvature="0"
+     d="m 78,437 58,0 40,-40"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253"
+     id="path42">
+    <title
+       id="title44">R70:R70</title>
+  </path>
+  <path
+     inkscape:connector-curvature="0"
+     d="m 76,457 60,0 40,-60"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253"
+     id="path46">
+    <title
+       id="title48">R70:R70</title>
+  </path>
+  <path
+     inkscape:connector-curvature="0"
+     d="m 76,477 60,0 40,-80"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253"
+     id="path50">
+    <title
+       id="title52">R70:R70</title>
+  </path>
+  <path
+     inkscape:connector-curvature="0"
+     d="m 185,412 q 15,-30 30,0"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     id="path54">
+    <title
+       id="title56">R70:R70</title>
+  </path>
+  <path
+     inkscape:connector-curvature="0"
+     d="m 185,382 q 15,30 30,0"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     id="path58">
+    <title
+       id="title60">R70:R70</title>
+  </path>
+  <path
+     inkscape:connector-curvature="0"
+     d="m 215,397 q 10,0 20,-15"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     id="path62">
+    <title
+       id="title64">R70:R70</title>
+  </path>
+  <path
+     inkscape:connector-curvature="0"
+     d="m 215,397 q 10,0 20,15"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     id="path66">
+    <title
+       id="title68">R70:R70</title>
+  </path>
+  <a
+     id="a79"
+     target="_blank"
+     xlink:href="http://www.genome.jp/dbget-bin/www_bget?C00014"
+     transform="translate(0,-71)">
+    <text
+       style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000"
+       font-size="8"
+       y="470"
+       x="3"
+       id="NH3_ext">NH3[e]<title
+   id="title82">NH3_ext</title>
+</text>
+  </a>
+  <path
+     id="R1"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     d="m 381,56 0,25"
+     inkscape:connector-curvature="0">
+    <title
+       id="title89">R1:R1</title>
+  </path>
+  <path
+     id="path91"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     d="m 391,58 q -20,10 0,20"
+     inkscape:connector-curvature="0">
+    <title
+       id="title93">R1:R1</title>
+  </path>
+  <rect
+     x="373"
+     y="65"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect95"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="373"
+     y="57"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect97"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="373"
+     y="73"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect99"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="R2r"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 381,92 0,25"
+     inkscape:connector-curvature="0">
+    <title
+       id="title106">R2r:R2r</title>
+  </path>
+  <rect
+     x="373"
+     y="101"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect110"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="373"
+     y="93"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect112"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="373"
+     y="109"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect114"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="R3"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     d="m 378,128 0,25"
+     inkscape:connector-curvature="0">
+    <title
+       id="title119">R3:R3</title>
+  </path>
+  <rect
+     x="370"
+     y="137"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect123"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="370"
+     y="129"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect125"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="370"
+     y="145"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect127"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="R4"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     d="m 384,153 0,-25"
+     inkscape:connector-curvature="0">
+    <title
+       id="title132">R4:R4</title>
+  </path>
+  <rect
+     x="387"
+     y="137"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect136"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="387"
+     y="129"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect138"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="387"
+     y="145"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect140"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="R5r"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 383,164 0,12.5 25,12.5"
+     inkscape:connector-curvature="0">
+    <title
+       id="title145">R5r:R5r</title>
+  </path>
+  <path
+     id="path147"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 383,164 0,12.5 -25,12.5"
+     inkscape:connector-curvature="0">
+    <title
+       id="title149">R5r:R5r</title>
+  </path>
+  <rect
+     x="374"
+     y="169"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect153"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="366"
+     y="169"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect155"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="358"
+     y="169"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect157"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="R6r"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 395,194 -25,0"
+     inkscape:connector-curvature="0">
+    <title
+       id="title162">R6r:R6r</title>
+  </path>
+  <rect
+     x="381"
+     y="197"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect166"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="389"
+     y="197"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect168"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="373"
+     y="197"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect170"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="R7ra"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 357,200 0,20"
+     inkscape:connector-curvature="0">
+    <title
+       id="title175">R7ra:R7ra</title>
+  </path>
+  <path
+     id="R7rb"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 357,234 0,20"
+     inkscape:connector-curvature="0">
+    <title
+       id="title182">R7rb:R7rb</title>
+  </path>
+  <path
+     id="R7rc"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 357,268 0,20"
+     inkscape:connector-curvature="0">
+    <title
+       id="title189">R7rc:R7rc</title>
+  </path>
+  <path
+     id="R8r"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 357,302 0,30"
+     inkscape:connector-curvature="0">
+    <title
+       id="title196">R8r:R8r</title>
+  </path>
+  <rect
+     x="349"
+     y="290"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect200"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="349"
+     y="282"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect202"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="349"
+     y="298"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect204"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="R9"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     d="m 355,343 0,25"
+     inkscape:connector-curvature="0">
+    <title
+       id="title209">R9:R9</title>
+  </path>
+  <rect
+     x="347"
+     y="354"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect213"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="347"
+     y="346"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect215"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="347"
+     y="362"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect217"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="RR9"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     d="m 359,368 0,-22.22561"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc">
+    <title
+       id="title222">RR9:RR9</title>
+  </path>
+  <rect
+     x="363"
+     y="354"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect226"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="363"
+     y="346"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect228"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="363"
+     y="362"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect230"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="R10a"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     d="m 373,87 -20,0"
+     inkscape:connector-curvature="0">
+    <title
+       id="title235">R10a:R10a</title>
+  </path>
+  <rect
+     x="315"
+     y="78"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect239"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="307"
+     y="78"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect241"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="323"
+     y="78"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect243"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="R10b"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     d="M 323.35903,87 303,87"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc">
+    <title
+       id="title248">R10b:R10b</title>
+  </path>
+  <rect
+     x="315"
+     y="78"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect252"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="307"
+     y="78"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect254"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="323"
+     y="78"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect256"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="R60"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     d="m 285,91.64097 0,93.69473"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc">
+    <title
+       id="title261">R60:R60</title>
+  </path>
+  <path
+     id="R61r"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="M 302.9783,195 345,195"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc">
+    <title
+       id="title268">R61r:R61r</title>
+  </path>
+  <path
+     id="path270"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     d="m 320,195 0,176 20.64664,0"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccc">
+    <title
+       id="title272">R61r:R61r</title>
+  </path>
+  <path
+     id="R10c"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     d="M 272.84715,87 250,87"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc">
+    <title
+       id="title279">R10c:R10c</title>
+  </path>
+  <rect
+     x="315"
+     y="78"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect283"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="307"
+     y="78"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect285"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="323"
+     y="78"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect287"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="R11r"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 220,89 -25,20"
+     inkscape:connector-curvature="0">
+    <title
+       id="title292">R11r:R11r</title>
+  </path>
+  <rect
+     x="209"
+     y="100"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect296"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="215"
+     y="95"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect298"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="203"
+     y="106"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect300"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="R12r"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="M 220,84 195,64"
+     inkscape:connector-curvature="0">
+    <title
+       id="title305">R12r:R12r</title>
+  </path>
+  <rect
+     x="209"
+     y="69"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect309"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="203"
+     y="64"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect311"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="215"
+     y="74"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect313"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="R13r"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 172,72 q -15,30 -30,0"
+     inkscape:connector-curvature="0">
+    <title
+       id="title318">R13r:R13r</title>
+  </path>
+  <path
+     id="path320"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 172,102 q -15,-30 -30,0"
+     inkscape:connector-curvature="0">
+    <title
+       id="title322">R13r:R13r</title>
+  </path>
+  <rect
+     x="175"
+     y="84"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect326"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="175"
+     y="76"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect328"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="175"
+     y="92"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect330"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="R14r"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 122,72 q -15,30 -30,0"
+     inkscape:connector-curvature="0">
+    <title
+       id="title335">R14r:R14r</title>
+  </path>
+  <path
+     id="path337"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="M 122,102 Q 107,72 92,102"
+     inkscape:connector-curvature="0">
+    <title
+       id="title339">R14r:R14r</title>
+  </path>
+  <rect
+     x="125"
+     y="84"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect343"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="125"
+     y="76"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect345"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="125"
+     y="92"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect347"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="R15r"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="M 72,22 Q 57,52 42,22"
+     inkscape:connector-curvature="0">
+    <title
+       id="title352">R15r:R15r</title>
+  </path>
+  <path
+     id="path354"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="M 72,52 Q 57,22 42,52"
+     inkscape:connector-curvature="0">
+    <title
+       id="title356">R15r:R15r</title>
+  </path>
+  <rect
+     x="75"
+     y="34"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect360"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="75"
+     y="26"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect362"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="75"
+     y="42"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect364"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="R21"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     d="m 355,379 0,56"
+     inkscape:connector-curvature="0">
+    <title
+       id="title369">R21:R21</title>
+  </path>
+  <rect
+     x="347"
+     y="405"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect373"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="347"
+     y="397"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect375"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="347"
+     y="413"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect377"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="R20"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     d="m 359,379 0,56"
+     inkscape:connector-curvature="0">
+    <title
+       id="title382">R20:R20</title>
+  </path>
+  <path
+     id="path384"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     d="m 359,396 45,0"
+     inkscape:connector-curvature="0">
+    <title
+       id="title386">R20:R20</title>
+  </path>
+  <rect
+     x="378"
+     y="399"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect390"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="370"
+     y="399"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect392"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="386"
+     y="399"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect394"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="R96"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     d="m 443.71209,394.81889 34.53567,0"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc">
+    <title
+       id="title399">R96:R96</title>
+  </path>
+  <path
+     id="R22"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     d="m 358.6,446 q 0,19 30,19"
+     inkscape:connector-curvature="0">
+    <title
+       id="title406">R22:R22</title>
+  </path>
+  <path
+     id="path408"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253"
+     d="m 352.16763,465 34.72704,0"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc">
+    <title
+       id="title410">R22:R22</title>
+  </path>
+  <rect
+     x="365"
+     y="468"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect414"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="357"
+     y="468"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect416"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="373"
+     y="468"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect418"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="R23r"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="M 423.68411,465 475,465 l 0,30"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccc">
+    <title
+       id="title423">R23r:R23r</title>
+  </path>
+  <rect
+     x="450"
+     y="468"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect427"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="442"
+     y="468"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect429"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="458"
+     y="468"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect431"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="R24"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     d="m 475,506 0,24"
+     inkscape:connector-curvature="0">
+    <title
+       id="title436">R24:R24</title>
+  </path>
+  <rect
+     x="467"
+     y="515"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect440"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="467"
+     y="507"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect442"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="467"
+     y="523"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect444"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="R25"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     d="m 475,543 0,29 -13.40655,0"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccc">
+    <title
+       id="title449">R25:R25</title>
+  </path>
+  <rect
+     x="467"
+     y="554"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect453"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="467"
+     y="546"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect455"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="467"
+     y="562"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect457"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="R26r"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     d="m 401.62403,572 -19.58656,0"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc">
+    <title
+       id="title462">R26r:R26r</title>
+  </path>
+  <rect
+     x="385"
+     y="575"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect466"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="377"
+     y="575"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect468"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="393"
+     y="575"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect470"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="R95"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     d="m 350,577 0,25"
+     inkscape:connector-curvature="0">
+    <title
+       id="title475">R95:R95</title>
+  </path>
+  <path
+     id="R27"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 334,570 -22,0 0,-27"
+     inkscape:connector-curvature="0">
+    <title
+       id="title482">R27:R27</title>
+  </path>
+  <rect
+     x="302"
+     y="555"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect486"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="302"
+     y="547"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect488"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="302"
+     y="563"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect490"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="R27b"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 308,543 0,31 26,0"
+     inkscape:connector-curvature="0">
+    <title
+       id="title495">R27b:R27b</title>
+  </path>
+  <rect
+     x="302"
+     y="555"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect499"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="302"
+     y="547"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect501"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="302"
+     y="563"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect503"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="R28r"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 310,531 0,-25"
+     inkscape:connector-curvature="0">
+    <title
+       id="title508">R28r:R28r</title>
+  </path>
+  <rect
+     x="302"
+     y="515"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect512"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="302"
+     y="507"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect514"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="302"
+     y="523"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect516"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="R29r"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 310,491 0,-27 7,0"
+     inkscape:connector-curvature="0">
+    <title
+       id="title521">R29r:R29r</title>
+  </path>
+  <rect
+     x="313"
+     y="476"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect525"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="313"
+     y="468"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect527"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="313"
+     y="484"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect529"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="R40"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     d="m 347,342 -14,0 0,109"
+     inkscape:connector-curvature="0">
+    <title
+       id="title534">R40:R40</title>
+  </path>
+  <rect
+     x="337"
+     y="354"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect538"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="337"
+     y="346"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect540"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="337"
+     y="362"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect542"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="R42"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     d="m 329,451 0,-113 17.05265,0"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccc">
+    <title
+       id="title547">R42:R42</title>
+  </path>
+  <rect
+     x="322"
+     y="354"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect551"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="322"
+     y="346"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect553"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="322"
+     y="362"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect555"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="R41"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     d="m 305,491 0,-115.54134 35.3083,0"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccc">
+    <title
+       id="title560">R41:R41</title>
+  </path>
+  <rect
+     x="297"
+     y="476"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect564"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="297"
+     y="468"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect566"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="297"
+     y="484"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect568"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="R55a"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     d="m 371.52631,442 10,0"
+     inkscape:connector-curvature="0">
+    <title
+       id="title573">R55a:R55a</title>
+  </path>
+  <path
+     id="R55b"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     d="m 408,442 10,0"
+     inkscape:connector-curvature="0">
+    <title
+       id="title580">R55b:R55b</title>
+  </path>
+  <path
+     id="R91"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     d="m 454.21828,441.83127 25.01709,0"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc">
+    <title
+       id="title587">R91:R91</title>
+  </path>
+  <path
+     id="R54ra"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="M 368,434.76696 368,417 l 9.03445,0"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccc">
+    <title
+       id="title594">R54ra:R54ra</title>
+  </path>
+  <path
+     id="R54rb"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 408,417 10,0"
+     inkscape:connector-curvature="0">
+    <title
+       id="title601">R54rb:R54rb</title>
+  </path>
+  <path
+     id="R90"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     d="m 453.46002,417 25.43789,0"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc">
+    <title
+       id="title608">R90:R90</title>
+  </path>
+  <path
+     id="R53r"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 383.41344,374 21.21059,0"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc">
+    <title
+       id="title615">R53r:R53r</title>
+  </path>
+  <rect
+     x="389"
+     y="378"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect619"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="381"
+     y="378"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect621"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="397"
+     y="378"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect623"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="R94"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     d="m 441.03716,374.50619 37.02948,0"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc">
+    <title
+       id="title628">R94:R94</title>
+  </path>
+  <path
+     id="R82"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     d="m 178,174 25,0"
+     inkscape:connector-curvature="0">
+    <title
+       id="title635">R82:R82</title>
+  </path>
+  <rect
+     x="189"
+     y="178"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect639"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="181"
+     y="178"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect641"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="197"
+     y="178"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect643"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <path
+     id="R80"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     d="m 178,204 25,0"
+     inkscape:connector-curvature="0">
+    <title
+       id="title648">R80:R80</title>
+  </path>
+  <path
+     id="path650"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+     d="m 175,219 q 15,-30 30,0"
+     inkscape:connector-curvature="0">
+    <title
+       id="title652">R80:R80</title>
+  </path>
+  <g
+     id="g3829">
+    <g
+       transform="translate(0,-71)"
+       id="g72">
+      <path
+         id="R93"
+         style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1;stroke-dasharray:0.91980253, 0.91980253;marker-end:url(#se_marker_end_svg_1)"
+         d="m 30,468 25,0"
+         inkscape:connector-curvature="0">
+        <title
+           id="title75">R93:R93</title>
+      </path>
+      <!-- substrate : NH3_ext -->
+      <!-- product : NH3 -->
+      <text
+         x="43"
+         y="464"
+         font-size="7"
+         style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-opacity:0;"
+         id="text77">ex_nh3</text>
+    </g>
+    <text
+       id="text164"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="190"
+       x="380">tim</text>
+    <text
+       x="135"
+       y="393"
+       font-size="7"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       id="text70">biomass</text>
+    <text
+       id="text101"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="70"
+       x="388">RPTSsy</text>
+    <text
+       id="text108"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="106"
+       x="384">pgi</text>
+    <text
+       id="text121"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:end;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="141"
+       x="375">pfk</text>
+    <text
+       id="text134"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="141"
+       x="387">fbp</text>
+    <text
+       id="text151"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="174"
+       x="386">ald</text>
+    <text
+       id="text177"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="210"
+       x="360">gap</text>
+    <text
+       id="text184"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="244"
+       x="360">pgk</text>
+    <text
+       id="text191"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="278"
+       x="360">pgm</text>
+    <text
+       id="text198"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="318"
+       x="360">pgh</text>
+    <text
+       id="text211"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="359"
+       x="341">pyk</text>
+    <text
+       id="text224"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="359"
+       x="362">pps</text>
+    <text
+       id="text237"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="82"
+       x="365">zwf</text>
+    <text
+       id="text250"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="82"
+       x="310">glh</text>
+    <text
+       id="text263"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="144"
+       x="275">edd</text>
+    <text
+       id="text274"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="190"
+       x="313">eda</text>
+    <text
+       id="text281"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="82"
+       x="260">pgd</text>
+    <text
+       id="text294"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="111"
+       x="206">rpe</text>
+    <text
+       id="text307"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="67"
+       x="206">rpi</text>
+    <text
+       id="text324"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:end;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="81.96254"
+       x="163.87177">txt1</text>
+    <text
+       id="text341"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:end;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="82.909897"
+       x="111.16505">tal</text>
+    <text
+       id="text358"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:end;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="31.285851"
+       x="63.706394">txt2</text>
+    <text
+       id="text371"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="396"
+       x="340">pdh</text>
+    <text
+       id="text388"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="394"
+       x="377">pfl</text>
+    <text
+       id="text401"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="390.81888"
+       x="462">ex_for</text>
+    <text
+       id="text412"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="473"
+       x="356">csn</text>
+    <text
+       id="text425"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="462"
+       x="435">acn</text>
+    <text
+       id="text438"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="519"
+       x="478">icd</text>
+    <text
+       id="text451"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="558"
+       x="478">kgd</text>
+    <text
+       id="text464"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="581"
+       x="391">scs</text>
+    <text
+       id="text477"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="591"
+       x="354">ex_suc</text>
+    <text
+       id="text484"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:start;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="556"
+       x="315">sdh</text>
+    <text
+       id="text497"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="556"
+       x="300">frd</text>
+    <text
+       id="text510"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="519"
+       x="313">fum</text>
+    <text
+       id="text523"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="479"
+       x="313">mdh</text>
+    <text
+       id="text536"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="424"
+       x="335">ppc</text>
+    <text
+       id="text549"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="335"
+       x="330">ppck</text>
+    <text
+       id="text562"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="372"
+       x="302">me</text>
+    <text
+       id="text575"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="437"
+       x="378">pta</text>
+    <text
+       id="text582"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="437"
+       x="413">ack</text>
+    <text
+       id="text589"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="437"
+       x="464.4938">ex_ace</text>
+    <text
+       id="text596"
+       style="font-size:5.83038282px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="413.06915"
+       x="372.98172">
+      <tspan
+         id="tspan5276"
+         style="font-size:7px;fill:#ff0000">ada</tspan>
+    </text>
+    <text
+       id="text603"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="412.83527"
+       x="413">adh</text>
+    <text
+       id="text610"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="412.83527"
+       x="465">ex_etoh</text>
+    <text
+       id="text617"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="370"
+       x="390">ldh</text>
+    <text
+       id="text630"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="370"
+       x="462.33984">ex_lac</text>
+    <text
+       id="text637"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="170"
+       x="190">atpmain</text>
+    <text
+       id="text654"
+       style="font-size:7px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-opacity:0"
+       font-size="7"
+       y="200"
+       x="190">oxphos</text>
+  </g>
+  <rect
+     x="189"
+     y="196"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect656"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="181"
+     y="196"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect658"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <rect
+     x="197"
+     y="196"
+     width="4.5"
+     height="4.5"
+     rx="1"
+     ry="1"
+     id="rect660"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-opacity:0" />
+  <text
+     id="ATP"
+     x="157"
+     y="176"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">ATP<title
+   id="title665">ATP</title>
+</text>
+  <text
+     id="ADP"
+     x="207"
+     y="176"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">ADP<title
+   id="title670">ADP</title>
+</text>
+  <text
+     id="text674"
+     x="153"
+     y="206"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">2 ADP<title
+   id="title676">ADP</title>
+</text>
+  <text
+     id="text680"
+     x="207"
+     y="206"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">2 ATP<title
+   id="title682">ATP</title>
+</text>
+  <text
+     id="NADH"
+     x="157"
+     y="226"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">NADH<title
+   id="title687">NADH</title>
+</text>
+  <text
+     id="NAD"
+     x="207"
+     y="226"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">NAD+<title
+   id="title692">NAD</title>
+</text>
+  <text
+     id="GLU_ext"
+     x="369"
+     y="54"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">Glucose<title
+   id="title697">GLU_ext</title>
+</text>
+  <text
+     id="GLU_6_P"
+     x="375"
+     y="89"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-decoration: underline;text-decoration-line: underline;fill:#000000"
+     text-decoration="underline">G6P<title
+   id="title702">GLU_6_P</title>
+</text>
+  <text
+     id="GLULAC_6_P"
+     x="325"
+     y="89"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">6PGL<title
+   id="title707">GLULAC_6_P</title>
+</text>
+  <text
+     id="GLUCO_6_P"
+     x="275"
+     y="89"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">6PGC<title
+   id="title712">GLUCO_6_P</title>
+</text>
+  <text
+     id="KDPG"
+     x="275"
+     y="197"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">KDPG<title
+   id="title717">KDPG</title>
+</text>
+  <text
+     id="PEP"
+     x="395"
+     y="62"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">PEP<title
+   id="title722">PEP</title>
+</text>
+  <text
+     id="PYR"
+     x="395"
+     y="82"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">Pyruvate<title
+   id="title727">PYR</title>
+</text>
+  <text
+     id="FRU_6_P"
+     x="375"
+     y="125"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">F6P<title
+   id="title732">FRU_6_P</title>
+</text>
+  <text
+     id="text736"
+     x="75"
+     y="114"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">F6P<title
+   id="title738">FRU_6_P</title>
+</text>
+  <text
+     id="text742"
+     x="25"
+     y="19"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">F6P<title
+   id="title744">FRU_6_P</title>
+</text>
+  <text
+     id="FRU_BIS_P"
+     x="375"
+     y="161"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">FBP<title
+   id="title749">FRU_BIS_P</title>
+</text>
+  <text
+     id="GA_3P"
+     x="350"
+     y="197"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">G3P<title
+   id="title754">GA_3P</title>
+</text>
+  <text
+     id="text758"
+     x="125"
+     y="64"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">G3P<title
+   id="title760">GA_3P</title>
+</text>
+  <text
+     id="text764"
+     x="25"
+     y="64"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">G3P<title
+   id="title766">GA_3P</title>
+</text>
+  <text
+     id="text770"
+     x="350"
+     y="231"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">BPG<title
+   id="title772">BPG</title>
+</text>
+  <text
+     id="text776"
+     x="350"
+     y="264"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">3PG<title
+   id="title778">3PG</title>
+</text>
+  <text
+     id="DHAP"
+     x="400"
+     y="197"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">DHAP<title
+   id="title783">DHAP</title>
+</text>
+  <text
+     id="PG"
+     x="350"
+     y="299"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">2PG<title
+   id="title788">2PG</title>
+</text>
+  <text
+     id="text792"
+     x="350"
+     y="341"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-decoration: underline;text-decoration-line: underline;fill:#000000"
+     text-decoration="underline">
+    <tspan
+       style="-inkscape-font-specification:sans-serif;font-family:sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
+       id="tspan3777">PEP</tspan>
+    <title
+       id="title794"
+       style="-inkscape-font-specification:sans-serif;font-family:sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">PEP</title>
+  </text>
+  <text
+     id="text798"
+     x="344"
+     y="376"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-decoration: underline;text-decoration-line: underline;fill:#000000"
+     text-decoration="underline">Pyruvate<title
+   id="title800">PYR</title>
+</text>
+  <text
+     id="XYL_5_P"
+     x="175"
+     y="114"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">X5P<title
+   id="title805">XYL_5_P</title>
+</text>
+  <text
+     id="text809"
+     x="75"
+     y="19"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">X5P<title
+   id="title811">XYL_5_P</title>
+</text>
+  <text
+     id="RIBOSE_5_P:RIBOSE_5_P"
+     x="177"
+     y="64"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-decoration: underline;text-decoration-line: underline;fill:#000000"
+     text-decoration="underline">R5P<title
+   id="title816">RIBOSE_5_P:RIBOSE_5_P</title>
+</text>
+  <text
+     id="SED_7_P"
+     x="125"
+     y="114"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">S7P<title
+   id="title821">SED_7_P</title>
+</text>
+  <text
+     id="ERYTH_4_P"
+     x="75"
+     y="64"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-decoration: underline;text-decoration-line: underline;fill:#000000"
+     text-decoration="underline">E4P<title
+   id="title826">ERYTH_4_P</title>
+</text>
+  <text
+     id="ACETYL_CoA"
+     x="344"
+     y="444"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-decoration: underline;text-decoration-line: underline;fill:#000000"
+     text-decoration="underline">AcCoA<title
+   id="title831">ACETYL_CoA</title>
+</text>
+  <text
+     id="ACETYLP"
+     x="385"
+     y="444"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">Ace-P<title
+   id="title836">ACETYLP</title>
+</text>
+  <text
+     id="ACALD"
+     x="381.71594"
+     y="419"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">Acald<title
+   id="title841">ACALD</title>
+</text>
+  <text
+     id="CITRATE"
+     x="392.91724"
+     y="467"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">Citrate<title
+   id="title846">CITRATE</title>
+</text>
+  <text
+     id="ISOCIT"
+     x="457"
+     y="504"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">iso-Citrate<title
+   id="title851">ISOCIT</title>
+</text>
+  <text
+     id="AKG"
+     x="450"
+     y="539"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-decoration: underline;text-decoration-line: underline;fill:#000000"
+     text-decoration="underline">2-oxoglutarate<title
+   id="title856">AKG</title>
+</text>
+  <text
+     id="SUCC_CoA"
+     x="405"
+     y="574"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">Succinyl-CoA<title
+   id="title861">SUCC_CoA</title>
+</text>
+  <text
+     id="SUCC"
+     x="337"
+     y="574"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">Succinate<title
+   id="title866">SUCC</title>
+</text>
+  <text
+     id="SUCC_ext"
+     x="337"
+     y="609"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">Succinate[e]<title
+   id="title871">SUCC_ext</title>
+</text>
+  <text
+     id="FUMARATE"
+     x="295"
+     y="539"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">Fumarate<title
+   id="title876">FUMARATE</title>
+</text>
+  <text
+     id="MALATE"
+     x="298"
+     y="501"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">Malate<title
+   id="title881">MALATE</title>
+</text>
+  <text
+     id="OXALO"
+     x="320"
+     y="461"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-decoration: underline;text-decoration-line: underline;fill:#000000"
+     text-decoration="underline">Oxalo<title
+   id="title886">OXALO</title>
+</text>
+  <text
+     id="text890"
+     x="320"
+     y="469"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-decoration: underline;text-decoration-line: underline;fill:#000000"
+     text-decoration="underline">acetate<title
+   id="title892">OXALO</title>
+</text>
+  <text
+     id="RIBULOSE_5_P:RIBULOSE_5_P"
+     x="225"
+     y="89"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">Ru5P<title
+   id="title897">RIBULOSE_5_P:RIBULOSE_5_P</title>
+</text>
+  <text
+     id="LACTATE"
+     x="409"
+     y="377"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">Lactate<title
+   id="title902">LACTATE</title>
+</text>
+  <text
+     id="LACTATE_ext"
+     x="483"
+     y="377"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">Lactate[e]<title
+   id="title907">LACTATE_ext</title>
+</text>
+  <text
+     id="FORMATE"
+     x="409"
+     y="397"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">Formate<title
+   id="title912">FORMATE</title>
+</text>
+  <text
+     id="FORMATE_ext"
+     x="483"
+     y="397"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">Formate[e]<title
+   id="title917">FORMATE_ext</title>
+</text>
+  <text
+     id="ETOH"
+     x="422"
+     y="419"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">Ethanol<title
+   id="title922">ETOH</title>
+</text>
+  <text
+     id="ETOH_ext"
+     x="483"
+     y="419"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">Ethanol[e]<title
+   id="title927">ETOH_ext</title>
+</text>
+  <text
+     id="ACETATE"
+     x="422"
+     y="444"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">Acetate<title
+   id="title932">ACETATE</title>
+</text>
+  <text
+     id="ACETATE_ext"
+     x="483"
+     y="444"
+     font-size="8"
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000">Acetate[e]<title
+   id="title937">ACETATE_ext</title>
+</text>
+  <text
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000"
+     font-size="8"
+     y="319"
+     x="60"
+     id="text941">Pyruvate<title
+   id="title943">PYR</title>
+</text>
+  <text
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000"
+     font-size="8"
+     y="339"
+     x="60"
+     id="text947">PEP<title
+   id="title949">PEP</title>
+</text>
+  <text
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000"
+     font-size="8"
+     y="359"
+     x="60"
+     id="text953">Oxaloacetate<title
+   id="title955">OXALO</title>
+</text>
+  <text
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000"
+     font-size="8"
+     y="379"
+     x="60"
+     id="text959">2-oxoglutarate<title
+   id="title961">AKG</title>
+</text>
+  <text
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000"
+     font-size="8"
+     y="399"
+     x="60"
+     id="NH3">NH3<title
+   id="title966">NH3</title>
+</text>
+  <text
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000"
+     font-size="8"
+     y="419"
+     x="60"
+     id="text970">AcCoA<title
+   id="title972">ACETYL_CoA</title>
+</text>
+  <text
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000"
+     font-size="8"
+     y="439"
+     x="60"
+     id="text976">E4P<title
+   id="title978">ERYTH_4_P</title>
+</text>
+  <text
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000"
+     font-size="8"
+     y="459"
+     x="60"
+     id="text982">R5P<title
+   id="title984">RIBOSE_5_P:RIBOSE_5_P</title>
+</text>
+  <text
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000"
+     font-size="8"
+     y="479"
+     x="60"
+     id="text988">G6P<title
+   id="title990">GLU_6_P</title>
+</text>
+  <text
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000"
+     font-size="8"
+     y="379"
+     x="175"
+     id="text994">ATP<title
+   id="title996">ATP</title>
+</text>
+  <text
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000"
+     font-size="8"
+     y="421"
+     x="175"
+     id="text1000">NADH<title
+   id="title1002">NADH</title>
+</text>
+  <text
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000"
+     font-size="8"
+     y="421"
+     x="205"
+     id="text1006">NAD+<title
+   id="title1008">NAD</title>
+</text>
+  <text
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000"
+     font-size="8"
+     y="379"
+     x="205"
+     id="text1012">ADP<title
+   id="title1014">ADP</title>
+</text>
+  <text
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000"
+     font-size="8"
+     y="379"
+     x="230"
+     id="CO2">CO2<title
+   id="title1019">CO2</title>
+</text>
+  <text
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000"
+     font-size="8"
+     y="421"
+     x="230"
+     id="CoASH">CoA<title
+   id="title1024">CoASH</title>
+</text>
+  <text
+     style="font-size:8px;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000"
+     font-size="8"
+     y="399"
+     x="250"
+     id="M_biomass_c">Biomass<title
+   id="title1029">biomass</title>
+</text>
+</svg>
