@@ -239,7 +239,7 @@ if False:
                        {'title': 'ammonia uptake', 'c': D.NH3_L},
                        {'title': 'ED pathway', 'c': D.ED_L},
                        {'title': 'pentose phosphate pathway', 'c': D.PPP_L},
-                       {'title': 'upper glycolysis', 'c': D.UPPER_GLYCOLYSIS_L, 'cmap': 'RdBu'},
+                       {'title': 'upper glycolysis', 'c': D.UPPER_GLYCOLYSIS_L, 'cmap': 'coolwarm'},
                        {'title': 'pyruvate dehydrogenase', 'c': D.PDH_L}
                        ]
     data = figure_data['standard']
@@ -249,7 +249,7 @@ if False:
                     size=20)
         D.plot_basic_pareto(data, ax=ax,
                             x=D.YIELD_L, y=D.GROWTH_RATE_L,
-                            c=d['c'], cmap=d.get('cmap', 'magma_r'),
+                            c=d['c'], cmap=d.get('cmap', 'copper_r'),
                             linewidth=0, s=20)
         ax.set_title(d['title'])
         ax.set_xlim(-1e-3, 1.05*data[D.YIELD_L].max())
