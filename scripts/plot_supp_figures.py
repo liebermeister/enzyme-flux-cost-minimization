@@ -65,6 +65,9 @@ if False:
     axS1[0].annotate('a', xy=(0.02, 0.98),
                      xycoords='axes fraction', ha='left', va='top',
                      size=20)
+    for y in xrange(0, 14, 2):
+        axS1[0].plot([-1e-3, 1.1*data[D.YIELD_L].max()], [y, y], 'k-',
+                     alpha=0.2)
 
     D.plot_basic_pareto(data, axS1[1], x=D.YIELD_L, y=D.GROWTH_RATE_L,
                         facecolors=D.PARETO_NEUTRAL_COLOR, edgecolors='none')
@@ -74,6 +77,10 @@ if False:
     axS1[1].annotate('b', xy=(0.02, 0.98),
                      xycoords='axes fraction', ha='left', va='top',
                      size=20)
+
+    for y in map(D.GR_FUNCTION, xrange(0, 18, 2)):
+        axS1[1].plot([-1e-3, 1.1*data[D.YIELD_L].max()], [y, y], 'k-',
+                     alpha=0.2)
 
     figS1.tight_layout()
     figS1.savefig(os.path.join(D.OUTPUT_DIR, 'FigS1.pdf'))
