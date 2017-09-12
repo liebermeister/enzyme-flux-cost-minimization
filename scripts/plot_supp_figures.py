@@ -58,8 +58,7 @@ if False:
     # remove oxygen-sensitive EFMs
     data.loc[data[D.STRICTLY_ANAEROBIC_L], D.GROWTH_RATE_L] = 0
     D.plot_basic_pareto(data, axS1[0], x=D.YIELD_L, y=D.BIOMASS_PROD_PER_ENZ_L,
-                        facecolors=D.PARETO_NEUTRAL_COLOR, edgecolors='none',
-                        mark_pareto=False)
+                        facecolors=D.PARETO_NEUTRAL_COLOR, edgecolors='none')
     axS1[0].set_xlim(-1e-3, 1.1*data[D.YIELD_L].max())
     axS1[0].set_ylim(-1e-3, 1.15*data[D.BIOMASS_PROD_PER_ENZ_L].max())
     axS1[0].set_title('glucose = 100 mM, O$_2$ = 3.7 mM')
@@ -68,8 +67,7 @@ if False:
                      size=20)
 
     D.plot_basic_pareto(data, axS1[1], x=D.YIELD_L, y=D.GROWTH_RATE_L,
-                        facecolors=D.PARETO_NEUTRAL_COLOR, edgecolors='none',
-                        mark_pareto=False)
+                        facecolors=D.PARETO_NEUTRAL_COLOR, edgecolors='none')
     axS1[1].set_xlim(-1e-3, 1.1*data[D.YIELD_L].max())
     axS1[1].set_ylim(-1e-3, 1.15*data[D.GROWTH_RATE_L].max())
     axS1[1].set_title('glucose = 100 mM, O$_2$ = 3.7 mM')
@@ -87,7 +85,7 @@ if False:
     inds_to_remove = data.isnull().any(axis=1) | data[D.STRICTLY_ANAEROBIC_L]
     data = data.loc[~inds_to_remove, :]
     D.plot_basic_pareto(data, x=D.TOT_FLUX_SA_L, y=D.TOT_ENZYME_L,
-                        ax=axS3, mark_pareto=False, edgecolors='none',
+                        ax=axS3, edgecolors='none',
                         facecolors=D.PARETO_NEUTRAL_COLOR)
     axS3.set_xscale('log')
     axS3.set_yscale('log')

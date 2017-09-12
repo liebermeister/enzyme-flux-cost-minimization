@@ -34,8 +34,7 @@ data = figure_data['standard']
 data.loc[data[D.STRICTLY_ANAEROBIC_L], D.GROWTH_RATE_L] = 0
 D.plot_basic_pareto(data, ax2c, x=D.YIELD_L, y=D.GROWTH_RATE_L,
                     efm_dict=D.efm_dict,
-                    facecolors=D.PARETO_NEUTRAL_COLOR, edgecolors='none',
-                    mark_pareto=False)
+                    facecolors=D.PARETO_NEUTRAL_COLOR, edgecolors='none')
 ax2c.set_xlim(-1e-3, 1.1*data[D.YIELD_L].max())
 ax2c.set_ylim(-1e-3, 1.15*data[D.GROWTH_RATE_L].max())
 ax2c.set_title('glucose = 100 mM, O$_2$ = 3.7 mM')

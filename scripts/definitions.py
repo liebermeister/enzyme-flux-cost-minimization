@@ -219,7 +219,11 @@ def pareto_cmap(h_mid):
         'bright-color-dark', [PARETO_CMAP_LOWEST, rgb_mid, PARETO_CMAP_HIGHEST])
 
 def plot_basic_pareto(data, ax, x, y, s=10, marker='o', c=None,
-                      mark_pareto=False, efm_dict=None, show_efm_labels=True,
+                      facecolors=(0.85, 0.85, 0.85), edgecolors='none',
+                      paretofacecolors='none', paretoedgecolors='none',
+                      paretosize=20,
+                      efm_dict=None,
+                      show_efm_labels=True,
                       **kwargs):
     """
         make plot gr vs yield for all EFMs
@@ -230,12 +234,16 @@ def plot_basic_pareto(data, ax, x, y, s=10, marker='o', c=None,
         # if the c-value of all the data points is 0, use gray color
         # (otherwise, by default, the cmap will give 0 the middle color)
         cdata = data.loc[:, c]
-        CS = ax.scatter(xdata, ydata, s=s, c=cdata, marker=marker, **kwargs)
+        CS = ax.scatter(xdata, ydata, s=s, c=cdata, marker=marker,
+                        facecolors=facecolors, edgecolors=edgecolors,
+                        **kwargs)
         cbar = plt.colorbar(CS, ax=ax)
         cbar.set_label(c)
     else:
         cdata = None
-        CS = ax.scatter(xdata, ydata, s=s, marker=marker, **kwargs)
+        CS = ax.scatter(xdata, ydata, s=s, marker=marker,
+                        facecolors=facecolors, edgecolors=edgecolors,
+                        **kwargs)
     ax.set_xlabel(x)
     ax.set_ylabel(y)
 
@@ -247,18 +255,18 @@ def plot_basic_pareto(data, ax, x, y, s=10, marker='o', c=None,
                 if show_efm_labels:
                     ax.annotate(lab, xy=(data.at[efm, x], data.at[efm, y]),
                                 xytext=(0, 5), textcoords='offset points',
-                                ha='center', va='bottom', color=col,
-                                bbox=dict(boxstyle="round", fc="w", alpha=0.5))
+                                ha='center', va='bottom', color=col)
 
-    if mark_pareto:
+    if paretofacecolors != 'none' or paretoedgecolors != 'none':
         # find the EFMs which are on the pareto front and mark them
-        last_x = -np.inf
+        pareto_xy = []
         for i in ydata.sort_values(ascending=False).index:
-            if data[x][i] > last_x:
-                last_x = data[x][i]
-                ax.text(data[x][i], data[y][i], '%d' % i, fontsize=10)
-                ax.plot(data[x][i], data[y][i], markersize=5, marker=marker,
-                        color='k', label=None)
+            if pareto_xy == [] or data[x][i] > pareto_xy[-1][0]:
+                pareto_xy.append((data[x][i], data[y][i]))
+
+        xpareto, ypareto = zip(*pareto_xy)
+        ax.scatter(xpareto, ypareto, s=paretosize, marker=marker,
+                   facecolors=paretofacecolors, edgecolors=paretoedgecolors)
     return CS
 
 def plot_dual_pareto(data0, label0, data1, label1, ax, x, y,
@@ -275,13 +283,24 @@ def plot_dual_pareto(data0, label0, data1, label1, ax, x, y,
         c1 = D.PARETO_STRONG_COLOR
 
     # a grey Pareto plot for data0
-    ax.scatter(data0.loc[:, x], data0.loc[:, y], s=s,
-               marker='o', edgecolor=c0,
-               color='none', label=label0)
+    plot_basic_pareto(data0, ax, x, y, s=s, marker=marker,
+                      edgecolors=(1, 0.7, 0.7),
+                      facecolors=(1, 0.7, 0.7),
+                      paretofacecolors=(0.5, 0, 0),
+                      paretoedgecolors=(0.5, 0, 0),
+                      paretosize=30,
+                      label=label0, show_efm_labels=False,
+                      **kwargs)
 
     # a full-blown Pareto plot for data1
     plot_basic_pareto(data1, ax, x, y, s=s, marker=marker,
-                      color=c1, label=label1, **kwargs)
+                      edgecolors=(0.7, 0.7, 1),
+                      facecolors=(0.7, 0.7, 1),
+                      paretofacecolors=(0, 0, 0.5),
+                      paretoedgecolors=(0, 0, 0.5),
+                      paretosize=30,
+                      label=label1, show_efm_labels=False,
+                      **kwargs)
 
     # add lines connecting the two conditions
     if draw_lines:

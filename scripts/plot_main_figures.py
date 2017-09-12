@@ -28,10 +28,9 @@ if False:
     data.loc[data[D.STRICTLY_ANAEROBIC_L], D.GROWTH_RATE_L] = 0
     D.plot_basic_pareto(data, ax2c, x=D.YIELD_L, y=D.GROWTH_RATE_L,
                         efm_dict=D.efm_dict,
-                        facecolors=D.PARETO_NEUTRAL_COLOR, edgecolors='none',
-                        mark_pareto=False)
+                        paretofacecolors='k', alpha=1)
     ax2c.set_xlim(-1e-3, 1.1*data[D.YIELD_L].max())
-    ax2c.set_ylim(-1e-3, 1.15*data[D.GROWTH_RATE_L].max())
+    ax2c.set_ylim(-1e-3, 1.2*data[D.GROWTH_RATE_L].max())
     ax2c.set_title('glucose = %g mM, O$_2$ = %g mM' %
                    (D.STD_CONC['glucoseExt'], D.STD_CONC['oxygen']))
     fig2c.tight_layout()
@@ -87,7 +86,7 @@ if False:
                     size=20, color='k')
 
     plot_oxygen_dual_pareto(figure_data['standard'], ax4a,
-                            draw_lines=False, s=20)
+                            draw_lines=False, s=10)
     ax4b.set_ylim(0, 0.9)
     plot_oxygen_sweep(ax4b)
 
