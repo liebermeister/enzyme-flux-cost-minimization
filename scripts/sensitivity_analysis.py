@@ -454,7 +454,8 @@ class Sensitivity(object):
         ax.set_xlabel(D.YIELD_L)
 
         # start by plotting the Pareto plot of all EFMs
-        ax.scatter(self.yield_df.values, self.growth_rate.values, s=3, color=(0.8, 0.8, 0.8))
+        ax.scatter(self.yield_df.values, self.growth_rate.values, s=3,
+                   color=(0.8, 0.8, 0.8))
 
         # calculate the errorbars using the scaled sensitivity
         reaction_data_df = self.efm_data_df[self.efm_data_df['reaction'] == reaction]
@@ -462,8 +463,10 @@ class Sensitivity(object):
         xdata = reaction_data_df[D.YIELD_L].values
         ydata = reaction_data_df[D.GROWTH_RATE_L].values
 
-        # here we need to add the derivative of the GR_FUNCTION (since it is not linear anymore)
-        yerr = reaction_data_df[D.GROWTH_RATE_L] * reaction_data_df['dlogq/dlogk'] * (percent/100.0)
+        # here we need to add the derivative of the GR_FUNCTION 
+        # (since it is not linear anymore)
+        yerr = reaction_data_df[D.GROWTH_RATE_L] * \
+               reaction_data_df['dlogq/dlogk'] * (percent/100.0)
         yerr = yerr.values
 
         ax.errorbar(xdata, ydata, yerr=yerr, fmt='.', capsize=3, capthick=0.5,

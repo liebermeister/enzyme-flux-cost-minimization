@@ -698,7 +698,7 @@ def plot_oxygen_dual_pareto(data_df, ax, s=9,
 
 def plot_glucose_dual_pareto(data_df, ax,
                              std_glu=None, low_glu=None, std_ox=None,
-                             show_efm_labels=False):
+                             draw_lines=True):
     std_glu = std_glu or D.STD_CONC['glucoseExt']
     low_glu = low_glu or D.LOW_CONC['glucoseExt']
     std_ox = std_ox or D.STD_CONC['oxygen']
@@ -718,7 +718,7 @@ def plot_glucose_dual_pareto(data_df, ax,
     D.plot_dual_pareto(std_glu_df, 'std. glucose (100 mM)',
                        low_glu_df, 'low glucose (%g mM)' % low_glu,
                        s=9, ax=ax, x=D.YIELD_L, y=D.GROWTH_RATE_L,
-                       efm_dict=D.efm_dict, show_efm_labels=show_efm_labels)
+                       draw_lines=draw_lines)
     ax.set_xlim(-1e-3, None)
     ax.set_ylim(-1e-3, None)
 

@@ -67,18 +67,18 @@ if False:
                             c=d['c'], ax=d['ax'], cmap='copper_r')
 
     fig3.tight_layout(h_pad=0.2)
-    fig3.savefig(os.path.join(D.OUTPUT_DIR, 'Fig3.pdf'))
+    fig3.savefig(os.path.join(D.OUTPUT_DIR, 'Fig3.eps'))
 
     # %% Figure 4 - glucose & oxygen sweeps
 
-    fig4 = plt.figure(figsize=(11, 15))
+    fig4 = plt.figure(figsize=(15, 10))
 
-    ax4a = fig4.add_subplot(3, 2, 1, xscale='linear', yscale='linear')
-    ax4b = fig4.add_subplot(3, 2, 2, xscale='log', yscale='linear', sharey=ax4a)
-    ax4c = fig4.add_subplot(3, 2, 3, projection='3d')
-    ax4d = fig4.add_subplot(3, 2, 4, projection='3d')
-    ax4e = fig4.add_subplot(3, 2, 5, projection='3d')
-    ax4f = fig4.add_subplot(3, 2, 6, projection='3d')
+    ax4a = fig4.add_subplot(2, 3, 1, xscale='linear', yscale='linear')
+    ax4b = fig4.add_subplot(2, 3, 2, xscale='log', yscale='linear', sharey=ax4a)
+    ax4c = fig4.add_subplot(2, 3, 3, projection='3d')
+    ax4d = fig4.add_subplot(2, 3, 4, projection='3d')
+    ax4e = fig4.add_subplot(2, 3, 5, projection='3d')
+    ax4f = fig4.add_subplot(2, 3, 6, projection='3d')
 
     for i, ax in enumerate([ax4a, ax4b, ax4c, ax4d, ax4e, ax4f]):
         ax.annotate(chr(ord('a')+i), xy=(0.04, 0.98),
@@ -97,7 +97,7 @@ if False:
     plot_surface(ax4f, figure_data['standard'], c=D.LACTATE_L, vmax=1.5)
 
     fig4.tight_layout(h_pad=3)
-    fig4.savefig(os.path.join(D.OUTPUT_DIR, 'Fig4.pdf'))
+    fig4.savefig(os.path.join(D.OUTPUT_DIR, 'Fig4.svg')) # use inkscape to convert to eps
 
     # %% histogram of all different EFM growth rates in a specific condition
     fig5 = plt.figure(figsize=(9, 4.8))
@@ -131,7 +131,7 @@ if False:
                   size=20, color='white')
 
     fig5.tight_layout()
-    fig5.savefig(os.path.join(D.OUTPUT_DIR, 'Fig5.pdf'))
+    fig5.savefig(os.path.join(D.OUTPUT_DIR, 'Fig5.eps'))
 
     # %% histogram of all different EFM growth rates in a specific condition
     fig6, axs6 = plt.subplots(2, 2, figsize=(7.5, 6), sharey=True, sharex=True)
@@ -172,4 +172,4 @@ if False:
     axs6[0, 0].get_xaxis().set_visible(False)
     axs6[0, 1].get_xaxis().set_visible(False)
 
-    fig6.savefig(os.path.join(D.OUTPUT_DIR, 'Fig6.pdf'))
+    fig6.savefig(os.path.join(D.OUTPUT_DIR, 'Fig6.eps'))

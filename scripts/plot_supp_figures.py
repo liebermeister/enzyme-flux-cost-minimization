@@ -204,13 +204,13 @@ if False:
     # Pareto plot of correlation between predicted and measured fluxes
     axS7[1, 0].set_title('Match with measured fluxes')
     D.plot_basic_pareto(data, axS7[1, 0], x=D.YIELD_L, y=D.GROWTH_RATE_L,
-                        c=CORR_FLUX_L, cmap='magma_r',
+                        c=CORR_FLUX_L, cmap='copper_r',
                         vmin=0, vmax=1, linewidth=0, s=30, edgecolor='k')
 
     # Pareto plot of correlation between predicted and measured enzyme levels
     axS7[1, 1].set_title('Match with measured enzyme abundance')
     D.plot_basic_pareto(data, axS7[1, 1], x=D.YIELD_L, y=D.GROWTH_RATE_L,
-                        c=CORR_ENZ_L, cmap='magma_r',
+                        c=CORR_ENZ_L, cmap='copper_r',
                         vmin=0, vmax=1, linewidth=0, s=30, edgecolor='k')
 
     annot_color = (0.1, 0.1, 0.8)
@@ -277,7 +277,7 @@ if False:
         D.plot_basic_pareto(data, ax=d['ax'],
                             x=D.YIELD_L, y=d['y'], efm_dict=D.efm_dict,
                             edgecolors='none',
-                            facecolors=D.PARETO_NEUTRAL_COLOR,
+                            facecolors=(0.85, 0.85, 0.85),
                             show_efm_labels=True)
         d['ax'].set_xlim(-0.1, None)
         d['ax'].set_ylim(d['ymin'], None)
@@ -298,7 +298,7 @@ if False:
     # %% SI Figure 11
     figS11, axS11 = plt.subplots(1, 1, figsize=(7, 7))
     plot_glucose_dual_pareto(figure_data['standard'], axS11,
-                             show_efm_labels=True)
+                             draw_lines=False)
     axS11.set_xlim(-1e-3, None)
     axS11.set_ylim(-1e-3, None)
     figS11.savefig(os.path.join(D.OUTPUT_DIR, 'FigS11.pdf'))
@@ -356,8 +356,7 @@ if False:
                         marker='o', color=col, label=None)
                 ax.annotate(lab, xy=(data.at[efm, x], gr[efm]),
                             xytext=(0, 5), textcoords='offset points',
-                            ha='center', va='bottom', color=col,
-                            bbox=dict(boxstyle="round", fc="w", alpha=0.5))
+                            ha='center', va='bottom', color=col)
 
     # plot the anaerobic condition data
     ax = axS14[1, 1]
@@ -380,8 +379,7 @@ if False:
                     marker='o', color=col, label=None)
             ax.annotate(lab, xy=(data.at[efm, x], gr[efm]),
                         xytext=(0, 5), textcoords='offset points',
-                        ha='center', va='bottom', color=col,
-                        bbox=dict(boxstyle="round", fc="w", alpha=0.5))
+                        ha='center', va='bottom', color=col)
     leg = ax.legend(loc='lower right', frameon=True)
     leg.get_frame().set_facecolor('#EEEEEE')
 
@@ -510,7 +508,7 @@ if False:
                        'low $k_{cat}$ (7.8 [$s^{-1}$])',
                        s=8,
                        ax=axS18[0], x=D.YIELD_L, y=D.GROWTH_RATE_L,
-                       efm_dict=D.efm_dict)
+                       draw_lines=False)
     axS18[0].set_xlim(0, None)
     axS18[0].legend(loc='upper center', fontsize=10)
 
@@ -605,7 +603,7 @@ if False:
     axS22b.set_title('exp')
 
     D.plot_basic_pareto(data, axS22a, x=D.YIELD_L, y=D.GROWTH_RATE_L,
-                        c=CORR_ENZ_L, cmap='magma_r',
+                        c=CORR_ENZ_L, cmap='copper_r',
                         vmin=0, linewidth=0, s=30, edgecolor='k')
     for efm in D.efm_dict.keys():
         xy = np.array(data.loc[efm, [D.YIELD_L, D.GROWTH_RATE_L]].tolist())
