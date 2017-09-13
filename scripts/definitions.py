@@ -76,13 +76,14 @@ R_FORMATE_OUT = 'R96'
 R_SUCCINATE_OUT = 'R95'
 R_LACTATE_OUT = 'R94'
 R_NH3_IN = 'R93'
-R_OXYGEN_IN = ['R80', 'R27']
+R_OXYGEN_DEPENDENT = ['R80', 'R27'] # oxphos and sdh
+#R_OXYGEN_SENSITIVE = ['R20', 'R27b'] # pfl and frd
+R_OXYGEN_SENSITIVE = ['R20'] # pfl (without frd)
 R_MAINTENANCE = 'R82'
 R_PPP = 'R10a'
 R_TCA = 'R22'
 R_ED = 'R60'
 R_PDH = 'R21'
-R_PFL = 'R20'
 R_UPPER_GLYCOLYSIS = 'R5r'
 R_SUC_FUM_CYCLE = ['R27', 'R27b']
 
@@ -221,7 +222,7 @@ def pareto_cmap(h_mid):
 def plot_basic_pareto(data, ax, x, y, s=10, marker='o', c=None,
                       facecolors=(0.85, 0.85, 0.85), edgecolors='none',
                       paretofacecolors='none', paretoedgecolors='none',
-                      paretosize=20,
+                      paretosize=20, paretomarker='s',
                       efm_dict=None,
                       show_efm_labels=True,
                       **kwargs):
@@ -265,7 +266,7 @@ def plot_basic_pareto(data, ax, x, y, s=10, marker='o', c=None,
                 pareto_xy.append((data[x][i], data[y][i]))
 
         xpareto, ypareto = zip(*pareto_xy)
-        ax.scatter(xpareto, ypareto, s=paretosize, marker=marker,
+        ax.scatter(xpareto, ypareto, s=paretosize, marker=paretomarker,
                    facecolors=paretofacecolors, edgecolors=paretoedgecolors)
     return CS
 
@@ -288,7 +289,7 @@ def plot_dual_pareto(data0, label0, data1, label1, ax, x, y,
                       facecolors=(1, 0.7, 0.7),
                       paretofacecolors=(0.5, 0, 0),
                       paretoedgecolors=(0.5, 0, 0),
-                      paretosize=30,
+                      paretosize=20,
                       label=label0, show_efm_labels=False,
                       **kwargs)
 
@@ -298,7 +299,7 @@ def plot_dual_pareto(data0, label0, data1, label1, ax, x, y,
                       facecolors=(0.7, 0.7, 1),
                       paretofacecolors=(0, 0, 0.5),
                       paretoedgecolors=(0, 0, 0.5),
-                      paretosize=30,
+                      paretosize=20,
                       label=label1, show_efm_labels=False,
                       **kwargs)
 
@@ -376,6 +377,16 @@ def efm_to_hex(efm):
     else:
         rgb = string_to_random_rgb(str(efm), min_l=0.3, max_l=0.8, min_s=0.1, max_s=0.8)
         return matplotlib.colors.rgb2hex(rgb)
+
+def cycle_colors(n, min_l=0.4, max_l=0.5, min_s=0.8, max_s=0.8, seed=1984):
+    np.random.seed(seed)
+
+    for x in np.linspace(0, 1, n+1)[:-1]:
+        h = rand2hue(x)
+        l = min_l + np.random.rand() * (max_l - min_l)
+        s = min_s + np.random.rand() * (max_s - min_s)
+        rgb = hls_to_rgb(h, l, s)
+        yield matplotlib.colors.rgb2hex(rgb)
 
 def allocation_area_plot(data, ax0=None, ax1=None, xlabel='',
                          n_best=10):

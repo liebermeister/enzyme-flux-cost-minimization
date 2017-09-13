@@ -7,6 +7,7 @@ Created on Sat Dec  3 17:32:45 2016
 import os
 import numpy as np
 import pandas as pd
+import seaborn as sns
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D # NOTE!!! keep this for the 3D plots
 import zipfile
@@ -628,3 +629,55 @@ if False:
     axS22b.set_xlabel('measured enzyme abundance [mM]')
 
     figS22.savefig(os.path.join(D.OUTPUT_DIR, 'FigS22.pdf'))
+
+
+    # %% fig S23 - glucose sweep at anaerobic conditions
+    # find the "winning" EFM for each glucose level and make a color-coded
+    # plot like the 3D surface plots
+    
+    anaerobic_sweep_data_df = figure_data['monod_glucose_anae'].drop(9999)
+    
+    X = np.logspace(-4, 4, 1000)
+    
+    glu_levels = set(anaerobic_sweep_data_df.columns).union(X)
+    
+    interp_df = anaerobic_sweep_data_df.transpose()
+    interp_df = interp_df.append(
+        pd.DataFrame(index=X, columns=anaerobic_sweep_data_df.index))
+    interp_df = interp_df[~interp_df.index.duplicated(keep='first')]
+    interp_df.sort_index(inplace=True)
+    interp_df.index = np.log(interp_df.index)
+    interpolated_df = interp_df.interpolate('cubic')
+    interpolated_df.index = np.exp(interpolated_df.index)
+
+    best_df = pd.DataFrame(index=interpolated_df.index,
+                           columns=[D.GROWTH_RATE_L, 'best_efm', 'hexcolor'])
+    best_df[D.GROWTH_RATE_L] = interpolated_df.max(axis=1)
+    best_df['best_efm'] = interpolated_df.idxmax(axis=1)
+    
+    efms = sorted(best_df['best_efm'].unique())
+    color_dict = dict(zip(efms, D.cycle_colors(len(efms), seed=118)))
+    
+    best_df['hexcolor'] = best_df['best_efm'].apply(color_dict.get)
+    
+    figS25, ax = plt.subplots(figsize=(6,6))
+    d = zip(best_df.index, best_df[D.GROWTH_RATE_L])
+    segments = zip(d[:-1], d[1:])
+    colors = list(best_df['hexcolor'].iloc[1:].values)
+    
+    from matplotlib.collections import LineCollection
+    coll = LineCollection(segments, colors=colors, linewidths=3)
+    ax.add_collection(coll)
+    for efm in efms:
+        ax.plot([0, 1], [-1, -1],
+                label='EFM %04d' % efm,
+                color=color_dict[efm], linewidth=4)
+
+    ax.set_xscale('log')
+    ax.set_xlim(0.6e-4, 1.5e4)
+    ax.set_ylim(1e-3, 0.4)
+    ax.set_xlabel(D.GLU_COL)
+    ax.set_ylabel(D.GROWTH_RATE_L)
+    ax.legend(loc='upper left')
+    
+    figS25.savefig(os.path.join(D.OUTPUT_DIR, 'FigS25.pdf'))

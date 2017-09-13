@@ -200,7 +200,7 @@ def write_cache_files():
     kos = [(None, None),
            ('R60', 'ed'),
            ('R3', 'emp'),
-           (D.R_OXYGEN_IN, 'oxphos')]
+           (D.R_OXYGEN_DEPENDENT, 'oxphos')]
 
     for ko, name in kos:
         if name is None:
@@ -593,7 +593,7 @@ def plot_conc_versus_uptake_figure(figure_data,
     GLU_UPRATE_L = 'glucose uptake rate (a.u.)'
     rates_df, _ = SweepInterpolator.get_general_params(min(ITER_RANGE))
     phase_df = phase_df.join(rates_df, on='best_efm')
-    phase_df[OX_UPTAKE_L] = phase_df[D.R_OXYGEN_IN].sum(1) * phase_df[D.GROWTH_RATE_L]
+    phase_df[OX_UPTAKE_L] = phase_df[D.R_OXYGEN_DEPENDENT].sum(1) * phase_df[D.GROWTH_RATE_L]
     phase_df[OX_UPTAKE_L] = phase_df[OX_UPTAKE_L].round(0)
     phase_df[GLU_UPRATE_L] = phase_df[D.R_GLUCOSE_IN] * phase_df[D.GROWTH_RATE_L]
     phase_df[GLU_UPRATE_L] = phase_df[GLU_UPRATE_L].round(0)

@@ -168,7 +168,7 @@ def read_pareto_zipfile(zip_fname):
     data[D.LACTATE_L]    = D.C_IN_LACTATE * rates_df[D.R_LACTATE_OUT] / uptake_rate
     data[D.FORMATE_L]    = D.C_IN_FORMATE * rates_df[D.R_FORMATE_OUT] / uptake_rate
     data[D.NH3_L]        = rates_df[D.R_NH3_IN] / uptake_rate
-    data[D.OXYGEN_L]     = 0.5 * rates_df[D.R_OXYGEN_IN].sum(1) / uptake_rate
+    data[D.OXYGEN_L]     = 0.5 * rates_df[D.R_OXYGEN_DEPENDENT].sum(1) / uptake_rate
     data[D.MAITENANCE_L] = rates_df[D.R_MAINTENANCE]
     data[D.PPP_L]        = rates_df[D.R_PPP] / rates_df[D.R_GLUCOSE_IN]
     data[D.TCA_L]        = rates_df[D.R_TCA] / rates_df[D.R_GLUCOSE_IN]
@@ -195,9 +195,8 @@ def read_pareto_zipfile(zip_fname):
     data[D.BIOMASS_PROD_PER_ENZ_L] = r_BM
     data[D.TOT_ENZYME_L] = 1.0 / r_BM
     data[D.GROWTH_RATE_L] = r_BM.apply(D.GR_FUNCTION)
-
-    data[D.STRICTLY_ANAEROBIC_L] = (rates_df[D.R_PFL] > 1e-8)
-    data[D.STRICTLY_AEROBIC_L] = (rates_df[D.R_OXYGEN_IN].abs() > 1e-8).any(1)
+    data[D.STRICTLY_ANAEROBIC_L] = (rates_df[D.R_OXYGEN_SENSITIVE].abs() > 1e-8).any(1)
+    data[D.STRICTLY_AEROBIC_L] = (rates_df[D.R_OXYGEN_DEPENDENT].abs() > 1e-8).any(1)
     data[D.SUC_FUM_CYCLE_L] = rates_df.loc[:, D.R_SUC_FUM_CYCLE].min(1)
 
     return data

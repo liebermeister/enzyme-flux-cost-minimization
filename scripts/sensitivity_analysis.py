@@ -23,7 +23,7 @@ class Sensitivity(object):
 
         self.load_all_data(zip_fnames[0])
 
-        self.calculate_growth_rates()
+        self.efm_data_df = self.calculate_growth_rates()
 
         self.calculate_kcat_sensitivity()
         self.calculate_keq_sensitivity()
@@ -33,10 +33,10 @@ class Sensitivity(object):
         self.keq_sensitivity_df.to_csv(os.path.join(D.OUTPUT_DIR, 'sensitivity_keq.csv'), float_format='%.2e')
         self.km_sensitivity_df.to_csv(os.path.join(D.OUTPUT_DIR, 'sensitivity_km.csv'), float_format='%.2e')
 
-        data_df = self.enz_cost_df.join(self.growth_rate, on='efm').join(self.yield_df, on='efm')
-        data_df = pd.merge(data_df, self.kcat_sensitivity_df, on=['efm', 'reaction'])
-        data_df = pd.merge(data_df, self.keq_sensitivity_df, on=['efm', 'reaction'])
-        self.efm_data_df = data_df
+        self.efm_data_df = pd.merge(self.efm_data_df,
+                                    self.kcat_sensitivity_df, on=['efm', 'reaction'])
+        self.efm_data_df = pd.merge(self.efm_data_df,
+                                    self.keq_sensitivity_df, on=['efm', 'reaction'])
 
     def load_all_data(self, zip_fname):
         # load all data for all EFMs in standard conditions (i.e. both the
@@ -101,28 +101,44 @@ class Sensitivity(object):
         # calculate total enzyme costs and growth rate per EFM
         efms = enz_df['efm'].unique()
         v_BM = D.BIOMASS_MW * D.SECONDS_IN_HOUR * self.rates_df.loc[efms, D.R_BIOMASS]
+
         E_met = enz_df.groupby('efm').sum()['E_i']
         r_BM = (1.0 / E_met).mul(v_BM)
-        self.growth_rate = r_BM.apply(D.GR_FUNCTION)
-        self.growth_rate.name = D.GROWTH_RATE_L
+        r_BM.name = 'biomass_rate'  # r_BM (in units of 1/h)
 
-        self.yield_df = (D.BIOMASS_MW / D.C_IN_GLUCOSE) * \
-                        (self.rates_df[D.R_BIOMASS] / self.rates_df[D.R_GLUCOSE_IN])
-        self.yield_df = pd.DataFrame(self.yield_df).rename(columns={0: D.YIELD_L})
+        growth_rate = r_BM.apply(D.GR_FUNCTION)
+        growth_rate.name = D.GROWTH_RATE_L
 
-        # now make another DataFrame which will contain (for each EFM and reaction)
-        # the cost (in units of gr enzyme per gr biomass per hour) and also
-        # the total weight of all the reactions for that EFM (in the same units)
-        self.enz_cost_df = enz_df[['efm', 'reaction']]
-        self.enz_cost_df.loc[:, 'enzyme_cost'] = enz_df['E_i'] / (D.BIOMASS_MW * D.SECONDS_IN_HOUR)
-        enzyme_cost_sum_df = self.enz_cost_df.groupby('efm').sum()
+        yield_df = (D.BIOMASS_MW / D.C_IN_GLUCOSE) * \
+                   (self.rates_df[D.R_BIOMASS] / self.rates_df[D.R_GLUCOSE_IN])
+        yield_df.name = D.YIELD_L
+
+        data_df = enz_df[['efm', 'reaction']]
+        data_df['enzyme_cost'] = enz_df['E_i'] / (D.BIOMASS_MW * D.SECONDS_IN_HOUR)
+
+        # calculate the total weight of all the reactions per EFM
+        enzyme_cost_sum_df = data_df.groupby('efm').sum()
         enzyme_cost_sum_df.rename(columns={'enzyme_cost': 'total_cost'}, inplace=True)
-        self.enz_cost_df = self.enz_cost_df.join(enzyme_cost_sum_df, on='efm')
+        data_df = data_df.join(enzyme_cost_sum_df, on='efm')
+
+        # collect all the information about each EFM and each reaction in one
+        # big DataFrame
+        data_df = data_df.join(r_BM, on='efm')
+        data_df = data_df.join(growth_rate, on='efm')
+        data_df = data_df.join(yield_df, on='efm')
+        
+        data_df.loc[:, 'dmu/dq'] = -data_df[D.GROWTH_RATE_L]**2 / (D.GR_PARAM_A * D.ALPHA_PROT)
+        data_df.loc[:, 'dlogmu/dlogq'] = -data_df[D.GROWTH_RATE_L].mul(data_df['enzyme_cost']) / (D.GR_PARAM_A * D.ALPHA_PROT)
+        
+        data_df.sort_values(['efm', 'reaction'], inplace=True)
+        return data_df
 
     def calculate_kcat_sensitivity(self):
-        kcat_df = self.enz_cost_df[['efm','reaction']].join(self.params_df['kcat'].fillna(0), on='reaction')
-        kcat_df.loc[:, 'dq/dk'] = self.enz_cost_df['enzyme_cost'] / kcat_df['kcat']
-        kcat_df.loc[:, 'dlogq/dlogk'] = self.enz_cost_df['enzyme_cost'] / self.enz_cost_df['total_cost']
+        kcat_df = self.efm_data_df[['efm','reaction']].join(self.params_df['kcat'].fillna(0), on='reaction')
+        kcat_df.loc[:, 'dq/dk'] = self.efm_data_df['enzyme_cost'] / kcat_df['kcat']
+        kcat_df.loc[:, 'dlogq/dlogk'] = self.efm_data_df['enzyme_cost'] / self.efm_data_df['total_cost']
+        kcat_df.loc[:, 'dmu/dk'] = self.efm_data_df['dmu/dq'] * kcat_df['dq/dk']
+        kcat_df.loc[:, 'dlogmu/dlogk'] = self.efm_data_df['dlogmu/dlogq'] * kcat_df['dlogq/dlogk']
         self.kcat_sensitivity_df = kcat_df
 
     def calculate_keq_sensitivity(self):
@@ -141,7 +157,7 @@ class Sensitivity(object):
         thermo_df.rename(columns={'n*log(c)':'Q'}, inplace=True)
         thermo_df.loc[:, 'Q'] = np.exp(thermo_df['Q'])
         thermo_df = thermo_df.reset_index()
-        thermo_df = pd.merge(thermo_df, self.enz_cost_df, on=['efm', 'reaction'])
+        thermo_df = pd.merge(thermo_df, self.efm_data_df, on=['efm', 'reaction'])
         thermo_df = thermo_df.join(self.params_df['Keq'], on='reaction')
 
         thermo_df.loc[:, 'dq/dKeq'] = -thermo_df['enzyme_cost'] / (thermo_df['Keq'] *
@@ -149,6 +165,8 @@ class Sensitivity(object):
 
         thermo_df.loc[:, 'dlogq/dlogKeq'] = thermo_df['dq/dKeq'] * (thermo_df['Keq']/thermo_df['total_cost'])
         thermo_df.fillna(0, inplace=True)
+        thermo_df.loc[:, 'dmu/dKeq'] = thermo_df['dmu/dq'] * thermo_df['dq/dKeq']
+        thermo_df.loc[:, 'dlogmu/dlogKeq'] = thermo_df['dlogmu/dlogq'] * thermo_df['dlogq/dlogKeq']
 
         # the sign of the Keq elasticity must be opposed to the sign of the
         # reaction rate, since when we increase Keq for a forward flowing reation
@@ -157,7 +175,9 @@ class Sensitivity(object):
         elast_df = thermo_df.pivot(index='efm', columns='reaction', values='dq/dKeq')
         assert ((self.rates_df * elast_df).fillna(0) <= 0).all().all()
 
-        self.keq_sensitivity_df = thermo_df[['efm', 'reaction', 'dq/dKeq', 'dlogq/dlogKeq']]
+        self.keq_sensitivity_df = thermo_df[['efm', 'reaction',
+                                             'dq/dKeq', 'dlogq/dlogKeq',
+                                             'dmu/dKeq', 'dlogmu/dlogKeq']]
 
     def calculate_km_sensitivity(self):
         """
@@ -176,7 +196,7 @@ class Sensitivity(object):
 
         sat_df = pd.merge(self.stoich_df, self.km_df, on=['reaction', 'metabolite'])
         sat_df = pd.merge(sat_df, self.met_df, on='metabolite')
-        sat_df = pd.merge(sat_df, self.enz_cost_df[['efm', 'reaction', 'enzyme_cost', 'total_cost']],
+        sat_df = pd.merge(sat_df, self.efm_data_df,
                           on=['efm', 'reaction'])
         sat_df.loc[:, 'c/Km'] = sat_df['concentration'] / sat_df['Km']
 
@@ -222,7 +242,13 @@ class Sensitivity(object):
         sat_df.loc[sat_df['coefficient'] > 0, 'dq/dKm'] = sat_df.loc[sat_df['coefficient'] > 0, 'dq/dK_p']
 
         sat_df.loc[:, 'dlogq/dlogKm'] = sat_df['dq/dKm'] * (sat_df['Km']/sat_df['total_cost'])
-        self.km_sensitivity_df = sat_df[['efm', 'reaction', 'metabolite', 'dq/dKm', 'dlogq/dlogKm']]
+        
+        sat_df.loc[:, 'dmu/dKm'] = sat_df['dmu/dq'] * sat_df['dq/dKm']
+        sat_df.loc[:, 'dlogmu/dlogKm'] = sat_df['dlogmu/dlogq'] * sat_df['dlogq/dlogKm']
+        
+        self.km_sensitivity_df = sat_df[['efm', 'reaction', 'metabolite',
+                                         'dq/dKm', 'dlogq/dlogKm',
+                                         'dmu/dKm', 'dlogmu/dlogKm']]
 
     def read_sweep_enzyme_costs(self, prefix, regex):
         # read data from zip file (both enzyme and metabolite concentrations):
@@ -474,8 +500,9 @@ class Sensitivity(object):
 
 if __name__ == '__main__':
 
-    s = Sensitivity('standard')
+    s2 = Sensitivity('standard')
 
+    sys.exit(0)
     fig, ax = plt.subplots(1, 2, figsize=(12, 5))
     s.plot_sensitivity_as_errorbar(ax[0], 'R80')
     s.plot_sensitivity_as_errorbar(ax[1], 'R6r', percent=50)
