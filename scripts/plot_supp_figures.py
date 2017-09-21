@@ -12,8 +12,6 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D # NOTE!!! keep this for the 3D plots
 import zipfile
 import definitions as D
-from svgutils import templates
-from svgutils import transform
 from prepare_data import get_concatenated_raw_data
 from sensitivity_analysis import Sensitivity
 from phase_surface_plots import plot_surface, \
@@ -26,31 +24,11 @@ from phase_surface_plots import plot_surface, \
 from monod import plot_monod_figure
 from epistasis import Epistasis
 from tsne import plot_tsne_figure
+import tempfile
 
 figure_data = D.get_figure_data()
 
 if False:
-# %%
-    # figure containing the metabolic network with the fluxes of all selected
-    # EFMs
-    layout = templates.ColumnLayout(7)
-    with zipfile.ZipFile(D.ZIP_SVG_FNAME, 'r') as z:
-        for efm, (color, name) in D.efm_dict.iteritems():
-            try:
-                fp = z.open('efm%04d.svg' % efm, 'r')
-            except KeyError as e:
-                print str(e)
-                continue
-            svg_string = fp.read()
-            svg = transform.fromstring(svg_string)
-            layout.add_figure(svg)
-            fp_out = open(os.path.join(D.OUTPUT_DIR, 'efm%04d_%s.svg' % (efm, name)), 'w')
-            fp_out.write(svg_string)
-            fp.close()
-            fp_out.close()
-
-    layout.save(os.path.join(D.OUTPUT_DIR, 'EFM_SVG/all_efms.svg'))
-
     # %% Figure S1 - same as 3c, but compared to the biomass rate
     #    instead of growth rate
     figS1, axS1 = plt.subplots(1, 2, figsize=(9, 4.5))
@@ -66,7 +44,7 @@ if False:
     axS1[0].annotate('a', xy=(0.02, 0.98),
                      xycoords='axes fraction', ha='left', va='top',
                      size=20)
-    for y in xrange(0, 14, 2):
+    for y in range(0, 14, 2):
         axS1[0].plot([-1e-3, 1.1*data[D.YIELD_L].max()], [y, y], 'k-',
                      alpha=0.2)
 
@@ -79,7 +57,7 @@ if False:
                      xycoords='axes fraction', ha='left', va='top',
                      size=20)
 
-    for y in map(D.GR_FUNCTION, xrange(0, 18, 2)):
+    for y in map(D.GR_FUNCTION, range(0, 18, 2)):
         axS1[1].plot([-1e-3, 1.1*data[D.YIELD_L].max()], [y, y], 'k-',
                      alpha=0.2)
 
@@ -297,7 +275,7 @@ if False:
     figS10.savefig(os.path.join(D.OUTPUT_DIR, 'FigS10.pdf'))
 
     # %% SI Figure 11
-    figS11, axS11 = plt.subplots(1, 1, figsize=(7, 7))
+    figS11, axS11 = plt.subplots(1, 1, figsize=(5, 5))
     plot_glucose_dual_pareto(figure_data['standard'], axS11,
                              draw_lines=False)
     axS11.set_xlim(-1e-3, None)
@@ -306,12 +284,13 @@ if False:
 
     # %% SI Figure 12
     figS12 = plot_phase_plots(figure_data)
-    figS12.tight_layout()
+    figS12.tight_layout(pad=0.1)
     figS12.savefig(os.path.join(D.OUTPUT_DIR, 'FigS12.pdf'))
 
     # %% SI figure 13 - scatter 3D plot of the glucose uptake, oxygen uptake,
     #    growth rate
     figS13 = plot_conc_versus_uptake_figure(figure_data)
+    figS13.tight_layout(w_pad=3.5, h_pad=2)
     figS13.savefig(os.path.join(D.OUTPUT_DIR, 'FigS13.pdf'))
 
     # %% SI figure 14 - scatter plots in different environmental conditions
@@ -516,7 +495,7 @@ if False:
     s = Sensitivity('standard')
     s.plot_sensitivity_as_errorbar(axS18[1], 'R6r', percent=50)
     axS18[1].set_xlim(0, None)
-    axS18[1].set_title(r'sensitivity to 2-fold change in $k_{cat}$')
+    axS18[1].set_title(r'sensitivity to 50\% change in $k_{cat}$')
 
     maxy = figure_data['sweep_kcat_r6r'].max().max()
     D.plot_sweep(figure_data['sweep_kcat_r6r'], r'$k_{cat}$ [$s^{-1}$]',
@@ -568,9 +547,87 @@ if False:
 
     figS21 = e.plot_yield_epistasis()
     figS21.savefig(os.path.join(D.OUTPUT_DIR, 'FigS21.pdf'))
+    
+    # %% convert EFM visualization flux plots from SVG to EPS
+    import shutil
+    with zipfile.ZipFile(D.ZIP_SVG_FNAME, 'r') as z:
+        for efm, (_, efm_name) in D.efm_dict.items():
+            with tempfile.NamedTemporaryFile(delete=True, suffix='.svg') as tmp_fp:
+                # extract the SVG file from the ZIP file and save it as a temp
+                # file.
+                with z.open('efm%04d.svg' % efm, 'r') as svg_fp:
+                    shutil.copyfileobj(svg_fp, tmp_fp)
+                
+                # then use inkscape to convert the SVG to EPS
+                eps_fname = os.path.join(D.OUTPUT_DIR, 'FigS22_%s.eps' % efm_name)
+                os.system('inkscape %s -E %s' % (tmp_fp.name, eps_fname))
 
-    # measured protein abundances (if available)
-    # %% S22 - correlation between EFM protein abundance predictions and
+    # %% fig S23 - glucose sweep at anaerobic conditions
+    # find the "winning" EFM for each glucose level and make a color-coded
+    # plot like the 3D surface plots
+    
+    anaerobic_sweep_data_df = figure_data['monod_glucose_anae'].drop(9999)
+    
+    X = np.logspace(-4, 4, 1000)
+    
+    glu_levels = set(anaerobic_sweep_data_df.columns).union(X)
+    
+    interp_df = anaerobic_sweep_data_df.transpose()
+    interp_df = interp_df.append(
+        pd.DataFrame(index=X, columns=anaerobic_sweep_data_df.index))
+    interp_df = interp_df[~interp_df.index.duplicated(keep='first')]
+    interp_df.sort_index(inplace=True)
+    interp_df.index = np.log(interp_df.index)
+    interpolated_df = interp_df.interpolate(method='polynomial', order=3)
+    interpolated_df.index = np.exp(interpolated_df.index)
+
+    best_df = pd.DataFrame(index=interpolated_df.index,
+                           columns=[D.GROWTH_RATE_L, 'best_efm', 'hexcolor'])
+    best_df[D.GROWTH_RATE_L] = interpolated_df.max(axis=1)
+    best_df['best_efm'] = interpolated_df.idxmax(axis=1)
+    
+    efms = sorted(best_df['best_efm'].unique())
+    color_dict = dict(zip(efms, D.cycle_colors(len(efms), seed=118)))
+    
+    best_df['hexcolor'] = best_df['best_efm'].apply(color_dict.get)
+    
+    figS25, axs = plt.subplots(1, 2, figsize=(10, 4.5), sharey=True)
+    ax = axs[0]
+    ax.plot(interpolated_df.index, interpolated_df, '-',
+            linewidth=0.5, alpha=0.2, color=(0.2, 0.2, 0.6))
+    
+    ax = axs[1]
+    d = list(zip(best_df.index, best_df[D.GROWTH_RATE_L]))
+    segments = zip(d[:-1], d[1:])
+    colors = list(best_df['hexcolor'].iloc[1:].values)
+    
+    from matplotlib.collections import LineCollection
+    for efm in efms:
+        ax.plot(interpolated_df.index, interpolated_df[efm],
+                label='_nolegend_', linestyle='-',
+                color=color_dict[efm], linewidth=0.5, alpha=0.5)
+        ax.plot([0, 1], [-1, -1],
+                label='EFM %04d' % efm,
+                color=color_dict[efm], linewidth=4)
+    coll = LineCollection(segments, colors=colors, linewidths=4)
+    ax.add_collection(coll)
+    ax.legend(loc='center right', fontsize=12)
+    
+    for i, ax in enumerate(axs):
+        ax.annotate(chr(ord('a')+i), xy=(0.02, 0.98),
+                    xycoords='axes fraction', ha='left', va='top',
+                    size=20)
+        ax.set_xscale('log')
+        ax.set_xlim(0.6e-4, 1.5e4)
+        ax.set_ylim(1e-3, 0.35)
+        ax.set_xlabel(D.GLU_COL)
+        ax.set_ylabel(D.GROWTH_RATE_L)
+    
+    figS25.savefig(os.path.join(D.OUTPUT_DIR, 'FigS25.pdf'))
+
+
+    # %% measured protein abundances (if available)
+    # S26 - correlation between EFM protein abundance predictions and
     rates_df, params_df, enzyme_abundance_df = \
         get_concatenated_raw_data('standard')
 
@@ -597,87 +654,35 @@ if False:
     y = np.tile(X_meas, (X_pred.shape[1], 1))
     data[RMSE_ENZ_L] = np.sqrt(np.square(X_pred.T - y).mean(1))
 
-    figS22 = plt.figure(figsize=(12, 5))
-    axS22a = figS22.add_subplot(1, 2, 1)
-    axS22a.set_title('Spearman correlation')
-    axS22b = figS22.add_subplot(1, 2, 2)
-    axS22b.set_title('exp')
+    figS26 = plt.figure(figsize=(12, 5))
+    axS26a = figS26.add_subplot(1, 2, 1)
+    axS26a.set_title('Spearman correlation')
+    axS26b = figS26.add_subplot(1, 2, 2)
+    axS26b.set_title('exp')
 
-    D.plot_basic_pareto(data, axS22a, x=D.YIELD_L, y=D.GROWTH_RATE_L,
+    D.plot_basic_pareto(data, axS26a, x=D.YIELD_L, y=D.GROWTH_RATE_L,
                         c=CORR_ENZ_L, cmap='copper_r',
                         vmin=0, linewidth=0, s=30, edgecolor='k')
     for efm in D.efm_dict.keys():
         xy = np.array(data.loc[efm, [D.YIELD_L, D.GROWTH_RATE_L]].tolist())
         xytext = xy + np.array((0, 0.07))
-        axS22a.annotate(xy=xy, s=D.efm_dict[efm]['label'],
+        axS26a.annotate(xy=xy, s=D.efm_dict[efm]['label'],
                         xycoords='data', xytext=xytext, ha='center',
                         arrowprops=dict(facecolor='black',
                         shrink=0.05, width=2, headwidth=4))
-    axS22a.set_xlim(-1e-3, 1.1*data[D.YIELD_L].max())
-    axS22a.set_ylim(-1e-3, 1.15*data[D.GROWTH_RATE_L].max())
+    axS26a.set_xlim(-1e-3, 1.1*data[D.YIELD_L].max())
+    axS26a.set_ylim(-1e-3, 1.15*data[D.GROWTH_RATE_L].max())
 
     X[X == 0] = 1e-5
     X.fillna(1e-5, inplace=True)
-    axS22b.plot(X.loc[:, 'measured'], X.loc[:, 9999], 'o', alpha=0.3)
-    axS22b.plot([1e-5, 1], [1e-5, 1], 'b--')
+    axS26b.plot(X.loc[:, 'measured'], X.loc[:, 9999], 'o', alpha=0.3)
+    axS26b.plot([1e-5, 1], [1e-5, 1], 'b--')
     for i in X.index:
         xy = np.array(X.loc[i, ['measured', 9999]].tolist())
-        axS22b.text(xy[0], xy[1], i, fontsize=8, ha='center', va='bottom')
-    axS22b.set_xscale('log')
-    axS22b.set_yscale('log')
-    axS22b.set_ylabel('predicted enzyme abundance [mM]')
-    axS22b.set_xlabel('measured enzyme abundance [mM]')
+        axS26b.text(xy[0], xy[1], i, fontsize=8, ha='center', va='bottom')
+    axS26b.set_xscale('log')
+    axS26b.set_yscale('log')
+    axS26b.set_ylabel('predicted enzyme abundance [mM]')
+    axS26b.set_xlabel('measured enzyme abundance [mM]')
 
-    figS22.savefig(os.path.join(D.OUTPUT_DIR, 'FigS22.pdf'))
-
-
-    # %% fig S23 - glucose sweep at anaerobic conditions
-    # find the "winning" EFM for each glucose level and make a color-coded
-    # plot like the 3D surface plots
-    
-    anaerobic_sweep_data_df = figure_data['monod_glucose_anae'].drop(9999)
-    
-    X = np.logspace(-4, 4, 1000)
-    
-    glu_levels = set(anaerobic_sweep_data_df.columns).union(X)
-    
-    interp_df = anaerobic_sweep_data_df.transpose()
-    interp_df = interp_df.append(
-        pd.DataFrame(index=X, columns=anaerobic_sweep_data_df.index))
-    interp_df = interp_df[~interp_df.index.duplicated(keep='first')]
-    interp_df.sort_index(inplace=True)
-    interp_df.index = np.log(interp_df.index)
-    interpolated_df = interp_df.interpolate('cubic')
-    interpolated_df.index = np.exp(interpolated_df.index)
-
-    best_df = pd.DataFrame(index=interpolated_df.index,
-                           columns=[D.GROWTH_RATE_L, 'best_efm', 'hexcolor'])
-    best_df[D.GROWTH_RATE_L] = interpolated_df.max(axis=1)
-    best_df['best_efm'] = interpolated_df.idxmax(axis=1)
-    
-    efms = sorted(best_df['best_efm'].unique())
-    color_dict = dict(zip(efms, D.cycle_colors(len(efms), seed=118)))
-    
-    best_df['hexcolor'] = best_df['best_efm'].apply(color_dict.get)
-    
-    figS25, ax = plt.subplots(figsize=(6,6))
-    d = zip(best_df.index, best_df[D.GROWTH_RATE_L])
-    segments = zip(d[:-1], d[1:])
-    colors = list(best_df['hexcolor'].iloc[1:].values)
-    
-    from matplotlib.collections import LineCollection
-    coll = LineCollection(segments, colors=colors, linewidths=3)
-    ax.add_collection(coll)
-    for efm in efms:
-        ax.plot([0, 1], [-1, -1],
-                label='EFM %04d' % efm,
-                color=color_dict[efm], linewidth=4)
-
-    ax.set_xscale('log')
-    ax.set_xlim(0.6e-4, 1.5e4)
-    ax.set_ylim(1e-3, 0.4)
-    ax.set_xlabel(D.GLU_COL)
-    ax.set_ylabel(D.GROWTH_RATE_L)
-    ax.legend(loc='upper left')
-    
-    figS25.savefig(os.path.join(D.OUTPUT_DIR, 'FigS25.pdf'))
+    figS26.savefig(os.path.join(D.OUTPUT_DIR, 'FigS26.pdf'))

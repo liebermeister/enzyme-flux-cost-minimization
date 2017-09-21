@@ -84,7 +84,7 @@ class Sensitivity(object):
                 df.insert(0, 'efm', efm)
                 frames.append(df)
 
-            self.met_df = pd.concat(frames, keys=efms)
+            self.met_df = pd.concat(frames, keys=None)
             self.met_df.rename(columns={'m': 'metabolite',
                                         'Val': 'concentration'}, inplace=True)
 
@@ -114,11 +114,11 @@ class Sensitivity(object):
         yield_df.name = D.YIELD_L
 
         data_df = enz_df[['efm', 'reaction']]
-        data_df['enzyme_cost'] = enz_df['E_i'] / (D.BIOMASS_MW * D.SECONDS_IN_HOUR)
+        data_df.loc[:, 'enzyme_cost'] = enz_df['E_i'] / (D.BIOMASS_MW * D.SECONDS_IN_HOUR)
 
         # calculate the total weight of all the reactions per EFM
         enzyme_cost_sum_df = data_df.groupby('efm').sum()
-        enzyme_cost_sum_df.rename(columns={'enzyme_cost': 'total_cost'}, inplace=True)
+        enzyme_cost_sum_df.rename(columns={'enzyme_cost': 'q'}, inplace=True)
         data_df = data_df.join(enzyme_cost_sum_df, on='efm')
 
         # collect all the information about each EFM and each reaction in one
@@ -127,8 +127,8 @@ class Sensitivity(object):
         data_df = data_df.join(growth_rate, on='efm')
         data_df = data_df.join(yield_df, on='efm')
         
-        data_df.loc[:, 'dmu/dq'] = -data_df[D.GROWTH_RATE_L]**2 / (D.GR_PARAM_A * D.ALPHA_PROT)
-        data_df.loc[:, 'dlogmu/dlogq'] = -data_df[D.GROWTH_RATE_L].mul(data_df['enzyme_cost']) / (D.GR_PARAM_A * D.ALPHA_PROT)
+        data_df.loc[:, 'dlnmu/dlnq'] = (D.GR_PARAM_B/D.GR_PARAM_A) * data_df[D.GROWTH_RATE_L] - 1.0
+        data_df.loc[:, 'dmu/dq'] = data_df['dlnmu/dlnq'] * data_df[D.GROWTH_RATE_L] / data_df['q']
         
         data_df.sort_values(['efm', 'reaction'], inplace=True)
         return data_df
@@ -136,9 +136,9 @@ class Sensitivity(object):
     def calculate_kcat_sensitivity(self):
         kcat_df = self.efm_data_df[['efm','reaction']].join(self.params_df['kcat'].fillna(0), on='reaction')
         kcat_df.loc[:, 'dq/dk'] = self.efm_data_df['enzyme_cost'] / kcat_df['kcat']
-        kcat_df.loc[:, 'dlogq/dlogk'] = self.efm_data_df['enzyme_cost'] / self.efm_data_df['total_cost']
+        kcat_df.loc[:, 'dlnq/dlnk'] = self.efm_data_df['enzyme_cost'] / self.efm_data_df['q']
         kcat_df.loc[:, 'dmu/dk'] = self.efm_data_df['dmu/dq'] * kcat_df['dq/dk']
-        kcat_df.loc[:, 'dlogmu/dlogk'] = self.efm_data_df['dlogmu/dlogq'] * kcat_df['dlogq/dlogk']
+        kcat_df.loc[:, 'dlnmu/dlnk'] = self.efm_data_df['dlnmu/dlnq'] * kcat_df['dlnq/dlnk']
         self.kcat_sensitivity_df = kcat_df
 
     def calculate_keq_sensitivity(self):
@@ -163,10 +163,10 @@ class Sensitivity(object):
         thermo_df.loc[:, 'dq/dKeq'] = -thermo_df['enzyme_cost'] / (thermo_df['Keq'] *
                                 (thermo_df['Keq']/thermo_df['Q'] - 1.0))
 
-        thermo_df.loc[:, 'dlogq/dlogKeq'] = thermo_df['dq/dKeq'] * (thermo_df['Keq']/thermo_df['total_cost'])
+        thermo_df.loc[:, 'dlnq/dlnKeq'] = thermo_df['dq/dKeq'] * (thermo_df['Keq']/thermo_df['q'])
         thermo_df.fillna(0, inplace=True)
         thermo_df.loc[:, 'dmu/dKeq'] = thermo_df['dmu/dq'] * thermo_df['dq/dKeq']
-        thermo_df.loc[:, 'dlogmu/dlogKeq'] = thermo_df['dlogmu/dlogq'] * thermo_df['dlogq/dlogKeq']
+        thermo_df.loc[:, 'dlnmu/dlnKeq'] = thermo_df['dlnmu/dlnq'] * thermo_df['dlnq/dlnKeq']
 
         # the sign of the Keq elasticity must be opposed to the sign of the
         # reaction rate, since when we increase Keq for a forward flowing reation
@@ -176,8 +176,8 @@ class Sensitivity(object):
         assert ((self.rates_df * elast_df).fillna(0) <= 0).all().all()
 
         self.keq_sensitivity_df = thermo_df[['efm', 'reaction',
-                                             'dq/dKeq', 'dlogq/dlogKeq',
-                                             'dmu/dKeq', 'dlogmu/dlogKeq']]
+                                             'dq/dKeq', 'dlnq/dlnKeq',
+                                             'dmu/dKeq', 'dlnmu/dlnKeq']]
 
     def calculate_km_sensitivity(self):
         """
@@ -241,14 +241,14 @@ class Sensitivity(object):
         # override the values only for reaction/metabolite pairs which are of products
         sat_df.loc[sat_df['coefficient'] > 0, 'dq/dKm'] = sat_df.loc[sat_df['coefficient'] > 0, 'dq/dK_p']
 
-        sat_df.loc[:, 'dlogq/dlogKm'] = sat_df['dq/dKm'] * (sat_df['Km']/sat_df['total_cost'])
+        sat_df.loc[:, 'dlnq/dlnKm'] = sat_df['dq/dKm'] * (sat_df['Km']/sat_df['q'])
         
         sat_df.loc[:, 'dmu/dKm'] = sat_df['dmu/dq'] * sat_df['dq/dKm']
-        sat_df.loc[:, 'dlogmu/dlogKm'] = sat_df['dlogmu/dlogq'] * sat_df['dlogq/dlogKm']
+        sat_df.loc[:, 'dlnmu/dlnKm'] = sat_df['dlnmu/dlnq'] * sat_df['dlnq/dlnKm']
         
         self.km_sensitivity_df = sat_df[['efm', 'reaction', 'metabolite',
-                                         'dq/dKm', 'dlogq/dlogKm',
-                                         'dmu/dKm', 'dlogmu/dlogKm']]
+                                         'dq/dKm', 'dlnq/dlnKm',
+                                         'dmu/dKm', 'dlnmu/dlnKm']]
 
     def read_sweep_enzyme_costs(self, prefix, regex):
         # read data from zip file (both enzyme and metabolite concentrations):
@@ -369,18 +369,18 @@ class Sensitivity(object):
         keq_tmp = self.keq_sensitivity_df[self.keq_sensitivity_df['dq/dKeq'] != 0]
 
         fig, axs = plt.subplots(2, 3, figsize=(15, 10), sharey=True)
-        plot_cdf(self.kcat_sensitivity_df, 'dq/dk',       ax=axs[0,0],   xscale='log')
-        plot_cdf(keq_tmp,                  'dq/dKeq',     ax=axs[0,1],   xscale='log')
-        plot_cdf(self.km_sensitivity_df,   'dq/dKm',      ax=axs[0,2],   xscale='log')
-        plot_cdf(self.kcat_sensitivity_df, 'dlogq/dlogk', ax=axs[1,0],   xscale='linear')
-        plot_cdf(keq_tmp,                  'dlogq/dlogKeq', ax=axs[1,1], xscale='linear')
-        plot_cdf(self.km_sensitivity_df,   'dlogq/dlogKm',  ax=axs[1,2], xscale='linear')
+        plot_cdf(self.kcat_sensitivity_df, 'dmu/dk',       ax=axs[0,0], xscale='log')
+        plot_cdf(keq_tmp,                  'dmu/dKeq',     ax=axs[0,1], xscale='log')
+        plot_cdf(self.km_sensitivity_df,   'dmu/dKm',      ax=axs[0,2], xscale='log')
+        plot_cdf(self.kcat_sensitivity_df, 'dlnmu/dlnk',   ax=axs[1,0], xscale='linear')
+        plot_cdf(keq_tmp,                  'dlnmu/dlnKeq', ax=axs[1,1], xscale='linear')
+        plot_cdf(self.km_sensitivity_df,   'dlnmu/dlnKm',  ax=axs[1,2], xscale='linear')
         fig.savefig(os.path.join(D.OUTPUT_DIR, 'sensitivity_cdf.pdf'), dpi=300)
 
     def plot_sensitivity_for_reaction(self, reaction):
         reaction_data_df = self.efm_data_df[self.efm_data_df['reaction'] == reaction]
 
-        draw_keq_sensitivity = (reaction_data_df['dq/dKeq'] != 0).any()
+        draw_keq_sensitivity = (reaction_data_df['dmu/dKeq'] != 0).any()
 
         substrates = self.stoich_df[(self.stoich_df['reaction'] == reaction) &
                                     (self.stoich_df['coefficient'] < 0)]['metabolite'].values
@@ -398,7 +398,7 @@ class Sensitivity(object):
 
         ax = axs_stack.pop(0)
         D.plot_basic_pareto(reaction_data_df, ax, x=D.YIELD_L, y=D.GROWTH_RATE_L,
-                            c='dlogq/dlogk', cmap=D.pareto_cmap(0.83), linewidth=0)
+                            c='dlnmu/dlnk', cmap=D.pareto_cmap(0.83), linewidth=0)
         ax.set_title('sensitivity to $k_{cat}$ of %s' % reaction)
         ax.set_ylim(-1e-3, None)
         ax.set_xlim(-1e-3, None)
@@ -406,7 +406,7 @@ class Sensitivity(object):
         if draw_keq_sensitivity:
             ax = axs_stack.pop(0)
             D.plot_basic_pareto(reaction_data_df, ax, x=D.YIELD_L, y=D.GROWTH_RATE_L,
-                                c='dlogq/dlogKeq', cmap=D.pareto_cmap(0.11), linewidth=0)
+                                c='dlnmu/dlnKeq', cmap=D.pareto_cmap(0.11), linewidth=0)
             ax.set_title('sensitivity to $K_{eq}$ of %s' % reaction)
             ax.get_yaxis().set_visible(False)
             ax.set_xlim(-1e-3, 1.05*reaction_data_df[D.YIELD_L].max())
@@ -416,7 +416,7 @@ class Sensitivity(object):
             ax = axs_stack.pop(0)
             tmp_df = pd.merge(reaction_data_df, km_data[km_data['metabolite'] == s], on='efm')
             D.plot_basic_pareto(tmp_df, ax, x=D.YIELD_L, y=D.GROWTH_RATE_L,
-                                c='dlogq/dlogKm', cmap=D.pareto_cmap(0.03), linewidth=0)
+                                c='dlnmu/dlnKm', cmap=D.pareto_cmap(0.03), linewidth=0)
             ax.set_title('sensitivity to $K_S$ of %s : %s' % (reaction, s))
             ax.get_yaxis().set_visible(False)
             ax.set_xlim(-1e-3, 1.05*reaction_data_df[D.YIELD_L].max())
@@ -425,7 +425,7 @@ class Sensitivity(object):
         for p in products:
             ax = axs_stack.pop(0)
             D.plot_basic_pareto(tmp_df, ax, x=D.YIELD_L, y=D.GROWTH_RATE_L,
-                                c='dlogq/dlogKm', cmap=D.pareto_cmap(0.58), linewidth=0)
+                                c='dlnmu/dlnKm', cmap=D.pareto_cmap(0.58), linewidth=0)
             ax.set_title('sensitivity to $K_P$ of %s : %s' % (reaction, p))
             ax.get_yaxis().set_visible(False)
             ax.set_xlim(-1e-3, 1.05*reaction_data_df[D.YIELD_L].max())
@@ -464,53 +464,63 @@ class Sensitivity(object):
         prod_km_df = slice_km_df[slice_km_df['dq/dKm'] < 0].groupby('reaction').min().transpose()
 
         layout = templates.ColumnLayout(1)
-        plot_svg_network(slice_df.loc['dlogq/dlogk',:].to_dict(), layout)
-        plot_svg_network(slice_df.loc['dlogq/dlogKeq',:].to_dict(), layout)
-        plot_svg_network(subs_km_df.loc['dlogq/dlogKm',:].to_dict(), layout)
-        plot_svg_network((-prod_km_df.loc['dlogq/dlogKm',:]).to_dict(), layout)
+        plot_svg_network(slice_df.loc['dlnq/dlnk',:].to_dict(), layout)
+        plot_svg_network(slice_df.loc['dlnq/dlnKeq',:].to_dict(), layout)
+        plot_svg_network(subs_km_df.loc['dlnq/dlnKm',:].to_dict(), layout)
+        plot_svg_network((-prod_km_df.loc['dlnq/dlnKm',:]).to_dict(), layout)
         layout.save(os.path.join(D.OUTPUT_DIR, 'sensitivity_efm%03d.pdf' % efm))
 
     def plot_sensitivity_as_errorbar(self, ax, reaction, percent=10):
         """
-            we plot the 'error' for the growth rate as
+            we plot the 'error' for the growth rate, for a multiplicative
+            change in the k_cat of a single reaction
         """
 
-        ax.set_title('sensitivity of growth rate to %d\\%% change in $k_{cat}$ of %s' %
+        ax.set_title('sensitivity of growth rate to %d\\%% '
+                     'change in $k_{cat}$ of %s' %
                       (percent, reaction))
         ax.set_xlabel(D.YIELD_L)
 
-        # start by plotting the Pareto plot of all EFMs
-        ax.scatter(self.yield_df.values, self.growth_rate.values, s=3,
-                   color=(0.8, 0.8, 0.8))
+        reaction_data_df = self.efm_data_df.groupby('efm').first()
+        reaction_data_df = reaction_data_df[[D.YIELD_L, D.GROWTH_RATE_L]].reset_index()
+        _tmp_df = self.efm_data_df[self.efm_data_df['reaction'] == reaction]
+        _tmp_df = _tmp_df[['efm', 'dlnmu/dlnk']].set_index('efm')
+        reaction_data_df = reaction_data_df.join(_tmp_df, on='efm', how='left')
+        
+        # to calculate the relative error, we use the following
+        # delta mu / mu = (d ln mu / d ln k) * (delta k / k)
+        reaction_data_df.loc[:, 'delta_mu'] = reaction_data_df[D.GROWTH_RATE_L] * \
+            np.abs(reaction_data_df['dlnmu/dlnk']) * (percent/100.0)
 
-        # calculate the errorbars using the scaled sensitivity
-        reaction_data_df = self.efm_data_df[self.efm_data_df['reaction'] == reaction]
 
-        xdata = reaction_data_df[D.YIELD_L].values
-        ydata = reaction_data_df[D.GROWTH_RATE_L].values
+        # plot all the 0-sensitivity EFMs first with grey points
+        reaction_data_df[pd.isnull(reaction_data_df['dlnmu/dlnk'])].plot(
+            kind='scatter', x=D.YIELD_L, y=D.GROWTH_RATE_L,
+            color=(0.7, 0.3, 0.5), alpha=1, ax=ax, s=4)
+        
+        # plot all the sensitive EFMs using an error bar plot
+        err_df = reaction_data_df[~pd.isnull(reaction_data_df['delta_mu'])]
+        ax.errorbar(err_df[D.YIELD_L],
+                    err_df[D.GROWTH_RATE_L],
+                    yerr=err_df['delta_mu'],
+                    fmt='.', capsize=3, capthick=0.5,
+                    elinewidth=0.5, color=(0.7, 0.3, 0.5))
 
-        # here we need to add the derivative of the GR_FUNCTION 
-        # (since it is not linear anymore)
-        yerr = reaction_data_df[D.GROWTH_RATE_L] * \
-               reaction_data_df['dlogq/dlogk'] * (percent/100.0)
-        yerr = yerr.values
-
-        ax.errorbar(xdata, ydata, yerr=yerr, fmt='.', capsize=3, capthick=0.5,
-                    elinewidth=0.5)
+################################################################################
 
 if __name__ == '__main__':
 
-    s2 = Sensitivity('standard')
+    s = Sensitivity('standard')
 
-    sys.exit(0)
     fig, ax = plt.subplots(1, 2, figsize=(12, 5))
-    s.plot_sensitivity_as_errorbar(ax[0], 'R80')
+    s.plot_sensitivity_as_errorbar(ax[0], 'R80', percent=50)
     s.plot_sensitivity_as_errorbar(ax[1], 'R6r', percent=50)
     fig.savefig(os.path.join(D.OUTPUT_DIR, 'sensitivity_errorbars.pdf'))
 
+    sys.exit(0)
     #%% cumulative distribution plots
     s.plot_sensitivity_cdfs()
-    s.verifty_sensitivities()
+    #s.verifty_sensitivities()
 
     #%% plot the sensitivity of all EFMs to
 

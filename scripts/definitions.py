@@ -32,7 +32,7 @@ rcParams['ytick.labelsize'] = 12.0
 
 matplotlib.rcParams['text.usetex'] = True
 matplotlib.rcParams['text.latex.preamble'] = \
-    '\usepackage{txfonts},\usepackage{lmodern},\usepackage{cmbright}'
+    r'\usepackage{txfonts},\usepackage{lmodern},\usepackage{cmbright}'
 matplotlib.rcParams['font.family'] = 'sans-serif'
 matplotlib.rcParams['font.sans-serif'] = 'Helvetica'
 matplotlib.rcParams['font.weight'] = 'medium'
@@ -346,7 +346,7 @@ def string_to_random_rgb(s, min_l=0.1, max_l=0.6, min_s=0.1, max_s=0.6):
     """
         generate 3 pseudorandom numbers from the hash-function of the name
     """
-    seed = int(int(sha1(s).hexdigest(), 16) % 1e7)
+    seed = int(int(sha1(s.encode('utf-8')).hexdigest(), 16) % 1e7)
     np.random.seed(seed)
     h = rand2hue(np.random.rand())
     l = min_l + np.random.rand() * (max_l - min_l)

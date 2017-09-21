@@ -45,7 +45,7 @@ class SweepInterpolator(object):
                                np.log10(D.MAX_CONC['oxygen']))[0, 0]
                 max_growth_rate = max(max_growth_rate, max_gr_efm)
             except ValueError:
-                print "WARNING: cannot interpolate 2D function for EFM #%04d" % efm
+                print("WARNING: cannot interpolate 2D function for EFM #%04d" % efm)
 
     def calc_gr(self, efm, glucose, oxygen):
         return self.f_interp_dict[efm](np.log10(glucose), np.log10(oxygen))[0, 0]
@@ -411,8 +411,8 @@ def plot_phase_plots(figure_data, sweep_cache_fname='sweep2d_win_200x200.csv'):
     phase_df, axis_params = get_phase_data(sweep_cache_fname)
     max_growth_rate = phase_df[D.GROWTH_RATE_L].max()
 
-    figS12, axS12 = pyplot.subplots(3, 3, figsize=(15, 15))
-    cbar_ax = figS12.add_axes([.72, .7, .02, .25])
+    figS12, axS12 = pyplot.subplots(3, 3, figsize=(12, 12))
+    cbar_ax = figS12.add_axes([.72, .75, .02, .2])
 
     # create a bitmap to be used with imshow
     hexcolor_df = phase_df.pivot(index=D.GLU_COL,
@@ -475,7 +475,7 @@ def plot_phase_plots(figure_data, sweep_cache_fname='sweep2d_win_200x200.csv'):
                               vmax=max_growth_rate, origin='lower')
     norm = colors.Normalize(vmin=0, vmax=max_growth_rate)
     colorbar.ColorbarBase(cbar_ax, cmap=D.GR_HEATMAP_CMAP, norm=norm)
-    cbar_ax.set_title(D.GROWTH_RATE_L)
+    cbar_ax.set_title(D.GROWTH_RATE_L, loc='center')
 
     for i, efm in enumerate(phase_df['best_efm'].unique()):
         if efm in D.efm_dict:
@@ -488,7 +488,7 @@ def plot_phase_plots(figure_data, sweep_cache_fname='sweep2d_win_200x200.csv'):
     axS12[0, 2].set_ylim(-1, 0)
     axS12[0, 2].get_xaxis().set_visible(False)
     axS12[0, 2].get_yaxis().set_visible(False)
-    axS12[0, 2].legend(fontsize=9, loc='center right')
+    axS12[0, 2].legend(fontsize=13, labelspacing=0.12, loc='center right')
     axS12[0, 2].axis('off')
 
     # make a phase plot where certain features of the winning EFMs
@@ -551,7 +551,7 @@ def plot_conc_versus_uptake_figure(figure_data,
             hexcolor = best_efm_hex.at[g, o]
             best_efm_color[j, i, :] = colors.hex2color(hexcolor)
 
-    fig = pyplot.figure(figsize=(12, 12))
+    fig = pyplot.figure(figsize=(8, 8))
     ax_list = []
 
     ##################### phase plot of winning EFMs ##########################
@@ -623,15 +623,14 @@ def plot_conc_versus_uptake_figure(figure_data,
                cmap='Oranges', vmax=0.7, linewidth=0,
                alpha=1)
 
-    ax.set_xlabel(GLU_UPRATE_L)
-    ax.set_ylabel(OX_UPTAKE_L)
-    ax.set_zlabel(D.GROWTH_RATE_L)
+    ax.set_xlabel(GLU_UPRATE_L, labelpad=10)
+    ax.set_ylabel(OX_UPTAKE_L, labelpad=10)
+    ax.set_zlabel(D.GROWTH_RATE_L, labelpad=10)
     ax.view_init(20, -120)
 
-
     for i, ax in enumerate(ax_list):
-        ax.annotate(chr(ord('a')+i), xy=(0.05, 0.98), xycoords='axes fraction',
-                    fontsize=20, ha='left', va='top')
+        ax.annotate(chr(ord('a')+i), xy=(0.98, 0.98), xycoords='axes fraction',
+                    fontsize=20, ha='right', va='top')
 
     return fig
 

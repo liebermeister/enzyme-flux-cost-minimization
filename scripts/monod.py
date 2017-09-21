@@ -51,11 +51,11 @@ def plot_monod_figure(figure_data):
     gs2 = gridspec.GridSpec(2, 4, left=0.05, right=0.95, bottom=0.06, top=0.45)
 
     axs = []
-    for i in xrange(2):
-        for j in xrange(4):
+    for i in range(2):
+        for j in range(4):
             axs.append(plt.subplot(gs1[i, j]))
-    for i in xrange(2):
-        for j in xrange(4):
+    for i in range(2):
+        for j in range(4):
             axs.append(plt.subplot(gs2[i, j]))
 
     for i, ax in enumerate(axs):
@@ -73,7 +73,7 @@ def plot_monod_figure(figure_data):
                                     p0=p0, method='trf')
                 monod_df.loc[efm, :] = popt
             except RuntimeError:
-                print "cannot resolve Monod curve for EFM %d" % efm
+                print("cannot resolve Monod curve for EFM %d" % efm)
                 monod_df.loc[efm, :] = np.nan
 
         # get fig3 data for plotting the other features
