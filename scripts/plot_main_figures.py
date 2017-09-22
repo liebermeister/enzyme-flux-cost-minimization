@@ -97,7 +97,13 @@ if False:
     plot_surface(ax4f, figure_data['standard'], c=D.LACTATE_L, vmax=1.5)
 
     fig4.tight_layout(h_pad=3)
-    fig4.savefig(os.path.join(D.OUTPUT_DIR, 'Fig4.svg')) # use inkscape to convert to eps
+    
+    # we must use InkScape to convert the SVG into EPS, otherwise there are
+    # rendering mistakes done by Matplotlib (the surface plots have a 
+    # white square behind them that blocks the axes).
+    fname = os.path.join(D.OUTPUT_DIR, 'Fig4')
+    fig4.savefig('%s.svg' % fname)
+    os.system('inkscape %s.svg -E %s.eps' % (fname, fname))
 
     # %% histogram of all different EFM growth rates in a specific condition
     fig5 = plt.figure(figsize=(9, 4.8))

@@ -285,21 +285,23 @@ def plot_dual_pareto(data0, label0, data1, label1, ax, x, y,
 
     # a grey Pareto plot for data0
     plot_basic_pareto(data0, ax, x, y, s=s, marker=marker,
-                      edgecolors=(1, 0.7, 0.7),
-                      facecolors=(1, 0.7, 0.7),
-                      paretofacecolors=(0.5, 0, 0),
-                      paretoedgecolors=(0.5, 0, 0),
-                      paretosize=20,
+                      edgecolors=(0.7, 0.7, 1),
+                      facecolors=(0.7, 0.7, 1),
+                      paretofacecolors=(0, 0, 0.5),
+                      paretoedgecolors=(0, 0, 0.5),
+                      paretosize=40,
+                      paretomarker='v',
                       label=label0, show_efm_labels=False,
                       **kwargs)
 
     # a full-blown Pareto plot for data1
     plot_basic_pareto(data1, ax, x, y, s=s, marker=marker,
-                      edgecolors=(0.7, 0.7, 1),
-                      facecolors=(0.7, 0.7, 1),
-                      paretofacecolors=(0, 0, 0.5),
-                      paretoedgecolors=(0, 0, 0.5),
-                      paretosize=20,
+                      edgecolors=(1, 0.7, 0.7),
+                      facecolors=(1, 0.7, 0.7),
+                      paretofacecolors=(0.5, 0, 0),
+                      paretoedgecolors=(0.5, 0, 0),
+                      paretosize=40,
+                      paretomarker='^',
                       label=label1, show_efm_labels=False,
                       **kwargs)
 
