@@ -20,11 +20,14 @@ from phase_surface_plots import plot_surface, \
     plot_conc_versus_uptake_figure, \
     plot_glucose_dual_pareto, \
     plot_growth_rate_hist, \
-    interpolate_single_condition
+    interpolate_single_condition, \
+    plot_glucose_sweep, \
+    SweepInterpolator
 from monod import plot_monod_figure
 from epistasis import Epistasis
 from tsne import plot_tsne_figure
 import tempfile
+import shutil
 
 figure_data = D.get_figure_data()
 
@@ -490,28 +493,28 @@ if False:
                        ax=axS18[0], x=D.YIELD_L, y=D.GROWTH_RATE_L,
                        draw_lines=False)
     axS18[0].set_xlim(0, None)
-    axS18[0].legend(loc='upper center', fontsize=10)
+    axS18[0].legend(loc='upper center', fontsize=12)
 
     s = Sensitivity('standard')
-    s.plot_sensitivity_as_errorbar(axS18[1], 'R6r', percent=50)
+    s.plot_sensitivity_as_errorbar(axS18[1], 'R6r', foldchange=2)
     axS18[1].set_xlim(0, None)
-    axS18[1].set_title(r'sensitivity to 50\% change in $k_{cat}$')
+    axS18[1].set_title(r'sensitivity to 2-fold change in $k_{cat}$')
 
-    maxy = figure_data['sweep_kcat_r6r'].max().max()
+    maxy = figure_data['sweep_kcat_r6r'].max().max() * 1.2
     D.plot_sweep(figure_data['sweep_kcat_r6r'], r'$k_{cat}$ [$s^{-1}$]',
                  efm_dict=D.efm_dict, ax=axS18[2], legend_loc='center left',
                  legend_fontsize=10)
     axS18[2].set_xscale('log')
-    axS18[2].set_ylim(0, maxy*1.3)
-    axS18[2].fill_between([7837/2.0, 7837*2.0], 0, maxy*1.4,
+    axS18[2].set_ylim(0, maxy)
+    axS18[2].fill_between([7837/2.0, 7837*2.0], 0, maxy,
                           color=(0.9, 0.9, 0.9))
-    axS18[2].plot([7837, 7837], [0.0, maxy*1.4], '--',
+    axS18[2].plot([7837, 7837], [0.0, maxy], '--',
                   color='grey', linewidth=1)
-    axS18[2].text(7837, maxy*1.32, r'std. $k_{cat}$', ha='center',
+    axS18[2].text(7837, maxy*1.01, r'std. $k_{cat}$', ha='center',
                   color='grey')
-    axS18[2].plot([7.837, 7.837], [0.0, maxy*1.4], '--',
+    axS18[2].plot([7.837, 7.837], [0.0, maxy], '--',
                   color='grey', linewidth=1)
-    axS18[2].text(7.837, maxy*1.32, r'low $k_{cat}$', ha='center',
+    axS18[2].text(7.837, maxy*1.01, r'low $k_{cat}$', ha='center',
                   color='grey')
 
     figS18.tight_layout()
@@ -549,7 +552,6 @@ if False:
     figS21.savefig(os.path.join(D.OUTPUT_DIR, 'FigS21.pdf'))
     
     # %% convert EFM visualization flux plots from SVG to EPS
-    import shutil
     with zipfile.ZipFile(D.ZIP_SVG_FNAME, 'r') as z:
         for efm, (_, efm_name) in D.efm_dict.items():
             with tempfile.NamedTemporaryFile(delete=True, suffix='.svg') as tmp_fp:
@@ -686,3 +688,35 @@ if False:
     axS26b.set_xlabel('measured enzyme abundance [mM]')
 
     figS26.savefig(os.path.join(D.OUTPUT_DIR, 'FigS26.pdf'))
+
+    # %% glucose sweeps for low and high oxygen levels
+    
+    figS27, axs27 = plt.subplots(1, 3, figsize=(12, 4))
+    axs27[0].set_title('low $O_2$ (%g mM)' % D.LOW_CONC['oxygen'])
+    axs27[1].set_title('std. $O_2$ (%g mM)' % D.STD_CONC['oxygen'])
+
+    plot_glucose_sweep(axs27[0], oxygen_conc=D.LOW_CONC['oxygen'],
+                       ylim=(0, 0.86), legend_loc='upper center',
+                       mark_glucose=False)
+    plot_glucose_sweep(axs27[1], oxygen_conc=D.STD_CONC['oxygen'],
+                       ylim=(0, 0.86), legend_loc=None,
+                       mark_glucose=False)
+    
+    glu_grid = np.logspace(-4, -1, 200)
+    interp_data_df = pd.DataFrame(index=glu_grid, columns=D.efm_dict.keys())
+    interpolator = SweepInterpolator.interpolate_2D_sweep(D.efm_dict.keys())
+    gr = [interpolator.calc_gr(1565, g, D.STD_CONC['oxygen'])
+          for g in glu_grid]
+    axs27[2].plot(gr, glu_grid, '-', color=D.efm_dict[1565]['color'])
+
+    axs27[2].set_xlabel(D.GROWTH_RATE_L)
+    axs27[2].set_ylabel('residual ' + D.GLU_COL)
+    axs27[2].set_title(r'std. $O_2$, only \emph{max-gr}')
+
+    for i, ax in enumerate(axs27):
+        ax.annotate(chr(ord('a')+i), xy=(0.02, 0.98),
+                    xycoords='axes fraction', ha='left', va='top',
+                    size=20)
+
+    figS27.tight_layout()
+    figS27.savefig(os.path.join(D.OUTPUT_DIR, 'FigS27.pdf'))

@@ -669,6 +669,49 @@ def plot_oxygen_sweep(ax, glucose_conc=None, N=200,
     ax.text(0.02, 0.6, 'glucose (%d mM)' % glucose_conc, ha='left', va='center',
             rotation=90, fontsize=14, color='grey', transform=ax.transAxes)
 
+def plot_glucose_sweep(ax, oxygen_conc=None, N=200, ylim=None,
+                      legend_loc='upper left', legend_fontsize=10,
+                      mark_glucose=True):
+    """make line plots of gr vs one of the axes (oxygen or glucose)"""
+    if oxygen_conc is None:
+        oxygen_conc = D.STD_CONC['oxygen']
+
+    glu_grid = np.logspace(np.log10(D.MIN_CONC['glucoseExt']),
+                           np.log10(D.MAX_CONC['glucoseExt']),
+                           N)
+
+    interp_data_df = pd.DataFrame(index=glu_grid, columns=D.efm_dict.keys())
+
+    interpolator = SweepInterpolator.interpolate_2D_sweep(D.efm_dict.keys())
+    for efm in interp_data_df.columns:
+        interp_data_df[efm] = [interpolator.calc_gr(efm, g, oxygen_conc)
+                               for g in glu_grid]
+
+    colors, labels = zip(*D.efm_dict.values())
+    interp_data_df.plot(kind='line', ax=ax, linewidth=2, color=colors)
+
+    if legend_loc is not None:
+        ax.legend(labels,
+                  loc=legend_loc, fontsize=legend_fontsize, labelspacing=0.2)
+    else:
+        ax.legend().remove()
+    ax.set_xscale('log')
+    ax.set_xlabel(D.GLU_COL)
+    ax.set_ylabel(r'growth rate [h$^{-1}$]')
+    if ylim is None:
+        ax.set_ylim([0, None])
+    else:
+        ax.set_ylim(ylim)
+
+    if mark_glucose:
+        # mark the line where 'standard' oxygen levels are
+        std_ox = D.STD_CONC['glucoseExt']
+        ax.plot([std_ox, std_ox], ax.get_ylim(), '--', color='grey', linewidth=1)
+        ax.text(std_ox, ax.get_ylim()[1], '  std. glucose', ha='center', va='bottom',
+                color='grey', fontsize=14)
+        ax.text(0.02, 0.6, '$O_2$ (%g mM)' % oxygen_conc, ha='left', va='center',
+                rotation=90, fontsize=14, color='grey', transform=ax.transAxes)
+
 def plot_oxygen_dual_pareto(data_df, ax, s=9,
                             std_ox=None, low_ox=None, std_glu=None,
                             draw_lines=True):

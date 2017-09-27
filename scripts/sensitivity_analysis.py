@@ -470,15 +470,15 @@ class Sensitivity(object):
         plot_svg_network((-prod_km_df.loc['dlnq/dlnKm',:]).to_dict(), layout)
         layout.save(os.path.join(D.OUTPUT_DIR, 'sensitivity_efm%03d.pdf' % efm))
 
-    def plot_sensitivity_as_errorbar(self, ax, reaction, percent=10):
+    def plot_sensitivity_as_errorbar(self, ax, reaction, foldchange=2):
         """
             we plot the 'error' for the growth rate, for a multiplicative
             change in the k_cat of a single reaction
         """
 
-        ax.set_title('sensitivity of growth rate to %d\\%% '
+        ax.set_title('sensitivity of growth rate to a %g-fold '
                      'change in $k_{cat}$ of %s' %
-                      (percent, reaction))
+                      (foldchange, reaction))
         ax.set_xlabel(D.YIELD_L)
 
         reaction_data_df = self.efm_data_df.groupby('efm').first()
@@ -488,10 +488,8 @@ class Sensitivity(object):
         reaction_data_df = reaction_data_df.join(_tmp_df, on='efm', how='left')
         
         # to calculate the relative error, we use the following
-        # delta mu / mu = (d ln mu / d ln k) * (delta k / k)
-        reaction_data_df.loc[:, 'delta_mu'] = reaction_data_df[D.GROWTH_RATE_L] * \
-            np.abs(reaction_data_df['dlnmu/dlnk']) * (percent/100.0)
-
+        # mu / mu_0 = (k / k_0) ^ (d ln mu / d ln k)
+        
 
         # plot all the 0-sensitivity EFMs first with grey points
         reaction_data_df[pd.isnull(reaction_data_df['dlnmu/dlnk'])].plot(
@@ -499,10 +497,13 @@ class Sensitivity(object):
             color=(0.7, 0.3, 0.5), alpha=1, ax=ax, s=4)
         
         # plot all the sensitive EFMs using an error bar plot
-        err_df = reaction_data_df[~pd.isnull(reaction_data_df['delta_mu'])]
+        err_df = reaction_data_df[~pd.isnull(reaction_data_df['dlnmu/dlnk'])]
+        yerr_up = err_df[D.GROWTH_RATE_L] * (foldchange**(-err_df['dlnmu/dlnk']) - 1.0)
+        yerr_down = -err_df[D.GROWTH_RATE_L] * (foldchange**err_df['dlnmu/dlnk'] - 1.0)
+        yerr = np.vstack([yerr_up.values, yerr_down.values])
         ax.errorbar(err_df[D.YIELD_L],
                     err_df[D.GROWTH_RATE_L],
-                    yerr=err_df['delta_mu'],
+                    yerr=yerr,
                     fmt='.', capsize=3, capthick=0.5,
                     elinewidth=0.5, color=(0.7, 0.3, 0.5))
 
@@ -513,8 +514,8 @@ if __name__ == '__main__':
     s = Sensitivity('standard')
 
     fig, ax = plt.subplots(1, 2, figsize=(12, 5))
-    s.plot_sensitivity_as_errorbar(ax[0], 'R80', percent=50)
-    s.plot_sensitivity_as_errorbar(ax[1], 'R6r', percent=50)
+    s.plot_sensitivity_as_errorbar(ax[0], 'R80', foldchange=2)
+    s.plot_sensitivity_as_errorbar(ax[1], 'R6r', foldchange=2)
     fig.savefig(os.path.join(D.OUTPUT_DIR, 'sensitivity_errorbars.pdf'))
 
     sys.exit(0)
