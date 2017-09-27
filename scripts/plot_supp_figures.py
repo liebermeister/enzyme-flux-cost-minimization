@@ -9,6 +9,7 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+from matplotlib.collections import LineCollection
 from mpl_toolkits.mplot3d import Axes3D # NOTE!!! keep this for the 3D plots
 import zipfile
 import definitions as D
@@ -22,7 +23,9 @@ from phase_surface_plots import plot_surface, \
     plot_growth_rate_hist, \
     interpolate_single_condition, \
     plot_glucose_sweep, \
-    SweepInterpolator
+    SweepInterpolator, \
+    get_glucose_sweep_df, \
+    get_anaerobic_glucose_sweep_df
 from monod import plot_monod_figure
 from epistasis import Epistasis
 from tsne import plot_tsne_figure
@@ -564,66 +567,74 @@ if False:
                 eps_fname = os.path.join(D.OUTPUT_DIR, 'FigS22_%s.eps' % efm_name)
                 os.system('inkscape %s -E %s' % (tmp_fp.name, eps_fname))
 
-    # %% fig S23 - glucose sweep at anaerobic conditions
+    # %% fig S25 - glucose sweep at anaerobic conditions
     # find the "winning" EFM for each glucose level and make a color-coded
     # plot like the 3D surface plots
     
-    anaerobic_sweep_data_df = figure_data['monod_glucose_anae'].drop(9999)
-    
-    X = np.logspace(-4, 4, 1000)
-    
-    glu_levels = set(anaerobic_sweep_data_df.columns).union(X)
-    
-    interp_df = anaerobic_sweep_data_df.transpose()
-    interp_df = interp_df.append(
-        pd.DataFrame(index=X, columns=anaerobic_sweep_data_df.index))
-    interp_df = interp_df[~interp_df.index.duplicated(keep='first')]
-    interp_df.sort_index(inplace=True)
-    interp_df.index = np.log(interp_df.index)
-    interpolated_df = interp_df.interpolate(method='polynomial', order=3)
-    interpolated_df.index = np.exp(interpolated_df.index)
+    def plot_1D_sweep(interpolated_df, ax0, ax1, color_func=None):
+        best_df = pd.DataFrame(index=interpolated_df.index,
+                               columns=[D.GROWTH_RATE_L, 'best_efm', 'hexcolor'])
+        best_df[D.GROWTH_RATE_L] = interpolated_df.max(axis=1)
+        best_df['best_efm'] = interpolated_df.idxmax(axis=1)
+        
+        best_efms = sorted(best_df['best_efm'].unique())
+        
+        if color_func is None:
+            color_dict = dict(zip(efms, D.cycle_colors(len(efms), h0=0.02, s=1)))
+            color_func = color_dict.get
+            
+        best_df['hexcolor'] = best_df['best_efm'].apply(color_func)
+        ax0.plot(interpolated_df.index, interpolated_df, '-',
+                 linewidth=1, alpha=0.2, color=(0.5, 0.5, 0.8))
+        ax0.set_xscale('log')
+        
+        d = list(zip(best_df.index, best_df[D.GROWTH_RATE_L]))
+        segments = zip(d[:-1], d[1:])
+        colors = list(best_df['hexcolor'].iloc[1:].values)
+        
+        for efm in best_efms:
+            if efm in D.efm_dict:
+                label = D.efm_dict[efm]['label']
+            else:
+                label = 'EFM %04d' % efm
+            ax1.plot(interpolated_df.index, interpolated_df[efm],
+                     label='_nolegend_', linestyle='-',
+                     color=D.efm_to_hex(efm), linewidth=0.5, alpha=0.5)
+            ax1.plot([0, 1], [-1, -1],
+                     label=label,
+                     color=color_func(efm), linewidth=2)
+        coll = LineCollection(segments, colors=colors, linewidths=2)
+        ax1.add_collection(coll)
+        ax1.legend(loc='best', fontsize=12)
+        
+        ax1.set_xscale('log')
 
-    best_df = pd.DataFrame(index=interpolated_df.index,
-                           columns=[D.GROWTH_RATE_L, 'best_efm', 'hexcolor'])
-    best_df[D.GROWTH_RATE_L] = interpolated_df.max(axis=1)
-    best_df['best_efm'] = interpolated_df.idxmax(axis=1)
+    low_o2 = 0.0115
     
-    efms = sorted(best_df['best_efm'].unique())
-    color_dict = dict(zip(efms, D.cycle_colors(len(efms), seed=118)))
+    figS25, axs25 = plt.subplots(3, 3, figsize=(12, 12), sharey=True)
+    axs25[0, 0].set_title('anaerobic')
+    axs25[1, 0].set_title(r'low $O_2$ (%.1f $\mu$M)' % (low_o2*1e3))
+    axs25[2, 0].set_title(r'std. $O_2$ (%g mM)' % D.STD_CONC['oxygen'])
+
+    interpolated_df = get_anaerobic_glucose_sweep_df(figure_data)
+    plot_1D_sweep(interpolated_df, axs25[0, 0], axs25[0, 1], None)
     
-    best_df['hexcolor'] = best_df['best_efm'].apply(color_dict.get)
+    interpolated_df = get_glucose_sweep_df(oxygen_conc=low_o2)
+    plot_1D_sweep(interpolated_df, axs25[1, 0], axs25[1, 1], D.efm_to_hex)
     
-    figS25, axs = plt.subplots(1, 2, figsize=(10, 4.5), sharey=True)
-    ax = axs[0]
-    ax.plot(interpolated_df.index, interpolated_df, '-',
-            linewidth=0.5, alpha=0.2, color=(0.2, 0.2, 0.6))
+    interpolated_df = get_glucose_sweep_df(oxygen_conc=D.STD_CONC['oxygen'])
+    plot_1D_sweep(interpolated_df, axs25[2, 0], axs25[2, 1], D.efm_to_hex)
     
-    ax = axs[1]
-    d = list(zip(best_df.index, best_df[D.GROWTH_RATE_L]))
-    segments = zip(d[:-1], d[1:])
-    colors = list(best_df['hexcolor'].iloc[1:].values)
-    
-    from matplotlib.collections import LineCollection
-    for efm in efms:
-        ax.plot(interpolated_df.index, interpolated_df[efm],
-                label='_nolegend_', linestyle='-',
-                color=color_dict[efm], linewidth=0.5, alpha=0.5)
-        ax.plot([0, 1], [-1, -1],
-                label='EFM %04d' % efm,
-                color=color_dict[efm], linewidth=4)
-    coll = LineCollection(segments, colors=colors, linewidths=4)
-    ax.add_collection(coll)
-    ax.legend(loc='center right', fontsize=12)
-    
-    for i, ax in enumerate(axs):
+    for i, ax in enumerate(axs25.flat):
         ax.annotate(chr(ord('a')+i), xy=(0.02, 0.98),
                     xycoords='axes fraction', ha='left', va='top',
                     size=20)
-        ax.set_xscale('log')
         ax.set_xlim(0.6e-4, 1.5e4)
-        ax.set_ylim(1e-3, 0.35)
+        ax.set_ylim(1e-3, 0.86)
         ax.set_xlabel(D.GLU_COL)
         ax.set_ylabel(D.GROWTH_RATE_L)
+        
+    figS25.tight_layout()
     
     figS25.savefig(os.path.join(D.OUTPUT_DIR, 'FigS25.pdf'))
 
@@ -663,8 +674,7 @@ if False:
     axS26b.set_title('exp')
 
     D.plot_basic_pareto(data, axS26a, x=D.YIELD_L, y=D.GROWTH_RATE_L,
-                        c=CORR_ENZ_L, cmap='copper_r',
-                        vmin=0, linewidth=0, s=30, edgecolor='k')
+                        c=CORR_ENZ_L, cmap='copper_r')
     for efm in D.efm_dict.keys():
         xy = np.array(data.loc[efm, [D.YIELD_L, D.GROWTH_RATE_L]].tolist())
         xytext = xy + np.array((0, 0.07))
@@ -692,22 +702,26 @@ if False:
     # %% glucose sweeps for low and high oxygen levels
     
     figS27, axs27 = plt.subplots(1, 3, figsize=(12, 4))
-    axs27[0].set_title('low $O_2$ (%g mM)' % D.LOW_CONC['oxygen'])
-    axs27[1].set_title('std. $O_2$ (%g mM)' % D.STD_CONC['oxygen'])
+    low_o2 = 0.009
+    std_o2 = D.STD_CONC['oxygen']
+    axs27[0].set_title('low $O_2$ (%g mM)' % low_o2)
+    axs27[1].set_title('std. $O_2$ (%g mM)' % std_o2)
 
-    plot_glucose_sweep(axs27[0], oxygen_conc=D.LOW_CONC['oxygen'],
+    plot_glucose_sweep(axs27[0], oxygen_conc=low_o2,
                        ylim=(0, 0.86), legend_loc='upper center',
                        mark_glucose=False)
-    plot_glucose_sweep(axs27[1], oxygen_conc=D.STD_CONC['oxygen'],
+    plot_glucose_sweep(axs27[1], oxygen_conc=std_o2,
                        ylim=(0, 0.86), legend_loc=None,
                        mark_glucose=False)
     
     glu_grid = np.logspace(-4, -1, 200)
     interp_data_df = pd.DataFrame(index=glu_grid, columns=D.efm_dict.keys())
     interpolator = SweepInterpolator.interpolate_2D_sweep(D.efm_dict.keys())
-    gr = [interpolator.calc_gr(1565, g, D.STD_CONC['oxygen'])
-          for g in glu_grid]
-    axs27[2].plot(gr, glu_grid, '-', color=D.efm_dict[1565]['color'])
+    for efm in [1565]:
+        gr = [interpolator.calc_gr(efm, g, std_o2)
+              for g in glu_grid]
+        axs27[2].plot(gr, glu_grid, '-', color=D.efm_dict[efm]['color'])
+
 
     axs27[2].set_xlabel(D.GROWTH_RATE_L)
     axs27[2].set_ylabel('residual ' + D.GLU_COL)
@@ -719,4 +733,5 @@ if False:
                     size=20)
 
     figS27.tight_layout()
-    figS27.savefig(os.path.join(D.OUTPUT_DIR, 'FigS27.pdf'))
+    figS27.savefig(os.path.join(D.OUTPUT_DIR, 'FigS27.png'))
+

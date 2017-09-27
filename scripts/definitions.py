@@ -380,10 +380,17 @@ def efm_to_hex(efm):
         rgb = string_to_random_rgb(str(efm), min_l=0.3, max_l=0.8, min_s=0.1, max_s=0.8)
         return matplotlib.colors.rgb2hex(rgb)
 
-def cycle_colors(n, min_l=0.4, max_l=0.5, min_s=0.8, max_s=0.8, seed=1984):
+def cycle_colors(n, h0=0.0, l=0.5, s=0.8):
+    for x in np.linspace(0, 1, n+1)[:-1]:
+        h = rand2hue((h0 + x) % 1.0)
+        rgb = hls_to_rgb(h, l, s)
+        yield matplotlib.colors.rgb2hex(rgb)
+
+def cycle_colors_rand(n, min_l=0.4, max_l=0.5, min_s=0.8, max_s=0.8, seed=1984):
     np.random.seed(seed)
 
-    for x in np.linspace(0, 1, n+1)[:-1]:
+    for i in range(n):
+        x = np.random.rand()
         h = rand2hue(x)
         l = min_l + np.random.rand() * (max_l - min_l)
         s = min_s + np.random.rand() * (max_s - min_s)

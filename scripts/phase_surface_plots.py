@@ -712,6 +712,38 @@ def plot_glucose_sweep(ax, oxygen_conc=None, N=200, ylim=None,
         ax.text(0.02, 0.6, '$O_2$ (%g mM)' % oxygen_conc, ha='left', va='center',
                 rotation=90, fontsize=14, color='grey', transform=ax.transAxes)
 
+def get_glucose_sweep_df(oxygen_conc=None, efm_list=None, N=200):
+    
+    if oxygen_conc is None:
+        oxygen_conc = D.STD_CONC['oxygen']
+
+    glu_grid = np.logspace(np.log10(D.MIN_CONC['glucoseExt']),
+                           np.log10(D.MAX_CONC['glucoseExt']),
+                           N)
+    interpolator = SweepInterpolator.interpolate_2D_sweep(efm_list)
+
+    interp_data_df = pd.DataFrame(index=glu_grid,
+                                  columns=interpolator.efm_list)
+    for efm in interpolator.efm_list:
+        interp_data_df[efm] = [interpolator.calc_gr(efm, g, oxygen_conc)
+                               for g in glu_grid]
+    return interp_data_df
+
+def get_anaerobic_glucose_sweep_df(figure_data, N=200):
+    anaerobic_sweep_data_df = figure_data['monod_glucose_anae'].drop(9999)
+    glu_grid = np.logspace(np.log10(D.MIN_CONC['glucoseExt']),
+                           np.log10(D.MAX_CONC['glucoseExt']),
+                           N)
+    interp_df = anaerobic_sweep_data_df.transpose()
+    interp_df = interp_df.append(
+        pd.DataFrame(index=glu_grid, columns=anaerobic_sweep_data_df.index))
+    interp_df = interp_df[~interp_df.index.duplicated(keep='first')]
+    interp_df.sort_index(inplace=True)
+    interp_df.index = np.log(interp_df.index)
+    interpolated_df = interp_df.interpolate(method='polynomial', order=3)
+    interpolated_df.index = np.exp(interpolated_df.index)
+    return interpolated_df
+
 def plot_oxygen_dual_pareto(data_df, ax, s=9,
                             std_ox=None, low_ox=None, std_glu=None,
                             draw_lines=True):

@@ -121,7 +121,7 @@ def get_df_from_pareto_zipfile(zip_fname):
         enzyme_abundance_df = pd.DataFrame(index=params_df.index, columns=sorted(efms), dtype=float)
         for fname, efm in zip(fnames, efms):
             tmp_df = pd.DataFrame.from_csv(z.open(fname, 'r'), index_col=0)
-            tmp_df.index = map(D.FIX_REACTION_ID, tmp_df.index)
+            tmp_df.index = list(map(D.FIX_REACTION_ID, tmp_df.index))
             enzyme_abundance_df[[efm]] = tmp_df
         enzyme_abundance_df.columns.name = 'efm'
         enzyme_abundance_df.index.name = 'reaction'
