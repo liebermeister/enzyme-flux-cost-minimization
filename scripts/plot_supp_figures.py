@@ -571,7 +571,7 @@ if False:
     # find the "winning" EFM for each glucose level and make a color-coded
     # plot like the 3D surface plots
     
-    def plot_1D_sweep(interpolated_df, ax0, ax1, color_func=None):
+    def plot_1D_sweep(interpolated_df, ax0, ax1, ax2, color_func=None):
         best_df = pd.DataFrame(index=interpolated_df.index,
                                columns=[D.GROWTH_RATE_L, 'best_efm', 'hexcolor'])
         best_df[D.GROWTH_RATE_L] = interpolated_df.max(axis=1)
@@ -580,13 +580,18 @@ if False:
         best_efms = sorted(best_df['best_efm'].unique())
         
         if color_func is None:
-            color_dict = dict(zip(efms, D.cycle_colors(len(efms), h0=0.02, s=1)))
+            color_dict = dict(zip(best_efms, D.cycle_colors(len(best_efms),
+                                                            h0=0.02, s=1)))
             color_func = color_dict.get
             
         best_df['hexcolor'] = best_df['best_efm'].apply(color_func)
         ax0.plot(interpolated_df.index, interpolated_df, '-',
                  linewidth=1, alpha=0.2, color=(0.5, 0.5, 0.8))
         ax0.set_xscale('log')
+        ax0.set_xlim(0.6e-4, 1.5e4)
+        ax0.set_ylim(1e-3, 0.86)
+        ax0.set_xlabel(D.GLU_COL)
+        ax0.set_ylabel(D.GROWTH_RATE_L)
         
         d = list(zip(best_df.index, best_df[D.GROWTH_RATE_L]))
         segments = zip(d[:-1], d[1:])
@@ -608,31 +613,38 @@ if False:
         ax1.legend(loc='best', fontsize=12)
         
         ax1.set_xscale('log')
+        ax1.set_xlim(0.6e-4, 1.5e4)
+        ax1.set_ylim(1e-3, 0.86)
+        ax1.set_xlabel(D.GLU_COL)
+        ax1.set_ylabel(D.GROWTH_RATE_L)
+        
+        ax2.plot(best_df[D.GROWTH_RATE_L], best_df.index,
+                 '-', color=(0.5, 0.5, 0.8), linewidth=2)
+        ax2.set_xlim(0, 0.7)
+        ax2.set_ylim(0, 0.1)
+        ax2.set_xlabel(D.GROWTH_RATE_L)
+        ax2.set_ylabel('residual ' + D.GLU_COL)
 
     low_o2 = 0.0115
     
-    figS25, axs25 = plt.subplots(3, 3, figsize=(12, 12), sharey=True)
-    axs25[0, 0].set_title('anaerobic')
-    axs25[1, 0].set_title(r'low $O_2$ (%.1f $\mu$M)' % (low_o2*1e3))
-    axs25[2, 0].set_title(r'std. $O_2$ (%g mM)' % D.STD_CONC['oxygen'])
+    figS25, axs25 = plt.subplots(3, 3, figsize=(10, 10))
+    axs25[0, 1].set_title('anaerobic')
+    axs25[1, 1].set_title(r'low $O_2$ (%.1f $\mu$M)' % (low_o2*1e3))
+    axs25[2, 1].set_title(r'std. $O_2$ (%g mM)' % D.STD_CONC['oxygen'])
 
     interpolated_df = get_anaerobic_glucose_sweep_df(figure_data)
-    plot_1D_sweep(interpolated_df, axs25[0, 0], axs25[0, 1], None)
+    plot_1D_sweep(interpolated_df, axs25[0, 0], axs25[0, 1], axs25[0, 2], None)
     
     interpolated_df = get_glucose_sweep_df(oxygen_conc=low_o2)
-    plot_1D_sweep(interpolated_df, axs25[1, 0], axs25[1, 1], D.efm_to_hex)
+    plot_1D_sweep(interpolated_df, axs25[1, 0], axs25[1, 1], axs25[1, 2], D.efm_to_hex)
     
     interpolated_df = get_glucose_sweep_df(oxygen_conc=D.STD_CONC['oxygen'])
-    plot_1D_sweep(interpolated_df, axs25[2, 0], axs25[2, 1], D.efm_to_hex)
+    plot_1D_sweep(interpolated_df, axs25[2, 0], axs25[2, 1], axs25[2, 2], D.efm_to_hex)
     
     for i, ax in enumerate(axs25.flat):
         ax.annotate(chr(ord('a')+i), xy=(0.02, 0.98),
                     xycoords='axes fraction', ha='left', va='top',
                     size=20)
-        ax.set_xlim(0.6e-4, 1.5e4)
-        ax.set_ylim(1e-3, 0.86)
-        ax.set_xlabel(D.GLU_COL)
-        ax.set_ylabel(D.GROWTH_RATE_L)
         
     figS25.tight_layout()
     
@@ -733,5 +745,5 @@ if False:
                     size=20)
 
     figS27.tight_layout()
-    figS27.savefig(os.path.join(D.OUTPUT_DIR, 'FigS27.png'))
+    figS27.savefig(os.path.join(D.OUTPUT_DIR, 'FigS27.pdf'))
 
