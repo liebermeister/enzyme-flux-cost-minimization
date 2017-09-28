@@ -116,13 +116,17 @@ def get_df_from_pareto_zipfile(zip_fname):
         # a single dataframe with reaction IDs as the index and EFMs as
         # as the columns
         csv_prefix = '^%s/results/enz-%s-r' % (prefix, prefix)
-        fnames = [fname for fname in z.namelist() if re.search('%s(\d+)\.csv' % csv_prefix, fname)]
-        efms = map(lambda f: int(re.findall(csv_prefix + '(\d+)\.csv', f)[0]), fnames)
-        enzyme_abundance_df = pd.DataFrame(index=params_df.index, columns=sorted(efms), dtype=float)
+        fnames = [fname for fname in z.namelist() 
+                  if re.search('%s(\d+)\.csv' % csv_prefix, fname)]
+        efms = list(map(lambda f: 
+            int(re.findall(csv_prefix + '(\d+)\.csv', f)[0]), fnames))
+        enzyme_abundance_df = pd.DataFrame(index=params_df.index,
+                                           columns=sorted(efms),
+                                           dtype=float)
         for fname, efm in zip(fnames, efms):
             tmp_df = pd.DataFrame.from_csv(z.open(fname, 'r'), index_col=0)
-            tmp_df.index = list(map(D.FIX_REACTION_ID, tmp_df.index))
-            enzyme_abundance_df[[efm]] = tmp_df
+            tmp_df.index = map(D.FIX_REACTION_ID, tmp_df.index)
+            enzyme_abundance_df[efm] = tmp_df
         enzyme_abundance_df.columns.name = 'efm'
         enzyme_abundance_df.index.name = 'reaction'
 
