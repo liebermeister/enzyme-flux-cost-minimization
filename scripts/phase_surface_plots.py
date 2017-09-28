@@ -73,7 +73,7 @@ class SweepInterpolator(object):
             files (doesn't matter which)
         """
         rates_df, _ = SweepInterpolator.get_general_params(min(ITER_RANGE))
-        if type(ko) != types.ListType:
+        if type(ko) != list:
             ko = [ko]
         efms_to_keep = rates_df[~rates_df[ko].any(1)].index
         return list(efms_to_keep)
@@ -731,6 +731,12 @@ def get_glucose_sweep_df(oxygen_conc=None, efm_list=None, N=200):
 
 def get_anaerobic_glucose_sweep_df(figure_data, N=200):
     anaerobic_sweep_data_df = figure_data['monod_glucose_anae'].drop(9999)
+    
+    # filter all EMFs that have a > 1% drop in the function (it should be
+    # completely monotonic, but some numerical errors should be okay).
+    non_monotinic = (np.log(anaerobic_sweep_data_df).diff(axis=1) < 0)
+    anaerobic_sweep_data_df[non_monotinic] = np.nan
+
     glu_grid = np.logspace(np.log10(D.MIN_CONC['glucoseExt']),
                            np.log10(D.MAX_CONC['glucoseExt']),
                            N)
@@ -751,17 +757,21 @@ def plot_oxygen_dual_pareto(data_df, ax, s=9,
     low_ox = low_ox or D.LOW_CONC['oxygen']
     std_glu = std_glu or D.STD_CONC['glucoseExt']
 
-    std_ox_df = pd.DataFrame(index=data_df.index, columns=[D.GROWTH_RATE_L, D.YIELD_L])
+    std_ox_df = pd.DataFrame(index=data_df.index,
+                             columns=[D.GROWTH_RATE_L, D.YIELD_L])
     std_ox_df[D.YIELD_L] = data_df[D.YIELD_L]
-    low_ox_df = pd.DataFrame(index=data_df.index, columns=[D.GROWTH_RATE_L, D.YIELD_L])
+    low_ox_df = pd.DataFrame(index=data_df.index,
+                             columns=[D.GROWTH_RATE_L, D.YIELD_L])
     low_ox_df[D.YIELD_L] = data_df[D.YIELD_L]
 
     # calculate the growth rates in the lower oxygen level, using the
     # interpolated functions
     interpolator = SweepInterpolator.interpolate_2D_sweep()
     for efm in data_df.index:
-        std_ox_df.at[efm, D.GROWTH_RATE_L] = interpolator.calc_gr(efm, std_glu, std_ox)
-        low_ox_df.at[efm, D.GROWTH_RATE_L] = interpolator.calc_gr(efm, std_glu, low_ox)
+        std_ox_df.at[efm, D.GROWTH_RATE_L] = \
+            interpolator.calc_gr(efm, std_glu, std_ox)
+        low_ox_df.at[efm, D.GROWTH_RATE_L] = \
+            interpolator.calc_gr(efm, std_glu, low_ox)
 
     D.plot_dual_pareto(std_ox_df, 'std. O$_2$ (0.21 mM)',
                        low_ox_df, 'low O$_2$ (%g mM)' % low_ox,
@@ -777,17 +787,21 @@ def plot_glucose_dual_pareto(data_df, ax,
     low_glu = low_glu or D.LOW_CONC['glucoseExt']
     std_ox = std_ox or D.STD_CONC['oxygen']
 
-    std_glu_df = pd.DataFrame(index=data_df.index, columns=[D.GROWTH_RATE_L, D.YIELD_L])
+    std_glu_df = pd.DataFrame(index=data_df.index,
+                              columns=[D.GROWTH_RATE_L, D.YIELD_L])
     std_glu_df[D.YIELD_L] = data_df[D.YIELD_L]
-    low_glu_df = pd.DataFrame(index=data_df.index, columns=[D.GROWTH_RATE_L, D.YIELD_L])
+    low_glu_df = pd.DataFrame(index=data_df.index,
+                              columns=[D.GROWTH_RATE_L, D.YIELD_L])
     low_glu_df[D.YIELD_L] = data_df[D.YIELD_L]
 
     # calculate the growth rates in the lower oxygen level, using the
     # interpolated functions
     interpolator = SweepInterpolator.interpolate_2D_sweep()
     for efm in data_df.index:
-        std_glu_df.at[efm, D.GROWTH_RATE_L] = interpolator.calc_gr(efm, std_glu, std_ox)
-        low_glu_df.at[efm, D.GROWTH_RATE_L] = interpolator.calc_gr(efm, low_glu, std_ox)
+        std_glu_df.at[efm, D.GROWTH_RATE_L] = \
+            interpolator.calc_gr(efm, std_glu, std_ox)
+        low_glu_df.at[efm, D.GROWTH_RATE_L] = \
+            interpolator.calc_gr(efm, low_glu, std_ox)
 
     D.plot_dual_pareto(std_glu_df, 'std. glucose (100 mM)',
                        low_glu_df, 'low glucose (%g mM)' % low_glu,

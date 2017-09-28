@@ -56,7 +56,9 @@ def get_df_from_sweep_zipfile(zip_fname, regex=None):
         csv_prefix = '^%s/results/enz-%s-r' % (prefix, prefix)
         fnames = [fname for fname in z.namelist() if re.search('%s(\d+)\.csv' % csv_prefix, fname)]
         fnames.sort()
-        efms = map(lambda f: int(re.findall(csv_prefix + '(\d+)\.csv', f)[0]), fnames)
+        
+        _map_f = lambda f: int(re.findall(csv_prefix + '(\d+)\.csv', f)[0])
+        efms = list(map(_map_f, fnames))
 
         frames = []
         for fname, efm in zip(fnames, efms):
