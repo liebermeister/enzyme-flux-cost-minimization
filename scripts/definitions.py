@@ -51,11 +51,11 @@ PROTEOME_FNAME = os.path.join(DATA_DIR, 'protein_abundance_from_schmidt_et_al.cs
 DATA_FILES = {
          'standard':             [['n39-p1'],  None],
          'anaerobic':            [['n39-p7'],  None],
-         'low_kcat_r6r':         [['n39-p14'], None],
          'sweep_oxygen':         [['n39-p11'], 'mext-oxygen-'],
-         'sweep_glucose':        [['n39-p16'], 'mext-glucoseExt-'],
          'sweep_kcat_r6r':       [['n39-p13'], 'kcat-r6r-'],
+         'low_kcat_r6r':         [['n39-p14'], None],
          'sweep_kcat_r70':       [['n39-p15'], 'kcat-r70-'],
+         'sweep_glucose':        [['n39-p16'], 'mext-glucoseExt-'],
          'monod_glucose_aero':   [['n39-p17'], 'mext-glucoseExt-'],
          'monod_glucose_anae':   [['n39-p18'], 'mext-glucoseExt-'],
         }
@@ -229,8 +229,8 @@ def plot_basic_pareto(data, ax, x, y, s=10, marker='o', c=None,
     """
         make plot gr vs yield for all EFMs
     """
-    xdata = data.loc[:, x]
-    ydata = data.loc[:, y]
+    xdata = data[x]
+    ydata = data[y]
     if c is not None:
         # if the c-value of all the data points is 0, use gray color
         # (otherwise, by default, the cmap will give 0 the middle color)
@@ -260,12 +260,13 @@ def plot_basic_pareto(data, ax, x, y, s=10, marker='o', c=None,
 
     if paretofacecolors != 'none' or paretoedgecolors != 'none':
         # find the EFMs which are on the pareto front and mark them
-        pareto_xy = []
+        pareto_idx = []
         for i in ydata.sort_values(ascending=False).index:
-            if pareto_xy == [] or data[x][i] > pareto_xy[-1][0]:
-                pareto_xy.append((data[x][i], data[y][i]))
+            if pareto_idx == [] or xdata[i] > xdata[pareto_idx[-1]]:
+                pareto_idx.append(i)
 
-        xpareto, ypareto = zip(*pareto_xy)
+        xpareto = xdata[pareto_idx]
+        ypareto = ydata[pareto_idx]
         ax.scatter(xpareto, ypareto, s=paretosize, marker=paretomarker,
                    facecolors=paretofacecolors, edgecolors=paretoedgecolors)
     return CS
