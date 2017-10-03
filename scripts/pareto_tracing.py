@@ -12,10 +12,6 @@ them in decreasing order of growth rate (and increasing yield)
 import os
 import matplotlib.pyplot as plt
 import definitions as D
-from phase_surface_plots import allocation_pie_chart, plot_surface, \
-                                plot_heatmap_diff, plot_heatmap, \
-                                plot_oxygen_sweep, plot_oxygen_dual_pareto
-from prepare_data import get_concatenated_raw_data
 
 figure_data = D.get_figure_data()
 data = figure_data['standard']

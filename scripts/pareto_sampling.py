@@ -30,7 +30,22 @@ if __name__ == '__main__':
     data.index = range(data.shape[0])
     fig, ax = plt.subplots(1, 1, figsize=(10, 10)) 
     
-    D.plot_basic_pareto(data, x=D.YIELD_L, y=D.GROWTH_RATE_L,
-                        ax=ax, paretofacecolors='b')
+    xdata = data[D.YIELD_L]
+    ydata = data[D.GROWTH_RATE_L]
+    CS = ax.scatter(xdata, ydata, marker='o',
+                    facecolors=(.8, .7, .7), edgecolors=None, alpha=0.2)
+    ax.set_xlabel(D.YIELD_L)
+    ax.set_ylabel(D.GROWTH_RATE_L)
 
+    # find the EFMs which are on the pareto front and mark them
+    pareto_idx = []
+    for i in ydata.sort_values(ascending=False).index:
+        if pareto_idx == [] or xdata[i] > xdata[pareto_idx[-1]]:
+            pareto_idx.append(i)
+
+    xpareto = xdata[pareto_idx]
+    ypareto = ydata[pareto_idx]
+    ax.plot(xpareto, ypareto, marker='.', linewidth=1, color=(0, 0, 0.5),
+            markersize=20)
+    
     fig.savefig(os.path.join(D.OUTPUT_DIR, 'Fig_pareto_sampling.pdf'))
