@@ -32,30 +32,30 @@ rcParams['ytick.labelsize'] = 12.0
 
 matplotlib.rcParams['text.usetex'] = True
 matplotlib.rcParams['text.latex.preamble'] = \
-    '\usepackage{txfonts},\usepackage{lmodern},\usepackage{cmbright}'
+    r'\usepackage{txfonts},\usepackage{lmodern},\usepackage{cmbright}'
 matplotlib.rcParams['font.family'] = 'sans-serif'
 matplotlib.rcParams['font.sans-serif'] = 'Helvetica'
 matplotlib.rcParams['font.weight'] = 'medium'
 matplotlib.rcParams['font.style'] = 'normal'
 matplotlib.rcParams['mathtext.fontset'] = 'stixsans'
 
-BASE_DIR = os.path.expanduser('~/polybox/Postdoc/manuscripts/2016-efm_paper/')
-DATA_DIR = os.path.join(BASE_DIR, 'figureProduction/data')
-TEMP_DIR = os.path.join(BASE_DIR, 'figureProduction/tmp')
-OUTPUT_DIR = os.path.join(BASE_DIR, 'figuresForPaper')
-ZIP_SVG_FNAME = os.path.join(BASE_DIR, 'SVGofEFMs/all_efms.zip')
-INPUT_SVG_FNAME = os.path.join(BASE_DIR, 'figureProduction/Ecoli_Carlson_2016_05_09.svg')
+BASE_DIR = os.path.expanduser('~/git/flux-enzyme-cost-minimization')
+DATA_DIR = os.path.join(BASE_DIR, 'data')
+TEMP_DIR = os.path.join(BASE_DIR, 'tmp')
+OUTPUT_DIR = os.path.join(BASE_DIR, 'res')
+ZIP_SVG_FNAME = os.path.join(OUTPUT_DIR, 'all_efms.zip')
+INPUT_SVG_FNAME = os.path.join(DATA_DIR, 'Ecoli_Carlson_2016_05_09.svg')
 REACTION_NAME_FNAME = os.path.join(DATA_DIR, 'reaction_name_mapping.csv')
 PROTEOME_FNAME = os.path.join(DATA_DIR, 'protein_abundance_from_schmidt_et_al.csv')
 
 DATA_FILES = {
          'standard':             [['n39-p1'],  None],
          'anaerobic':            [['n39-p7'],  None],
-         'low_kcat_r6r':         [['n39-p14'], None],
          'sweep_oxygen':         [['n39-p11'], 'mext-oxygen-'],
-         'sweep_glucose':        [['n39-p16'], 'mext-glucoseExt-'],
          'sweep_kcat_r6r':       [['n39-p13'], 'kcat-r6r-'],
+         'low_kcat_r6r':         [['n39-p14'], None],
          'sweep_kcat_r70':       [['n39-p15'], 'kcat-r70-'],
+         'sweep_glucose':        [['n39-p16'], 'mext-glucoseExt-'],
          'monod_glucose_aero':   [['n39-p17'], 'mext-glucoseExt-'],
          'monod_glucose_anae':   [['n39-p18'], 'mext-glucoseExt-'],
         }
@@ -76,13 +76,14 @@ R_FORMATE_OUT = 'R96'
 R_SUCCINATE_OUT = 'R95'
 R_LACTATE_OUT = 'R94'
 R_NH3_IN = 'R93'
-R_OXYGEN_IN = ['R80', 'R27']
+R_OXYGEN_DEPENDENT = ['R80', 'R27'] # oxphos and sdh
+#R_OXYGEN_SENSITIVE = ['R20', 'R27b'] # pfl and frd
+R_OXYGEN_SENSITIVE = ['R20'] # pfl (without frd)
 R_MAINTENANCE = 'R82'
 R_PPP = 'R10a'
 R_TCA = 'R22'
 R_ED = 'R60'
 R_PDH = 'R21'
-R_PFL = 'R20'
 R_UPPER_GLYCOLYSIS = 'R5r'
 R_SUC_FUM_CYCLE = ['R27', 'R27b']
 
@@ -115,6 +116,7 @@ GR_PARAM_B = 0.2 # in [h]
 GR_FUNCTION = lambda r_BM : r_BM * GR_PARAM_A * ALPHA_PROT * \
                             (1.0 + GR_PARAM_B * ALPHA_PROT * r_BM)**(-1)
 
+GENERAL_CMAP = 'magma_r'
 GR_HEATMAP_CMAP = 'magma_r'
 EPISTATIS_CMAP = 'RdBu'
 
@@ -179,7 +181,7 @@ RESID_L = 'residual [mM/s]'
 
 ## colors for plots:
 PARETO_NEUTRAL_COLOR = (0.9, 0.7, 0.7)
-PARETO_STRONG_COLOR = (0.5, 0.1, 0.8)
+PARETO_STRONG_COLOR = (0.4, 0.2, 0.9)
 BAR_COLOR = (0.8, 0.4, 0.5)
 PARETO_CMAP_LOWEST = (0.8, 0.8, 0.8)
 PARETO_CMAP_HIGHEST = (0.1, 0.1, 0.1)
@@ -218,23 +220,31 @@ def pareto_cmap(h_mid):
         'bright-color-dark', [PARETO_CMAP_LOWEST, rgb_mid, PARETO_CMAP_HIGHEST])
 
 def plot_basic_pareto(data, ax, x, y, s=10, marker='o', c=None,
-                      mark_pareto=False, efm_dict=None, show_efm_labels=True,
+                      facecolors=(0.85, 0.85, 0.85), edgecolors='none',
+                      paretofacecolors='none', paretoedgecolors='none',
+                      paretosize=20, paretomarker='s',
+                      efm_dict=None,
+                      show_efm_labels=True,
                       **kwargs):
     """
         make plot gr vs yield for all EFMs
     """
-    xdata = data.loc[:, x]
-    ydata = data.loc[:, y]
+    xdata = data[x]
+    ydata = data[y]
     if c is not None:
         # if the c-value of all the data points is 0, use gray color
         # (otherwise, by default, the cmap will give 0 the middle color)
         cdata = data.loc[:, c]
-        CS = ax.scatter(xdata, ydata, s=s, c=cdata, marker=marker, **kwargs)
+        CS = ax.scatter(xdata, ydata, s=s, c=cdata, marker=marker,
+                        facecolors=facecolors, edgecolors=edgecolors,
+                        **kwargs)
         cbar = plt.colorbar(CS, ax=ax)
         cbar.set_label(c)
     else:
         cdata = None
-        CS = ax.scatter(xdata, ydata, s=s, marker=marker, **kwargs)
+        CS = ax.scatter(xdata, ydata, s=s, marker=marker,
+                        facecolors=facecolors, edgecolors=edgecolors,
+                        **kwargs)
     ax.set_xlabel(x)
     ax.set_ylabel(y)
 
@@ -246,22 +256,24 @@ def plot_basic_pareto(data, ax, x, y, s=10, marker='o', c=None,
                 if show_efm_labels:
                     ax.annotate(lab, xy=(data.at[efm, x], data.at[efm, y]),
                                 xytext=(0, 5), textcoords='offset points',
-                                ha='center', va='bottom', color=col,
-                                bbox=dict(boxstyle="round", fc="w", alpha=0.5))
+                                ha='center', va='bottom', color=col)
 
-    if mark_pareto:
+    if paretofacecolors != 'none' or paretoedgecolors != 'none':
         # find the EFMs which are on the pareto front and mark them
-        last_x = -np.inf
+        pareto_idx = []
         for i in ydata.sort_values(ascending=False).index:
-            if data[x][i] > last_x:
-                last_x = data[x][i]
-                ax.text(data[x][i], data[y][i], '%d' % i, fontsize=10)
-                ax.plot(data[x][i], data[y][i], markersize=5, marker=marker,
-                        color='k', label=None)
+            if pareto_idx == [] or xdata[i] > xdata[pareto_idx[-1]]:
+                pareto_idx.append(i)
+
+        xpareto = xdata[pareto_idx]
+        ypareto = ydata[pareto_idx]
+        ax.scatter(xpareto, ypareto, s=paretosize, marker=paretomarker,
+                   facecolors=paretofacecolors, edgecolors=paretoedgecolors)
     return CS
 
 def plot_dual_pareto(data0, label0, data1, label1, ax, x, y,
-                     s=15, marker='^', c0=None, c1=None, **kwargs):
+                     s=15, marker='o', c0=None, c1=None, draw_lines=True,
+                     **kwargs):
     """
         Plot a comparative Pareto plot, where data0 is the standard condition
         and data1 is a perturbation. In addition, use a colormap for the data1
@@ -273,21 +285,37 @@ def plot_dual_pareto(data0, label0, data1, label1, ax, x, y,
         c1 = D.PARETO_STRONG_COLOR
 
     # a grey Pareto plot for data0
-    ax.scatter(data0.loc[:, x], data0.loc[:, y], s=s, marker='v', edgecolor='none',
-               color=c0, label=label0)
+    plot_basic_pareto(data0, ax, x, y, s=s, marker=marker,
+                      edgecolors=(0.7, 0.7, 1),
+                      facecolors=(0.7, 0.7, 1),
+                      paretofacecolors=(0, 0, 0.5),
+                      paretoedgecolors=(0, 0, 0.5),
+                      paretosize=40,
+                      paretomarker='v',
+                      label=label0, show_efm_labels=False,
+                      **kwargs)
 
     # a full-blown Pareto plot for data1
-    plot_basic_pareto(data1, ax, x, y, s=s, marker=marker, color=c1, label=label1, **kwargs)
+    plot_basic_pareto(data1, ax, x, y, s=s, marker=marker,
+                      edgecolors=(1, 0.7, 0.7),
+                      facecolors=(1, 0.7, 0.7),
+                      paretofacecolors=(0.5, 0, 0),
+                      paretoedgecolors=(0.5, 0, 0),
+                      paretosize=40,
+                      paretomarker='^',
+                      label=label1, show_efm_labels=False,
+                      **kwargs)
 
     # add lines connecting the two conditions
-    data = data0[[x,y]].join(data1[[x,y]], lsuffix='', rsuffix='_1')
-    for i in data.index:
-        x0,y0 = data.loc[i, [x,      y     ]]
-        x1,y1 = data.loc[i, [x+'_1', y+'_1']]
-        ax.plot([x0, x1], [y0, y1], '-', color=(0, 0, 0), linewidth=0.2,
-                label=None, alpha=0.15)
+    if draw_lines:
+        data = data0[[x,y]].join(data1[[x,y]], lsuffix='', rsuffix='_1')
+        for i in data.index:
+            x0,y0 = data.loc[i, [x,      y     ]]
+            x1,y1 = data.loc[i, [x+'_1', y+'_1']]
+            ax.plot([x0, x1], [y0, y1], '-', color=(0, 0, 0), linewidth=0.2,
+                    label=None, alpha=0.15)
 
-    ax.legend(loc='best')
+    ax.legend(loc='upper center', fontsize=12)
 
 def plot_scatter_with_all_labels(data, ax, x, y,
                                  facecolors='blue', edgecolors='none', alpha=1):
@@ -321,7 +349,7 @@ def string_to_random_rgb(s, min_l=0.1, max_l=0.6, min_s=0.1, max_s=0.6):
     """
         generate 3 pseudorandom numbers from the hash-function of the name
     """
-    seed = int(int(sha1(s).hexdigest(), 16) % 1e7)
+    seed = int(int(sha1(s.encode('utf-8')).hexdigest(), 16) % 1e7)
     np.random.seed(seed)
     h = rand2hue(np.random.rand())
     l = min_l + np.random.rand() * (max_l - min_l)
@@ -352,6 +380,23 @@ def efm_to_hex(efm):
     else:
         rgb = string_to_random_rgb(str(efm), min_l=0.3, max_l=0.8, min_s=0.1, max_s=0.8)
         return matplotlib.colors.rgb2hex(rgb)
+
+def cycle_colors(n, h0=0.0, l=0.5, s=0.8):
+    for x in np.linspace(0, 1, n+1)[:-1]:
+        h = rand2hue((h0 + x) % 1.0)
+        rgb = hls_to_rgb(h, l, s)
+        yield matplotlib.colors.rgb2hex(rgb)
+
+def cycle_colors_rand(n, min_l=0.4, max_l=0.5, min_s=0.8, max_s=0.8, seed=1984):
+    np.random.seed(seed)
+
+    for i in range(n):
+        x = np.random.rand()
+        h = rand2hue(x)
+        l = min_l + np.random.rand() * (max_l - min_l)
+        s = min_s + np.random.rand() * (max_s - min_s)
+        rgb = hls_to_rgb(h, l, s)
+        yield matplotlib.colors.rgb2hex(rgb)
 
 def allocation_area_plot(data, ax0=None, ax1=None, xlabel='',
                          n_best=10):

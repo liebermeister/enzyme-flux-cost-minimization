@@ -45,7 +45,7 @@ class SweepInterpolator(object):
                                np.log10(D.MAX_CONC['oxygen']))[0, 0]
                 max_growth_rate = max(max_growth_rate, max_gr_efm)
             except ValueError:
-                print "WARNING: cannot interpolate 2D function for EFM #%04d" % efm
+                print("WARNING: cannot interpolate 2D function for EFM #%04d" % efm)
 
     def calc_gr(self, efm, glucose, oxygen):
         return self.f_interp_dict[efm](np.log10(glucose), np.log10(oxygen))[0, 0]
@@ -73,7 +73,7 @@ class SweepInterpolator(object):
             files (doesn't matter which)
         """
         rates_df, _ = SweepInterpolator.get_general_params(min(ITER_RANGE))
-        if type(ko) != types.ListType:
+        if type(ko) != list:
             ko = [ko]
         efms_to_keep = rates_df[~rates_df[ko].any(1)].index
         return list(efms_to_keep)
@@ -200,7 +200,7 @@ def write_cache_files():
     kos = [(None, None),
            ('R60', 'ed'),
            ('R3', 'emp'),
-           (D.R_OXYGEN_IN, 'oxphos')]
+           (D.R_OXYGEN_DEPENDENT, 'oxphos')]
 
     for ko, name in kos:
         if name is None:
@@ -411,8 +411,8 @@ def plot_phase_plots(figure_data, sweep_cache_fname='sweep2d_win_200x200.csv'):
     phase_df, axis_params = get_phase_data(sweep_cache_fname)
     max_growth_rate = phase_df[D.GROWTH_RATE_L].max()
 
-    figS12, axS12 = pyplot.subplots(3, 3, figsize=(15, 15))
-    cbar_ax = figS12.add_axes([.72, .7, .02, .25])
+    figS12, axS12 = pyplot.subplots(3, 3, figsize=(12, 12))
+    cbar_ax = figS12.add_axes([.72, .75, .02, .2])
 
     # create a bitmap to be used with imshow
     hexcolor_df = phase_df.pivot(index=D.GLU_COL,
@@ -475,7 +475,7 @@ def plot_phase_plots(figure_data, sweep_cache_fname='sweep2d_win_200x200.csv'):
                               vmax=max_growth_rate, origin='lower')
     norm = colors.Normalize(vmin=0, vmax=max_growth_rate)
     colorbar.ColorbarBase(cbar_ax, cmap=D.GR_HEATMAP_CMAP, norm=norm)
-    cbar_ax.set_title(D.GROWTH_RATE_L)
+    cbar_ax.set_title(D.GROWTH_RATE_L, loc='center')
 
     for i, efm in enumerate(phase_df['best_efm'].unique()):
         if efm in D.efm_dict:
@@ -488,7 +488,7 @@ def plot_phase_plots(figure_data, sweep_cache_fname='sweep2d_win_200x200.csv'):
     axS12[0, 2].set_ylim(-1, 0)
     axS12[0, 2].get_xaxis().set_visible(False)
     axS12[0, 2].get_yaxis().set_visible(False)
-    axS12[0, 2].legend(fontsize=9, loc='center right')
+    axS12[0, 2].legend(fontsize=13, labelspacing=0.12, loc='center right')
     axS12[0, 2].axis('off')
 
     # make a phase plot where certain features of the winning EFMs
@@ -551,7 +551,7 @@ def plot_conc_versus_uptake_figure(figure_data,
             hexcolor = best_efm_hex.at[g, o]
             best_efm_color[j, i, :] = colors.hex2color(hexcolor)
 
-    fig = pyplot.figure(figsize=(12, 12))
+    fig = pyplot.figure(figsize=(8, 8))
     ax_list = []
 
     ##################### phase plot of winning EFMs ##########################
@@ -593,7 +593,7 @@ def plot_conc_versus_uptake_figure(figure_data,
     GLU_UPRATE_L = 'glucose uptake rate (a.u.)'
     rates_df, _ = SweepInterpolator.get_general_params(min(ITER_RANGE))
     phase_df = phase_df.join(rates_df, on='best_efm')
-    phase_df[OX_UPTAKE_L] = phase_df[D.R_OXYGEN_IN].sum(1) * phase_df[D.GROWTH_RATE_L]
+    phase_df[OX_UPTAKE_L] = phase_df[D.R_OXYGEN_DEPENDENT].sum(1) * phase_df[D.GROWTH_RATE_L]
     phase_df[OX_UPTAKE_L] = phase_df[OX_UPTAKE_L].round(0)
     phase_df[GLU_UPRATE_L] = phase_df[D.R_GLUCOSE_IN] * phase_df[D.GROWTH_RATE_L]
     phase_df[GLU_UPRATE_L] = phase_df[GLU_UPRATE_L].round(0)
@@ -623,15 +623,14 @@ def plot_conc_versus_uptake_figure(figure_data,
                cmap='Oranges', vmax=0.7, linewidth=0,
                alpha=1)
 
-    ax.set_xlabel(GLU_UPRATE_L)
-    ax.set_ylabel(OX_UPTAKE_L)
-    ax.set_zlabel(D.GROWTH_RATE_L)
+    ax.set_xlabel(GLU_UPRATE_L, labelpad=10)
+    ax.set_ylabel(OX_UPTAKE_L, labelpad=10)
+    ax.set_zlabel(D.GROWTH_RATE_L, labelpad=10)
     ax.view_init(20, -120)
 
-
     for i, ax in enumerate(ax_list):
-        ax.annotate(chr(ord('a')+i), xy=(0.05, 0.98), xycoords='axes fraction',
-                    fontsize=20, ha='left', va='top')
+        ax.annotate(chr(ord('a')+i), xy=(0.98, 0.98), xycoords='axes fraction',
+                    fontsize=20, ha='right', va='top')
 
     return fig
 
@@ -670,55 +669,144 @@ def plot_oxygen_sweep(ax, glucose_conc=None, N=200,
     ax.text(0.02, 0.6, 'glucose (%d mM)' % glucose_conc, ha='left', va='center',
             rotation=90, fontsize=14, color='grey', transform=ax.transAxes)
 
-def plot_oxygen_dual_pareto(data_df, ax,
+def plot_glucose_sweep(ax, oxygen_conc=None, N=200, ylim=None,
+                      legend_loc='upper left', legend_fontsize=10,
+                      mark_glucose=True):
+    """make line plots of gr vs one of the axes (oxygen or glucose)"""
+    if oxygen_conc is None:
+        oxygen_conc = D.STD_CONC['oxygen']
+
+    glu_grid = np.logspace(np.log10(D.MIN_CONC['glucoseExt']),
+                           np.log10(D.MAX_CONC['glucoseExt']),
+                           N)
+
+    interp_data_df = pd.DataFrame(index=glu_grid, columns=D.efm_dict.keys())
+
+    interpolator = SweepInterpolator.interpolate_2D_sweep(D.efm_dict.keys())
+    for efm in interp_data_df.columns:
+        interp_data_df[efm] = [interpolator.calc_gr(efm, g, oxygen_conc)
+                               for g in glu_grid]
+
+    colors, labels = zip(*D.efm_dict.values())
+    interp_data_df.plot(kind='line', ax=ax, linewidth=2, color=colors)
+
+    if legend_loc is not None:
+        ax.legend(labels,
+                  loc=legend_loc, fontsize=legend_fontsize, labelspacing=0.2)
+    else:
+        ax.legend().remove()
+    ax.set_xscale('log')
+    ax.set_xlabel(D.GLU_COL)
+    ax.set_ylabel(r'growth rate [h$^{-1}$]')
+    if ylim is None:
+        ax.set_ylim([0, None])
+    else:
+        ax.set_ylim(ylim)
+
+    if mark_glucose:
+        # mark the line where 'standard' oxygen levels are
+        std_ox = D.STD_CONC['glucoseExt']
+        ax.plot([std_ox, std_ox], ax.get_ylim(), '--', color='grey', linewidth=1)
+        ax.text(std_ox, ax.get_ylim()[1], '  std. glucose', ha='center', va='bottom',
+                color='grey', fontsize=14)
+        ax.text(0.02, 0.6, '$O_2$ (%g mM)' % oxygen_conc, ha='left', va='center',
+                rotation=90, fontsize=14, color='grey', transform=ax.transAxes)
+
+def get_glucose_sweep_df(oxygen_conc=None, efm_list=None, N=200):
+    
+    if oxygen_conc is None:
+        oxygen_conc = D.STD_CONC['oxygen']
+
+    glu_grid = np.logspace(np.log10(D.MIN_CONC['glucoseExt']),
+                           np.log10(D.MAX_CONC['glucoseExt']),
+                           N)
+    interpolator = SweepInterpolator.interpolate_2D_sweep(efm_list)
+
+    interp_data_df = pd.DataFrame(index=glu_grid,
+                                  columns=interpolator.efm_list)
+    for efm in interpolator.efm_list:
+        interp_data_df[efm] = [interpolator.calc_gr(efm, g, oxygen_conc)
+                               for g in glu_grid]
+    return interp_data_df
+
+def get_anaerobic_glucose_sweep_df(figure_data, N=200):
+    anaerobic_sweep_data_df = figure_data['monod_glucose_anae'].drop(9999)
+    
+    # filter all EMFs that have a > 1% drop in the function (it should be
+    # completely monotonic, but some numerical errors should be okay).
+    non_monotinic = (np.log(anaerobic_sweep_data_df).diff(axis=1) < 0)
+    anaerobic_sweep_data_df[non_monotinic] = np.nan
+
+    glu_grid = np.logspace(np.log10(D.MIN_CONC['glucoseExt']),
+                           np.log10(D.MAX_CONC['glucoseExt']),
+                           N)
+    interp_df = anaerobic_sweep_data_df.transpose()
+    interp_df = interp_df.append(
+        pd.DataFrame(index=glu_grid, columns=anaerobic_sweep_data_df.index))
+    interp_df = interp_df[~interp_df.index.duplicated(keep='first')]
+    interp_df.sort_index(inplace=True)
+    interp_df.index = np.log(interp_df.index)
+    interpolated_df = interp_df.interpolate(method='polynomial', order=3)
+    interpolated_df.index = np.exp(interpolated_df.index)
+    return interpolated_df
+
+def plot_oxygen_dual_pareto(data_df, ax, s=9,
                             std_ox=None, low_ox=None, std_glu=None,
-                            show_efm_labels=False):
+                            draw_lines=True):
     std_ox = std_ox or D.STD_CONC['oxygen']
     low_ox = low_ox or D.LOW_CONC['oxygen']
     std_glu = std_glu or D.STD_CONC['glucoseExt']
 
-    std_ox_df = pd.DataFrame(index=data_df.index, columns=[D.GROWTH_RATE_L, D.YIELD_L])
+    std_ox_df = pd.DataFrame(index=data_df.index,
+                             columns=[D.GROWTH_RATE_L, D.YIELD_L])
     std_ox_df[D.YIELD_L] = data_df[D.YIELD_L]
-    low_ox_df = pd.DataFrame(index=data_df.index, columns=[D.GROWTH_RATE_L, D.YIELD_L])
+    low_ox_df = pd.DataFrame(index=data_df.index,
+                             columns=[D.GROWTH_RATE_L, D.YIELD_L])
     low_ox_df[D.YIELD_L] = data_df[D.YIELD_L]
 
     # calculate the growth rates in the lower oxygen level, using the
     # interpolated functions
     interpolator = SweepInterpolator.interpolate_2D_sweep()
     for efm in data_df.index:
-        std_ox_df.at[efm, D.GROWTH_RATE_L] = interpolator.calc_gr(efm, std_glu, std_ox)
-        low_ox_df.at[efm, D.GROWTH_RATE_L] = interpolator.calc_gr(efm, std_glu, low_ox)
+        std_ox_df.at[efm, D.GROWTH_RATE_L] = \
+            interpolator.calc_gr(efm, std_glu, std_ox)
+        low_ox_df.at[efm, D.GROWTH_RATE_L] = \
+            interpolator.calc_gr(efm, std_glu, low_ox)
 
     D.plot_dual_pareto(std_ox_df, 'std. O$_2$ (0.21 mM)',
                        low_ox_df, 'low O$_2$ (%g mM)' % low_ox,
-                       s=9, ax=ax, x=D.YIELD_L, y=D.GROWTH_RATE_L,
-                       efm_dict=D.efm_dict, show_efm_labels=show_efm_labels)
+                       s=s, ax=ax, x=D.YIELD_L, y=D.GROWTH_RATE_L,
+                       draw_lines=draw_lines)
     ax.set_xlim(-1e-3, None)
     ax.set_ylim(-1e-3, None)
 
 def plot_glucose_dual_pareto(data_df, ax,
                              std_glu=None, low_glu=None, std_ox=None,
-                             show_efm_labels=False):
+                             draw_lines=True):
     std_glu = std_glu or D.STD_CONC['glucoseExt']
     low_glu = low_glu or D.LOW_CONC['glucoseExt']
     std_ox = std_ox or D.STD_CONC['oxygen']
 
-    std_glu_df = pd.DataFrame(index=data_df.index, columns=[D.GROWTH_RATE_L, D.YIELD_L])
+    std_glu_df = pd.DataFrame(index=data_df.index,
+                              columns=[D.GROWTH_RATE_L, D.YIELD_L])
     std_glu_df[D.YIELD_L] = data_df[D.YIELD_L]
-    low_glu_df = pd.DataFrame(index=data_df.index, columns=[D.GROWTH_RATE_L, D.YIELD_L])
+    low_glu_df = pd.DataFrame(index=data_df.index,
+                              columns=[D.GROWTH_RATE_L, D.YIELD_L])
     low_glu_df[D.YIELD_L] = data_df[D.YIELD_L]
 
     # calculate the growth rates in the lower oxygen level, using the
     # interpolated functions
     interpolator = SweepInterpolator.interpolate_2D_sweep()
     for efm in data_df.index:
-        std_glu_df.at[efm, D.GROWTH_RATE_L] = interpolator.calc_gr(efm, std_glu, std_ox)
-        low_glu_df.at[efm, D.GROWTH_RATE_L] = interpolator.calc_gr(efm, low_glu, std_ox)
+        std_glu_df.at[efm, D.GROWTH_RATE_L] = \
+            interpolator.calc_gr(efm, std_glu, std_ox)
+        low_glu_df.at[efm, D.GROWTH_RATE_L] = \
+            interpolator.calc_gr(efm, low_glu, std_ox)
 
     D.plot_dual_pareto(std_glu_df, 'std. glucose (100 mM)',
                        low_glu_df, 'low glucose (%g mM)' % low_glu,
                        s=9, ax=ax, x=D.YIELD_L, y=D.GROWTH_RATE_L,
-                       efm_dict=D.efm_dict, show_efm_labels=show_efm_labels)
+                       draw_lines=draw_lines)
     ax.set_xlim(-1e-3, None)
     ax.set_ylim(-1e-3, None)
 
