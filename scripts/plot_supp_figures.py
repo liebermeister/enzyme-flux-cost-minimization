@@ -81,9 +81,30 @@ if False:
                         facecolors=D.PARETO_NEUTRAL_COLOR)
     axS3.set_xscale('log')
     axS3.set_yscale('log')
-    minval, maxval = (1e-2, 1)
-    axS3.plot([minval, maxval], [minval, maxval], '-',
-              color=(0.5, 0.5, 0.5), linewidth=0.5)
+    minval, maxval = (1e-2, 40)
+
+    # draw the x=y line
+    #axS3.plot([minval, maxval], [minval, maxval], '-',
+    #          color=(0.5, 0.5, 0.5), linewidth=0.5)
+
+    # draw the two bounding diagonal lines (which bound the function x-y)
+    # from above and below
+    min_ratio = (data[D.TOT_ENZYME_L] / data[D.TOT_FLUX_SA_L]).min()
+    max_ratio = (data[D.TOT_ENZYME_L] / data[D.TOT_FLUX_SA_L]).max()
+    axS3.plot([minval, maxval/min_ratio], [minval*min_ratio, maxval], '-',
+              color=(1, 0, 0), linewidth=1)
+    axS3.annotate(xy=(maxval/10, maxval*min_ratio/4),
+                  s=r'$y/x = %.1f$' % min_ratio,
+                  xycoords='data', rotation=45,
+                  va='top', ha='left', color=(1, 0, 0))
+    axS3.plot([minval, maxval/max_ratio], [minval*max_ratio, maxval], '-',
+              color=(0, 0, 1), linewidth=1, alpha=1)
+    axS3.annotate(xy=(maxval*2, maxval*max_ratio*15),
+                  s=r'$y/x = %.1f$' % max_ratio,
+                  xycoords='data', rotation=45,
+                  va='top', ha='left', color=(0, 0, 1))
+    
+
     axS3.set_xlim(minval, maxval)
     axS3.set_ylim(minval, maxval)
 
@@ -94,14 +115,28 @@ if False:
     for efm, row in data.iterrows():
         x = row[D.TOT_FLUX_SA_L]
         y = row[D.TOT_ENZYME_L]
-        if (x > min_x and y > min_y):
-            continue
-        axS3.annotate(xy=(x, y), s='(%.2g,%.2g)' % (x, y),
-                      xycoords='data', xytext=(x*0.5, y/1.5),
-                      ha='center', va='center', fontsize=10,
-                      arrowprops=dict(facecolor='black',
-                      shrink=0.02, width=1, headwidth=3),)
+        if x == min_x:
+            axS3.annotate(xy=(x, y), s=r'$x_{min} = %.3f$' % min_x,
+                          xycoords='data',
+                          xytext=(x, y*20), rotation=45,
+                          arrowprops=dict(facecolor='black',
+                          shrink=0.02, width=1, headwidth=3))
+        if y == min_y:
+            axS3.annotate(xy=(x, y), s=r'$y_{min} = %.3f$' % min_y,
+                          xycoords='data',
+                          xytext=(x*10, y), rotation=0,
+                          arrowprops=dict(facecolor='black',
+                          shrink=0.02, width=1, headwidth=3))
+#        if (x > min_x and y > min_y):
+#            continue
+#        axS3.annotate(xy=(x, y), s='(%.2g,%.2g)' % (x, y),
+#                      xycoords='data', xytext=(x*0.5, y/1.5),
+#                      ha='center', va='center', fontsize=10,
+#                      shrink=0.02, width=1, headwidth=3),)
 
+
+    axS3.set_xlabel(r'ideal cost [gr enz / gr dw h$^{-1}$]')
+    axS3.set_ylabel(r'actual cost [gr enz / gr dw h$^{-1}$]')
     figS3.tight_layout()
     figS3.savefig(os.path.join(D.OUTPUT_DIR, 'FigS3.pdf'))
 
