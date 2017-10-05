@@ -93,14 +93,14 @@ if False:
     max_ratio = (data[D.TOT_ENZYME_L] / data[D.TOT_FLUX_SA_L]).max()
     axS3.plot([minval, maxval/min_ratio], [minval*min_ratio, maxval], '-',
               color=(1, 0, 0), linewidth=1)
-    axS3.annotate(xy=(maxval/10, maxval*min_ratio/4),
-                  s=r'$y/x = %.1f$' % min_ratio,
+    axS3.annotate(xy=(maxval/5, maxval*min_ratio/2.5),
+                  s=r'$y = %.1f x$' % min_ratio,
                   xycoords='data', rotation=45,
                   va='top', ha='left', color=(1, 0, 0))
     axS3.plot([minval, maxval/max_ratio], [minval*max_ratio, maxval], '-',
               color=(0, 0, 1), linewidth=1, alpha=1)
-    axS3.annotate(xy=(maxval*2, maxval*max_ratio*15),
-                  s=r'$y/x = %.1f$' % max_ratio,
+    axS3.annotate(xy=(maxval/50, maxval*max_ratio/8),
+                  s=r'$y = %.1f x$' % max_ratio,
                   xycoords='data', rotation=45,
                   va='top', ha='left', color=(0, 0, 1))
     
