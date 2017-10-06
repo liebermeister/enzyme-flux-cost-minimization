@@ -169,7 +169,7 @@ COST_UNITS = '[gr enz / gr dw h$^{-1}$]'
 OXYGEN_L = r'oxygen uptake [mol O$_2$ / mol C glc]'
 N_REACTION_L = 'number of active reactions'
 TOT_FLUX_L = 'sum of fluxes relative to uptake [a.u.]'
-TOT_FLUX_SA_L = r'$\Sigma_i \frac{|v_i| \cdot w_i}{k_{\mathrm{cat},i}}$ %s' % COST_UNITS
+TOT_FLUX_SA_L = r'ideal cost %s' % COST_UNITS
 INV_TOT_FLUX_SA_L = r'Pathway specific activity'
 TOT_ENZYME_L = 'total enzyme %s' % COST_UNITS
 
