@@ -84,29 +84,32 @@ if False:
     minval, maxval = (1e-2, 40)
 
     # draw the x=y line
-    #axS3.plot([minval, maxval], [minval, maxval], '-',
-    #          color=(0.5, 0.5, 0.5), linewidth=0.5)
+    axS3.plot([minval, maxval], [minval, maxval], '-',
+              color='k', linewidth=1)
 
     # draw the two bounding diagonal lines (which bound the function x-y)
     # from above and below
     min_ratio = (data[D.TOT_ENZYME_L] / data[D.TOT_FLUX_SA_L]).min()
     max_ratio = (data[D.TOT_ENZYME_L] / data[D.TOT_FLUX_SA_L]).max()
-    axS3.plot([minval, maxval/min_ratio], [minval*min_ratio, maxval], '-',
-              color=(1, 0, 0), linewidth=1)
-    axS3.annotate(xy=(maxval/5, maxval*min_ratio/2.5),
-                  s=r'$y = %.1f x$' % min_ratio,
-                  xycoords='data', rotation=45,
-                  va='top', ha='left', color=(1, 0, 0))
-    axS3.plot([minval, maxval/max_ratio], [minval*max_ratio, maxval], '-',
-              color=(0, 0, 1), linewidth=1, alpha=1)
-    axS3.annotate(xy=(maxval/50, maxval*max_ratio/8),
-                  s=r'$y = %.1f x$' % max_ratio,
-                  xycoords='data', rotation=45,
-                  va='top', ha='left', color=(0, 0, 1))
     
-
-    axS3.set_xlim(minval, maxval)
-    axS3.set_ylim(minval, maxval)
+    color_min = (1, 0, 0)
+    color_max = (0, 0, 1)
+    axS3.plot([minval, maxval/min_ratio], [minval*min_ratio, maxval], '-',
+              color=color_min, linewidth=1)
+    axS3.annotate(xy=(10, 10*min_ratio),
+                  s='y = %.1f x' % min_ratio,
+                  xycoords='data', xytext=(10, 3),
+                  va='top', ha='center', color=color_min,
+                  arrowprops=dict(color=color_min,
+                                  shrink=0.02, width=1, headwidth=3))
+    axS3.plot([minval, maxval/max_ratio], [minval*max_ratio, maxval], '-',
+              color=color_max, linewidth=1, alpha=1)
+    axS3.annotate(xy=(20/max_ratio, 20),
+                  s='y = %.1f x' % max_ratio,
+                  xycoords='data', xytext=(1, 20),
+                  va='center', ha='right', color=color_max,
+                  arrowprops=dict(color=color_max,
+                                  shrink=0.02, width=1, headwidth=3))
 
     # mark the two extreme points (the ones with the minimal x and minimal
     # y values)
@@ -116,25 +119,20 @@ if False:
         x = row[D.TOT_FLUX_SA_L]
         y = row[D.TOT_ENZYME_L]
         if x == min_x:
-            axS3.annotate(xy=(x, y), s=r'$x_{min} = %.3f$' % min_x,
-                          xycoords='data',
-                          xytext=(x, y*20), rotation=45,
-                          arrowprops=dict(facecolor='black',
+            axS3.annotate(xy=(x, y), s='min. ideal\ncost = %.3f [h$^{-1}$]' % min_x,
+                          xycoords='data', fontsize=12, ha='center',
+                          xytext=(x*1.4, y*20), rotation=0,
+                          arrowprops=dict(color='black',
                           shrink=0.02, width=1, headwidth=3))
         if y == min_y:
-            axS3.annotate(xy=(x, y), s=r'$y_{min} = %.3f$' % min_y,
-                          xycoords='data',
-                          xytext=(x*10, y), rotation=0,
-                          arrowprops=dict(facecolor='black',
+            axS3.annotate(xy=(x, y), s='min. actual\ncost = %.3f [h$^{-1}$]' % min_y,
+                          xycoords='data', fontsize=12, va='center',
+                          xytext=(x*5, y), rotation=0,
+                          arrowprops=dict(color='black',
                           shrink=0.02, width=1, headwidth=3))
-#        if (x > min_x and y > min_y):
-#            continue
-#        axS3.annotate(xy=(x, y), s='(%.2g,%.2g)' % (x, y),
-#                      xycoords='data', xytext=(x*0.5, y/1.5),
-#                      ha='center', va='center', fontsize=10,
-#                      shrink=0.02, width=1, headwidth=3),)
 
-
+    axS3.set_xlim(minval, maxval)
+    axS3.set_ylim(minval, maxval)
     axS3.set_xlabel(r'ideal cost [gr enz / gr dw h$^{-1}$]')
     axS3.set_ylabel(r'actual cost [gr enz / gr dw h$^{-1}$]')
     figS3.tight_layout()
