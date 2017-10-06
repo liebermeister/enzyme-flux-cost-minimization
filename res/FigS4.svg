@@ -1,0 +1,2483 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="565.33331"
+   height="661.33331"
+   id="metabolic_network_ecoli_core"
+   version="1.0"
+   sodipodi:docname="FigS4.svg"
+   inkscape:version="0.92.1 r15371">
+  <metadata
+     id="metadata1033">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Graphical Map Metabolic Network E.coli Carlson 2003</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1163"
+     id="namedview1031"
+     showgrid="false"
+     inkscape:zoom="1.0304706"
+     inkscape:cx="207.63207"
+     inkscape:cy="351.87339"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="metabolic_network_ecoli_core" />
+  <defs
+     id="defs3">
+    <marker
+       refY="50"
+       refX="50"
+       markerHeight="5"
+       markerWidth="5"
+       viewBox="0 0 100 100"
+       se_type="leftarrow"
+       orient="auto"
+       markerUnits="userSpaceOnUse"
+       id="se_marker_start_svg_1">
+      <path
+         d="M 0,53.333333 106.66667,96 74.666667,53.333333 106.66667,10.666667 Z"
+         id="path6"
+         inkscape:connector-curvature="0"
+         style="fill:#000000;stroke:#000000;stroke-width:3.20000005" />
+    </marker>
+    <marker
+       refY="50"
+       refX="50"
+       markerHeight="5"
+       markerWidth="5"
+       viewBox="0 0 100 100"
+       se_type="rightarrow"
+       orient="auto"
+       markerUnits="userSpaceOnUse"
+       id="se_marker_end_svg_1">
+      <path
+         d="M 106.66667,53.333333 0,96 32,53.333333 0,10.666667 Z"
+         id="path9"
+         inkscape:connector-curvature="0"
+         style="fill:#000000;stroke:#000000;stroke-width:3.20000005" />
+    </marker>
+  </defs>
+  <title
+     id="title11">Graphical Map Metabolic Network E.coli Carlson 2003</title>
+  <!-- START REACTIONS in SVG -->
+  <path
+     inkscape:connector-curvature="0"
+     d="m 100.26667,338.13333 h 44.8 l 42.66666,85.33334"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227"
+     id="path18">
+    <title
+       id="title20">R70:R70</title>
+  </path>
+  <path
+     inkscape:connector-curvature="0"
+     d="m 84.266667,359.46667 h 60.800003 l 42.66666,64"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227"
+     id="path22">
+    <title
+       id="title24">R70:R70</title>
+  </path>
+  <path
+     inkscape:connector-curvature="0"
+     d="m 117.33333,380.8 h 27.73334 l 42.66666,42.66667"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227"
+     id="path26">
+    <title
+       id="title28">R70:R70</title>
+  </path>
+  <path
+     inkscape:connector-curvature="0"
+     d="m 122.66667,402.13333 h 23.46666 L 188.8,423.46667"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227"
+     id="path30">
+    <title
+       id="title32">R70:R70</title>
+  </path>
+  <path
+     inkscape:connector-curvature="0"
+     d="M 85.333333,423.46667 H 262.4"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     id="path34">
+    <title
+       id="title36">R70:R70</title>
+  </path>
+  <path
+     inkscape:connector-curvature="0"
+     d="m 96,444.8 h 49.06667 l 42.66666,-21.33333"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227"
+     id="path38">
+    <title
+       id="title40">R70:R70</title>
+  </path>
+  <path
+     inkscape:connector-curvature="0"
+     d="m 83.2,466.13333 h 61.86667 l 42.66666,-42.66666"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227"
+     id="path42">
+    <title
+       id="title44">R70:R70</title>
+  </path>
+  <path
+     inkscape:connector-curvature="0"
+     d="m 81.066667,487.46667 h 64.000003 l 42.66666,-64"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227"
+     id="path46">
+    <title
+       id="title48">R70:R70</title>
+  </path>
+  <path
+     inkscape:connector-curvature="0"
+     d="m 81.066667,508.8 h 64.000003 l 42.66666,-85.33333"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227"
+     id="path50">
+    <title
+       id="title52">R70:R70</title>
+  </path>
+  <path
+     inkscape:connector-curvature="0"
+     d="m 197.33333,439.46667 q 16,-32 32,0"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     id="path54">
+    <title
+       id="title56">R70:R70</title>
+  </path>
+  <path
+     inkscape:connector-curvature="0"
+     d="m 197.33333,407.46667 q 16,32 32,0"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     id="path58">
+    <title
+       id="title60">R70:R70</title>
+  </path>
+  <path
+     inkscape:connector-curvature="0"
+     d="m 229.33333,423.46667 q 10.66667,0 21.33334,-16"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     id="path62">
+    <title
+       id="title64">R70:R70</title>
+  </path>
+  <path
+     inkscape:connector-curvature="0"
+     d="m 229.33333,423.46667 q 10.66667,0 21.33334,16"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     id="path66">
+    <title
+       id="title68">R70:R70</title>
+  </path>
+  <a
+     id="a79"
+     target="_blank"
+     xlink:href="http://www.genome.jp/dbget-bin/www_bget?C00014"
+     transform="translate(0,-75.733333)">
+    <text
+       style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672"
+       font-size="8"
+       y="501.33334"
+       x="3.2"
+       id="NH3_ext">NH3[e]<title
+   id="title82">NH3_ext</title>
+</text>
+  </a>
+  <path
+     id="R1"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     d="M 406.4,59.733333 V 86.4"
+     inkscape:connector-curvature="0">
+    <title
+       id="title89">R1:R1</title>
+  </path>
+  <path
+     id="path91"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     d="m 417.06667,61.866667 q -21.33334,10.666666 0,21.333333"
+     inkscape:connector-curvature="0">
+    <title
+       id="title93">R1:R1</title>
+  </path>
+  <rect
+     x="397.86667"
+     y="69.333336"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect95"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="397.86667"
+     y="60.799999"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect97"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="397.86667"
+     y="77.866669"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect99"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="R2r"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="M 406.4,98.133333 V 124.8"
+     inkscape:connector-curvature="0">
+    <title
+       id="title106">R2r:R2r</title>
+  </path>
+  <rect
+     x="397.86667"
+     y="107.73333"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect110"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="397.86667"
+     y="99.199997"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect112"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="397.86667"
+     y="116.26667"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect114"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="R3"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     d="M 403.2,136.53333 V 163.2"
+     inkscape:connector-curvature="0">
+    <title
+       id="title119">R3:R3</title>
+  </path>
+  <rect
+     x="394.66666"
+     y="146.13333"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect123"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="394.66666"
+     y="137.60001"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect125"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="394.66666"
+     y="154.66667"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect127"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="R4"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     d="M 409.6,163.2 V 136.53333"
+     inkscape:connector-curvature="0">
+    <title
+       id="title132">R4:R4</title>
+  </path>
+  <rect
+     x="412.79999"
+     y="146.13333"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect136"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="412.79999"
+     y="137.60001"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect138"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="412.79999"
+     y="154.66667"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect140"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="R5r"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 408.53333,174.93333 v 13.33334 L 435.2,201.6"
+     inkscape:connector-curvature="0">
+    <title
+       id="title145">R5r:R5r</title>
+  </path>
+  <path
+     id="path147"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 408.53333,174.93333 v 13.33334 L 381.86667,201.6"
+     inkscape:connector-curvature="0">
+    <title
+       id="title149">R5r:R5r</title>
+  </path>
+  <rect
+     x="398.93332"
+     y="180.26666"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect153"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="390.39999"
+     y="180.26666"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect155"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="381.86667"
+     y="180.26666"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect157"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="R6r"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="M 421.33333,206.93333 H 394.66667"
+     inkscape:connector-curvature="0">
+    <title
+       id="title162">R6r:R6r</title>
+  </path>
+  <rect
+     x="406.39999"
+     y="210.13333"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect166"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="414.93332"
+     y="210.13333"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect168"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="397.86667"
+     y="210.13333"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect170"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="R7ra"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 380.8,213.33333 v 21.33334"
+     inkscape:connector-curvature="0">
+    <title
+       id="title175">R7ra:R7ra</title>
+  </path>
+  <path
+     id="R7rb"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 380.8,249.6 v 21.33333"
+     inkscape:connector-curvature="0">
+    <title
+       id="title182">R7rb:R7rb</title>
+  </path>
+  <path
+     id="R7rc"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="M 380.8,285.86667 V 307.2"
+     inkscape:connector-curvature="0">
+    <title
+       id="title189">R7rc:R7rc</title>
+  </path>
+  <path
+     id="R8r"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 380.8,322.13333 v 32"
+     inkscape:connector-curvature="0">
+    <title
+       id="title196">R8r:R8r</title>
+  </path>
+  <rect
+     x="372.26666"
+     y="309.33334"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect200"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="372.26666"
+     y="300.79999"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect202"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="372.26666"
+     y="317.86667"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect204"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="R9"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     d="m 378.66667,365.86667 v 26.66666"
+     inkscape:connector-curvature="0">
+    <title
+       id="title209">R9:R9</title>
+  </path>
+  <rect
+     x="370.13333"
+     y="377.60001"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect213"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="370.13333"
+     y="369.06668"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect215"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="370.13333"
+     y="386.13333"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect217"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="RR9"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     d="M 382.93333,392.53333 V 368.82602"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc">
+    <title
+       id="title222">RR9:RR9</title>
+  </path>
+  <rect
+     x="387.20001"
+     y="377.60001"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect226"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="387.20001"
+     y="369.06668"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect228"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="387.20001"
+     y="386.13333"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect230"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="R10a"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     d="M 397.86667,92.8 H 376.53333"
+     inkscape:connector-curvature="0">
+    <title
+       id="title235">R10a:R10a</title>
+  </path>
+  <rect
+     x="336"
+     y="83.199997"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect239"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="327.46667"
+     y="83.199997"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect241"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="344.53333"
+     y="83.199997"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect243"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="R10b"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     d="M 344.9163,92.8 H 323.2"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc">
+    <title
+       id="title248">R10b:R10b</title>
+  </path>
+  <rect
+     x="336"
+     y="83.199997"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect252"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="327.46667"
+     y="83.199997"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect254"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="344.53333"
+     y="83.199997"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect256"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="R60"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     d="M 304,97.750368 V 197.69141"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc">
+    <title
+       id="title261">R60:R60</title>
+  </path>
+  <path
+     id="R61r"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="M 323.17685,208 H 368"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc">
+    <title
+       id="title268">R61r:R61r</title>
+  </path>
+  <path
+     id="path270"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     d="m 341.33333,208 v 187.73333 h 22.02309"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccc">
+    <title
+       id="title272">R61r:R61r</title>
+  </path>
+  <path
+     id="R10c"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     d="M 291.03696,92.8 H 266.66667"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc">
+    <title
+       id="title279">R10c:R10c</title>
+  </path>
+  <rect
+     x="336"
+     y="83.199997"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect283"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="327.46667"
+     y="83.199997"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect285"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="344.53333"
+     y="83.199997"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect287"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="R11r"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="M 234.66667,94.933333 208,116.26667"
+     inkscape:connector-curvature="0">
+    <title
+       id="title292">R11r:R11r</title>
+  </path>
+  <rect
+     x="222.93333"
+     y="106.66666"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect296"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="229.33333"
+     y="101.33334"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect298"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="216.53334"
+     y="113.06667"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect300"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="R12r"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="M 234.66667,89.6 208,68.266667"
+     inkscape:connector-curvature="0">
+    <title
+       id="title305">R12r:R12r</title>
+  </path>
+  <rect
+     x="222.93333"
+     y="73.599998"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect309"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="216.53334"
+     y="68.26667"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect311"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="229.33333"
+     y="78.933334"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect313"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="R13r"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 183.46667,76.8 q -16,32 -32,0"
+     inkscape:connector-curvature="0">
+    <title
+       id="title318">R13r:R13r</title>
+  </path>
+  <path
+     id="path320"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 183.46667,108.8 q -16,-32 -32,0"
+     inkscape:connector-curvature="0">
+    <title
+       id="title322">R13r:R13r</title>
+  </path>
+  <rect
+     x="186.66667"
+     y="89.599998"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect326"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="186.66667"
+     y="81.066666"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect328"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="186.66667"
+     y="98.133331"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect330"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="R14r"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 130.13333,76.8 q -16,32 -31.999997,0"
+     inkscape:connector-curvature="0">
+    <title
+       id="title335">R14r:R14r</title>
+  </path>
+  <path
+     id="path337"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 130.13333,108.8 q -16,-32 -31.999997,0"
+     inkscape:connector-curvature="0">
+    <title
+       id="title339">R14r:R14r</title>
+  </path>
+  <rect
+     x="133.33333"
+     y="89.599998"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect343"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="133.33333"
+     y="81.066666"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect345"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="133.33333"
+     y="98.133331"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect347"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="R15r"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 76.8,23.466667 q -16,32 -32,0"
+     inkscape:connector-curvature="0">
+    <title
+       id="title352">R15r:R15r</title>
+  </path>
+  <path
+     id="path354"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 76.8,55.466667 q -16,-32 -32,0"
+     inkscape:connector-curvature="0">
+    <title
+       id="title356">R15r:R15r</title>
+  </path>
+  <rect
+     x="80"
+     y="36.266666"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect360"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="80"
+     y="27.733334"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect362"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="80"
+     y="44.799999"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect364"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="R21"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     d="M 378.66667,404.26667 V 464"
+     inkscape:connector-curvature="0">
+    <title
+       id="title369">R21:R21</title>
+  </path>
+  <rect
+     x="370.13333"
+     y="432"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect373"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="370.13333"
+     y="423.46667"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect375"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="370.13333"
+     y="440.53333"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect377"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="R20"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     d="M 382.93333,404.26667 V 464"
+     inkscape:connector-curvature="0">
+    <title
+       id="title382">R20:R20</title>
+  </path>
+  <path
+     id="path384"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     d="m 382.93333,422.4 h 48"
+     inkscape:connector-curvature="0">
+    <title
+       id="title386">R20:R20</title>
+  </path>
+  <rect
+     x="403.20001"
+     y="425.60001"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect390"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="394.66666"
+     y="425.60001"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect392"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="411.73334"
+     y="425.60001"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect394"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="R96"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     d="m 473.2929,421.14015 h 36.83804"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc">
+    <title
+       id="title399">R96:R96</title>
+  </path>
+  <path
+     id="R22"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     d="m 382.50667,475.73333 q 0,20.26667 32,20.26667"
+     inkscape:connector-curvature="0">
+    <title
+       id="title406">R22:R22</title>
+  </path>
+  <path
+     id="path408"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227"
+     d="m 375.64547,496 h 37.04218"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc">
+    <title
+       id="title410">R22:R22</title>
+  </path>
+  <rect
+     x="389.33334"
+     y="499.20001"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect414"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="380.79999"
+     y="499.20001"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect416"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="397.86667"
+     y="499.20001"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect418"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="R23r"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 451.92972,496 h 54.73695 v 32"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccc">
+    <title
+       id="title423">R23r:R23r</title>
+  </path>
+  <rect
+     x="480"
+     y="499.20001"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect427"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="471.46667"
+     y="499.20001"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect429"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="488.53333"
+     y="499.20001"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect431"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="R24"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     d="m 506.66667,539.73333 v 25.6"
+     inkscape:connector-curvature="0">
+    <title
+       id="title436">R24:R24</title>
+  </path>
+  <rect
+     x="498.13333"
+     y="549.33331"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect440"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="498.13333"
+     y="540.79999"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect442"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="498.13333"
+     y="557.86664"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect444"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="R25"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     d="m 506.66667,579.2 v 30.93333 h -14.30032"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccc">
+    <title
+       id="title449">R25:R25</title>
+  </path>
+  <rect
+     x="498.13333"
+     y="590.93335"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect453"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="498.13333"
+     y="582.40002"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect455"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="498.13333"
+     y="599.46667"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect457"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="R26r"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     d="M 428.39897,610.13333 H 407.50663"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc">
+    <title
+       id="title462">R26r:R26r</title>
+  </path>
+  <rect
+     x="410.66666"
+     y="613.33331"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect466"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="402.13333"
+     y="613.33331"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect468"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="419.20001"
+     y="613.33331"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect470"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="R95"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     d="m 373.33333,615.46667 v 26.66666"
+     inkscape:connector-curvature="0">
+    <title
+       id="title475">R95:R95</title>
+  </path>
+  <path
+     id="R27"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="M 356.26667,608 H 332.8 v -28.8"
+     inkscape:connector-curvature="0">
+    <title
+       id="title482">R27:R27</title>
+  </path>
+  <rect
+     x="322.13333"
+     y="592"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect486"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="322.13333"
+     y="583.46667"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect488"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="322.13333"
+     y="600.53333"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect490"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="R27b"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 328.53333,579.2 v 33.06667 h 27.73334"
+     inkscape:connector-curvature="0">
+    <title
+       id="title495">R27b:R27b</title>
+  </path>
+  <rect
+     x="322.13333"
+     y="592"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect499"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="322.13333"
+     y="583.46667"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect501"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="322.13333"
+     y="600.53333"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect503"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="R28r"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="M 330.66667,566.4 V 539.73333"
+     inkscape:connector-curvature="0">
+    <title
+       id="title508">R28r:R28r</title>
+  </path>
+  <rect
+     x="322.13333"
+     y="549.33331"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect512"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="322.13333"
+     y="540.79999"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect514"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="322.13333"
+     y="557.86664"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect516"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="R29r"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 330.66667,523.73333 v -28.8 h 7.46666"
+     inkscape:connector-curvature="0">
+    <title
+       id="title521">R29r:R29r</title>
+  </path>
+  <rect
+     x="333.86667"
+     y="507.73334"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect525"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="333.86667"
+     y="499.20001"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect527"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="333.86667"
+     y="516.26666"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect529"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="R40"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     d="M 370.13333,364.8 H 355.2 v 116.26667"
+     inkscape:connector-curvature="0">
+    <title
+       id="title534">R40:R40</title>
+  </path>
+  <rect
+     x="359.46667"
+     y="377.60001"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect538"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="359.46667"
+     y="369.06668"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect540"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="359.46667"
+     y="386.13333"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect542"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="R42"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     d="M 350.93333,481.06667 V 360.53333 h 18.1895"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccc">
+    <title
+       id="title547">R42:R42</title>
+  </path>
+  <rect
+     x="343.46667"
+     y="377.60001"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect551"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="343.46667"
+     y="369.06668"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect553"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="343.46667"
+     y="386.13333"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect555"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="R41"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     d="M 325.33333,523.73333 V 400.48924 h 37.66219"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccc">
+    <title
+       id="title560">R41:R41</title>
+  </path>
+  <rect
+     x="316.79999"
+     y="507.73334"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect564"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="316.79999"
+     y="499.20001"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect566"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="316.79999"
+     y="516.26666"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect568"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="R55a"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     d="M 396.29473,471.46667 H 406.9614"
+     inkscape:connector-curvature="0">
+    <title
+       id="title573">R55a:R55a</title>
+  </path>
+  <path
+     id="R55b"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     d="m 435.2,471.46667 h 10.66667"
+     inkscape:connector-curvature="0">
+    <title
+       id="title580">R55b:R55b</title>
+  </path>
+  <path
+     id="R91"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     d="m 484.4995,471.28669 h 26.68489"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc">
+    <title
+       id="title587">R91:R91</title>
+  </path>
+  <path
+     id="R54ra"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="M 392.53333,463.75142 V 444.8 h 9.63675"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccc">
+    <title
+       id="title594">R54ra:R54ra</title>
+  </path>
+  <path
+     id="R54rb"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 435.2,444.8 h 10.66667"
+     inkscape:connector-curvature="0">
+    <title
+       id="title601">R54rb:R54rb</title>
+  </path>
+  <path
+     id="R90"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     d="m 483.69069,444.8 h 27.13375"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc">
+    <title
+       id="title608">R90:R90</title>
+  </path>
+  <path
+     id="R53r"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-start:url(#se_marker_start_svg_1);marker-end:url(#se_marker_end_svg_1)"
+     d="m 408.97434,398.93333 h 22.62463"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc">
+    <title
+       id="title615">R53r:R53r</title>
+  </path>
+  <rect
+     x="414.93332"
+     y="403.20001"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect619"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="406.39999"
+     y="403.20001"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect621"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="423.46667"
+     y="403.20001"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect623"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="R94"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     d="m 470.43964,399.47327 h 39.49811"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc">
+    <title
+       id="title628">R94:R94</title>
+  </path>
+  <path
+     id="R82"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     d="m 189.86667,185.6 h 26.66666"
+     inkscape:connector-curvature="0">
+    <title
+       id="title635">R82:R82</title>
+  </path>
+  <rect
+     x="201.60001"
+     y="189.86667"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect639"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="193.06667"
+     y="189.86667"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect641"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="210.13333"
+     y="189.86667"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect643"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <path
+     id="R80"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     d="m 189.86667,217.6 h 26.66666"
+     inkscape:connector-curvature="0">
+    <title
+       id="title648">R80:R80</title>
+  </path>
+  <path
+     id="path650"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+     d="m 186.66667,233.6 q 16,-32 32,0"
+     inkscape:connector-curvature="0">
+    <title
+       id="title652">R80:R80</title>
+  </path>
+  <g
+     id="g3829">
+    <g
+       transform="translate(0,-75.733333)"
+       id="g72">
+      <path
+         id="R93"
+         style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.06666672;stroke-dasharray:0.9811227, 0.9811227;marker-end:url(#se_marker_end_svg_1)"
+         d="M 32,499.2 H 58.666667"
+         inkscape:connector-curvature="0">
+        <title
+           id="title75">R93:R93</title>
+      </path>
+      <!-- substrate : NH3_ext -->
+      <!-- product : NH3 -->
+      <text
+         x="45.866665"
+         y="494.93332"
+         font-size="7"
+         style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+         id="text77">ex_nh3</text>
+    </g>
+    <text
+       id="text164"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="202.66667"
+       x="405.33334">tim</text>
+    <text
+       x="144"
+       y="419.20001"
+       font-size="7"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       id="text70">biomass</text>
+    <text
+       id="text101"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="74.666664"
+       x="413.86667">RPTSsy</text>
+    <text
+       id="text108"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="113.06667"
+       x="409.60001">pgi</text>
+    <text
+       id="text121"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:end;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="150.39999"
+       x="400">pfk</text>
+    <text
+       id="text134"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="150.39999"
+       x="412.79999">fbp</text>
+    <text
+       id="text151"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="185.60001"
+       x="411.73334">ald</text>
+    <text
+       id="text177"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="224"
+       x="384">gap</text>
+    <text
+       id="text184"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="260.26666"
+       x="384">pgk</text>
+    <text
+       id="text191"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="296.53333"
+       x="384">pgm</text>
+    <text
+       id="text198"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="339.20001"
+       x="384">pgh</text>
+    <text
+       id="text211"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="382.93332"
+       x="363.73334">pyk</text>
+    <text
+       id="text224"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="382.93332"
+       x="386.13333">pps</text>
+    <text
+       id="text237"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="87.466667"
+       x="389.33334">zwf</text>
+    <text
+       id="text250"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="87.466667"
+       x="330.66666">glh</text>
+    <text
+       id="text263"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="153.60001"
+       x="293.33334">edd</text>
+    <text
+       id="text274"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="202.66667"
+       x="333.86667">eda</text>
+    <text
+       id="text281"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="87.466667"
+       x="277.33334">pgd</text>
+    <text
+       id="text294"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="118.4"
+       x="219.73334">rpe</text>
+    <text
+       id="text307"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="71.466667"
+       x="219.73334">rpi</text>
+    <text
+       id="text324"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:end;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="87.426712"
+       x="174.79655">txt1</text>
+    <text
+       id="text341"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:end;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="88.437225"
+       x="118.57605">tal</text>
+    <text
+       id="text358"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:end;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="33.371574"
+       x="67.953484">txt2</text>
+    <text
+       id="text371"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="422.39999"
+       x="362.66666">pdh</text>
+    <text
+       id="text388"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="420.26666"
+       x="402.13333">pfl</text>
+    <text
+       id="text401"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="416.87347"
+       x="492.79999">ex_for</text>
+    <text
+       id="text412"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="504.53333"
+       x="379.73334">csn</text>
+    <text
+       id="text425"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="492.79999"
+       x="464">acn</text>
+    <text
+       id="text438"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="553.59998"
+       x="509.86667">icd</text>
+    <text
+       id="text451"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="595.20001"
+       x="509.86667">kgd</text>
+    <text
+       id="text464"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="619.73334"
+       x="417.06668">scs</text>
+    <text
+       id="text477"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="630.40002"
+       x="377.60001">ex_suc</text>
+    <text
+       id="text484"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:start;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="593.06665"
+       x="336">sdh</text>
+    <text
+       id="text497"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="593.06665"
+       x="320">frd</text>
+    <text
+       id="text510"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="553.59998"
+       x="333.86667">fum</text>
+    <text
+       id="text523"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="510.93332"
+       x="333.86667">mdh</text>
+    <text
+       id="text536"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="452.26666"
+       x="357.33334">ppc</text>
+    <text
+       id="text549"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="357.33334"
+       x="352">ppck</text>
+    <text
+       id="text562"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="396.79999"
+       x="322.13333">me</text>
+    <text
+       id="text575"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="466.13333"
+       x="403.20001">pta</text>
+    <text
+       id="text582"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="466.13333"
+       x="440.53333">ack</text>
+    <text
+       id="text589"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="466.13333"
+       x="495.46005">ex_ace</text>
+    <text
+       id="text596"
+       style="font-size:6.2190752px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="440.60709"
+       x="397.84717">
+      <tspan
+         id="tspan5276"
+         style="font-size:7.4666667px;fill:#ff0000;stroke-width:1.06666672">ada</tspan>
+    </text>
+    <text
+       id="text603"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="440.3576"
+       x="440.53333">adh</text>
+    <text
+       id="text610"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="440.3576"
+       x="496">ex_etoh</text>
+    <text
+       id="text617"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="394.66666"
+       x="416">ldh</text>
+    <text
+       id="text630"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="394.66666"
+       x="493.16251">ex_lac</text>
+    <text
+       id="text637"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="181.33333"
+       x="202.66667">atpmain</text>
+    <text
+       id="text654"
+       style="font-size:7.4666667px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke-width:1.06666672;stroke-opacity:0"
+       font-size="7"
+       y="213.33333"
+       x="202.66667">oxphos</text>
+  </g>
+  <rect
+     x="201.60001"
+     y="209.06667"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect656"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="193.06667"
+     y="209.06667"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect658"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <rect
+     x="210.13333"
+     y="209.06667"
+     width="4.8000002"
+     height="4.8000002"
+     rx="1.0666667"
+     ry="1.0666667"
+     id="rect660"
+     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.53333336;stroke-opacity:0" />
+  <text
+     id="ATP"
+     x="167.46666"
+     y="187.73334"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">ATP<title
+   id="title665">ATP</title>
+</text>
+  <text
+     id="ADP"
+     x="220.8"
+     y="187.73334"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">ADP<title
+   id="title670">ADP</title>
+</text>
+  <text
+     id="text674"
+     x="163.2"
+     y="219.73334"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">2 ADP<title
+   id="title676">ADP</title>
+</text>
+  <text
+     id="text680"
+     x="220.8"
+     y="219.73334"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">2 ATP<title
+   id="title682">ATP</title>
+</text>
+  <text
+     id="NADH"
+     x="167.46666"
+     y="241.06667"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">NADH<title
+   id="title687">NADH</title>
+</text>
+  <text
+     id="NAD"
+     x="220.8"
+     y="241.06667"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">NAD+<title
+   id="title692">NAD</title>
+</text>
+  <text
+     id="GLU_ext"
+     x="393.60001"
+     y="57.599998"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">Glucose<title
+   id="title697">GLU_ext</title>
+</text>
+  <text
+     id="GLU_6_P"
+     x="400"
+     y="94.933334"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-decoration: underline;text-decoration-line: underline;fill:#000000;stroke-width:1.06666672"
+     text-decoration="underline">G6P<title
+   id="title702">GLU_6_P</title>
+</text>
+  <text
+     id="GLULAC_6_P"
+     x="346.66666"
+     y="94.933334"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">6PGL<title
+   id="title707">GLULAC_6_P</title>
+</text>
+  <text
+     id="GLUCO_6_P"
+     x="293.33334"
+     y="94.933334"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">6PGC<title
+   id="title712">GLUCO_6_P</title>
+</text>
+  <text
+     id="KDPG"
+     x="293.33334"
+     y="210.13333"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">KDPG<title
+   id="title717">KDPG</title>
+</text>
+  <text
+     id="PEP"
+     x="421.33334"
+     y="66.133331"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">PEP<title
+   id="title722">PEP</title>
+</text>
+  <text
+     id="PYR"
+     x="421.33334"
+     y="87.466667"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">Pyruvate<title
+   id="title727">PYR</title>
+</text>
+  <text
+     id="FRU_6_P"
+     x="400"
+     y="133.33333"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">F6P<title
+   id="title732">FRU_6_P</title>
+</text>
+  <text
+     id="text736"
+     x="80"
+     y="121.6"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">F6P<title
+   id="title738">FRU_6_P</title>
+</text>
+  <text
+     id="text742"
+     x="26.666666"
+     y="20.266666"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">F6P<title
+   id="title744">FRU_6_P</title>
+</text>
+  <text
+     id="FRU_BIS_P"
+     x="400"
+     y="171.73334"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">FBP<title
+   id="title749">FRU_BIS_P</title>
+</text>
+  <text
+     id="GA_3P"
+     x="373.33334"
+     y="210.13333"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">G3P<title
+   id="title754">GA_3P</title>
+</text>
+  <text
+     id="text758"
+     x="133.33333"
+     y="68.26667"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">G3P<title
+   id="title760">GA_3P</title>
+</text>
+  <text
+     id="text764"
+     x="26.666666"
+     y="68.26667"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">G3P<title
+   id="title766">GA_3P</title>
+</text>
+  <text
+     id="text770"
+     x="373.33334"
+     y="246.39999"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">BPG<title
+   id="title772">BPG</title>
+</text>
+  <text
+     id="text776"
+     x="373.33334"
+     y="281.60001"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">3PG<title
+   id="title778">3PG</title>
+</text>
+  <text
+     id="DHAP"
+     x="426.66666"
+     y="210.13333"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">DHAP<title
+   id="title783">DHAP</title>
+</text>
+  <text
+     id="PG"
+     x="373.33334"
+     y="318.93332"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">2PG<title
+   id="title788">2PG</title>
+</text>
+  <text
+     id="text792"
+     x="373.33334"
+     y="363.73334"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-decoration: underline;text-decoration-line: underline;fill:#000000;stroke-width:1.06666672"
+     text-decoration="underline">
+    <tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:1.06666672"
+       id="tspan3777">PEP</tspan>
+    <title
+       id="title794">PEP</title>
+  </text>
+  <text
+     id="text798"
+     x="366.93332"
+     y="401.06668"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-decoration: underline;text-decoration-line: underline;fill:#000000;stroke-width:1.06666672"
+     text-decoration="underline">Pyruvate<title
+   id="title800">PYR</title>
+</text>
+  <text
+     id="XYL_5_P"
+     x="186.66667"
+     y="121.6"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">X5P<title
+   id="title805">XYL_5_P</title>
+</text>
+  <text
+     id="text809"
+     x="80"
+     y="20.266666"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">X5P<title
+   id="title811">XYL_5_P</title>
+</text>
+  <text
+     id="RIBOSE_5_P:RIBOSE_5_P"
+     x="188.8"
+     y="68.26667"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-decoration: underline;text-decoration-line: underline;fill:#000000;stroke-width:1.06666672"
+     text-decoration="underline">R5P<title
+   id="title816">RIBOSE_5_P:RIBOSE_5_P</title>
+</text>
+  <text
+     id="SED_7_P"
+     x="133.33333"
+     y="121.6"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">S7P<title
+   id="title821">SED_7_P</title>
+</text>
+  <text
+     id="ERYTH_4_P"
+     x="80"
+     y="68.26667"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-decoration: underline;text-decoration-line: underline;fill:#000000;stroke-width:1.06666672"
+     text-decoration="underline">E4P<title
+   id="title826">ERYTH_4_P</title>
+</text>
+  <text
+     id="ACETYL_CoA"
+     x="366.93332"
+     y="473.60001"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-decoration: underline;text-decoration-line: underline;fill:#000000;stroke-width:1.06666672"
+     text-decoration="underline">AcCoA<title
+   id="title831">ACETYL_CoA</title>
+</text>
+  <text
+     id="ACETYLP"
+     x="410.66666"
+     y="473.60001"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">Ace-P<title
+   id="title836">ACETYLP</title>
+</text>
+  <text
+     id="ACALD"
+     x="407.16367"
+     y="446.93332"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">Acald<title
+   id="title841">ACALD</title>
+</text>
+  <text
+     id="CITRATE"
+     x="419.11172"
+     y="498.13333"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">Citrate<title
+   id="title846">CITRATE</title>
+</text>
+  <text
+     id="ISOCIT"
+     x="487.46667"
+     y="537.59998"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">iso-Citrate<title
+   id="title851">ISOCIT</title>
+</text>
+  <text
+     id="AKG"
+     x="480"
+     y="574.93335"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-decoration: underline;text-decoration-line: underline;fill:#000000;stroke-width:1.06666672"
+     text-decoration="underline">2-oxoglutarate<title
+   id="title856">AKG</title>
+</text>
+  <text
+     id="SUCC_CoA"
+     x="432"
+     y="612.26666"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">Succinyl-CoA<title
+   id="title861">SUCC_CoA</title>
+</text>
+  <text
+     id="SUCC"
+     x="359.46667"
+     y="612.26666"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">Succinate<title
+   id="title866">SUCC</title>
+</text>
+  <text
+     id="SUCC_ext"
+     x="359.46667"
+     y="649.59998"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">Succinate[e]<title
+   id="title871">SUCC_ext</title>
+</text>
+  <text
+     id="FUMARATE"
+     x="314.66666"
+     y="574.93335"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">Fumarate<title
+   id="title876">FUMARATE</title>
+</text>
+  <text
+     id="MALATE"
+     x="317.86667"
+     y="534.40002"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">Malate<title
+   id="title881">MALATE</title>
+</text>
+  <text
+     id="OXALO"
+     x="341.33334"
+     y="491.73334"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-decoration: underline;text-decoration-line: underline;fill:#000000;stroke-width:1.06666672"
+     text-decoration="underline">Oxalo<title
+   id="title886">OXALO</title>
+</text>
+  <text
+     id="text890"
+     x="341.33334"
+     y="500.26666"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;text-decoration: underline;text-decoration-line: underline;fill:#000000;stroke-width:1.06666672"
+     text-decoration="underline">acetate<title
+   id="title892">OXALO</title>
+</text>
+  <text
+     id="RIBULOSE_5_P:RIBULOSE_5_P"
+     x="240"
+     y="94.933334"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">Ru5P<title
+   id="title897">RIBULOSE_5_P:RIBULOSE_5_P</title>
+</text>
+  <text
+     id="LACTATE"
+     x="436.26666"
+     y="402.13333"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">Lactate<title
+   id="title902">LACTATE</title>
+</text>
+  <text
+     id="LACTATE_ext"
+     x="515.20001"
+     y="402.13333"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">Lactate[e]<title
+   id="title907">LACTATE_ext</title>
+</text>
+  <text
+     id="FORMATE"
+     x="436.26666"
+     y="423.46667"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">Formate<title
+   id="title912">FORMATE</title>
+</text>
+  <text
+     id="FORMATE_ext"
+     x="515.20001"
+     y="423.46667"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">Formate[e]<title
+   id="title917">FORMATE_ext</title>
+</text>
+  <text
+     id="ETOH"
+     x="450.13333"
+     y="446.93332"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">Ethanol<title
+   id="title922">ETOH</title>
+</text>
+  <text
+     id="ETOH_ext"
+     x="515.20001"
+     y="446.93332"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">Ethanol[e]<title
+   id="title927">ETOH_ext</title>
+</text>
+  <text
+     id="ACETATE"
+     x="450.13333"
+     y="473.60001"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">Acetate<title
+   id="title932">ACETATE</title>
+</text>
+  <text
+     id="ACETATE_ext"
+     x="515.20001"
+     y="473.60001"
+     font-size="8"
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672">Acetate[e]<title
+   id="title937">ACETATE_ext</title>
+</text>
+  <text
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672"
+     font-size="8"
+     y="340.26666"
+     x="64"
+     id="text941">Pyruvate<title
+   id="title943">PYR</title>
+</text>
+  <text
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672"
+     font-size="8"
+     y="361.60001"
+     x="64"
+     id="text947">PEP<title
+   id="title949">PEP</title>
+</text>
+  <text
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672"
+     font-size="8"
+     y="382.93332"
+     x="64"
+     id="text953">Oxaloacetate<title
+   id="title955">OXALO</title>
+</text>
+  <text
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672"
+     font-size="8"
+     y="404.26666"
+     x="64"
+     id="text959">2-oxoglutarate<title
+   id="title961">AKG</title>
+</text>
+  <text
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672"
+     font-size="8"
+     y="425.60001"
+     x="64"
+     id="NH3">NH3<title
+   id="title966">NH3</title>
+</text>
+  <text
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672"
+     font-size="8"
+     y="446.93332"
+     x="64"
+     id="text970">AcCoA<title
+   id="title972">ACETYL_CoA</title>
+</text>
+  <text
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672"
+     font-size="8"
+     y="468.26666"
+     x="64"
+     id="text976">E4P<title
+   id="title978">ERYTH_4_P</title>
+</text>
+  <text
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672"
+     font-size="8"
+     y="489.60001"
+     x="64"
+     id="text982">R5P<title
+   id="title984">RIBOSE_5_P:RIBOSE_5_P</title>
+</text>
+  <text
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672"
+     font-size="8"
+     y="510.93332"
+     x="64"
+     id="text988">G6P<title
+   id="title990">GLU_6_P</title>
+</text>
+  <text
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672"
+     font-size="8"
+     y="404.26666"
+     x="186.66667"
+     id="text994">ATP<title
+   id="title996">ATP</title>
+</text>
+  <text
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672"
+     font-size="8"
+     y="449.06668"
+     x="186.66667"
+     id="text1000">NADH<title
+   id="title1002">NADH</title>
+</text>
+  <text
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672"
+     font-size="8"
+     y="449.06668"
+     x="218.66667"
+     id="text1006">NAD+<title
+   id="title1008">NAD</title>
+</text>
+  <text
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672"
+     font-size="8"
+     y="404.26666"
+     x="218.66667"
+     id="text1012">ADP<title
+   id="title1014">ADP</title>
+</text>
+  <text
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672"
+     font-size="8"
+     y="404.26666"
+     x="245.33333"
+     id="CO2">CO2<title
+   id="title1019">CO2</title>
+</text>
+  <text
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672"
+     font-size="8"
+     y="449.06668"
+     x="245.33333"
+     id="CoASH">CoA<title
+   id="title1024">CoASH</title>
+</text>
+  <text
+     style="font-size:8.53333378px;line-height:0%;font-family:'Myriad Pro', 'Gill Sans', Calabri, 'Trebuchet MS', sans-serif;fill:#000000;stroke-width:1.06666672"
+     font-size="8"
+     y="425.60001"
+     x="266.66666"
+     id="M_biomass_c">Biomass<title
+   id="title1029">biomass</title>
+</text>
+</svg>

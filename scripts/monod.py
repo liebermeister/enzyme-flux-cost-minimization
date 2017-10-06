@@ -51,11 +51,11 @@ def plot_monod_figure(figure_data):
     gs2 = gridspec.GridSpec(2, 4, left=0.05, right=0.95, bottom=0.06, top=0.45)
 
     axs = []
-    for i in xrange(2):
-        for j in xrange(4):
+    for i in range(2):
+        for j in range(4):
             axs.append(plt.subplot(gs1[i, j]))
-    for i in xrange(2):
-        for j in xrange(4):
+    for i in range(2):
+        for j in range(4):
             axs.append(plt.subplot(gs2[i, j]))
 
     for i, ax in enumerate(axs):
@@ -73,7 +73,7 @@ def plot_monod_figure(figure_data):
                                     p0=p0, method='trf')
                 monod_df.loc[efm, :] = popt
             except RuntimeError:
-                print "cannot resolve Monod curve for EFM %d" % efm
+                print("cannot resolve Monod curve for EFM %d" % efm)
                 monod_df.loc[efm, :] = np.nan
 
         # get fig3 data for plotting the other features
@@ -94,7 +94,7 @@ def plot_monod_figure(figure_data):
         x = monod_df[x_var]
         y = monod_df[y_var]
         CS = ax.scatter(x, y, s=12, marker='o',
-                        facecolors=D.PARETO_NEUTRAL_COLOR,
+                        facecolors=(0.85, 0.85, 0.85),
                         linewidth=0)
         for efm, (col, lab) in D.efm_dict.iteritems():
             if efm in x.index:
@@ -102,8 +102,7 @@ def plot_monod_figure(figure_data):
                         color=col, label=None)
                 ax.annotate(lab, xy=(x[efm], y[efm]),
                             xytext=(0, 5), textcoords='offset points',
-                            ha='center', va='bottom', color=col,
-                            bbox=dict(boxstyle="round", fc="w", alpha=0.5))
+                            ha='center', va='bottom', color=col)
 
         ax.set_xscale('log')
         ax.set_yscale('linear')
@@ -127,7 +126,7 @@ def plot_monod_figure(figure_data):
             y = monod_df[y_var]
             c = monod_df[d['c']]
             CS = d['ax'].scatter(x, y, s=12, c=c, marker='o',
-                                 linewidth=0, cmap='magma_r',
+                                 linewidth=0, cmap='copper_r',
                                  vmin=d['vmin'], vmax=d['vmax'])
             cbar = plt.colorbar(CS, ax=d['ax'])
             cbar.set_label(d['c'], fontsize=10)

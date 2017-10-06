@@ -19,7 +19,6 @@ if __name__ == '__main__':
     for fig_name in ['monod_glucose_aero', 'monod_glucose_anae']:
     
         zip_fname = D.DATA_FILES[fig_name][0][0]
-        efm_mapping = D.DATA_FILES[fig_name][2]
         prefix, ext = os.path.splitext(os.path.basename(zip_fname))
         
         with zipfile.ZipFile(zip_fname, 'r') as z:
@@ -30,8 +29,6 @@ if __name__ == '__main__':
             kcat_df = pd.DataFrame.from_csv(z.open('%s/kcats.csv' % prefix, 'r'),
                                             header=None, index_col=None)
         
-        rates_df.rename(index=efm_mapping, inplace=True)
-
         #%%
         efms = list(rates_df.index)
         reactions = list(rates_df.columns)

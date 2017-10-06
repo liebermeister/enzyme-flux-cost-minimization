@@ -65,7 +65,7 @@ def plot_tsne_figure(figure_data, figsize=(15, 13)):
         d['ax'] = axs[i+1]
         D.plot_basic_pareto(data, x=rates_df_new.columns[0],
                             y=rates_df_new.columns[1], c=d['c'],
-                            ax=d['ax'], cmap='magma_r', linewidth=0.2, s=10)
+                            ax=d['ax'], cmap='copper_r', linewidth=0.2, s=10)
         d['ax'].set_title(d['title'])
     fig.tight_layout()
     return fig
