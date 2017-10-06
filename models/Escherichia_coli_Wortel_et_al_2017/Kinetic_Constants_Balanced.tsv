@@ -1,4 +1,4 @@
-!!SBtab TableName='RateConstant' TableType='Quantity' Document='Carlson model' SBtabVersion='1.0'					
+!!SBtab TableName='Parameter' TableType='Quantity' Document='Carlson model' SBtabVersion='1.0'					
 !QuantityType	!Reaction	!Compound	!Value	!Unit	!ID
 equilibrium constant	R54ra		0.0022582413	dimensionless	kEQ_R1
 equilibrium constant	R54rb		2767.6607	dimensionless	kEQ_R2
