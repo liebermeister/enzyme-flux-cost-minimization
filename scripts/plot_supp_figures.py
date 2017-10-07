@@ -7,13 +7,14 @@ Created on Sat Dec  3 17:32:45 2016
 import os
 import numpy as np
 import pandas as pd
-import seaborn as sns
 import matplotlib.pyplot as plt
 from matplotlib.collections import LineCollection
 from mpl_toolkits.mplot3d import Axes3D # NOTE!!! keep this for the 3D plots
 import zipfile
 import definitions as D
-from prepare_data import get_concatenated_raw_data
+from prepare_data import get_df_from_pareto_zipfile, \
+                         read_pareto_zipfile, \
+                         get_concatenated_raw_data
 from sensitivity_analysis import Sensitivity
 from phase_surface_plots import plot_surface, \
     plot_surface_diff, \
@@ -780,12 +781,3 @@ if False:
     figS27.tight_layout()
     figS27.savefig(os.path.join(D.OUTPUT_DIR, 'FigS27.pdf'))
 
-    #%% Make CSV files which summarize the most important results
-    for label in ['standard', 'anaerobic']:
-        df = figure_data[label]
-        df = df[[D.YIELD_L, D.TOT_FLUX_SA_L, D.TOT_ENZYME_L, D.GROWTH_RATE_L]]
-        df.round(3).to_csv(os.path.join(D.OUTPUT_DIR, '%s.csv' % label))
-    
-        rates_df, params_df, enzyme_abundance_df = get_concatenated_raw_data(label)
-        rates_df.round(3).to_csv(os.path.join(D.OUTPUT_DIR, '%s_rates.csv' % label))
-        enzyme_abundance_df.round(3).to_csv(os.path.join(D.OUTPUT_DIR, '%s_enzyme_abundance.csv' % label))

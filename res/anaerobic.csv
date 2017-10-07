@@ -1,4 +1,4 @@
-EFM,biomass yield [gr dw / mol C glc],"$\Sigma_i \frac{|v_i| \cdot w_i}{k_{\mathrm{cat},i}}$ [gr enz / gr dw h$^{-1}$]",total enzyme [gr enz / gr dw h$^{-1}$],growth rate [h$^{-1}$]
+EFM,biomass yield [gr dw / mol C glc],ideal cost [gr enz / gr dw h$^{-1}$],total enzyme [gr enz / gr dw h$^{-1}$],growth rate [h$^{-1}$]
 100,1.82,0.164,0.392,0.274
 105,1.72,0.295,1.082,0.114
 106,1.72,0.185,0.47,0.237
