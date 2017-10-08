@@ -34,12 +34,17 @@ if False:
         # higher than the actual rate (given in "rates")
         capacity_usage = rates / (enzymes * params['kcat'])
         capacity_usage[capacity_usage < 0 ] = np.nan
-        capacity_usage = capacity_usage.melt(var_name='reaction', value_name='capacity usage')
+        capacity_usage = capacity_usage.melt(var_name='reaction',
+                                             value_name='capacity usage')
+        
+        capacity_usage = capacity_usage.dropna()
+        order = list(capacity_usage.groupby('reaction').mean().sort_values(by='capacity usage').index)
         
         fig, ax = plt.subplots(1, 1, figsize=(15, 7))
         g = sns.boxplot(x='reaction', y='capacity usage', data=capacity_usage,
-                        ax=ax)
+                        order=order, ax=ax)
         plt.xticks(rotation=90)
+        ax.set_title(fig_name)
         fig.savefig(
             os.path.join(D.OUTPUT_DIR, '%s_capacity_usage.pdf' % fig_name))
 
