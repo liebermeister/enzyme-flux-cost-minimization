@@ -70,9 +70,9 @@ class FluxProjection(object):
         #lp.writeLP("tmp/flux_mapping.lp")
 
         fluxes_df.loc[all_reactions, D.PRED_FLUX_L] = \
-            map(lambda i: pulp.value(v_pred[i]), all_reactions)
+            list(map(lambda i: pulp.value(v_pred[i]), all_reactions))
         fluxes_df.loc[measured_reactions, D.RESID_L] = \
-            map(lambda i: pulp.value(v_resid[i]), measured_reactions)
+            list(map(lambda i: pulp.value(v_resid[i]), measured_reactions))
         fluxes_df /= pulp.value(v_pred['r70']) # normalize all fluxes to the biomass flux (i.e. set it to 1)
 
 #        fig, axs = plt.subplots(1, 2, figsize=(14,6))
@@ -154,3 +154,4 @@ class FluxProjection(object):
 if __name__ == '__main__':
     f = FluxProjection()
     f.project_fluxes()
+    f.plot_correlations()

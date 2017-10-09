@@ -12,17 +12,21 @@ import definitions as D
 import pandas as pd
 import matplotlib.pyplot as plt
 
+PICKLE_FNAME = os.path.join(D.TEMP_DIR, 'pareto_sampling.pkl')
+
+def write_cache_files():
+    data_list = []
+    for set_fname in ['n39-p80', 'n39-p81']:
+        zip_fname = os.path.join(D.DATA_DIR, set_fname + '.zip')
+        data_list.append(read_pareto_zipfile(zip_fname))
+    data = pd.concat(data_list, axis=0, join='inner')
+    data.to_pickle(PICKLE_FNAME)
+
 if __name__ == '__main__':
-    PICKLE_FNAME = os.path.join(D.TEMP_DIR, 'pareto_sampling.pkl')
     if not os.path.exists(PICKLE_FNAME):
-        data_list = []
-        for set_fname in ['n39-p80', 'n39-p81']:
-            zip_fname = os.path.join(D.DATA_DIR, set_fname + '.zip')
-            data_list.append(read_pareto_zipfile(zip_fname))
-        data = pd.concat(data_list, axis=0, join='inner')
-        data.to_pickle(PICKLE_FNAME)
-    else:
-        data = pd.read_pickle(PICKLE_FNAME)
+        raise Exception('you must run cache() first')
+        
+    data = pd.read_pickle(PICKLE_FNAME)
 
     # the indexes of these DataFrames are not EFMs as usually happens in
     # other datasets, but just arbitraty sequence numbers. To avoid 
