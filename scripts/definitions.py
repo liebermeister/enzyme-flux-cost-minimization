@@ -16,6 +16,7 @@ from collections import OrderedDict
 import definitions as D
 from hashlib import sha1
 from matplotlib import rcParams
+import pandas as pd
 
 sns.set()
 sns.set(style="white", context="paper", font="monospaced")
@@ -249,7 +250,7 @@ def plot_basic_pareto(data, ax, x, y, s=10, marker='o', c=None,
     ax.set_ylabel(y)
 
     if efm_dict is not None:
-        for efm, (col, lab) in efm_dict.iteritems():
+        for efm, (col, lab) in efm_dict.items():
             if efm in data.index:
                 ax.plot(data.at[efm, x], data.at[efm, y], markersize=5,
                         marker=marker, color=col, label=None)
@@ -267,9 +268,23 @@ def plot_basic_pareto(data, ax, x, y, s=10, marker='o', c=None,
 
         xpareto = xdata[pareto_idx]
         ypareto = ydata[pareto_idx]
-        ax.scatter(xpareto, ypareto, s=paretosize, marker=paretomarker,
-                   facecolors=paretofacecolors, edgecolors=paretoedgecolors)
+        cpareto = pd.Series(index=pareto_idx,
+                            data=[paretofacecolors]*len(pareto_idx))
+        for efm, (col, lab) in efm_dict.items():
+            if efm in pareto_idx:
+                cpareto[efm] = col
+        ax.scatter(x=xpareto, y=ypareto, s=paretosize, c=cpareto,
+                   marker=paretomarker, edgecolors=paretoedgecolors)
     return CS
+
+def get_pareto(data, x, y):
+    xdata = data[x]
+    ydata = data[y]
+    pareto_idx = []
+    for i in ydata.sort_values(ascending=False).index:
+        if pareto_idx == [] or xdata[i] > xdata[pareto_idx[-1]]:
+            pareto_idx.append(i)
+    return data.loc[pareto_idx, [x, y]]
 
 def plot_dual_pareto(data0, label0, data1, label1, ax, x, y,
                      s=15, marker='o', c0=None, c1=None, draw_lines=True,

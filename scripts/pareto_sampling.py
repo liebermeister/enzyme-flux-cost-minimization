@@ -20,19 +20,19 @@ def write_cache_files():
         zip_fname = os.path.join(D.DATA_DIR, set_fname + '.zip')
         data_list.append(read_pareto_zipfile(zip_fname))
     data = pd.concat(data_list, axis=0, join='inner')
-    data.to_pickle(PICKLE_FNAME)
-
-if __name__ == '__main__':
-    if not os.path.exists(PICKLE_FNAME):
-        raise Exception('you must run cache() first')
-        
-    data = pd.read_pickle(PICKLE_FNAME)
-
     # the indexes of these DataFrames are not EFMs as usually happens in
     # other datasets, but just arbitraty sequence numbers. To avoid 
     # duplicates, we override them with new unique indexes
     data.index = range(data.shape[0])
-    fig, ax = plt.subplots(1, 1, figsize=(10, 10)) 
+    data.to_pickle(PICKLE_FNAME)
+
+if __name__ == '__main__':
+    if not os.path.exists(PICKLE_FNAME):
+        write_cache_files()
+        
+    data = pd.read_pickle(PICKLE_FNAME)
+
+    fig, ax = plt.subplots(1, 1, figsize=(5, 5)) 
     
     xdata = data[D.YIELD_L]
     ydata = data[D.GROWTH_RATE_L]
@@ -50,6 +50,6 @@ if __name__ == '__main__':
     xpareto = xdata[pareto_idx]
     ypareto = ydata[pareto_idx]
     ax.plot(xpareto, ypareto, marker='.', linewidth=1, color=(0, 0, 0.5),
-            markersize=20)
+            markersize=15)
     
     fig.savefig(os.path.join(D.OUTPUT_DIR, 'Fig_pareto_sampling.pdf'))

@@ -16,21 +16,58 @@ from phase_surface_plots import allocation_pie_chart, plot_surface, \
                                 plot_oxygen_sweep, plot_oxygen_dual_pareto
 from prepare_data import get_concatenated_raw_data
 from mpl_toolkits.mplot3d import Axes3D # NOTE!!! keep this for the 3D plots
+import pareto_sampling
+import pandas as pd
 
 figure_data = D.get_figure_data()
 
 if False:
     # %% Figure 2c
-    fig2c, ax2c = plt.subplots(1, 1, figsize=(4.5, 4.5))
+    fig2c, ax2c = plt.subplots(1, 1, figsize=(4, 4))
+
+
+    # use the Pareto sampling data to draw a line representing the
+    # approximated Pareto front
+    sampled_data = pd.read_pickle(pareto_sampling.PICKLE_FNAME)
+    pareto_df = D.get_pareto(sampled_data, D.YIELD_L, D.GROWTH_RATE_L)
+    pareto_df.plot(x=D.YIELD_L, y=D.GROWTH_RATE_L, marker=None,
+                   linewidth=1, color='k', markersize=20,
+                   ax=ax2c, legend=None)
 
     data = figure_data['standard']
     # remove oxygen-sensitive EFMs
     data.loc[data[D.STRICTLY_ANAEROBIC_L], D.GROWTH_RATE_L] = 0
-    D.plot_basic_pareto(data, ax2c, x=D.YIELD_L, y=D.GROWTH_RATE_L,
-                        efm_dict=D.efm_dict,
-                        paretofacecolors='k', alpha=1)
+    xdata = data[D.YIELD_L]
+    ydata = data[D.GROWTH_RATE_L]
+
+    # first, draw all the EFMs as small grey points
+    ax2c.scatter(xdata, ydata, s=10, marker='o',
+                 facecolors=(0.85, 0.85, 0.85), edgecolors='none')
+
+    # highlight the focat EFMs and add labels in color
+    if D.efm_dict is not None:
+        for efm, (col, lab) in D.efm_dict.items():
+            if efm in data.index:
+                ax2c.plot(xdata[efm], ydata[efm], markersize=10,
+                          marker='.', color=col, label=None)
+                ax2c.annotate(lab, xy=(xdata[efm], ydata[efm]),
+                              xytext=(0, 5), textcoords='offset points',
+                              ha='center', va='bottom', color=col)
+    
+    # highlight the Pareto optinal EFMs (and maintain the colors for the focal ones)
+    pareto_df = D.get_pareto(data, D.YIELD_L, D.GROWTH_RATE_L)
+    pareto_df['color'] = '#000000'
+    for efm, (col, lab) in D.efm_dict.items():
+        if efm in pareto_df.index:
+            pareto_df.at[efm, 'color'] = col
+    pareto_df.plot(kind='scatter', x=D.YIELD_L, y=D.GROWTH_RATE_L,
+                   c=pareto_df['color'],
+                   marker='s', s=40, ax=ax2c)
+
     ax2c.set_xlim(-1e-3, 1.1*data[D.YIELD_L].max())
     ax2c.set_ylim(-1e-3, 1.2*data[D.GROWTH_RATE_L].max())
+    ax2c.set_xlabel(D.YIELD_L)
+    ax2c.set_ylabel(D.GROWTH_RATE_L)
     ax2c.set_title('glucose = %g mM, O$_2$ = %g mM' %
                    (D.STD_CONC['glucoseExt'], D.STD_CONC['oxygen']))
     fig2c.tight_layout()
