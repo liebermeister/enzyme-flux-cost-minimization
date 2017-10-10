@@ -790,21 +790,21 @@ if False:
     xdata = sampled_data[D.YIELD_L]
     ydata = sampled_data[D.GROWTH_RATE_L]
     sampled_data.plot.scatter(x=D.YIELD_L, y=D.GROWTH_RATE_L,
-                              marker='.', c=(.7, .7, .7), s=15,
-                              edgecolors=None, alpha=0.2, ax=axs28, zorder=1)
+                              marker='.', c=(.9, .9, .9), s=10,
+                              edgecolors=None, alpha=0.5, ax=axs28, zorder=1)
     axs28.set_xlabel(D.YIELD_L)
     axs28.set_ylabel(D.GROWTH_RATE_L)
 
     pareto_df = D.get_pareto(sampled_data, D.YIELD_L, D.GROWTH_RATE_L)
-    pareto_df.plot(x=D.YIELD_L, y=D.GROWTH_RATE_L, marker=None,
-                   linewidth=1, color='k', markersize=10,
-                   ax=axs28, legend=None, zorder=2)
+    pareto_df.plot.scatter(x=D.YIELD_L, y=D.GROWTH_RATE_L, marker='s',
+                           color='k', s=15,
+                           ax=axs28, legend=None, zorder=2)
     axs28.set_xlim(18.5, 22.5)
     axs28.set_ylim(0.3, 0.8)
 
     efm_data = figure_data['standard']
     efm_data.plot.scatter(x=D.YIELD_L, y=D.GROWTH_RATE_L,
-                          marker='.', c=(0.5, 0, 0), s=20,
+                          marker='.', c=(1, 0.6, 0.6), s=15,
                           edgecolors=None, alpha=1, ax=axs28, zorder=3)
 
     pareto_df = D.get_pareto(efm_data, D.YIELD_L, D.GROWTH_RATE_L)
