@@ -799,8 +799,6 @@ if False:
     pareto_df.plot.scatter(x=D.YIELD_L, y=D.GROWTH_RATE_L, marker='s',
                            color='k', s=15,
                            ax=axs28, legend=None, zorder=2)
-    axs28.set_xlim(18.5, 22.5)
-    axs28.set_ylim(0.3, 0.8)
 
     efm_data = figure_data['standard']
     efm_data.plot.scatter(x=D.YIELD_L, y=D.GROWTH_RATE_L,
@@ -811,5 +809,12 @@ if False:
     pareto_df.plot.scatter(x=D.YIELD_L, y=D.GROWTH_RATE_L,
                            marker='s', c='r', s=30,
                            edgecolors=None, alpha=1, ax=axs28, zorder=4)
-    
+    for efm, (col, lab) in D.efm_dict.items():
+        if efm in pareto_df.index:
+            axs28.annotate(lab, xy=(pareto_df.at[efm, D.YIELD_L], pareto_df.at[efm, D.GROWTH_RATE_L]),
+                           xytext=(5, 6), textcoords='offset points',
+                           ha='left', va='bottom', color='r')
+    axs28.set_xlim(18.5, 23.3)
+    axs28.set_ylim(0.3, 0.8)
+
     figS28.savefig(os.path.join(D.OUTPUT_DIR, 'FigS28.pdf'))
