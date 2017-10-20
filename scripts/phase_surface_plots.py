@@ -62,9 +62,10 @@ class SweepInterpolator(object):
 
         # get the oxygen level from the "metfixed.csv" file inside the zipfile
         with zipfile.ZipFile(zip_fname, 'r') as z:
-            rates_df, params_df = get_general_parameters_from_zipfile(z, prefix)
+            rates_df, params_df, km_df = \
+                get_general_parameters_from_zipfile(z, prefix)
 
-        return rates_df, params_df
+        return rates_df, params_df, km_df
 
     @staticmethod
     def get_efm_list_for_knockout(ko):
@@ -72,7 +73,7 @@ class SweepInterpolator(object):
             get the descriptions of the EFMs from one of the sweep
             files (doesn't matter which)
         """
-        rates_df, _ = SweepInterpolator.get_general_params(min(ITER_RANGE))
+        rates_df, _, _ = SweepInterpolator.get_general_params(min(ITER_RANGE))
         if type(ko) != list:
             ko = [ko]
         efms_to_keep = rates_df[~rates_df[ko].any(1)].index
@@ -248,8 +249,9 @@ def allocation_pie_chart(ax, glucose=100.0, oxygen=3.7e-3):
     E_lumped.loc[D.REMAINDER_L] = E_i[E_i.cumsum() > 0.95].sum()
 
     E_lumped.name = ''
-    E_lumped.plot.pie(colors=map(D.reaction_to_rgb, E_lumped.index), ax=ax,
-                      labels=map(D.GET_REACTION_NAME, E_lumped.index))
+    E_lumped.plot.pie(colors=list(map(D.reaction_to_rgb, E_lumped.index)),
+                      labels=list(map(D.GET_REACTION_NAME, E_lumped.index)),
+                      ax=ax)
 
     if efm in D.efm_dict:
         efm_name = D.efm_dict[efm]['label']
@@ -591,7 +593,7 @@ def plot_conc_versus_uptake_figure(figure_data,
     ###########################################################################
     OX_UPTAKE_L = 'O$_2$ uptake rate (a.u.)'
     GLU_UPRATE_L = 'glucose uptake rate (a.u.)'
-    rates_df, _ = SweepInterpolator.get_general_params(min(ITER_RANGE))
+    rates_df, _, _ = SweepInterpolator.get_general_params(min(ITER_RANGE))
     phase_df = phase_df.join(rates_df, on='best_efm')
     phase_df[OX_UPTAKE_L] = phase_df[D.R_OXYGEN_DEPENDENT].sum(1) * phase_df[D.GROWTH_RATE_L]
     phase_df[OX_UPTAKE_L] = phase_df[OX_UPTAKE_L].round(0)

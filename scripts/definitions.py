@@ -270,9 +270,10 @@ def plot_basic_pareto(data, ax, x, y, s=10, marker='o', c=None,
         ypareto = ydata[pareto_idx]
         cpareto = pd.Series(index=pareto_idx,
                             data=[paretofacecolors]*len(pareto_idx))
-        for efm, (col, lab) in efm_dict.items():
-            if efm in pareto_idx:
-                cpareto[efm] = col
+        if efm_dict is not None:
+            for efm, (col, lab) in efm_dict.items():
+                if efm in pareto_idx:
+                    cpareto[efm] = col
         ax.scatter(x=xpareto, y=ypareto, s=paretosize, c=cpareto,
                    marker=paretomarker, edgecolors=paretoedgecolors)
     return CS

@@ -96,7 +96,7 @@ def plot_monod_figure(figure_data):
         CS = ax.scatter(x, y, s=12, marker='o',
                         facecolors=(0.85, 0.85, 0.85),
                         linewidth=0)
-        for efm, (col, lab) in D.efm_dict.iteritems():
+        for efm, (col, lab) in D.efm_dict.items():
             if efm in x.index:
                 ax.plot(x[efm], y[efm], markersize=5, marker='o',
                         color=col, label=None)
@@ -138,10 +138,10 @@ def plot_monod_figure(figure_data):
             d['ax'].set_yscale('linear')
             d['ax'].set_xscale('log')
 
-    for j in xrange(4):
+    for j in range(4):
         axs[j].get_xaxis().set_visible(False)
         axs[8+j].get_xaxis().set_visible(False)
-    for j in xrange(1, 4):
+    for j in range(1, 4):
         axs[j].get_yaxis().set_visible(False)
         axs[4+j].get_yaxis().set_visible(False)
         axs[8+j].get_yaxis().set_visible(False)

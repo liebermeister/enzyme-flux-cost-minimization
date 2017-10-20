@@ -50,7 +50,8 @@ class Sensitivity(object):
             self.stoich_df.rename(columns={0: 'reaction', 1: 'metabolite', 2: 'coefficient'}, inplace=True)
             self.stoich_df['reaction'] = self.stoich_df['reaction'].apply(D.FIX_REACTION_ID)
             # first read the table of reaction rates
-            self.rates_df, self.params_df = get_general_parameters_from_zipfile(z, prefix)
+            self.rates_df, self.params_df, _ = \
+                get_general_parameters_from_zipfile(z, prefix)
 
             # go through all the files in the 'results' folder and read the enzyme data into
             # a dictionary from EFM to DataFrame
@@ -256,7 +257,8 @@ class Sensitivity(object):
 
         with zipfile.ZipFile(zip_fname, 'r') as z:
 
-            rates_df, params_df = get_general_parameters_from_zipfile(z, prefix)
+            rates_df, params_df, km_df = \
+                get_general_parameters_from_zipfile(z, prefix)
 
             # go through all the files in the 'results' folder and read the enzyme data into
             # a dictionary from EFM to DataFrame

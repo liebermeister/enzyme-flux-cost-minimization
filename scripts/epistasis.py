@@ -49,13 +49,13 @@ f_epi = lambda df, r1, r2 : \
 class Epistasis(object):
 
     def __init__(self, figure_data):
-        rates_df, _, _ = get_concatenated_raw_data('standard')
+        rates_df, _, _, _ = get_concatenated_raw_data('standard')
         self.active_df = (rates_df == 0) # a boolean DataFrame of the active reactions in each EFM
         self.reactions = sorted(self.active_df.columns,
             key=lambda s: (int(re.findall('[rR]+(\d+)', s)[0]), s))
 
         yield_df = figure_data['standard'][D.YIELD_L]
-        self.xticklabels = map(D.GET_REACTION_NAME, self.reactions)
+        self.xticklabels = list(map(D.GET_REACTION_NAME, self.reactions))
         self.yticklabels = list(reversed(self.xticklabels))
         self.yd_double = pd.DataFrame(index=self.reactions,
                                       columns=self.reactions, dtype=float)

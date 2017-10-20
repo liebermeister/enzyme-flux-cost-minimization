@@ -36,7 +36,7 @@ import pareto_sampling
 
 figure_data = D.get_figure_data()
 
-if False:
+if __name__ == '__main__':
     # %% Figure S1 - same as 3c, but compared to the biomass rate
     #    instead of growth rate
     figS1, axS1 = plt.subplots(1, 2, figsize=(9, 4.5))
@@ -165,8 +165,8 @@ if False:
                     xycoords='axes fraction', ha='left', va='top',
                     size=20)
 
-    rates1_df, _, _ = get_concatenated_raw_data('standard')
-    rates2_df, _, _ = get_concatenated_raw_data('anaerobic')
+    rates1_df, _, _, _ = get_concatenated_raw_data('standard')
+    rates2_df, _, _, _ = get_concatenated_raw_data('anaerobic')
     rates_df = pd.concat([rates1_df, rates2_df]).drop_duplicates()
 
     reaction_counts = 100 * (rates_df.abs() > 1e-8).sum(0) / rates_df.shape[0]
@@ -202,7 +202,7 @@ if False:
     exp_flux_df = exp_flux_df.loc[exp_flux_df.index.str.find('xchg') != 0, :]
     exp_flux_df.index = map(D.FIX_REACTION_ID, exp_flux_df.index)
 
-    rates_df, params_df, enzyme_abundance_df = \
+    rates_df, params_df, km_df, enzyme_abundance_df = \
         get_concatenated_raw_data('standard')
 
     # calculate correlation coefficients between the enzyme abundances and
@@ -371,7 +371,7 @@ if False:
             ax.scatter(xdata, ydata, s=12, marker='o', alpha=1,
                        edgecolors='none', color=color,
                        label=label)
-        for efm, (col, lab) in D.efm_dict.iteritems():
+        for efm, (col, lab) in D.efm_dict.items():
             if efm in data.index:
                 ax.plot(data.at[efm, x], gr[efm], markersize=5,
                         marker='o', color=col, label=None)
@@ -394,7 +394,7 @@ if False:
         ax.scatter(xdata, ydata, s=12, marker='o', alpha=1,
                    edgecolors='none', color=color,
                    label=label)
-    for efm, (col, lab) in D.efm_dict.iteritems():
+    for efm, (col, lab) in D.efm_dict.items():
         if efm in data.index:
             ax.plot(data.at[efm, x], gr[efm], markersize=5,
                     marker='o', color=col, label=None)
@@ -424,7 +424,7 @@ if False:
     _, efm_names = zip(*map(D.efm_dict.get, efms))
 
     # load data for the pie charts from the pareto plot
-    rates_df, params_df, enzyme_abundance_df = \
+    rates_df, params_df, km_df, enzyme_abundance_df = \
         get_concatenated_raw_data('standard')
 
     # calculate the total cost of metabolic enzymes
@@ -450,8 +450,9 @@ if False:
         E_lumped.loc[D.REMAINDER_L] = E_i_efm[E_i_efm.cumsum() > 0.95].sum()
 
         E_lumped.name = ''
-        E_lumped.plot.pie(colors=map(D.reaction_to_rgb, E_lumped.index), ax=ax,
-                          labels=map(D.GET_REACTION_NAME, E_lumped.index))
+        E_lumped.plot.pie(colors=list(map(D.reaction_to_rgb, E_lumped.index)),
+                          labels=list(map(D.GET_REACTION_NAME, E_lumped.index)),
+                          ax=ax)
         ax.set_title(r'\textbf{%s}' % efm + '\n' +
                      D.TOT_ENZYME_L + ' = %.2f' % (1.0/r_BM[efm]))
 
@@ -688,7 +689,7 @@ if False:
 
     # %% measured protein abundances (if available)
     # S26 - correlation between EFM protein abundance predictions and
-    rates_df, params_df, enzyme_abundance_df = \
+    rates_df, params_df, km_df, enzyme_abundance_df = \
         get_concatenated_raw_data('standard')
 
     # calculate correlation coefficients between the enzyme abundances and

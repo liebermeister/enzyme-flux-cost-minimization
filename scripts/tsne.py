@@ -18,7 +18,7 @@ def plot_tsne_figure(figure_data, figsize=(15, 13)):
     # each one of the pareto zipfiles contains the rates of all the EFMs
     # so we arbitrarily chose Fig3_pareto to get them.
 
-    rates_df, _, _ = get_concatenated_raw_data('standard')
+    rates_df, _, _, _ = get_concatenated_raw_data('standard')
     X = rates_df.as_matrix()
 
     model = TSNE(n_components=2)

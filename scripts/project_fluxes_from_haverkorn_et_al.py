@@ -106,7 +106,8 @@ class FluxProjection(object):
         exp_flux_df.index = map(D.FIX_REACTION_ID, exp_flux_df.index)
 
         fig0, axs0 = plt.subplots(1, 2, figsize=(15, 7))
-        rates_df, params_df, enzyme_abundance_df = get_concatenated_raw_data('standard')
+        rates_df, params_df, km_df, enzyme_abundance_df = \
+            get_concatenated_raw_data('standard')
 
         CORR_FLUX_L = 'correlation with exp fluxes'
         LOG_LIKELIHOOD_L = 'log likelihood of flow'

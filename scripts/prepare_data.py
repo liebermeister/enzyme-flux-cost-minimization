@@ -31,13 +31,26 @@ def get_general_parameters_from_zipfile(z, prefix):
     weights_df.rename(columns={1: 'weight'}, inplace=True)
     weights_df.index.name = 'reaction'
 
+    stoich_df = pd.DataFrame.from_csv(z.open('%s/stoich.csv' % prefix, 'r'),
+                                      header=None, index_col=None)
+    stoich_df.rename(columns={0: 'reaction', 1: 'metabolite', 2: 'coefficient'},
+                     inplace=True)
+
+    km_df = pd.DataFrame.from_csv(z.open('%s/kms.csv' % prefix, 'r'),
+                                  header=None, index_col=None)
+    km_df.rename(columns={0: 'reaction', 1: 'metabolite', 2: 'Km'},
+                 inplace=True)
+    
+    km_df = pd.merge(stoich_df, km_df, on=['reaction', 'metabolite'])
+    
     # create a DataFrame that contains all reaction parameters (i.e. kcats and weights)
     params_df = kcats_df.join(keqs_df).join(weights_df)
 
-    params_df.index = map(D.FIX_REACTION_ID, params_df.index)
-    rates_df.columns = map(D.FIX_REACTION_ID, rates_df.columns)
+    params_df.index = params_df.index.map(D.FIX_REACTION_ID)
+    rates_df.columns = rates_df.columns.map(D.FIX_REACTION_ID)
+    km_df['reaction'] = km_df['reaction'].apply(D.FIX_REACTION_ID)
 
-    return rates_df, params_df
+    return rates_df, params_df, km_df
 
 def get_df_from_sweep_zipfile(zip_fname, regex=None):
     """
@@ -49,7 +62,8 @@ def get_df_from_sweep_zipfile(zip_fname, regex=None):
 
     with zipfile.ZipFile(zip_fname, 'r') as z:
         # first read the table of reaction rates
-        rates_df, params_df = get_general_parameters_from_zipfile(z, prefix)
+        rates_df, params_df, km_df = \
+            get_general_parameters_from_zipfile(z, prefix)
 
         # go through all the files in the 'results' folder and read the data into
         # a dictionary from EFM to DataFrame
@@ -112,7 +126,8 @@ def get_df_from_pareto_zipfile(zip_fname):
     prefix, ext = os.path.splitext(os.path.basename(zip_fname))
 
     with zipfile.ZipFile(zip_fname, 'r') as z:
-        rates_df, params_df = get_general_parameters_from_zipfile(z, prefix)
+        rates_df, params_df, km_df = \
+            get_general_parameters_from_zipfile(z, prefix)
 
         # go through all the files in the 'results' folder and read the data into
         # a single dataframe with reaction IDs as the index and EFMs as
@@ -134,14 +149,14 @@ def get_df_from_pareto_zipfile(zip_fname):
 
     enzyme_abundance_df = enzyme_abundance_df.fillna(0).transpose()
 
-    return rates_df, params_df, enzyme_abundance_df
+    return rates_df, params_df, km_df, enzyme_abundance_df
 
 def read_pareto_zipfile(zip_fname):
     """
         Read all data from the zip file containing eMCM analysis results of all
         EFMs and prepare a matrix that will be used for Pareto plots.
     """
-    rates_df, params_df, enzyme_abundance_df = get_df_from_pareto_zipfile(zip_fname)
+    rates_df, params_df, km_df, enzyme_abundance_df = get_df_from_pareto_zipfile(zip_fname)
 
     # the enzyme cost (E_met) is a DataFrame with reactions as index and EFMs as
     # columns. Values are the mass of the enzyme [in grams] dedicated for that reaction
@@ -223,12 +238,13 @@ def get_concatenated_raw_data(fig_name):
 
     if regex is None: # this is a "pareto" type zip file
         data_list = map(get_df_from_pareto_zipfile, zip_fnames)
-        rates_df_list, params_df_list, enz_df_list = zip(*data_list)
+        rates_df_list, params_df_list, km_df_list, enz_df_list = zip(*data_list)
 
         rates_df = pd.concat(rates_df_list, axis=0, join='inner')
         enzyme_abundance_df = pd.concat(enz_df_list, axis=0, join='inner')
         params_df = params_df_list[0]
-        return rates_df, params_df, enzyme_abundance_df
+        km_df = km_df_list[0]
+        return rates_df, params_df, km_df, enzyme_abundance_df
     else:  # this is a "sweep" type zip file
         data_list = map(lambda f: get_df_from_sweep_zipfile(f, regex), zip_fnames)
         rates_df_list, full_df_list = zip(*data_list)

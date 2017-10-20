@@ -153,7 +153,8 @@ if False:
     ax5a = fig5.add_subplot(1, 2, 1)
     ax5b = fig5.add_subplot(1, 2, 2)
 
-    efm = allocation_pie_chart(ax5a, D.STD_CONC['glucoseExt'],
+    efm = allocation_pie_chart(ax5a,
+                               D.STD_CONC['glucoseExt'],
                                D.STD_CONC['oxygen'])
     rates_df, full_df = get_concatenated_raw_data('sweep_glucose')
 
