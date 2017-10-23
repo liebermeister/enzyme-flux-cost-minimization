@@ -36,7 +36,8 @@ import pareto_sampling
 
 figure_data = D.get_figure_data()
 
-if __name__ == '__main__':
+#if __name__ == '__main__':
+if False:
     # %% Figure S1 - same as 3c, but compared to the biomass rate
     #    instead of growth rate
     figS1, axS1 = plt.subplots(1, 2, figsize=(9, 4.5))

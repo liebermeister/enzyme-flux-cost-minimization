@@ -473,10 +473,10 @@ def plot_phase_plots(figure_data, sweep_cache_fname='sweep2d_win_200x200.csv'):
     axS12[0, 1].set_xticklabels(axis_params[D.GLU_COL]['xticklabels'])
     axS12[0, 1].get_yaxis().set_visible(False)
     pcol = axS12[0, 1].imshow(best_efm_gr_df.T, interpolation='spline16',
-                              cmap=D.GR_HEATMAP_CMAP, vmin=0,
+                              cmap='Oranges', vmin=0,
                               vmax=max_growth_rate, origin='lower')
     norm = colors.Normalize(vmin=0, vmax=max_growth_rate)
-    colorbar.ColorbarBase(cbar_ax, cmap=D.GR_HEATMAP_CMAP, norm=norm)
+    colorbar.ColorbarBase(cbar_ax, cmap='Oranges', norm=norm)
     cbar_ax.set_title(D.GROWTH_RATE_L, loc='center')
 
     for i, efm in enumerate(phase_df['best_efm'].unique()):
@@ -497,12 +497,12 @@ def plot_phase_plots(figure_data, sweep_cache_fname='sweep2d_win_200x200.csv'):
     # are presented in color coding
 
     plot_parameters = [
-        {'c': D.YIELD_L,    'vmin': 0, 'vmax': 30 , 'ax': axS12[1, 0]},
-        {'c': D.OXYGEN_L,   'vmin': 0, 'vmax': 1  , 'ax': axS12[1, 1]},
-        {'c': D.ACE_L,      'vmin': 0, 'vmax': 1  , 'ax': axS12[1, 2]},
-        {'c': D.LACTATE_L,  'vmin': 0, 'vmax': 1  , 'ax': axS12[2, 0]},
-        {'c': D.ED_L,       'vmin': 0, 'vmax': 2  , 'ax': axS12[2, 1]},
-        {'c': D.PPP_L,      'vmin': 0, 'vmax': 4.5, 'ax': axS12[2, 2]},
+        {'c': D.YIELD_L,    'cmap': 'magma_r', 'vmin': 0, 'vmax': 30 , 'ax': axS12[1, 0]},
+        {'c': D.OXYGEN_L,   'cmap': 'magma_r', 'vmin': 0, 'vmax': 0.7, 'ax': axS12[1, 1]},
+        {'c': D.ACE_L,      'cmap': 'magma_r', 'vmin': 0, 'vmax': 1.5, 'ax': axS12[1, 2]},
+        {'c': D.LACTATE_L,  'cmap': 'magma_r', 'vmin': 0, 'vmax': 1.5, 'ax': axS12[2, 0]},
+        {'c': D.ED_L,       'cmap': 'magma_r', 'vmin': 0, 'vmax': 2  , 'ax': axS12[2, 1]},
+        {'c': D.PPP_L,      'cmap': 'magma_r', 'vmin': 0, 'vmax': 4.5, 'ax': axS12[2, 2]},
     ]
     pareto_data_df = figure_data['standard']
 
@@ -518,7 +518,7 @@ def plot_phase_plots(figure_data, sweep_cache_fname='sweep2d_win_200x200.csv'):
                       values=d['c'])
         ax.set_xlabel(df.index.name)
         ax.set_ylabel(df.columns.name)
-        pcol = ax.imshow(df.T, interpolation='none', cmap='magma_r',
+        pcol = ax.imshow(df.T, interpolation='none', cmap=d['cmap'],
                          origin='lower', vmin=d['vmin'], vmax=d['vmax'])
         pyplot.colorbar(pcol, ax=ax, shrink=0.6)
 
