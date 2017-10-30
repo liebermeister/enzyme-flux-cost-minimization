@@ -12,9 +12,7 @@ from matplotlib.collections import LineCollection
 from mpl_toolkits.mplot3d import Axes3D # NOTE!!! keep this for the 3D plots
 import zipfile
 import definitions as D
-from prepare_data import get_df_from_pareto_zipfile, \
-                         read_pareto_zipfile, \
-                         get_concatenated_raw_data
+from prepare_data import get_concatenated_raw_data
 from sensitivity_analysis import Sensitivity
 from phase_surface_plots import plot_surface, \
     plot_surface_diff, \
@@ -36,8 +34,7 @@ import pareto_sampling
 
 figure_data = D.get_figure_data()
 
-#if __name__ == '__main__':
-if False:
+if __name__ == '__main__':
     # %% Figure S1 - same as 3c, but compared to the biomass rate
     #    instead of growth rate
     figS1, axS1 = plt.subplots(1, 2, figsize=(9, 4.5))
@@ -71,7 +68,7 @@ if False:
                      alpha=0.2)
 
     figS1.tight_layout()
-    figS1.savefig(os.path.join(D.OUTPUT_DIR, 'FigS1.pdf'))
+    D.savefig(figS1, 'S1')
 
     # %%
     # SI Figure 3: comparing sum of flux/SA to the total enzyme cost
@@ -139,7 +136,7 @@ if False:
     axS3.set_xlabel(r'ideal cost [gr enz / gr dw h$^{-1}$]')
     axS3.set_ylabel(r'actual cost [gr enz / gr dw h$^{-1}$]')
     figS3.tight_layout()
-    figS3.savefig(os.path.join(D.OUTPUT_DIR, 'FigS3.pdf'))
+    D.savefig(figS3, 'S3')
 
     # %% SI Figure 5 - sweep for the kcat values of biomass reaction
     figS5, axS5 = plt.subplots(1, 1, figsize=(5, 5))
@@ -151,11 +148,11 @@ if False:
     axS5.plot([100, 100], [0.0, maxy], '--', color='grey', linewidth=1)
     axS5.text(100, maxy, r'default $k_{cat}$',
               va='bottom', ha='center', color='grey')
-    figS5.savefig(os.path.join(D.OUTPUT_DIR, 'FigS5.pdf'))
+    D.savefig(figS5, 'S5')
 
     # %% SI Figure 6 - t-SNE projections
-    fig = plot_tsne_figure(figure_data)
-    fig.savefig(os.path.join(D.OUTPUT_DIR, 'FigS6.pdf'))
+    figS6 = plot_tsne_figure(figure_data)
+    D.savefig(figS6, 'S6')
 
     # %% SI Figure 7
     # make bar plots for each reaction, counting how many EFMs it participates
@@ -250,7 +247,7 @@ if False:
                         shrink=0.1, width=3, headwidth=6))
 
     figS7.tight_layout()
-    figS7.savefig(os.path.join(D.OUTPUT_DIR, 'FigS7.pdf'))
+    D.savefig(figS7, 'S7')
 
     # %% SI Figure 8 - pareto plot with 4 alternative EFM features
     figS8, axS8 = plt.subplots(2, 3, figsize=(13, 8), sharex=True, sharey=True)
@@ -277,7 +274,7 @@ if False:
         ax.set_ylim(-1e-3, 1.05*data[D.GROWTH_RATE_L].max())
 
     figS8.tight_layout()
-    figS8.savefig(os.path.join(D.OUTPUT_DIR, 'FigS8.pdf'))
+    D.savefig(figS8, 'S8')
 
     # %% SI Figure 9 - comparing yield to other EFM parameters
     figS9, axS9 = plt.subplots(2, 2, figsize=(7, 7))
@@ -303,7 +300,7 @@ if False:
         d['ax'].set_xlim(-0.1, None)
         d['ax'].set_ylim(d['ymin'], None)
     figS9.tight_layout()
-    figS9.savefig(os.path.join(D.OUTPUT_DIR, 'FigS9.pdf'))
+    D.savefig(figS9, 'S9')
 
     # %% SI figure 10 - histogram of all different EFM growth
     #    rates in a specific condition
@@ -314,7 +311,7 @@ if False:
     axS10b.set_ylabel('')
 
     figS10.tight_layout()
-    figS10.savefig(os.path.join(D.OUTPUT_DIR, 'FigS10.pdf'))
+    D.savefig(figS10, 'S10')
 
     # %% SI Figure 11
     figS11, axS11 = plt.subplots(1, 1, figsize=(5, 5))
@@ -322,18 +319,18 @@ if False:
                              draw_lines=False)
     axS11.set_xlim(-1e-3, None)
     axS11.set_ylim(-1e-3, None)
-    figS11.savefig(os.path.join(D.OUTPUT_DIR, 'FigS11.pdf'))
+    D.savefig(figS11, 'S11')
 
     # %% SI Figure 12
     figS12 = plot_phase_plots(figure_data)
     figS12.tight_layout(pad=0.1)
-    figS12.savefig(os.path.join(D.OUTPUT_DIR, 'FigS12.pdf'))
+    D.savefig(figS12, 'S12')
 
     # %% SI figure 13 - scatter 3D plot of the glucose uptake, oxygen uptake,
     #    growth rate
     figS13 = plot_conc_versus_uptake_figure(figure_data)
     figS13.tight_layout(w_pad=3.5, h_pad=2)
-    figS13.savefig(os.path.join(D.OUTPUT_DIR, 'FigS13.pdf'))
+    D.savefig(figS13, 'S13')
 
     # %% SI figure 14 - scatter plots in different environmental conditions
     figS14, axS14 = plt.subplots(2, 2, figsize=(8, 8),
@@ -415,7 +412,7 @@ if False:
         ax.set_xlabel(D.YIELD_L)
 
     figS14.tight_layout()
-    figS14.savefig(os.path.join(D.OUTPUT_DIR, 'FigS14.pdf'))
+    D.savefig(figS14, 'S14')
 
     # %% SI Figure 15 - create protein allocation pie charts of selected EFMs
 
@@ -457,7 +454,7 @@ if False:
         ax.set_title(r'\textbf{%s}' % efm + '\n' +
                      D.TOT_ENZYME_L + ' = %.2f' % (1.0/r_BM[efm]))
 
-    figS15.savefig(os.path.join(D.OUTPUT_DIR, 'FigS15.pdf'))
+    D.savefig(figS15, 'S15')
 
     # %% SI Figure 16 - allocation area plots for glucose sweep
     rates_df, full_df = get_concatenated_raw_data('sweep_glucose')
@@ -511,11 +508,11 @@ if False:
     axS16[0, 2].set_title('Varying oxygen levels', fontsize=25,
                           ha='left', va='bottom')
     figS16.tight_layout(h_pad=2.0)
-    figS16.savefig(os.path.join(D.OUTPUT_DIR, 'FigS16.pdf'))
+    D.savefig(figS16, 'S16')
 
     # %% SI Figure 17 - Monod figure
     figS17 = plot_monod_figure(figure_data)
-    figS17.savefig(os.path.join(D.OUTPUT_DIR, 'FigS17.pdf'))
+    D.savefig(figS17, 'S17')
 
     # %% SI Figure 18 - sensitivity to kcat of tpi (R6r)
     figS18, axS18 = plt.subplots(1, 3, figsize=(12, 5), sharey=True)
@@ -558,7 +555,7 @@ if False:
                   color='grey')
 
     figS18.tight_layout()
-    figS18.savefig(os.path.join(D.OUTPUT_DIR, 'FigS18.pdf'))
+    D.savefig(figS18, 'S18')
 
     # %%
     figS19 = plt.figure(figsize=(10, 10))
@@ -581,7 +578,7 @@ if False:
     axS19c.set_zlim(0, 1)
     axS19d.set_zlim(0, 1)
     figS19.tight_layout(h_pad=2)
-    figS19.savefig(os.path.join(D.OUTPUT_DIR, 'FigS19.pdf'))
+    D.savefig(figS19, 'S19')
 
     # %% S20 and S21 - epistasis plots
     e = Epistasis(figure_data)
@@ -589,7 +586,7 @@ if False:
     figS20.savefig(os.path.join(D.OUTPUT_DIR, 'FigS20.pdf'))
 
     figS21 = e.plot_yield_epistasis()
-    figS21.savefig(os.path.join(D.OUTPUT_DIR, 'FigS21.pdf'))
+    D.savefig(figS21, 'S21')
     
     # %% convert EFM visualization flux plots from SVG to EPS
     with zipfile.ZipFile(D.ZIP_SVG_FNAME, 'r') as z:
@@ -684,8 +681,7 @@ if False:
                     size=20)
         
     figS25.tight_layout()
-    
-    figS25.savefig(os.path.join(D.OUTPUT_DIR, 'FigS25.pdf'))
+    D.savefig(figS25, 'S25')
 
 
     # %% measured protein abundances (if available)
@@ -746,7 +742,7 @@ if False:
     axS26b.set_ylabel('predicted enzyme abundance [mM]')
     axS26b.set_xlabel('measured enzyme abundance [mM]')
 
-    figS26.savefig(os.path.join(D.OUTPUT_DIR, 'FigS26.pdf'))
+    D.savefig(figS26, 'S26')
 
     # %% glucose sweeps for low and high oxygen levels
     
@@ -782,7 +778,7 @@ if False:
                     size=20)
 
     figS27.tight_layout()
-    figS27.savefig(os.path.join(D.OUTPUT_DIR, 'FigS27.pdf'))
+    D.savefig(figS27, 'S27')
 
     # %% A Pareto figure focusing only on the Pareto-optimal EFMs and 
     # neighboring points (generated by random sampling)
@@ -819,4 +815,4 @@ if False:
     axs28.set_xlim(18.5, 23.3)
     axs28.set_ylim(0.3, 0.8)
 
-    figS28.savefig(os.path.join(D.OUTPUT_DIR, 'FigS28.pdf'))
+    D.savefig(figS28, 'S28')

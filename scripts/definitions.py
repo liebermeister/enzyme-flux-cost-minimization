@@ -275,7 +275,8 @@ def plot_basic_pareto(data, ax, x, y, s=10, marker='o', c=None,
                 if efm in pareto_idx:
                     cpareto[efm] = col
         ax.scatter(x=xpareto, y=ypareto, s=paretosize, c=cpareto,
-                   marker=paretomarker, edgecolors=paretoedgecolors)
+                   marker=paretomarker, edgecolors=paretoedgecolors,
+                   label=None)
     return CS
 
 def get_pareto(data, x, y):
@@ -461,3 +462,8 @@ def allocation_area_plot(data, ax0=None, ax1=None, xlabel='',
 
 def as_base10_exp(x):
     return '$10^{%d}$' % int(np.round(np.log10(x)))
+
+def savefig(fig, fignum):
+    fig.savefig(os.path.join(D.OUTPUT_DIR, 'Fig%s.pdf' % fignum))
+    fig.savefig(os.path.join(D.OUTPUT_DIR, 'Fig%s.svg' % fignum))
+    fig.savefig(os.path.join(D.OUTPUT_DIR, 'Fig%s.eps' % fignum))

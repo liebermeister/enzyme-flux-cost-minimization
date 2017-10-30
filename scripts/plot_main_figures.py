@@ -21,7 +21,7 @@ import pandas as pd
 
 figure_data = D.get_figure_data()
 
-if False:
+if __name__ == '__main__':
     # %% Figure 2c
     fig2c, ax2c = plt.subplots(1, 1, figsize=(4, 4))
 
@@ -110,7 +110,7 @@ if False:
                             c=d['c'], ax=d['ax'], cmap='copper_r')
 
     fig3.tight_layout(h_pad=0.2)
-    fig3.savefig(os.path.join(D.OUTPUT_DIR, 'Fig3.eps'))
+    D.savefig(fig3, '3')
 
     # %% Figure 4 - glucose & oxygen sweeps
 
@@ -144,9 +144,7 @@ if False:
     # we must use InkScape to convert the SVG into EPS, otherwise there are
     # rendering mistakes done by Matplotlib (the surface plots have a 
     # white square behind them that blocks the axes).
-    fname = os.path.join(D.OUTPUT_DIR, 'Fig4')
-    fig4.savefig('%s.svg' % fname)
-    os.system('inkscape %s.svg -E %s.eps' % (fname, fname))
+    D.savefig(fig4, '4')
 
     # %% histogram of all different EFM growth rates in a specific condition
     fig5 = plt.figure(figsize=(9, 4.8))
@@ -181,7 +179,7 @@ if False:
                   size=20, color='white')
 
     fig5.tight_layout()
-    fig5.savefig(os.path.join(D.OUTPUT_DIR, 'Fig5.eps'))
+    D.savefig(fig5, '5')
 
     # %% histogram of all different EFM growth rates in a specific condition
     fig6, axs6 = plt.subplots(2, 2, figsize=(7.5, 6), sharey=True, sharex=True)
@@ -222,4 +220,9 @@ if False:
     axs6[0, 0].get_xaxis().set_visible(False)
     axs6[0, 1].get_xaxis().set_visible(False)
 
-    fig6.savefig(os.path.join(D.OUTPUT_DIR, 'Fig6.eps'))
+    D.savefig(fig6, '6')
+
+    #%%
+    for i in range(3, 7):
+        fname = os.path.join(D.OUTPUT_DIR, 'Fig%d' % i)
+        os.system('inkscape %s.svg -E %s.eps' % (fname, fname))
