@@ -23,11 +23,11 @@ class FluxProjection(object):
         pass
 
     def project_fluxes(self):
-        df = pd.DataFrame.from_csv('../data/fluxes_from_gerosa_et_al.csv', header=0, index_col=0)
+        df = pd.read_csv('../data/fluxes_from_gerosa_et_al.csv', header=0, index_col=0)
         flux_means = df.iloc[:, 0]
         flux_stderr = df.iloc[:, 1]
-        bounds_df = pd.DataFrame.from_csv('../data/bounds.csv', header=0, index_col=0)
-        stoich_df = pd.DataFrame.from_csv('../data/stoich.csv', header=0, index_col=0).transpose()
+        bounds_df = pd.read_csv('../data/bounds.csv', header=0, index_col=0)
+        stoich_df = pd.read_csv('../data/stoich.csv', header=0, index_col=0).transpose()
 
         fluxes_df = pd.DataFrame(index=stoich_df.columns)
         fluxes_df.loc[flux_means.index, D.MEAS_FLUX_L] = flux_means

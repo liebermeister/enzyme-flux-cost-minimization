@@ -107,7 +107,7 @@ def get_all_efm_rates():
         zip_fname = D.DATA_FILES[fig_name][0][0]
         with zipfile.ZipFile(zip_fname, 'r') as z:
             prefix, ext = os.path.splitext(os.path.basename(zip_fname))
-            rates_df = pd.DataFrame.from_csv(z.open('%s/rates.csv' % prefix, 'r'),
+            rates_df = pd.read_csv(z.open('%s/rates.csv' % prefix, 'r'),
                                              header=0, index_col=0)
             rates_dfs.append(rates_df)
     

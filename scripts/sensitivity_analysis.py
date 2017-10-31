@@ -45,7 +45,7 @@ class Sensitivity(object):
 
         with zipfile.ZipFile(zip_fname, 'r') as z:
             # read the stoichiometric data
-            self.stoich_df = pd.DataFrame.from_csv(z.open('%s/stoich.csv' % prefix, 'r'),
+            self.stoich_df = pd.read_csv(z.open('%s/stoich.csv' % prefix, 'r'),
                                                    header=None, index_col=None)
             self.stoich_df.rename(columns={0: 'reaction', 1: 'metabolite', 2: 'coefficient'}, inplace=True)
             self.stoich_df['reaction'] = self.stoich_df['reaction'].apply(D.FIX_REACTION_ID)
@@ -62,7 +62,7 @@ class Sensitivity(object):
 
             frames = []
             for fname, efm in zip(fnames, efms):
-                df = pd.DataFrame.from_csv(z.open(fname, 'r'), index_col=None)
+                df = pd.read_csv(z.open(fname, 'r'), index_col=None)
                 df.insert(0, 'efm', efm)
                 frames.append(df)
 
@@ -81,7 +81,7 @@ class Sensitivity(object):
 
             frames = []
             for fname, efm in zip(fnames, efms):
-                df = pd.DataFrame.from_csv(z.open(fname, 'r'), index_col=None)
+                df = pd.read_csv(z.open(fname, 'r'), index_col=None)
                 df.insert(0, 'efm', efm)
                 frames.append(df)
 
@@ -89,7 +89,7 @@ class Sensitivity(object):
             self.met_df.rename(columns={'m': 'metabolite',
                                         'Val': 'concentration'}, inplace=True)
 
-            self.km_df = pd.DataFrame.from_csv(z.open('%s/kms.csv' % prefix, 'r'),
+            self.km_df = pd.read_csv(z.open('%s/kms.csv' % prefix, 'r'),
                                                header=None, index_col=None)
             self.km_df.rename(columns={0 : 'reaction', 1 : 'metabolite', 2 : 'Km'}, inplace=True)
             self.km_df['reaction'] = self.km_df['reaction'].apply(D.FIX_REACTION_ID)
@@ -269,7 +269,7 @@ class Sensitivity(object):
 
             frames = []
             for fname, efm in zip(fnames, efms):
-                df = pd.DataFrame.from_csv(z.open(fname, 'r'), index_col=None)
+                df = pd.read_csv(z.open(fname, 'r'), index_col=None)
                 df.insert(0, 'efm', efm)
                 frames.append(df)
 

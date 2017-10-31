@@ -11,32 +11,32 @@ import pandas as pd
 import definitions as D
 
 def get_general_parameters_from_zipfile(z, prefix):
-    rates_df = pd.DataFrame.from_csv(z.open('%s/rates.csv' % prefix, 'r'),
+    rates_df = pd.read_csv(z.open('%s/rates.csv' % prefix, 'r'),
                                      header=0, index_col=0)
     rates_df.index.name = 'efm'
     rates_df.columns.name = 'reaction'
 
-    kcats_df = pd.DataFrame.from_csv(z.open('%s/kcats.csv' % prefix, 'r'),
+    kcats_df = pd.read_csv(z.open('%s/kcats.csv' % prefix, 'r'),
                                      header=None, index_col=0)
     kcats_df.rename(columns={1: 'kcat'}, inplace=True)
     kcats_df.index.name = 'reaction'
 
-    keqs_df = pd.DataFrame.from_csv(z.open('%s/keqs.csv' % prefix, 'r'),
+    keqs_df = pd.read_csv(z.open('%s/keqs.csv' % prefix, 'r'),
                                      header=None, index_col=0)
     keqs_df.rename(columns={1: 'Keq'}, inplace=True)
     keqs_df.index.name = 'reaction'
 
-    weights_df = pd.DataFrame.from_csv(z.open('%s/weights.csv' % prefix, 'r'),
+    weights_df = pd.read_csv(z.open('%s/weights.csv' % prefix, 'r'),
                                      header=None, index_col=0)
     weights_df.rename(columns={1: 'weight'}, inplace=True)
     weights_df.index.name = 'reaction'
 
-    stoich_df = pd.DataFrame.from_csv(z.open('%s/stoich.csv' % prefix, 'r'),
+    stoich_df = pd.read_csv(z.open('%s/stoich.csv' % prefix, 'r'),
                                       header=None, index_col=None)
     stoich_df.rename(columns={0: 'reaction', 1: 'metabolite', 2: 'coefficient'},
                      inplace=True)
 
-    km_df = pd.DataFrame.from_csv(z.open('%s/kms.csv' % prefix, 'r'),
+    km_df = pd.read_csv(z.open('%s/kms.csv' % prefix, 'r'),
                                   header=None, index_col=None)
     km_df.rename(columns={0: 'reaction', 1: 'metabolite', 2: 'Km'},
                  inplace=True)
@@ -76,7 +76,7 @@ def get_df_from_sweep_zipfile(zip_fname, regex=None):
 
         frames = []
         for fname, efm in zip(fnames, efms):
-            df = pd.DataFrame.from_csv(z.open(fname, 'r'), index_col=None)
+            df = pd.read_csv(z.open(fname, 'r'), index_col=None)
             df.insert(0, 'efm', efm)
             frames.append(df)
 
@@ -141,7 +141,7 @@ def get_df_from_pareto_zipfile(zip_fname):
                                            columns=sorted(efms),
                                            dtype=float)
         for fname, efm in zip(fnames, efms):
-            tmp_df = pd.DataFrame.from_csv(z.open(fname, 'r'), index_col=0)
+            tmp_df = pd.read_csv(z.open(fname, 'r'), index_col=0)
             tmp_df.index = map(D.FIX_REACTION_ID, tmp_df.index)
             enzyme_abundance_df[efm] = tmp_df
         enzyme_abundance_df.columns.name = 'efm'

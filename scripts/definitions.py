@@ -64,7 +64,7 @@ DATA_FILES = {
 for v in DATA_FILES.values():
     v[0] = [os.path.join(DATA_DIR, f + '.zip') for f in v[0]]
 
-SELECT_EFM_DF = pd.DataFrame.from_csv(os.path.join(DATA_DIR, 'n39-select_EFMs.csv'))
+SELECT_EFM_DF = pd.read_csv(os.path.join(DATA_DIR, 'n39-select_EFMs.csv'))
 
 efm_dict = OrderedDict()
 for efm in SELECT_EFM_DF.index:

@@ -22,11 +22,11 @@ if __name__ == '__main__':
         prefix, ext = os.path.splitext(os.path.basename(zip_fname))
         
         with zipfile.ZipFile(zip_fname, 'r') as z:
-            rates_df = pd.DataFrame.from_csv(z.open('%s/rates.csv' % prefix, 'r'),
+            rates_df = pd.read_csv(z.open('%s/rates.csv' % prefix, 'r'),
                                              header=0, index_col=0)
-            stoich_df = pd.DataFrame.from_csv(z.open('%s/stoich.csv' % prefix, 'r'),
+            stoich_df = pd.read_csv(z.open('%s/stoich.csv' % prefix, 'r'),
                                              header=None, index_col=None)
-            kcat_df = pd.DataFrame.from_csv(z.open('%s/kcats.csv' % prefix, 'r'),
+            kcat_df = pd.read_csv(z.open('%s/kcats.csv' % prefix, 'r'),
                                             header=None, index_col=None)
         
         #%%

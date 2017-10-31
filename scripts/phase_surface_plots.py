@@ -121,7 +121,7 @@ def get_raw_sweep_data(iter_num):
 
     # get the oxygen level from the "metfixed.csv" file inside the zipfile
     with zipfile.ZipFile(zip_fname, 'r') as z:
-        ox_df = pd.DataFrame.from_csv(z.open('%s/metfixed.csv' % prefix, 'r'),
+        ox_df = pd.read_csv(z.open('%s/metfixed.csv' % prefix, 'r'),
                                       header=None, index_col=0)
         ox_conc = ox_df.at['oxygen', 1] # in mM
 
@@ -137,7 +137,7 @@ def get_sweep_data(iter_num):
 
     # get the oxygen level from the "metfixed.csv" file inside the zipfile
     with zipfile.ZipFile(zip_fname, 'r') as z:
-        ox_df = pd.DataFrame.from_csv(z.open('%s/metfixed.csv' % prefix, 'r'),
+        ox_df = pd.read_csv(z.open('%s/metfixed.csv' % prefix, 'r'),
                                       header=None, index_col=0)
         ox_conc = ox_df.at['oxygen', 1] # in mM
 
@@ -163,7 +163,7 @@ def get_complete_sweep_data():
     sweep_cache_fname = os.path.join(D.TEMP_DIR, 'sweep2d_gr.csv')
     if not os.path.exists(sweep_cache_fname):
         cache_complete_sweep_data()
-    return pd.DataFrame.from_csv(sweep_cache_fname)
+    return pd.read_csv(sweep_cache_fname)
 
 def get_winning_enzyme_allocations():
     df_list = []
@@ -233,7 +233,7 @@ def plot_growth_rate_hist(glucose=None, oxygen=None, ax=None):
         ax.set_xlim(0, None)
 
 def allocation_pie_chart(ax, glucose=100.0, oxygen=3.7e-3):
-    win_enz_df = pd.DataFrame.from_csv(
+    win_enz_df = pd.read_csv(
         os.path.join(D.TEMP_DIR, 'sweep2d_win_enzymes.csv'))
 
     glu = sorted(win_enz_df[D.GLU_COL].unique(), key=lambda x: (x-glucose)**2)[0]
@@ -384,7 +384,7 @@ def plot_heatmap(ax, wt_cache_fname='sweep2d_win_200x200.csv', vmax=None):
     ax.set_yticklabels(wt_axis_params[D.OX_COL]['xticklabels'])
 
 def get_phase_data(sweep_cache_fname='sweep2d_win_200x200.csv'):
-    phase_df = pd.DataFrame.from_csv(os.path.join(D.TEMP_DIR, sweep_cache_fname))
+    phase_df = pd.read_csv(os.path.join(D.TEMP_DIR, sweep_cache_fname))
 
     # construct the bitmap by assigning the color of the winning EFM to each
     # pixel
