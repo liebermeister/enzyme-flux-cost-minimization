@@ -12,7 +12,7 @@ from matplotlib.collections import LineCollection
 from mpl_toolkits.mplot3d import Axes3D # NOTE!!! keep this for the 3D plots
 import zipfile
 import definitions as D
-from prepare_data import get_concatenated_raw_data
+from prepare_data import get_concatenated_raw_data, get_df_from_pareto_zipfile
 from sensitivity_analysis import Sensitivity
 from phase_surface_plots import plot_surface, \
     plot_surface_diff, \
@@ -31,10 +31,12 @@ from tsne import plot_tsne_figure
 import tempfile
 import shutil
 import pareto_sampling
+import seaborn as sns
 
 figure_data = D.get_figure_data()
 
 if __name__ == '__main__':
+#if False:
     # %% Figure S1 - same as 3c, but compared to the biomass rate
     #    instead of growth rate
     figS1, axS1 = plt.subplots(1, 2, figsize=(9, 4.5))
@@ -816,3 +818,94 @@ if __name__ == '__main__':
     axs28.set_ylim(0.3, 0.8)
 
     D.savefig(figS28, 'S28')
+
+    # %% A box plot of the capacity utilization across EFMs (grouped by reactions)
+    figS29, axS29 = plt.subplots(2, 1, figsize=(10, 10))
+    fig_name_and_titles = [('standard',  'glucose = %g mM, O$_2$ = %g mM' % 
+                            (D.STD_CONC['glucoseExt'], D.STD_CONC['oxygen']),
+                            axS29[0], True),
+                           ('anaerobic', 'glucose = %g mM, no O$_2$' % 
+                            (D.STD_CONC['glucoseExt']),
+                            axS29[1], False)]
+    for i, (fig_name, fig_title, ax, show_exp) in enumerate(fig_name_and_titles):
+        ax.set_title(fig_title)
+        ax.annotate(chr(ord('a')+i), xy=(0.01, 0.98), xycoords='axes fraction',
+                    fontsize=20, ha='left', va='top')
+        
+        # read the raw files again, now including all kinetic parameters
+        # and individual enzyme abundances at the ECM optimum
+        zip_fnames, regex = D.DATA_FILES[fig_name]
+        rates, params, kms, enzymes = get_df_from_pareto_zipfile(zip_fnames[0])
+        rates.round(3).to_csv(
+            os.path.join(D.OUTPUT_DIR, '%s_rates.csv' % fig_name))
+        enzymes.round(3).to_csv(
+            os.path.join(D.OUTPUT_DIR, '%s_enzyme_abundance.csv' % fig_name))
+
+        # calculate the reverse kcats for the reversible reactions
+        kms['s_i * K_i'] = np.log(kms['Km']) * kms['coefficient']
+        pi_km = kms.groupby(['reaction']).sum()['s_i * K_i']
+        pi_km = pi_km.apply(np.exp)
+        params['prod(Km)'] = pi_km
+        params.rename(columns={'kcat': 'kcat_fwd [1/s]'}, inplace=True)
+        params['kcat_rev [1/s]'] = \
+            params['kcat_fwd [1/s]'] * params['prod(Km)'] / params['Keq']
+
+        # enzyme abundances in the result files are given in moles, and 
+        # are the optimal amounts that enable the catalysis of the reaction
+        # according to the rates in the rates. Multiplying the abundance
+        # by the kcat values would give us the maximal capacity, which is 
+        # higher than the actual rate (given in "rates")
+        rates = rates.reset_index().melt(
+                id_vars='efm', var_name='reaction', value_name='rate [mM/s]')
+        enzymes = enzymes.reset_index().melt(
+                id_vars='efm', var_name='reaction', value_name='enzyme [mM]')
+
+        caputil_df = pd.merge(rates, enzymes, on=['efm', 'reaction'])
+        
+        # drop the cases where the enzyme levels were 0
+        caputil_df = caputil_df[caputil_df['enzyme [mM]'] > 0]
+
+        caputil_df['kapp [1/s]'] = \
+            caputil_df['rate [mM/s]'] / caputil_df['enzyme [mM]']
+        
+        # to calculate the capacity usage,
+        # we need to divide each kapp by the kcat, which 
+        # is tricky, because it depends on the flux direction.
+        caputil_df = caputil_df.join(
+            params[['kcat_fwd [1/s]', 'kcat_rev [1/s]']], on='reaction')
+        
+        caputil_df['kcat [1/s]'] = caputil_df['kcat_fwd [1/s]']
+
+        # for all cases where the flux is negative
+        rev_idx = caputil_df[caputil_df['rate [mM/s]'] < 0].index
+        caputil_df.loc[rev_idx, 'kcat [1/s]'] = caputil_df.loc[rev_idx, 'kcat_rev [1/s]']
+        caputil_df.loc[rev_idx, 'kapp [1/s]'] = -caputil_df.loc[rev_idx, 'kapp [1/s]']
+        
+        caputil_df['capacity utilization'] = \
+            caputil_df['kapp [1/s]'] / caputil_df['kcat [1/s]']
+
+        caputil_exp = caputil_df[caputil_df['efm'] == 9999].set_index('reaction')
+        caputil_df = caputil_df[caputil_df['efm'] != 9999]
+        
+        cap_util_median = caputil_df.groupby('reaction').median()
+        order = cap_util_median.sort_values(by='capacity utilization').index
+
+        # TODO: add the cap. util. of the "exp" flux mode in a different color
+        # and also the measured one for glucose media (get from Dan)
+        ax_box = sns.boxplot(x='reaction', y='capacity utilization',
+                             data=caputil_df,
+                             order=order, ax=ax)
+        ax_box.set_xticklabels(order, rotation=90)
+        ax_box.set_xlabel('')
+        boxes = ax_box.artists
+        for i, r in enumerate(order):
+            boxes[i].set_facecolor(D.reaction_to_rgb(r))
+            if show_exp:
+                if r in caputil_exp.index:
+                    ax.plot(i, caputil_exp.at[r, 'capacity utilization'],
+                            markerfacecolor=(1, 0, 0), marker='o')
+                else:
+                    ax.plot(i, -0.05, markerfacecolor=(1, 0, 0), marker='.')
+    figS29.tight_layout()
+    D.savefig(figS29, 'S29')
+    

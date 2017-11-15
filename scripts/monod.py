@@ -14,10 +14,11 @@ import definitions as D
 import pandas as pd
 
 
-LOW_GLUCOSE = D.LOW_CONC['glucoseExt']
+#LOW_GLUCOSE = D.LOW_CONC['glucoseExt']
+LOW_GLUCOSE = 1e-3 # in mM, i.e. 1 uM
 
 MAX_GROWTH_RATE_L = 'max growth rate [h$^{-1}$]'
-GROWTH_RATE_LOW_GLU = 'growth rate at\n%g mM glucose [h$^{-1}$]' % LOW_GLUCOSE
+GROWTH_RATE_LOW_GLU = 'growth rate at\n%g $\mu$M glucose [h$^{-1}$]' % (1e3*LOW_GLUCOSE)
 MONOD_COEFF_L = 'Monod coefficient [mM glucose]'
 INV_MONOD_COEFF_L = 'inverse of Monod coeff.\n[mM$^{-1}$]'
 MAX_GR_OVER_KM_L = 'max. growth rate / $K_{Monod}$ \n[h$^{-1}$ mM$^{-1}$]'
@@ -25,10 +26,7 @@ HILL_COEFF_L = 'Hill coefficitent'
 
 MONOD_FUNC = lambda x, gr_max, K_M, h : gr_max / (1 + (K_M/x)**h); p0 = (0.07, 1.0, 1.0)
 
-def plot_monod_figure(figure_data):
-    y_var = MAX_GROWTH_RATE_L
-
-    #
+def calculate_monod_parameters(figure_data):
     aerobic_data_df = figure_data['standard']
     aerobic_sweep_data_df = figure_data['monod_glucose_aero']
     anaerobic_data_df = figure_data['anaerobic'].drop(9999)
@@ -37,33 +35,11 @@ def plot_monod_figure(figure_data):
     aerobic_sweep_data_df = aerobic_sweep_data_df.transpose().fillna(0)
     anaerobic_sweep_data_df = anaerobic_sweep_data_df.transpose().fillna(0)
 
-    plot_data = [('aerobic conditions', aerobic_sweep_data_df,
-                  aerobic_data_df, INV_MONOD_COEFF_L, (1, 1e4)),
-                 ('anaerobic conditions', anaerobic_sweep_data_df,
-                  anaerobic_data_df, INV_MONOD_COEFF_L, (1, 1e4)),
-                 ('aerobic conditions', aerobic_sweep_data_df,
-                  aerobic_data_df, GROWTH_RATE_LOW_GLU, (1e-4, 1)),
-                 ('anaerobic conditions', anaerobic_sweep_data_df,
-                  anaerobic_data_df, GROWTH_RATE_LOW_GLU, (1e-4, 1))]
-
-    fig = plt.figure(figsize=(15, 14))
-    gs1 = gridspec.GridSpec(2, 4, left=0.05, right=0.95, bottom=0.55, top=0.97)
-    gs2 = gridspec.GridSpec(2, 4, left=0.05, right=0.95, bottom=0.06, top=0.45)
-
-    axs = []
-    for i in range(2):
-        for j in range(4):
-            axs.append(plt.subplot(gs1[i, j]))
-    for i in range(2):
-        for j in range(4):
-            axs.append(plt.subplot(gs2[i, j]))
-
-    for i, ax in enumerate(axs):
-        ax.annotate(chr(ord('a')+i), xy=(0.04, 0.95),
-                    xycoords='axes fraction', ha='left', va='top',
-                    size=20)
-
-    for i, (title, sweep_df, data_df, x_var, xlim) in enumerate(plot_data):
+    plot_data = [('aerobic conditions', aerobic_sweep_data_df, aerobic_data_df),
+                 ('anaerobic conditions', anaerobic_sweep_data_df, anaerobic_data_df)]
+    
+    monod_dfs = []
+    for title, sweep_df, data_df in plot_data:
         monod_df = pd.DataFrame(index=sweep_df.columns,
                                 columns=[MAX_GROWTH_RATE_L, MONOD_COEFF_L, HILL_COEFF_L],
                                 dtype=float)
@@ -82,7 +58,7 @@ def plot_monod_figure(figure_data):
         monod_df[MAX_GR_OVER_KM_L] = monod_df[MAX_GROWTH_RATE_L] * monod_df[INV_MONOD_COEFF_L]
 
         # calculate the value of the growth rate using the Monod curve
-        # for glucose = 10uM (i.e. 1e-2 mM)
+        # for LOW_GLUCOSE
 
         monod_df[GROWTH_RATE_LOW_GLU] = 0
         for j in monod_df.index:
@@ -90,66 +66,98 @@ def plot_monod_figure(figure_data):
                        monod_df.at[j, MAX_GROWTH_RATE_L],
                        monod_df.at[j, MONOD_COEFF_L],
                        monod_df.at[j, HILL_COEFF_L])
-        ax = axs[4*i]
-        x = monod_df[x_var]
-        y = monod_df[y_var]
-        CS = ax.scatter(x, y, s=12, marker='o',
-                        facecolors=(0.85, 0.85, 0.85),
-                        linewidth=0)
-        for efm, (col, lab) in D.efm_dict.items():
-            if efm in x.index:
-                ax.plot(x[efm], y[efm], markersize=5, marker='o',
-                        color=col, label=None)
-                ax.annotate(lab, xy=(x[efm], y[efm]),
-                            xytext=(0, 5), textcoords='offset points',
-                            ha='center', va='bottom', color=col)
+            
+        monod_dfs.append((title, monod_df))
+    
+    return monod_dfs
+        
+def plot_monod_figure(monod_dfs, y_var=MAX_GROWTH_RATE_L):
+    fig = plt.figure(figsize=(15, 14))
+    gs1 = gridspec.GridSpec(2, 4, left=0.05, right=0.95, bottom=0.55, top=0.97)
+    gs2 = gridspec.GridSpec(2, 4, left=0.05, right=0.95, bottom=0.06, top=0.45)
 
-        ax.set_xscale('log')
-        ax.set_yscale('linear')
-        ax.set_ylim(0, 0.85)
-        ax.set_xlim(xlim[0], xlim[1])
-        ax.set_title('%s' % title, fontsize=16)
-        ax.set_xlabel(x_var, fontsize=16)
-        ax.set_ylabel(y_var, fontsize=16)
+    axs = []
+    for i in range(2):
+        for j in range(4):
+            axs.append(plt.subplot(gs1[i, j]))
+    for i in range(2):
+        for j in range(4):
+            axs.append(plt.subplot(gs2[i, j]))
 
-        plot_parameters = [
-            {'c': D.OXYGEN_L, 'title': 'oxygen uptake'    ,
-             'ax': axs[4*i + 1], 'vmin': 0,    'vmax': 0.8},
-            {'c': D.YIELD_L,  'title': 'yield'            ,
-             'ax': axs[4*i + 2], 'vmin': 0,    'vmax': 30},
-            {'c': D.ACE_L,    'title': 'acetate secretion',
-             'ax': axs[4*i + 3], 'vmin': 0,    'vmax': 0.6}
-            ]
+    for i, ax in enumerate(axs):
+        ax.annotate(chr(ord('a')+i), xy=(0.04, 0.95),
+                    xycoords='axes fraction', ha='left', va='top',
+                    size=20)
 
-        for d in plot_parameters:
+    for i, (title, monod_df) in enumerate(monod_dfs):
+        xaxis_data = [(INV_MONOD_COEFF_L, (1, 2500), 'log'),
+                      (GROWTH_RATE_LOW_GLU, (0.001, 0.2), 'linear')]
+        for j, (x_var, xlim, xscale) in enumerate(xaxis_data):
+            ax_row = axs[4*i + 8*j : 4*i + 8*j + 4]
+            
+            ax = ax_row[0]
             x = monod_df[x_var]
             y = monod_df[y_var]
-            c = monod_df[d['c']]
-            CS = d['ax'].scatter(x, y, s=12, c=c, marker='o',
-                                 linewidth=0, cmap='copper_r',
-                                 vmin=d['vmin'], vmax=d['vmax'])
-            cbar = plt.colorbar(CS, ax=d['ax'])
-            cbar.set_label(d['c'], fontsize=10)
-            d['ax'].set_title(d['title'], fontsize=16)
-            d['ax'].set_xlabel(x_var, fontsize=16)
-            d['ax'].set_ylabel(y_var, fontsize=16)
-            d['ax'].set_ylim(0, 0.85)
-            d['ax'].set_xlim(xlim[0], xlim[1])
-            d['ax'].set_yscale('linear')
-            d['ax'].set_xscale('log')
+            CS = ax.scatter(x, y, s=12, marker='o',
+                            facecolors=(0.85, 0.85, 0.85),
+                            linewidth=0)
+            for efm, (col, lab) in D.efm_dict.items():
+                if efm in x.index:
+                    ax.plot(x[efm], y[efm], markersize=5, marker='o',
+                            color=col, label=None)
+                    ax.annotate(lab, xy=(x[efm], y[efm]),
+                                xytext=(0, 5), textcoords='offset points',
+                                ha='center', va='bottom', color=col)
+    
+            ax.set_xlim(xlim[0], xlim[1])
+            ax.set_xscale(xscale)
+            ax.set_title('%s' % title, fontsize=16)
+            ax.set_xlabel(x_var, fontsize=16)
+            ax.set_ylabel(y_var, fontsize=16)
+    
+            plot_parameters = [
+                {'c': D.OXYGEN_L, 'title': 'oxygen uptake'    ,
+                 'ax': ax_row[1], 'vmin': 0,    'vmax': 0.8},
+                {'c': D.YIELD_L,  'title': 'yield'            ,
+                 'ax': ax_row[2], 'vmin': 0,    'vmax': 30},
+                {'c': D.ACE_L,    'title': 'acetate secretion',
+                 'ax': ax_row[3], 'vmin': 0,    'vmax': 0.6}
+                ]
+    
+            for d in plot_parameters:
+                x = monod_df[x_var]
+                y = monod_df[y_var]
+                c = monod_df[d['c']]
+                CS = d['ax'].scatter(x, y, s=12, c=c, marker='o',
+                                     linewidth=0, cmap='copper_r',
+                                     vmin=d['vmin'], vmax=d['vmax'])
+                cbar = plt.colorbar(CS, ax=d['ax'])
+                cbar.set_label(d['c'], fontsize=12)
+                d['ax'].set_title(d['title'], fontsize=16)
+                if i % 2 == 1:
+                    d['ax'].set_xlabel(x_var, fontsize=16)
+                d['ax'].set_xlim(xlim[0], xlim[1])
+                d['ax'].set_xscale(xscale)
 
-    for j in range(4):
-        axs[j].get_xaxis().set_visible(False)
-        axs[8+j].get_xaxis().set_visible(False)
-    for j in range(1, 4):
-        axs[j].get_yaxis().set_visible(False)
-        axs[4+j].get_yaxis().set_visible(False)
-        axs[8+j].get_yaxis().set_visible(False)
-        axs[12+j].get_yaxis().set_visible(False)
+    for i in range(16):
+        axs[i].set_yscale('linear')
+        axs[i].set_ylim(0, 0.85)
+        if i % 8 == 0:
+            axs[i].get_xaxis().set_visible(False)
+        if i % 4 > 0:
+            axs[i].get_yaxis().set_visible(False)
 
     return fig
 
 if __name__ == '__main__':
     figure_data = D.get_figure_data()
-    figS17 = plot_monod_figure(figure_data)
-    figS17.savefig(os.path.join(D.OUTPUT_DIR, 'FigS17.pdf'))
+    monod_dfs = calculate_monod_parameters(figure_data)
+    figS17 = plot_monod_figure(monod_dfs)
+    D.savefig(figS17, 'S17')
+
+    #%%
+    from pandas import ExcelWriter
+    writer = ExcelWriter(os.path.join(D.OUTPUT_DIR, 'monod_params.xls'))
+    for title, monod_df in monod_dfs:
+        monod_df.to_excel(writer, title)
+    writer.save()
