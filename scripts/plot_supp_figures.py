@@ -4,6 +4,7 @@ Created on Sat Dec  3 17:32:45 2016
 
 @author: eladn
 """
+import sys
 import os
 import numpy as np
 import pandas as pd
@@ -34,6 +35,7 @@ import pareto_sampling
 
 figure_data = D.get_figure_data()
 
+sys.exit(0)
 if __name__ == '__main__':
     # %% Figure S1 - same as 3c, but compared to the biomass rate
     #    instead of growth rate
@@ -44,10 +46,11 @@ if __name__ == '__main__':
     data.loc[data[D.STRICTLY_ANAEROBIC_L], D.GROWTH_RATE_L] = 0
     D.plot_basic_pareto(data, axS1[0], x=D.YIELD_L, y=D.BIOMASS_PROD_PER_ENZ_L,
                         facecolors=D.PARETO_NEUTRAL_COLOR, edgecolors='none')
+    axS1[0].set_ylabel('enzyme-specific biomass production\n$r_{BM} = v_{BM}/E_{met}$ [gr dw h$^{-1}$ / gr enz]')
     axS1[0].set_xlim(-1e-3, 1.1*data[D.YIELD_L].max())
     axS1[0].set_ylim(-1e-3, 1.15*data[D.BIOMASS_PROD_PER_ENZ_L].max())
     axS1[0].set_title('glucose = 100 mM, O$_2$ = 3.7 mM')
-    axS1[0].annotate('a', xy=(0.02, 0.98),
+    axS1[0].annotate('c', xy=(0.02, 0.98),
                      xycoords='axes fraction', ha='left', va='top',
                      size=20)
     for y in range(0, 14, 2):
@@ -59,7 +62,7 @@ if __name__ == '__main__':
     axS1[1].set_xlim(-1e-3, 1.1*data[D.YIELD_L].max())
     axS1[1].set_ylim(-1e-3, 1.15*data[D.GROWTH_RATE_L].max())
     axS1[1].set_title('glucose = 100 mM, O$_2$ = 3.7 mM')
-    axS1[1].annotate('b', xy=(0.02, 0.98),
+    axS1[1].annotate('d', xy=(0.02, 0.98),
                      xycoords='axes fraction', ha='left', va='top',
                      size=20)
 

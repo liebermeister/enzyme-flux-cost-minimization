@@ -21,6 +21,8 @@ import pandas as pd
 
 figure_data = D.get_figure_data()
 
+import sys
+sys.exit(0)
 if __name__ == '__main__':
     # %% Figure 2c
     fig2c, ax2c = plt.subplots(1, 1, figsize=(4, 4))
