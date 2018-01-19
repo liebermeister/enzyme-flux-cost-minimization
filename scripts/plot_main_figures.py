@@ -85,7 +85,7 @@ if __name__ == '__main__':
     # %% Table 1
     # write the EFM data that is presented in table 1 (for the selected EFMs)
     data = figure_data['standard'].loc[D.efm_dict.keys(), :]
-    data.insert(0, 'acronym', map(lambda x: x['label'], D.efm_dict.values()))
+    data.insert(0, 'acronym', list(map(lambda x: x['label'], D.efm_dict.values())))
     data.to_csv(os.path.join(D.OUTPUT_DIR, 'Table1.csv'))
 
     # %% Figure 3
