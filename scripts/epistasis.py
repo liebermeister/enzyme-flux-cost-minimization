@@ -12,7 +12,7 @@ import seaborn as sns
 import pandas as pd
 import definitions as D
 from prepare_data import get_concatenated_raw_data
-from phase_surface_plots import interpolate_single_condition
+from monod_surface import interpolate_single_condition
 
 def epistasis_formula1(Wab, Wa, Wb):
     if min(Wa, Wb) == 0:

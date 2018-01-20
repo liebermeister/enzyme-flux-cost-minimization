@@ -4,7 +4,6 @@ Created on Sat Dec  3 17:32:45 2016
 
 @author: eladn
 """
-import sys
 import os
 import numpy as np
 import pandas as pd
@@ -15,9 +14,9 @@ import zipfile
 import definitions as D
 from prepare_data import get_concatenated_raw_data, get_df_from_pareto_zipfile
 from sensitivity_analysis import Sensitivity
-from phase_surface_plots import plot_surface, \
+from monod_surface import plot_surface, \
     plot_surface_diff, \
-    plot_phase_plots, \
+    plot_monod_surface, \
     plot_conc_versus_uptake_figure, \
     plot_glucose_dual_pareto, \
     plot_growth_rate_hist, \
@@ -26,7 +25,7 @@ from phase_surface_plots import plot_surface, \
     SweepInterpolator, \
     get_glucose_sweep_df, \
     get_anaerobic_glucose_sweep_df
-from monod import plot_monod_figure
+from monod_curve import plot_monod_scatter, calculate_monod_parameters
 from epistasis import Epistasis
 from tsne import plot_tsne_figure
 import tempfile
@@ -36,9 +35,7 @@ import seaborn as sns
 
 figure_data = D.get_figure_data()
 
-sys.exit(0)
 if __name__ == '__main__':
-#if False:
     # %% Figure S1 - same as 3c, but compared to the biomass rate
     #    instead of growth rate
     figS1, axS1 = plt.subplots(1, 2, figsize=(9, 4.5))
@@ -327,7 +324,7 @@ if __name__ == '__main__':
     D.savefig(figS11, 'S11')
 
     # %% SI Figure 12
-    figS12 = plot_phase_plots(figure_data)
+    figS12 = plot_monod_surface(figure_data)
     figS12.tight_layout(pad=0.1)
     D.savefig(figS12, 'S12')
 
@@ -516,7 +513,8 @@ if __name__ == '__main__':
     D.savefig(figS16, 'S16')
 
     # %% SI Figure 17 - Monod figure
-    figS17 = plot_monod_figure(figure_data)
+    monod_dfs = calculate_monod_parameters(figure_data)
+    figS17 = plot_monod_scatter(monod_dfs)
     D.savefig(figS17, 'S17')
 
     # %% SI Figure 18 - sensitivity to kcat of tpi (R6r)

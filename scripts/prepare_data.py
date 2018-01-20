@@ -253,14 +253,14 @@ def get_concatenated_raw_data(fig_name):
         return rates_df, full_df
 
 if __name__ == '__main__':
-#    for fig_name in D.DATA_FILES.keys():
-#        data = get_concatenated_data_from_zipfiles(fig_name)
-#        grouped = data.groupby(level=0)
-#        unique_data = grouped.last()
-#        unique_data.to_pickle(os.path.join(D.TEMP_DIR, fig_name + '.pkl'))
+    for fig_name in D.DATA_FILES.keys():
+        data = get_concatenated_data_from_zipfiles(fig_name)
+        grouped = data.groupby(level=0)
+        unique_data = grouped.last()
+        unique_data.to_pickle(os.path.join(D.TEMP_DIR, fig_name + '.pkl'))
 
-    #import phase_surface_plots
-    #phase_surface_plots.write_cache_files()
+    import monod_surface
+    monod_surface.write_cache_files()
 
     import pareto_sampling
     pareto_sampling.write_cache_files()

@@ -12,7 +12,7 @@ import os
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
 import definitions as D
-from phase_surface_plots import allocation_pie_chart
+from monod_surface import allocation_pie_chart
 from prepare_data import get_concatenated_raw_data
 
 figure_data = D.get_figure_data()

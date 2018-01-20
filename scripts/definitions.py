@@ -16,7 +16,6 @@ from collections import OrderedDict
 import definitions as D
 from hashlib import sha1
 from matplotlib import rcParams
-import pandas as pd
 
 sns.set()
 sns.set(style="white", context="paper", font="monospaced")
@@ -100,7 +99,7 @@ C_IN_SUCCINATE = 4.0
 C_IN_LACTATE = 3.0
 SECONDS_IN_HOUR = 3600.0
 
-# settings for sweeps and 2D phase plots
+# settings for sweeps and Monod surface parameters
 STD_CONC = {'glucoseExt': 1e2, 'oxygen': 2.1e-1} # in mM
 MIN_CONC = {'glucoseExt': 1e-4, 'oxygen': 1e-3}  # in mM
 MAX_CONC = {'glucoseExt': 1e4, 'oxygen': 1e1}    # in mM
@@ -445,7 +444,8 @@ def allocation_area_plot(data, ax0=None, ax1=None, xlabel='',
         ax0.set_ylabel('absolute enzyme costs\n%s' % COST_UNITS)
         ax0.set_xscale('log')
         ax0.set_xlim(lumped_data.index.min(), lumped_data.index.max())
-        ax0.legend(map(D.GET_REACTION_NAME, lumped_data.columns), fontsize='small')
+        ax0.legend(list(map(D.GET_REACTION_NAME, lumped_data.columns)),
+                   fontsize='small')
 
     if ax1 is not None:
         # Then, also make a copy with normalize values (i.e. each row
@@ -460,7 +460,8 @@ def allocation_area_plot(data, ax0=None, ax1=None, xlabel='',
         ax1.set_xlim(lumped_normed_data.index.min(),
                      lumped_normed_data.index.max())
         if ax0 is None:
-            ax1.legend(map(D.GET_REACTION_NAME, lumped_normed_data.columns), fontsize='small')
+            ax1.legend(list(map(D.GET_REACTION_NAME, lumped_normed_data.columns)),
+                       fontsize='small')
 
 def as_base10_exp(x):
     return '$10^{%d}$' % int(np.round(np.log10(x)))

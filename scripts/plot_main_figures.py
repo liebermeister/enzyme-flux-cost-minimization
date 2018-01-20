@@ -11,9 +11,9 @@ enzymes were saturated (i.e. the kcat was realized).
 import os
 import matplotlib.pyplot as plt
 import definitions as D
-from phase_surface_plots import allocation_pie_chart, plot_surface, \
-                                plot_heatmap_diff, plot_heatmap, \
-                                plot_oxygen_sweep, plot_oxygen_dual_pareto
+from monod_surface import allocation_pie_chart, plot_surface, \
+                          plot_heatmap_diff, plot_heatmap, \
+                          plot_oxygen_sweep, plot_oxygen_dual_pareto
 from prepare_data import get_concatenated_raw_data
 from mpl_toolkits.mplot3d import Axes3D # NOTE!!! keep this for the 3D plots
 import pareto_sampling
@@ -21,8 +21,6 @@ import pandas as pd
 
 figure_data = D.get_figure_data()
 
-import sys
-sys.exit(0)
 if __name__ == '__main__':
     # %% Figure 2c
     fig2c, ax2c = plt.subplots(1, 1, figsize=(4, 4))
