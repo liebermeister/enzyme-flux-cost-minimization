@@ -131,7 +131,7 @@ if __name__ == '__main__':
             axs[1].set_xlabel('kcat [1/s]')
             axs[1].set_title('median(cap.) vs. kcat')
             
-            s = Sensitivity(fig_name)
+            s = Sensitivity.from_figure_name(fig_name)
             elast = s.efm_data_df[['efm', 'reaction', 'dlnmu/dlnk']]
             X3 = pd.merge(caputil_df, elast, on=['efm', 'reaction'])
             axs[2].scatter(x=-X3['dlnmu/dlnk'], y=X3['capacity utilization'],

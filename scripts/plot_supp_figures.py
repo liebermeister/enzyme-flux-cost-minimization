@@ -535,7 +535,7 @@ if __name__ == '__main__':
     axS18[0].set_xlim(0, None)
     axS18[0].legend(loc='upper center', fontsize=12)
 
-    s = Sensitivity('standard')
+    s = Sensitivity.from_figure_name('standard')
     s.plot_sensitivity_as_errorbar(axS18[1], 'R6r', foldchange=2)
     axS18[1].set_xlim(0, None)
     axS18[1].set_title(r'sensitivity to 2-fold change in $k_{cat}$')

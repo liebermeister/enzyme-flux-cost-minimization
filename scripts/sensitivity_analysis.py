@@ -16,12 +16,8 @@ from prepare_data import get_general_parameters_from_zipfile
 
 class Sensitivity(object):
 
-    def __init__(self, fig_name):
-        zip_fnames, regex = D.DATA_FILES[fig_name]
-        assert regex is None
-        assert len(zip_fnames) == 1
-
-        self.load_all_data(zip_fnames[0])
+    def __init__(self, zip_fname, Dim1_val=None):
+        self.load_data_from_zip(zip_fname, Dim1_val)
 
         self.efm_data_df = self.calculate_growth_rates()
 
@@ -38,7 +34,14 @@ class Sensitivity(object):
         self.efm_data_df = pd.merge(self.efm_data_df,
                                     self.keq_sensitivity_df, on=['efm', 'reaction'])
 
-    def load_all_data(self, zip_fname):
+    @staticmethod
+    def from_figure_name(fig_name):
+        zip_fnames, regex = D.DATA_FILES[fig_name]
+        assert regex is None
+        assert len(zip_fnames) == 1
+        return Sensitivity(zip_fnames[0])
+
+    def load_data_from_zip(self, zip_fname, Dim1_val=None):
         # load all data for all EFMs in standard conditions (i.e. both the
         # enzyme concentrations and the metabolite concentrations).
         prefix, ext = os.path.splitext(os.path.basename(zip_fname))
@@ -67,9 +70,16 @@ class Sensitivity(object):
                 frames.append(df)
 
             self.enz_df = pd.concat(frames, keys=None)
-            self.enz_df.rename(columns={'r': 'reaction',
-                                        'Val': 'enzyme_abundance'},
-                                        inplace=True)
+            if Dim1_val is None:
+                self.enz_df.rename(columns={'r': 'reaction',
+                                            'Val': 'enzyme_abundance'},
+                                            inplace=True)
+            else:
+                self.enz_df = self.enz_df[self.enz_df.Dim1 == Dim1_val]
+                self.enz_df.rename(columns={'Dim2': 'reaction',
+                                            'Val': 'enzyme_abundance'},
+                                            inplace=True)
+                
             self.enz_df['reaction'] = self.enz_df['reaction'].apply(D.FIX_REACTION_ID)
 
             # go through all the files in the 'results' folder and read the metabolite data into
@@ -86,8 +96,15 @@ class Sensitivity(object):
                 frames.append(df)
 
             self.met_df = pd.concat(frames, keys=None)
-            self.met_df.rename(columns={'m': 'metabolite',
-                                        'Val': 'concentration'}, inplace=True)
+            if Dim1_val is None:
+                self.met_df.rename(columns={'m': 'metabolite',
+                                            'Val': 'concentration'},
+                                   inplace=True)
+            else:
+                self.met_df = self.met_df[self.met_df.Dim1 == Dim1_val]
+                self.met_df.rename(columns={'Dim2': 'metabolite',
+                                            'Val': 'concentration'},
+                                   inplace=True)
 
             self.km_df = pd.read_csv(z.open('%s/kms.csv' % prefix, 'r'),
                                                header=None, index_col=None)
@@ -513,7 +530,7 @@ class Sensitivity(object):
 
 if __name__ == '__main__':
 
-    s = Sensitivity('standard')
+    s = Sensitivity.from_figure_name('standard')
 
     fig, ax = plt.subplots(1, 2, figsize=(12, 5))
     s.plot_sensitivity_as_errorbar(ax[0], 'R80', foldchange=2)
