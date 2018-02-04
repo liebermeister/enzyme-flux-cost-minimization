@@ -16,7 +16,7 @@ from prepare_data import get_general_parameters_from_zipfile
 
 class Sensitivity(object):
 
-    def __init__(self, zip_fname, Dim1_val=None):
+    def __init__(self, zip_fname, Dim1_val=None, ):
         self.load_data_from_zip(zip_fname, Dim1_val)
 
         self.efm_data_df = self.calculate_growth_rates()
@@ -24,15 +24,20 @@ class Sensitivity(object):
         self.calculate_kcat_sensitivity()
         self.calculate_keq_sensitivity()
         self.calculate_km_sensitivity()
-
-        self.kcat_sensitivity_df.to_csv(os.path.join(D.OUTPUT_DIR, 'sensitivity_kcat.csv'), float_format='%.2e')
-        self.keq_sensitivity_df.to_csv(os.path.join(D.OUTPUT_DIR, 'sensitivity_keq.csv'), float_format='%.2e')
-        self.km_sensitivity_df.to_csv(os.path.join(D.OUTPUT_DIR, 'sensitivity_km.csv'), float_format='%.2e')
-
+        
         self.efm_data_df = pd.merge(self.efm_data_df,
                                     self.kcat_sensitivity_df, on=['efm', 'reaction'])
         self.efm_data_df = pd.merge(self.efm_data_df,
                                     self.keq_sensitivity_df, on=['efm', 'reaction'])
+
+    def write_sensitivity_tables(self):
+        prefix = os.path.join(D.OUTPUT_DIR, 'sensitivity')
+        self.kcat_sensitivity_df.to_csv(prefix + '_kcat.csv',
+                                        float_format='%.2e')
+        self.keq_sensitivity_df.to_csv(prefix + '_keq.csv',
+                                       float_format='%.2e')
+        self.km_sensitivity_df.to_csv(prefix + '_km.csv',
+                                      float_format='%.2e')
 
     @staticmethod
     def from_figure_name(fig_name):
@@ -367,7 +372,7 @@ class Sensitivity(object):
         axs[2].set_ylabel(r'$\frac{dq}{dK_{p}}$')
         axs[2].plot([-0.06, 0], [-0.06, 0], 'k-', alpha=0.2)
 
-        fig.savefig(os.path.join(D.OUTPUT_DIR, 'sensitivity_verification.pdf'), dpi=300)
+        return fig
 
     def plot_sensitivity_cdfs(self):
         """
@@ -394,7 +399,7 @@ class Sensitivity(object):
         plot_cdf(self.kcat_sensitivity_df, 'dlnmu/dlnk',   ax=axs[1,0], xscale='linear')
         plot_cdf(keq_tmp,                  'dlnmu/dlnKeq', ax=axs[1,1], xscale='linear')
         plot_cdf(self.km_sensitivity_df,   'dlnmu/dlnKm',  ax=axs[1,2], xscale='linear')
-        fig.savefig(os.path.join(D.OUTPUT_DIR, 'sensitivity_cdf.pdf'), dpi=300)
+        return fig
 
     def plot_sensitivity_for_reaction(self, reaction):
         reaction_data_df = self.efm_data_df[self.efm_data_df['reaction'] == reaction]
@@ -450,7 +455,7 @@ class Sensitivity(object):
             ax.set_xlim(-1e-3, 1.05*reaction_data_df[D.YIELD_L].max())
             ax.set_ylim(-1e-3, 1.05*reaction_data_df[D.GROWTH_RATE_L].max())
 
-        fig.savefig(os.path.join(D.OUTPUT_DIR, 'sensitivity_%s.pdf' % reaction), dpi=300)
+        return fig
 
     def plot_sensitivity_on_network(self, efm):
         """
@@ -537,19 +542,22 @@ if __name__ == '__main__':
     s.plot_sensitivity_as_errorbar(ax[1], 'R6r', foldchange=2)
     fig.savefig(os.path.join(D.OUTPUT_DIR, 'sensitivity_errorbars.pdf'))
 
-    sys.exit(0)
+    s.write_sensitivity_tables()
     #%% cumulative distribution plots
-    s.plot_sensitivity_cdfs()
-    #s.verifty_sensitivities()
+    fig = s.plot_sensitivity_cdfs()
+    fig.savefig(os.path.join(D.OUTPUT_DIR, 'sensitivity_cdf.pdf'))
+
+    # the verification script is obsolete since we did not repeat the 
+    # empricial scan of the selected parameters for the n39 set.
+    #fig = s.verifty_sensitivities()
+    #fig.savefig(os.path.join(D.OUTPUT_DIR, 'sensitivity_verification.pdf'), dpi=300)
 
     #%% plot the sensitivity of all EFMs to
 
     #%% EFM Pareto plots (gr vs yield) where sensitivities are color coded
-    s.plot_sensitivity_for_reaction('R6r')
-    s.plot_sensitivity_for_reaction('R54ra')
-    s.plot_sensitivity_for_reaction('R1')
-    s.plot_sensitivity_for_reaction('R80')
-    s.plot_sensitivity_for_reaction('R22')
+    for rxn in ['R6r', 'R54ra', 'R1', 'R80', 'R22']:
+        fig = s.plot_sensitivity_for_reaction(rxn)
+        fig.savefig(os.path.join(D.OUTPUT_DIR, 'sensitivity_%s.pdf' % rxn))
 
     #%% network plots with sensitivites as edge colors
     #svg_text = s.plot_sensitivity_on_network(5)
