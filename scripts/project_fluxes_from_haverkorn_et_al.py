@@ -11,11 +11,10 @@ import os
 import definitions as D
 from prepare_data import get_concatenated_raw_data
 import numpy as np
+import matplotlib
 
-#import matplotlib
-#matplotlib.rcParams['text.usetex'] = False
+matplotlib.rcParams['text.usetex'] = False
 import matplotlib.pyplot as plt
-
 
 class FluxProjection(object):
 
@@ -75,22 +74,22 @@ class FluxProjection(object):
             list(map(lambda i: pulp.value(v_resid[i]), measured_reactions))
         fluxes_df /= pulp.value(v_pred['r70']) # normalize all fluxes to the biomass flux (i.e. set it to 1)
 
-#        fig, axs = plt.subplots(1, 2, figsize=(14,6))
-#        fig.subplots_adjust(wspace=0.5)
-#        axs[0].plot([-400, 400], [-400, 400], 'k', alpha=0.3, linewidth=0.5)
-#        fluxes_df.plot(kind='scatter', x=D.MEAS_FLUX_L, y=D.PRED_FLUX_L,
-#                       xerr=D.MEAS_STDEV_L, ax=axs[0], linewidth=0, s=10,
-#                       color=(0.7,0.2,0.5))
-    #    for i in measured_reactions:
-    #        xy = fluxes_df.loc[i, [MEAS_FLUX_L, PRED_FLUX_L]]
-    #        axs[0].annotate(i, xy, xytext=(10,-5), textcoords='offset points',
-    #                        family='sans-serif', fontsize=10, color='darkslategrey')
+        fig, axs = plt.subplots(1, 2, figsize=(14,6))
+        fig.subplots_adjust(wspace=0.5)
+        axs[0].plot([-400, 400], [-400, 400], 'k', alpha=0.3, linewidth=0.5)
+        fluxes_df.plot(kind='scatter', x=D.MEAS_FLUX_L, y=D.PRED_FLUX_L,
+                       xerr=D.MEAS_STDEV_L, ax=axs[0], linewidth=0, s=10,
+                       color=(0.7,0.2,0.5))
+        for i in measured_reactions:
+            xy = fluxes_df.loc[i, [D.MEAS_FLUX_L, D.PRED_FLUX_L]]
+            axs[0].annotate(i, xy, xytext=(10,-5), textcoords='offset points',
+                            family='sans-serif', fontsize=10, color='darkslategrey')
 
-#        fluxes_df.loc[~pd.isnull(fluxes_df[D.RESID_L]), D.RESID_L].plot(kind='barh',
-#                      ax=axs[1], color=(0.7,0.2,0.5))
-#        axs[1].set_xlabel('residual [mM/s]')
-#
-#        fig.savefig(os.path.join(D.OUTPUT_DIR, 'flux_projection.pdf'))
+        fluxes_df.loc[~pd.isnull(fluxes_df[D.RESID_L]), D.RESID_L].plot(kind='barh',
+                      ax=axs[1], color=(0.7,0.2,0.5))
+        axs[1].set_xlabel('residual [mM/s]')
+
+        fig.savefig(os.path.join(D.OUTPUT_DIR, 'flux_projection.pdf'))
 
         fluxes_df.to_pickle(os.path.join(D.TEMP_DIR, 'measured_fluxes.pkl'))
         fluxes_df.to_csv(os.path.join(D.TEMP_DIR, 'measured_fluxes.csv'))
