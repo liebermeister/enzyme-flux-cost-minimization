@@ -122,10 +122,13 @@ GENERAL_CMAP = 'magma_r'
 GR_HEATMAP_CMAP = 'magma_r'
 EPISTATIS_CMAP = 'RdBu'
 
-def FIX_REACTION_ID(r):
+def FIX_REACTION_ID(r, throw_exception=True):
     hits = re.findall('(^[Rr]+)(\d+.*)', r)
     if len(hits) != 1:
-        raise ValueError('reaction name does not match the required pattern: ' + r)
+        if throw_exception:
+            raise ValueError('reaction name does not match the required pattern: ' + r)
+        else:
+            return r
     return hits[0][0].upper() + hits[0][1].lower()
 
 with open(REACTION_NAME_FNAME, 'r') as fp:

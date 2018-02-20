@@ -426,9 +426,7 @@ def plot_monod_surface(figure_data, sweep_cache_fname='sweep2d_win_200x200.csv')
         for j, o in enumerate(hexcolor_df.columns):
             best_efm_color[j, i, :] = colors.hex2color(hexcolor_df.at[g, o])
 
-    axS12[0, 0].annotate('a', xy=(0.02, 0.98),
-                         xycoords='axes fraction', ha='left', va='top',
-                         size=20, color='white')
+
     axS12[0, 0].imshow(best_efm_color, interpolation='none', origin='lower')
     axS12[0, 0].set_xlabel(D.GLU_COL)
     axS12[0, 0].set_ylabel(D.OX_COL)
@@ -465,9 +463,6 @@ def plot_monod_surface(figure_data, sweep_cache_fname='sweep2d_win_200x200.csv')
     best_efm_gr_df = monod_df.pivot(index=D.GLU_COL,
                                     columns=D.OX_COL,
                                     values=D.GROWTH_RATE_L)
-    axS12[0, 1].annotate('b', xy=(0.02, 0.98),
-                         xycoords='axes fraction', ha='left', va='top',
-                         size=20, color='black')
     axS12[0, 1].set_xlabel(best_efm_gr_df.index.name)
     axS12[0, 1].set_xticks(axis_params[D.GLU_COL]['xticks'])
     axS12[0, 1].set_xticklabels(axis_params[D.GLU_COL]['xticklabels'])
@@ -479,9 +474,9 @@ def plot_monod_surface(figure_data, sweep_cache_fname='sweep2d_win_200x200.csv')
     colorbar.ColorbarBase(cbar_ax, cmap='Oranges', norm=norm)
     cbar_ax.set_title(D.GROWTH_RATE_L, loc='center')
 
-    for i, efm in enumerate(monod_df['best_efm'].unique()):
+    for i, efm in enumerate(sorted(monod_df['best_efm'].unique())):
         if efm in D.efm_dict:
-            label = D.efm_dict[efm]['label']
+            label = 'EFM %04d (%s)' % (efm, D.efm_dict[efm]['label'])
         else:
             label = 'EFM %04d' % efm
         axS12[0, 2].plot([0, 1], [i, i],
@@ -490,7 +485,7 @@ def plot_monod_surface(figure_data, sweep_cache_fname='sweep2d_win_200x200.csv')
     axS12[0, 2].set_ylim(-1, 0)
     axS12[0, 2].get_xaxis().set_visible(False)
     axS12[0, 2].get_yaxis().set_visible(False)
-    axS12[0, 2].legend(fontsize=13, labelspacing=0.12, loc='center right')
+    axS12[0, 2].legend(fontsize=10, labelspacing=0.1, loc='center right')
     axS12[0, 2].axis('off')
 
     # make a Monod surface plot where certain features of the winning EFMs
@@ -508,9 +503,6 @@ def plot_monod_surface(figure_data, sweep_cache_fname='sweep2d_win_200x200.csv')
 
     for i, d in enumerate(plot_parameters):
         ax = d['ax']
-        ax.annotate(chr(ord('a')+i+2), xy=(0.02, 0.98),
-                    xycoords='axes fraction', ha='left', va='top',
-                    size=20, color='k')
         ax.set_title(d['c'])
         df = monod_df.join(pareto_data_df[d['c']], on='best_efm')
         df = df.pivot(index=D.GLU_COL,
@@ -528,6 +520,26 @@ def plot_monod_surface(figure_data, sweep_cache_fname='sweep2d_win_200x200.csv')
         ax.set_xticklabels(axis_params[D.GLU_COL]['xticklabels'])
         ax.set_yticks(axis_params[D.OX_COL]['xticks'])
         ax.set_yticklabels(axis_params[D.OX_COL]['xticklabels'])
+
+    axS12[0, 0].annotate('a', xy=(0.02, 0.98),
+                         xycoords='axes fraction', ha='left', va='top',
+                         size=20, color='white')
+    axS12[0, 1].annotate('b', xy=(0.02, 0.98),
+                         xycoords='axes fraction', ha='left', va='top',
+                         size=20, color='black')
+    for i, ax in enumerate(axS12.flat):
+        if i == 2:
+            continue
+        if i in [0, 3, 4]:
+            color = 'w'
+        else:
+            color = 'k'
+            
+        letter = chr(ord('a') + (i if i < 2 else i-1))
+        
+        ax.annotate(letter, xy=(0.02, 0.98),
+                    xycoords='axes fraction', ha='left', va='top',
+                    size=20, color=color)
 
     axS12[1, 1].get_yaxis().set_visible(False)
     axS12[1, 2].get_yaxis().set_visible(False)
