@@ -48,6 +48,9 @@ INPUT_SVG_FNAME = os.path.join(DATA_DIR, 'Ecoli_Carlson_2016_05_09.svg')
 REACTION_NAME_FNAME = os.path.join(DATA_DIR, 'reaction_name_mapping.csv')
 PROTEOME_FNAME = os.path.join(DATA_DIR, 'protein_abundance_from_schmidt_et_al.csv')
 
+MODEL_DIR = os.path.join(BASE_DIR, 'models/Escherichia_coli_Wortel_et_al_2017')
+ECOLI_MODEL_FNAME = os.path.join(MODEL_DIR, 'Ecoli_Central_Metabolism.xlsx')
+
 DATA_FILES = {
          'standard':             [['n39-p1'],  None],
          'anaerobic':            [['n39-p7'],  None],
