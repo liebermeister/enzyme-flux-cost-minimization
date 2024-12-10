@@ -1,14 +1,3 @@
-Software code and example models for flux-balance enzyme cost minimization (fECM)
-=================================================================================
+This repository is deprecated.
 
-Meike Wortel, Elad Noor, Wolfram Liebermeister (2017)
-
-The files in this repository are supplementary material accompanying the article 
-
-Meike T. Wortel, Elad Noor, Michael Ferris, Frank J. Bruggeman, Wolfram Liebermeister (2017)
-Profiling metabolic flux modes by enzyme cost reveals variable trade-offs between growth and yield in Escherichia coli.
-doi: https://doi.org/10.1101/111161 
-
-accessible on BioRxiv at http://biorxiv.org/content/early/2017/03/13/111161
-
-Contact: <wolfram.liebermeister@gmail.com>
+The newest versions are now maintained on [GitLab](https://gitlab.com/elad.noor/enzyme-flux-cost-minimization/).
